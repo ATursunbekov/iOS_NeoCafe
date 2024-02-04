@@ -12,6 +12,18 @@
 		77FBFBA22B6F834400F83EC7 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77FBFBA12B6F834400F83EC7 /* ViewController.swift */; };
 		77FBFBA72B6F834600F83EC7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 77FBFBA62B6F834600F83EC7 /* Assets.xcassets */; };
 		77FBFBAA2B6F834600F83EC7 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 77FBFBA82B6F834600F83EC7 /* LaunchScreen.storyboard */; };
+		77FBFBD52B6F888900F83EC7 /* Extension+UIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77FBFBD42B6F888900F83EC7 /* Extension+UIColor.swift */; };
+		77FBFBD92B6F88CB00F83EC7 /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = 77FBFBD82B6F88CB00F83EC7 /* SnapKit */; };
+		77FBFBDB2B6F88CB00F83EC7 /* SnapKit-Dynamic in Frameworks */ = {isa = PBXBuildFile; productRef = 77FBFBDA2B6F88CB00F83EC7 /* SnapKit-Dynamic */; };
+		77FBFBDE2B6F890000F83EC7 /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = 77FBFBDD2B6F890000F83EC7 /* Kingfisher */; };
+		77FBFBE12B6F89A500F83EC7 /* CombineMoya in Frameworks */ = {isa = PBXBuildFile; productRef = 77FBFBE02B6F89A500F83EC7 /* CombineMoya */; };
+		77FBFBE32B6F89A500F83EC7 /* Moya in Frameworks */ = {isa = PBXBuildFile; productRef = 77FBFBE22B6F89A500F83EC7 /* Moya */; };
+		77FBFBE52B6F89A500F83EC7 /* ReactiveMoya in Frameworks */ = {isa = PBXBuildFile; productRef = 77FBFBE42B6F89A500F83EC7 /* ReactiveMoya */; };
+		77FBFBE72B6F89A500F83EC7 /* RxMoya in Frameworks */ = {isa = PBXBuildFile; productRef = 77FBFBE62B6F89A500F83EC7 /* RxMoya */; };
+		77FBFBEA2B6F8A4600F83EC7 /* NetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77FBFBE92B6F8A4600F83EC7 /* NetworkService.swift */; };
+		77FBFBEF2B6F8AB000F83EC7 /* InjectionDefaultContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77FBFBEE2B6F8AB000F83EC7 /* InjectionDefaultContainer.swift */; };
+		77FBFBF22B6F8ADC00F83EC7 /* Factory in Frameworks */ = {isa = PBXBuildFile; productRef = 77FBFBF12B6F8ADC00F83EC7 /* Factory */; };
+		77FBFBF52B6F8B7E00F83EC7 /* BaseCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77FBFBF42B6F8B7E00F83EC7 /* BaseCoordinator.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -22,6 +34,10 @@
 		77FBFBA62B6F834600F83EC7 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		77FBFBA92B6F834600F83EC7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		77FBFBAB2B6F834600F83EC7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		77FBFBD42B6F888900F83EC7 /* Extension+UIColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension+UIColor.swift"; sourceTree = "<group>"; };
+		77FBFBE92B6F8A4600F83EC7 /* NetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkService.swift; sourceTree = "<group>"; };
+		77FBFBEE2B6F8AB000F83EC7 /* InjectionDefaultContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InjectionDefaultContainer.swift; sourceTree = "<group>"; };
+		77FBFBF42B6F8B7E00F83EC7 /* BaseCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseCoordinator.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -29,6 +45,14 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				77FBFBDE2B6F890000F83EC7 /* Kingfisher in Frameworks */,
+				77FBFBD92B6F88CB00F83EC7 /* SnapKit in Frameworks */,
+				77FBFBE12B6F89A500F83EC7 /* CombineMoya in Frameworks */,
+				77FBFBE32B6F89A500F83EC7 /* Moya in Frameworks */,
+				77FBFBE72B6F89A500F83EC7 /* RxMoya in Frameworks */,
+				77FBFBDB2B6F88CB00F83EC7 /* SnapKit-Dynamic in Frameworks */,
+				77FBFBE52B6F89A500F83EC7 /* ReactiveMoya in Frameworks */,
+				77FBFBF22B6F8ADC00F83EC7 /* Factory in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -54,14 +78,90 @@
 		77FBFB9C2B6F834400F83EC7 /* iOS_client_NeoCafe_ */ = {
 			isa = PBXGroup;
 			children = (
-				77FBFB9D2B6F834400F83EC7 /* AppDelegate.swift */,
-				77FBFB9F2B6F834400F83EC7 /* SceneDelegate.swift */,
-				77FBFBA12B6F834400F83EC7 /* ViewController.swift */,
-				77FBFBA62B6F834600F83EC7 /* Assets.xcassets */,
-				77FBFBA82B6F834600F83EC7 /* LaunchScreen.storyboard */,
+				77FBFBD32B6F884100F83EC7 /* Extension */,
+				77FBFBD22B6F883100F83EC7 /* Core */,
+				77FBFBD12B6F882600F83EC7 /* Supporting */,
 				77FBFBAB2B6F834600F83EC7 /* Info.plist */,
 			);
 			path = iOS_client_NeoCafe_;
+			sourceTree = "<group>";
+		};
+		77FBFBD12B6F882600F83EC7 /* Supporting */ = {
+			isa = PBXGroup;
+			children = (
+				77FBFB9D2B6F834400F83EC7 /* AppDelegate.swift */,
+				77FBFB9F2B6F834400F83EC7 /* SceneDelegate.swift */,
+				77FBFBA62B6F834600F83EC7 /* Assets.xcassets */,
+				77FBFBA82B6F834600F83EC7 /* LaunchScreen.storyboard */,
+			);
+			path = Supporting;
+			sourceTree = "<group>";
+		};
+		77FBFBD22B6F883100F83EC7 /* Core */ = {
+			isa = PBXGroup;
+			children = (
+				77FBFBF32B6F8B4900F83EC7 /* Coordinator */,
+				77FBFBED2B6F8A9900F83EC7 /* DI */,
+				77FBFBE82B6F8A3200F83EC7 /* NetworkService */,
+				77FBFBD62B6F889B00F83EC7 /* Authentication */,
+			);
+			path = Core;
+			sourceTree = "<group>";
+		};
+		77FBFBD32B6F884100F83EC7 /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+				77FBFBD42B6F888900F83EC7 /* Extension+UIColor.swift */,
+			);
+			path = Extension;
+			sourceTree = "<group>";
+		};
+		77FBFBD62B6F889B00F83EC7 /* Authentication */ = {
+			isa = PBXGroup;
+			children = (
+				77FBFBA12B6F834400F83EC7 /* ViewController.swift */,
+			);
+			path = Authentication;
+			sourceTree = "<group>";
+		};
+		77FBFBE82B6F8A3200F83EC7 /* NetworkService */ = {
+			isa = PBXGroup;
+			children = (
+				77FBFBE92B6F8A4600F83EC7 /* NetworkService.swift */,
+				77FBFBEC2B6F8A7100F83EC7 /* Models */,
+				77FBFBEB2B6F8A6900F83EC7 /* APIs */,
+			);
+			path = NetworkService;
+			sourceTree = "<group>";
+		};
+		77FBFBEB2B6F8A6900F83EC7 /* APIs */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = APIs;
+			sourceTree = "<group>";
+		};
+		77FBFBEC2B6F8A7100F83EC7 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		77FBFBED2B6F8A9900F83EC7 /* DI */ = {
+			isa = PBXGroup;
+			children = (
+				77FBFBEE2B6F8AB000F83EC7 /* InjectionDefaultContainer.swift */,
+			);
+			path = DI;
+			sourceTree = "<group>";
+		};
+		77FBFBF32B6F8B4900F83EC7 /* Coordinator */ = {
+			isa = PBXGroup;
+			children = (
+				77FBFBF42B6F8B7E00F83EC7 /* BaseCoordinator.swift */,
+			);
+			path = Coordinator;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -80,6 +180,16 @@
 			dependencies = (
 			);
 			name = iOS_client_NeoCafe_;
+			packageProductDependencies = (
+				77FBFBD82B6F88CB00F83EC7 /* SnapKit */,
+				77FBFBDA2B6F88CB00F83EC7 /* SnapKit-Dynamic */,
+				77FBFBDD2B6F890000F83EC7 /* Kingfisher */,
+				77FBFBE02B6F89A500F83EC7 /* CombineMoya */,
+				77FBFBE22B6F89A500F83EC7 /* Moya */,
+				77FBFBE42B6F89A500F83EC7 /* ReactiveMoya */,
+				77FBFBE62B6F89A500F83EC7 /* RxMoya */,
+				77FBFBF12B6F8ADC00F83EC7 /* Factory */,
+			);
 			productName = iOS_client_NeoCafe_;
 			productReference = 77FBFB9A2B6F834400F83EC7 /* iOS_client_NeoCafe_.app */;
 			productType = "com.apple.product-type.application";
@@ -108,6 +218,12 @@
 				Base,
 			);
 			mainGroup = 77FBFB912B6F834400F83EC7;
+			packageReferences = (
+				77FBFBD72B6F88CB00F83EC7 /* XCRemoteSwiftPackageReference "SnapKit" */,
+				77FBFBDC2B6F890000F83EC7 /* XCRemoteSwiftPackageReference "Kingfisher" */,
+				77FBFBDF2B6F89A500F83EC7 /* XCRemoteSwiftPackageReference "Moya" */,
+				77FBFBF02B6F8ADC00F83EC7 /* XCRemoteSwiftPackageReference "Factory" */,
+			);
 			productRefGroup = 77FBFB9B2B6F834400F83EC7 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -134,9 +250,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				77FBFBEA2B6F8A4600F83EC7 /* NetworkService.swift in Sources */,
+				77FBFBEF2B6F8AB000F83EC7 /* InjectionDefaultContainer.swift in Sources */,
 				77FBFBA22B6F834400F83EC7 /* ViewController.swift in Sources */,
 				77FBFB9E2B6F834400F83EC7 /* AppDelegate.swift in Sources */,
+				77FBFBF52B6F8B7E00F83EC7 /* BaseCoordinator.swift in Sources */,
 				77FBFBA02B6F834400F83EC7 /* SceneDelegate.swift in Sources */,
+				77FBFBD52B6F888900F83EC7 /* Extension+UIColor.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -349,6 +469,84 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		77FBFBD72B6F88CB00F83EC7 /* XCRemoteSwiftPackageReference "SnapKit" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/SnapKit/SnapKit.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.7.0;
+			};
+		};
+		77FBFBDC2B6F890000F83EC7 /* XCRemoteSwiftPackageReference "Kingfisher" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/onevcat/Kingfisher.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 7.10.2;
+			};
+		};
+		77FBFBDF2B6F89A500F83EC7 /* XCRemoteSwiftPackageReference "Moya" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Moya/Moya.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 15.0.3;
+			};
+		};
+		77FBFBF02B6F8ADC00F83EC7 /* XCRemoteSwiftPackageReference "Factory" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/hmlongco/Factory.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 2.3.1;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		77FBFBD82B6F88CB00F83EC7 /* SnapKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 77FBFBD72B6F88CB00F83EC7 /* XCRemoteSwiftPackageReference "SnapKit" */;
+			productName = SnapKit;
+		};
+		77FBFBDA2B6F88CB00F83EC7 /* SnapKit-Dynamic */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 77FBFBD72B6F88CB00F83EC7 /* XCRemoteSwiftPackageReference "SnapKit" */;
+			productName = "SnapKit-Dynamic";
+		};
+		77FBFBDD2B6F890000F83EC7 /* Kingfisher */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 77FBFBDC2B6F890000F83EC7 /* XCRemoteSwiftPackageReference "Kingfisher" */;
+			productName = Kingfisher;
+		};
+		77FBFBE02B6F89A500F83EC7 /* CombineMoya */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 77FBFBDF2B6F89A500F83EC7 /* XCRemoteSwiftPackageReference "Moya" */;
+			productName = CombineMoya;
+		};
+		77FBFBE22B6F89A500F83EC7 /* Moya */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 77FBFBDF2B6F89A500F83EC7 /* XCRemoteSwiftPackageReference "Moya" */;
+			productName = Moya;
+		};
+		77FBFBE42B6F89A500F83EC7 /* ReactiveMoya */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 77FBFBDF2B6F89A500F83EC7 /* XCRemoteSwiftPackageReference "Moya" */;
+			productName = ReactiveMoya;
+		};
+		77FBFBE62B6F89A500F83EC7 /* RxMoya */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 77FBFBDF2B6F89A500F83EC7 /* XCRemoteSwiftPackageReference "Moya" */;
+			productName = RxMoya;
+		};
+		77FBFBF12B6F8ADC00F83EC7 /* Factory */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 77FBFBF02B6F8ADC00F83EC7 /* XCRemoteSwiftPackageReference "Factory" */;
+			productName = Factory;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 77FBFB922B6F834400F83EC7 /* Project object */;
 }

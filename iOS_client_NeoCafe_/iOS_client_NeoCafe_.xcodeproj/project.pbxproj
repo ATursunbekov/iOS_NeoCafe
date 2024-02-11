@@ -7,9 +7,23 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		41B6076EF66904E7AD338743 /* Pods_iOS_client_NeoCafe_.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8B2A31AA53A32482FB15A58B /* Pods_iOS_client_NeoCafe_.framework */; };
+		7790B2E92B76891800431156 /* swiftgen.yml in Resources */ = {isa = PBXBuildFile; fileRef = 7790B2E82B76891800431156 /* swiftgen.yml */; };
+		7790B2EC2B768AB600431156 /* XCAssets+Generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7790B2EB2B768AB600431156 /* XCAssets+Generated.swift */; };
+		7790B2EE2B76A18100431156 /* Fonts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7790B2ED2B76A18100431156 /* Fonts.swift */; };
+		7790B2F32B76A1F600431156 /* Poppins-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 7790B2F02B76A1F600431156 /* Poppins-Bold.ttf */; };
+		7790B2F42B76A1F600431156 /* Poppins-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 7790B2F12B76A1F600431156 /* Poppins-Medium.ttf */; };
+		7790B2F52B76A1F600431156 /* Poppins-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 7790B2F22B76A1F600431156 /* Poppins-Regular.ttf */; };
+		7790B2F72B76A44B00431156 /* Extension+UIViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7790B2F62B76A44B00431156 /* Extension+UIViewController.swift */; };
+		77A428102B77F0BE000AF74C /* NumberTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77A4280F2B77F0BE000AF74C /* NumberTextField.swift */; };
+		77BC3C5F2B7766EA004C644E /* AuthCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77BC3C5E2B7766EA004C644E /* AuthCoordinator.swift */; };
+		77BC3C612B77672C004C644E /* AuthViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77BC3C602B77672C004C644E /* AuthViewModel.swift */; };
+		77BC3C632B7777AF004C644E /* AuthView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77BC3C622B7777AF004C644E /* AuthView.swift */; };
+		77BC3C662B778412004C644E /* CustomSegmentedControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77BC3C652B778412004C644E /* CustomSegmentedControl.swift */; };
+		77BC3C682B779498004C644E /* CustomTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77BC3C672B779498004C644E /* CustomTextField.swift */; };
 		77FBFB9E2B6F834400F83EC7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77FBFB9D2B6F834400F83EC7 /* AppDelegate.swift */; };
 		77FBFBA02B6F834400F83EC7 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77FBFB9F2B6F834400F83EC7 /* SceneDelegate.swift */; };
-		77FBFBA22B6F834400F83EC7 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77FBFBA12B6F834400F83EC7 /* ViewController.swift */; };
+		77FBFBA22B6F834400F83EC7 /* AuthViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77FBFBA12B6F834400F83EC7 /* AuthViewController.swift */; };
 		77FBFBA72B6F834600F83EC7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 77FBFBA62B6F834600F83EC7 /* Assets.xcassets */; };
 		77FBFBAA2B6F834600F83EC7 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 77FBFBA82B6F834600F83EC7 /* LaunchScreen.storyboard */; };
 		77FBFBD52B6F888900F83EC7 /* Extension+UIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77FBFBD42B6F888900F83EC7 /* Extension+UIColor.swift */; };
@@ -27,10 +41,23 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		7790B2E82B76891800431156 /* swiftgen.yml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.yaml; path = swiftgen.yml; sourceTree = "<group>"; };
+		7790B2EB2B768AB600431156 /* XCAssets+Generated.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "XCAssets+Generated.swift"; sourceTree = "<group>"; };
+		7790B2ED2B76A18100431156 /* Fonts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Fonts.swift; sourceTree = "<group>"; };
+		7790B2F02B76A1F600431156 /* Poppins-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Poppins-Bold.ttf"; sourceTree = "<group>"; };
+		7790B2F12B76A1F600431156 /* Poppins-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Poppins-Medium.ttf"; sourceTree = "<group>"; };
+		7790B2F22B76A1F600431156 /* Poppins-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Poppins-Regular.ttf"; sourceTree = "<group>"; };
+		7790B2F62B76A44B00431156 /* Extension+UIViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension+UIViewController.swift"; sourceTree = "<group>"; };
+		77A4280F2B77F0BE000AF74C /* NumberTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NumberTextField.swift; sourceTree = "<group>"; };
+		77BC3C5E2B7766EA004C644E /* AuthCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthCoordinator.swift; sourceTree = "<group>"; };
+		77BC3C602B77672C004C644E /* AuthViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthViewModel.swift; sourceTree = "<group>"; };
+		77BC3C622B7777AF004C644E /* AuthView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthView.swift; sourceTree = "<group>"; };
+		77BC3C652B778412004C644E /* CustomSegmentedControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomSegmentedControl.swift; sourceTree = "<group>"; };
+		77BC3C672B779498004C644E /* CustomTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTextField.swift; sourceTree = "<group>"; };
 		77FBFB9A2B6F834400F83EC7 /* iOS_client_NeoCafe_.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iOS_client_NeoCafe_.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		77FBFB9D2B6F834400F83EC7 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		77FBFB9F2B6F834400F83EC7 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		77FBFBA12B6F834400F83EC7 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		77FBFBA12B6F834400F83EC7 /* AuthViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthViewController.swift; sourceTree = "<group>"; };
 		77FBFBA62B6F834600F83EC7 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		77FBFBA92B6F834600F83EC7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		77FBFBAB2B6F834600F83EC7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -38,6 +65,9 @@
 		77FBFBE92B6F8A4600F83EC7 /* NetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkService.swift; sourceTree = "<group>"; };
 		77FBFBEE2B6F8AB000F83EC7 /* InjectionDefaultContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InjectionDefaultContainer.swift; sourceTree = "<group>"; };
 		77FBFBF42B6F8B7E00F83EC7 /* BaseCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseCoordinator.swift; sourceTree = "<group>"; };
+		8B2A31AA53A32482FB15A58B /* Pods_iOS_client_NeoCafe_.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_iOS_client_NeoCafe_.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		B5CD6DB3B49EBDECA0DD1A6C /* Pods-iOS_client_NeoCafe_.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iOS_client_NeoCafe_.debug.xcconfig"; path = "Target Support Files/Pods-iOS_client_NeoCafe_/Pods-iOS_client_NeoCafe_.debug.xcconfig"; sourceTree = "<group>"; };
+		ECF9F6329C8772D725506683 /* Pods-iOS_client_NeoCafe_.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iOS_client_NeoCafe_.release.xcconfig"; path = "Target Support Files/Pods-iOS_client_NeoCafe_/Pods-iOS_client_NeoCafe_.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -53,17 +83,75 @@
 				77FBFBDB2B6F88CB00F83EC7 /* SnapKit-Dynamic in Frameworks */,
 				77FBFBE52B6F89A500F83EC7 /* ReactiveMoya in Frameworks */,
 				77FBFBF22B6F8ADC00F83EC7 /* Factory in Frameworks */,
+				41B6076EF66904E7AD338743 /* Pods_iOS_client_NeoCafe_.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		306311E37682BFC02064FDBA /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				B5CD6DB3B49EBDECA0DD1A6C /* Pods-iOS_client_NeoCafe_.debug.xcconfig */,
+				ECF9F6329C8772D725506683 /* Pods-iOS_client_NeoCafe_.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
+		5AEBEB9E140426BE41EE730E /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				8B2A31AA53A32482FB15A58B /* Pods_iOS_client_NeoCafe_.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		7790B2EA2B768A6D00431156 /* Generated */ = {
+			isa = PBXGroup;
+			children = (
+				7790B2EB2B768AB600431156 /* XCAssets+Generated.swift */,
+				7790B2ED2B76A18100431156 /* Fonts.swift */,
+			);
+			path = Generated;
+			sourceTree = "<group>";
+		};
+		7790B2EF2B76A1C800431156 /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				7790B2F02B76A1F600431156 /* Poppins-Bold.ttf */,
+				7790B2F12B76A1F600431156 /* Poppins-Medium.ttf */,
+				7790B2F22B76A1F600431156 /* Poppins-Regular.ttf */,
+			);
+			path = Fonts;
+			sourceTree = "<group>";
+		};
+		77BC3C5D2B776646004C644E /* Coordinator */ = {
+			isa = PBXGroup;
+			children = (
+				77BC3C5E2B7766EA004C644E /* AuthCoordinator.swift */,
+			);
+			path = Coordinator;
+			sourceTree = "<group>";
+		};
+		77BC3C642B7783FA004C644E /* CustomElements */ = {
+			isa = PBXGroup;
+			children = (
+				77BC3C652B778412004C644E /* CustomSegmentedControl.swift */,
+				77BC3C672B779498004C644E /* CustomTextField.swift */,
+				77A4280F2B77F0BE000AF74C /* NumberTextField.swift */,
+			);
+			path = CustomElements;
+			sourceTree = "<group>";
+		};
 		77FBFB912B6F834400F83EC7 = {
 			isa = PBXGroup;
 			children = (
+				7790B2E82B76891800431156 /* swiftgen.yml */,
 				77FBFB9C2B6F834400F83EC7 /* iOS_client_NeoCafe_ */,
 				77FBFB9B2B6F834400F83EC7 /* Products */,
+				306311E37682BFC02064FDBA /* Pods */,
+				5AEBEB9E140426BE41EE730E /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -78,6 +166,7 @@
 		77FBFB9C2B6F834400F83EC7 /* iOS_client_NeoCafe_ */ = {
 			isa = PBXGroup;
 			children = (
+				7790B2EA2B768A6D00431156 /* Generated */,
 				77FBFBD32B6F884100F83EC7 /* Extension */,
 				77FBFBD22B6F883100F83EC7 /* Core */,
 				77FBFBD12B6F882600F83EC7 /* Supporting */,
@@ -89,6 +178,7 @@
 		77FBFBD12B6F882600F83EC7 /* Supporting */ = {
 			isa = PBXGroup;
 			children = (
+				7790B2EF2B76A1C800431156 /* Fonts */,
 				77FBFB9D2B6F834400F83EC7 /* AppDelegate.swift */,
 				77FBFB9F2B6F834400F83EC7 /* SceneDelegate.swift */,
 				77FBFBA62B6F834600F83EC7 /* Assets.xcassets */,
@@ -100,6 +190,7 @@
 		77FBFBD22B6F883100F83EC7 /* Core */ = {
 			isa = PBXGroup;
 			children = (
+				77BC3C642B7783FA004C644E /* CustomElements */,
 				77FBFBF32B6F8B4900F83EC7 /* Coordinator */,
 				77FBFBED2B6F8A9900F83EC7 /* DI */,
 				77FBFBE82B6F8A3200F83EC7 /* NetworkService */,
@@ -112,6 +203,7 @@
 			isa = PBXGroup;
 			children = (
 				77FBFBD42B6F888900F83EC7 /* Extension+UIColor.swift */,
+				7790B2F62B76A44B00431156 /* Extension+UIViewController.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -119,7 +211,10 @@
 		77FBFBD62B6F889B00F83EC7 /* Authentication */ = {
 			isa = PBXGroup;
 			children = (
-				77FBFBA12B6F834400F83EC7 /* ViewController.swift */,
+				77BC3C5D2B776646004C644E /* Coordinator */,
+				77FBFBA12B6F834400F83EC7 /* AuthViewController.swift */,
+				77BC3C622B7777AF004C644E /* AuthView.swift */,
+				77BC3C602B77672C004C644E /* AuthViewModel.swift */,
 			);
 			path = Authentication;
 			sourceTree = "<group>";
@@ -171,6 +266,9 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 77FBFBAE2B6F834600F83EC7 /* Build configuration list for PBXNativeTarget "iOS_client_NeoCafe_" */;
 			buildPhases = (
+				BF02FE4A4CEC62F219B54F17 /* [CP] Check Pods Manifest.lock */,
+				7790B2E42B76566000431156 /* SwiftLint */,
+				7790B2E72B76831400431156 /* SwiftGen */,
 				77FBFB962B6F834400F83EC7 /* Sources */,
 				77FBFB972B6F834400F83EC7 /* Frameworks */,
 				77FBFB982B6F834400F83EC7 /* Resources */,
@@ -240,23 +338,97 @@
 			files = (
 				77FBFBAA2B6F834600F83EC7 /* LaunchScreen.storyboard in Resources */,
 				77FBFBA72B6F834600F83EC7 /* Assets.xcassets in Resources */,
+				7790B2E92B76891800431156 /* swiftgen.yml in Resources */,
+				7790B2F52B76A1F600431156 /* Poppins-Regular.ttf in Resources */,
+				7790B2F32B76A1F600431156 /* Poppins-Bold.ttf in Resources */,
+				7790B2F42B76A1F600431156 /* Poppins-Medium.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		7790B2E42B76566000431156 /* SwiftLint */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			name = SwiftLint;
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/SwiftLint/swiftlint\"\n";
+		};
+		7790B2E72B76831400431156 /* SwiftGen */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			name = SwiftGen;
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "if [[ -f \"${PODS_ROOT}/SwiftGen/bin/swiftgen\" ]]; then\n  \"${PODS_ROOT}/SwiftGen/bin/swiftgen\"\nelse\n  echo \"warning: SwiftGen is not installed. Run 'pod install --repo-update' to install it.\"\nfi \n";
+		};
+		BF02FE4A4CEC62F219B54F17 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-iOS_client_NeoCafe_-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		77FBFB962B6F834400F83EC7 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				77BC3C612B77672C004C644E /* AuthViewModel.swift in Sources */,
 				77FBFBEA2B6F8A4600F83EC7 /* NetworkService.swift in Sources */,
+				77A428102B77F0BE000AF74C /* NumberTextField.swift in Sources */,
 				77FBFBEF2B6F8AB000F83EC7 /* InjectionDefaultContainer.swift in Sources */,
-				77FBFBA22B6F834400F83EC7 /* ViewController.swift in Sources */,
+				77BC3C632B7777AF004C644E /* AuthView.swift in Sources */,
+				77FBFBA22B6F834400F83EC7 /* AuthViewController.swift in Sources */,
+				7790B2EC2B768AB600431156 /* XCAssets+Generated.swift in Sources */,
 				77FBFB9E2B6F834400F83EC7 /* AppDelegate.swift in Sources */,
+				77BC3C662B778412004C644E /* CustomSegmentedControl.swift in Sources */,
 				77FBFBF52B6F8B7E00F83EC7 /* BaseCoordinator.swift in Sources */,
 				77FBFBA02B6F834400F83EC7 /* SceneDelegate.swift in Sources */,
+				77BC3C5F2B7766EA004C644E /* AuthCoordinator.swift in Sources */,
+				7790B2EE2B76A18100431156 /* Fonts.swift in Sources */,
+				7790B2F72B76A44B00431156 /* Extension+UIViewController.swift in Sources */,
 				77FBFBD52B6F888900F83EC7 /* Extension+UIColor.swift in Sources */,
+				77BC3C682B779498004C644E /* CustomTextField.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -311,7 +483,7 @@
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
-				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = NO;
 				GCC_C_LANGUAGE_STANDARD = gnu17;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_NO_COMMON_BLOCKS = YES;
@@ -374,7 +546,7 @@
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = NO;
 				GCC_C_LANGUAGE_STANDARD = gnu17;
 				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
@@ -395,6 +567,7 @@
 		};
 		77FBFBAF2B6F834600F83EC7 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = B5CD6DB3B49EBDECA0DD1A6C /* Pods-iOS_client_NeoCafe_.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -422,6 +595,7 @@
 		};
 		77FBFBB02B6F834600F83EC7 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = ECF9F6329C8772D725506683 /* Pods-iOS_client_NeoCafe_.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;

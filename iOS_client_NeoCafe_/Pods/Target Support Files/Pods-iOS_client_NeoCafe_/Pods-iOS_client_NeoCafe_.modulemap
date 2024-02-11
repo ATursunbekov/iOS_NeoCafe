@@ -1,0 +1,6 @@
+framework module Pods_iOS_client_NeoCafe_ {
+  umbrella header "Pods-iOS_client_NeoCafe_-umbrella.h"
+
+  export *
+  module * { export * }
+}

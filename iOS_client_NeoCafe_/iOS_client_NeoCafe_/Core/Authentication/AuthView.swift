@@ -8,6 +8,7 @@
 import UIKit
 import SnapKit
 import SwiftUI
+import SVPinView
 
 class AuthView: UIView {
     
@@ -67,6 +68,20 @@ class AuthView: UIView {
         return label
     }()
     
+    lazy var pinView = {
+        let pinView = SVPinView()
+        pinView.pinLength = 4
+        pinView.interSpace = 8
+        pinView.textColor = .black
+        pinView.font = UIFont(name: FontFamily.Poppins.regular.name, size: 20) ?? UIFont.systemFont(ofSize: 20)
+        pinView.keyboardType = .numberPad
+        pinView.shouldSecureText = false
+        pinView.fieldBackgroundColor = Asset.colorGray.color
+        pinView.pinInputAccessoryView = UIView()
+//        pinView.borderLineColor = .red
+        return pinView
+    }()
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
         backgroundColor = Asset.colorWhite.color
@@ -82,6 +97,13 @@ class AuthView: UIView {
         addSubview(textField)
         addSubview(button)
         addSubview(firstErrorText)
+        addSubview(pinView)
+        
+        pinView.snp.makeConstraints { make in
+            make.centerX.equalToSuperview().offset(23)
+            make.centerY.equalToSuperview()
+            make.height.equalTo(52)
+        }
         
         topView.snp.makeConstraints { make in
             make.top.leading.trailing.equalToSuperview()

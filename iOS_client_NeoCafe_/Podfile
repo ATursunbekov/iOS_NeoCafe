@@ -8,4 +8,5 @@ target 'iOS_client_NeoCafe_' do
   # Pods for iOS_client_NeoCafe_
   pod 'SwiftLint'
   pod 'SwiftGen'
+  pod 'SVPinView'
 end

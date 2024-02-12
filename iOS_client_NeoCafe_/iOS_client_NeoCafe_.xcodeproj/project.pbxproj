@@ -15,7 +15,6 @@
 		7790B2F42B76A1F600431156 /* Poppins-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 7790B2F12B76A1F600431156 /* Poppins-Medium.ttf */; };
 		7790B2F52B76A1F600431156 /* Poppins-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 7790B2F22B76A1F600431156 /* Poppins-Regular.ttf */; };
 		7790B2F72B76A44B00431156 /* Extension+UIViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7790B2F62B76A44B00431156 /* Extension+UIViewController.swift */; };
-		77A428102B77F0BE000AF74C /* NumberTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77A4280F2B77F0BE000AF74C /* NumberTextField.swift */; };
 		77BC3C5F2B7766EA004C644E /* AuthCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77BC3C5E2B7766EA004C644E /* AuthCoordinator.swift */; };
 		77BC3C612B77672C004C644E /* AuthViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77BC3C602B77672C004C644E /* AuthViewModel.swift */; };
 		77BC3C632B7777AF004C644E /* AuthView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77BC3C622B7777AF004C644E /* AuthView.swift */; };
@@ -48,7 +47,6 @@
 		7790B2F12B76A1F600431156 /* Poppins-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Poppins-Medium.ttf"; sourceTree = "<group>"; };
 		7790B2F22B76A1F600431156 /* Poppins-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Poppins-Regular.ttf"; sourceTree = "<group>"; };
 		7790B2F62B76A44B00431156 /* Extension+UIViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension+UIViewController.swift"; sourceTree = "<group>"; };
-		77A4280F2B77F0BE000AF74C /* NumberTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NumberTextField.swift; sourceTree = "<group>"; };
 		77BC3C5E2B7766EA004C644E /* AuthCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthCoordinator.swift; sourceTree = "<group>"; };
 		77BC3C602B77672C004C644E /* AuthViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthViewModel.swift; sourceTree = "<group>"; };
 		77BC3C622B7777AF004C644E /* AuthView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthView.swift; sourceTree = "<group>"; };
@@ -139,7 +137,6 @@
 			children = (
 				77BC3C652B778412004C644E /* CustomSegmentedControl.swift */,
 				77BC3C672B779498004C644E /* CustomTextField.swift */,
-				77A4280F2B77F0BE000AF74C /* NumberTextField.swift */,
 			);
 			path = CustomElements;
 			sourceTree = "<group>";
@@ -272,6 +269,7 @@
 				77FBFB962B6F834400F83EC7 /* Sources */,
 				77FBFB972B6F834400F83EC7 /* Frameworks */,
 				77FBFB982B6F834400F83EC7 /* Resources */,
+				61642142DE96AB73AE6F3EBE /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -348,6 +346,23 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		61642142DE96AB73AE6F3EBE /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-iOS_client_NeoCafe_/Pods-iOS_client_NeoCafe_-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-iOS_client_NeoCafe_/Pods-iOS_client_NeoCafe_-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-iOS_client_NeoCafe_/Pods-iOS_client_NeoCafe_-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 		7790B2E42B76566000431156 /* SwiftLint */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -415,7 +430,6 @@
 			files = (
 				77BC3C612B77672C004C644E /* AuthViewModel.swift in Sources */,
 				77FBFBEA2B6F8A4600F83EC7 /* NetworkService.swift in Sources */,
-				77A428102B77F0BE000AF74C /* NumberTextField.swift in Sources */,
 				77FBFBEF2B6F8AB000F83EC7 /* InjectionDefaultContainer.swift in Sources */,
 				77BC3C632B7777AF004C644E /* AuthView.swift in Sources */,
 				77FBFBA22B6F834400F83EC7 /* AuthViewController.swift in Sources */,

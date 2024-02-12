@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="22154" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" launchScreen="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="01J-lp-oVM">
+    <device id="retina6_12" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22130"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="Poppins-Bold.ttf">
+            <string>Poppins-Bold</string>
+        </array>
+    </customFonts>
+    <scenes>
+        <!--View Controller-->
+        <scene sceneID="EHf-IW-A2E">
+            <objects>
+                <viewController id="01J-lp-oVM" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Ze5-6b-2t3">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="coffee-beans" translatesAutoresizingMaskIntoConstraints="NO" id="hi7-Wy-UZM">
+                                <rect key="frame" x="176" y="0.0" width="367" height="218"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="367" id="BtL-77-IKs"/>
+                                    <constraint firstAttribute="height" constant="218" id="ehU-OC-4VN"/>
+                                </constraints>
+                            </imageView>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="cofeeLogo" translatesAutoresizingMaskIntoConstraints="NO" id="iuS-Xy-eaf">
+                                <rect key="frame" x="64" y="220" width="265" height="260"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="260" id="Ers-jM-gyG"/>
+                                    <constraint firstAttribute="width" constant="265" id="SHH-r5-D2f"/>
+                                </constraints>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Добро пожаловать в" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vil-iW-ond">
+                                <rect key="frame" x="93" y="528" width="207" height="28"/>
+                                <fontDescription key="fontDescription" name="Poppins-Bold" family="Poppins" pointSize="20"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="neocafe" translatesAutoresizingMaskIntoConstraints="NO" id="YJJ-A8-ZcT">
+                                <rect key="frame" x="111.66666666666669" y="580" width="170" height="33"/>
+                            </imageView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                        <color key="backgroundColor" name="mainColor"/>
+                        <constraints>
+                            <constraint firstItem="vil-iW-ond" firstAttribute="top" secondItem="iuS-Xy-eaf" secondAttribute="bottom" constant="48" id="FGu-cu-r2W"/>
+                            <constraint firstItem="iuS-Xy-eaf" firstAttribute="top" secondItem="Ze5-6b-2t3" secondAttribute="top" constant="220" id="Rhn-3R-KKj"/>
+                            <constraint firstAttribute="trailing" secondItem="hi7-Wy-UZM" secondAttribute="trailing" constant="-150" id="c5s-n3-JZA"/>
+                            <constraint firstItem="vil-iW-ond" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="csO-rf-a7R"/>
+                            <constraint firstItem="YJJ-A8-ZcT" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="hcc-30-phq"/>
+                            <constraint firstItem="YJJ-A8-ZcT" firstAttribute="top" secondItem="vil-iW-ond" secondAttribute="bottom" constant="24" id="j0B-bF-C6C"/>
+                            <constraint firstItem="hi7-Wy-UZM" firstAttribute="top" secondItem="Ze5-6b-2t3" secondAttribute="top" id="oLh-NX-dYs"/>
+                            <constraint firstItem="iuS-Xy-eaf" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="tty-ie-o2Z"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="iYj-Kq-Ea1" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="52.671755725190835" y="374.64788732394368"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="cofeeLogo" width="265" height="259"/>
+        <image name="coffee-beans" width="194" height="242"/>
+        <image name="neocafe" width="170" height="33"/>
+        <namedColor name="mainColor">
+            <color red="0.20784313725490197" green="0.32549019607843138" blue="0.41960784313725491" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+    </resources>
+</document>

@@ -1,0 +1,806 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 56;
+	objects = {
+
+/* Begin PBXAggregateTarget section */
+		1E798429DCFA7906F6625CCFC1088744 /* SwiftGen */ = {
+			isa = PBXAggregateTarget;
+			buildConfigurationList = FB296D1C543ACA89207838196BB823E7 /* Build configuration list for PBXAggregateTarget "SwiftGen" */;
+			buildPhases = (
+			);
+			dependencies = (
+			);
+			name = SwiftGen;
+			productName = SwiftGen;
+		};
+		52B60EC2A583F24ACBB69C113F5488B9 /* SwiftLint */ = {
+			isa = PBXAggregateTarget;
+			buildConfigurationList = AE7B4FB01588B9E6DF09CB79FC7CE7BD /* Build configuration list for PBXAggregateTarget "SwiftLint" */;
+			buildPhases = (
+			);
+			dependencies = (
+			);
+			name = SwiftLint;
+			productName = SwiftLint;
+		};
+/* End PBXAggregateTarget section */
+
+/* Begin PBXBuildFile section */
+		2354B7659CCDA57A0D441A3BF50B03CE /* SVPinField.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7CC13571A6A9BBCC1BBE9F0C11420E5 /* SVPinField.swift */; };
+		48AFE578E2A108CDDE2F37B6CFB89ADB /* SVPinView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E2514F09F1657CC6FFF546F90127B5D /* SVPinView.swift */; };
+		631D4A7C270A6F4652B3D125C69605D3 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 73010CC983E3809BECEE5348DA1BB8C6 /* Foundation.framework */; };
+		7A98C8488D0E06FDF46FDC13B88D9C74 /* Pods-iOS_client_NeoCafe_-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 9074F13CBAC84FF35FD4F4B562F5066D /* Pods-iOS_client_NeoCafe_-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		82158241101BEB02F098A9EB2E26596F /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 73010CC983E3809BECEE5348DA1BB8C6 /* Foundation.framework */; };
+		C1DFE3166C0DDB6A786058CEC3C58624 /* SVPinCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1517D83EFB0DC7F34BD996E77BF57157 /* SVPinCell.xib */; };
+		C3406BFC6E5EA867DEAA0E897BA03BBC /* Pods-iOS_client_NeoCafe_-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AC2329C15B42603CE375649C6586D66 /* Pods-iOS_client_NeoCafe_-dummy.m */; };
+		C53D44930F67F408DA36CF4D20852876 /* SVPinView-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 3FB694740EE295C4D64CD65D6EB793B4 /* SVPinView-dummy.m */; };
+		EFCA883940D8EC746AAACEB37F88B3BD /* SVPinView-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = CD0491FE74EDAB7087E9925D62C13CF2 /* SVPinView-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		F56A5B117D2F5BFBF408AFEFBA77201A /* SVPinView.xib in Resources */ = {isa = PBXBuildFile; fileRef = CC277356BF287ACCC9C2C45B7DC5F902 /* SVPinView.xib */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		5E7BD3E961F7E86018C581803CFADB78 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = BFDFE7DC352907FC980B868725387E98 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 1E798429DCFA7906F6625CCFC1088744;
+			remoteInfo = SwiftGen;
+		};
+		8BDD179CFE95AAE6CC7CBC5A15628B6A /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = BFDFE7DC352907FC980B868725387E98 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 8C48B6722F02A3772707DAF5E1572C89;
+			remoteInfo = SVPinView;
+		};
+		B9E2036A2F7365E973CBE03ED4DD86DE /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = BFDFE7DC352907FC980B868725387E98 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 52B60EC2A583F24ACBB69C113F5488B9;
+			remoteInfo = SwiftLint;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		0C9764C8302C86990EFEC52D00598ECE /* Pods-iOS_client_NeoCafe_-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-iOS_client_NeoCafe_-acknowledgements.markdown"; sourceTree = "<group>"; };
+		0F523EBBC38D73AEA8318C100554711E /* SVPinView-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "SVPinView-Info.plist"; sourceTree = "<group>"; };
+		11EA81E2ABBB1FAAB1B2323ED6104A68 /* SVPinView.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = SVPinView.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		1517D83EFB0DC7F34BD996E77BF57157 /* SVPinCell.xib */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = file.xib; name = SVPinCell.xib; path = "SVPinView/Source/XIB's/SVPinCell.xib"; sourceTree = "<group>"; };
+		2D9A891B0FA450DDF5C8D1612F0E12F0 /* SVPinView-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "SVPinView-prefix.pch"; sourceTree = "<group>"; };
+		31D3C6FE32DBA9F9D16B07ADE5DA0E1D /* Pods-iOS_client_NeoCafe_ */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = "Pods-iOS_client_NeoCafe_"; path = Pods_iOS_client_NeoCafe_.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		384D0EF595BB922C3290475A29E7A9AA /* SwiftGen.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = SwiftGen.debug.xcconfig; sourceTree = "<group>"; };
+		3AC2329C15B42603CE375649C6586D66 /* Pods-iOS_client_NeoCafe_-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-iOS_client_NeoCafe_-dummy.m"; sourceTree = "<group>"; };
+		3E2514F09F1657CC6FFF546F90127B5D /* SVPinView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = SVPinView.swift; path = SVPinView/Source/Classes/SVPinView.swift; sourceTree = "<group>"; };
+		3FB694740EE295C4D64CD65D6EB793B4 /* SVPinView-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "SVPinView-dummy.m"; sourceTree = "<group>"; };
+		55DB1F106B2E6A222E3167A3570A75BC /* Pods-iOS_client_NeoCafe_-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-iOS_client_NeoCafe_-acknowledgements.plist"; sourceTree = "<group>"; };
+		6338A061C82160CF130AF15962B318BC /* Pods-iOS_client_NeoCafe_-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-iOS_client_NeoCafe_-frameworks.sh"; sourceTree = "<group>"; };
+		6A00BFE9BCF8CA0C2D611B73D98D1739 /* SVPinView.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = SVPinView.modulemap; sourceTree = "<group>"; };
+		704ED8B32C505FB69B409147CC51D065 /* SwiftLint.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = SwiftLint.debug.xcconfig; sourceTree = "<group>"; };
+		73010CC983E3809BECEE5348DA1BB8C6 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS14.0.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
+		74F77DA676836E686FFA5E70F8CDC6D3 /* Pods-iOS_client_NeoCafe_.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = "Pods-iOS_client_NeoCafe_.modulemap"; sourceTree = "<group>"; };
+		9074F13CBAC84FF35FD4F4B562F5066D /* Pods-iOS_client_NeoCafe_-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-iOS_client_NeoCafe_-umbrella.h"; sourceTree = "<group>"; };
+		99C1277E9626AC8AEF88C705767F9D38 /* Pods-iOS_client_NeoCafe_-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-iOS_client_NeoCafe_-Info.plist"; sourceTree = "<group>"; };
+		9D940727FF8FB9C785EB98E56350EF41 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		ABFA5DDCC9BCE761BC76C7099DD88F94 /* SVPinView.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = SVPinView.release.xcconfig; sourceTree = "<group>"; };
+		CA883E06528DFE3FEF02068D9C718C1C /* SVPinView.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = SVPinView.debug.xcconfig; sourceTree = "<group>"; };
+		CC277356BF287ACCC9C2C45B7DC5F902 /* SVPinView.xib */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = file.xib; name = SVPinView.xib; path = "SVPinView/Source/XIB's/SVPinView.xib"; sourceTree = "<group>"; };
+		CD0491FE74EDAB7087E9925D62C13CF2 /* SVPinView-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "SVPinView-umbrella.h"; sourceTree = "<group>"; };
+		E0E50EC8B5F5525D9881F3FF776BECE0 /* SwiftLint.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = SwiftLint.release.xcconfig; sourceTree = "<group>"; };
+		E6B3D29AE2DA59FCB34EB71DA045C0C1 /* Pods-iOS_client_NeoCafe_.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-iOS_client_NeoCafe_.debug.xcconfig"; sourceTree = "<group>"; };
+		EA880E82A2BE8571A7A0BA1C24E37BF1 /* SwiftGen.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = SwiftGen.release.xcconfig; sourceTree = "<group>"; };
+		F7CC13571A6A9BBCC1BBE9F0C11420E5 /* SVPinField.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = SVPinField.swift; path = SVPinView/Source/Classes/SVPinField.swift; sourceTree = "<group>"; };
+		F86D60AA8F8D37A84C9538EFB3B61419 /* Pods-iOS_client_NeoCafe_.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-iOS_client_NeoCafe_.release.xcconfig"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		7C4D5405E4228FE89F977C439FE9A163 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				631D4A7C270A6F4652B3D125C69605D3 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		987B4FAEE796E23155B55444450DEAD1 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				82158241101BEB02F098A9EB2E26596F /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		3896C8A1DE2411F8018ADC808130CDFF /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				1517D83EFB0DC7F34BD996E77BF57157 /* SVPinCell.xib */,
+				CC277356BF287ACCC9C2C45B7DC5F902 /* SVPinView.xib */,
+			);
+			name = Resources;
+			sourceTree = "<group>";
+		};
+		4EFC67C404AEF8FC0C0EE78C9B941FBF /* SVPinView */ = {
+			isa = PBXGroup;
+			children = (
+				F7CC13571A6A9BBCC1BBE9F0C11420E5 /* SVPinField.swift */,
+				3E2514F09F1657CC6FFF546F90127B5D /* SVPinView.swift */,
+				3896C8A1DE2411F8018ADC808130CDFF /* Resources */,
+				C4DED6ED49DB24B5019CCB40FE888DBB /* Support Files */,
+			);
+			path = SVPinView;
+			sourceTree = "<group>";
+		};
+		578452D2E740E91742655AC8F1636D1F /* iOS */ = {
+			isa = PBXGroup;
+			children = (
+				73010CC983E3809BECEE5348DA1BB8C6 /* Foundation.framework */,
+			);
+			name = iOS;
+			sourceTree = "<group>";
+		};
+		6ACC2B9512091C7B5165D448DE7B38D2 /* SwiftGen */ = {
+			isa = PBXGroup;
+			children = (
+				C5BBCFA3403A9310D0BC0BF060EFA455 /* Support Files */,
+			);
+			path = SwiftGen;
+			sourceTree = "<group>";
+		};
+		6DBB9B7960CE06C102BB28BF88FB330D /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				4EFC67C404AEF8FC0C0EE78C9B941FBF /* SVPinView */,
+				6ACC2B9512091C7B5165D448DE7B38D2 /* SwiftGen */,
+				F6D6AF3763DA941503EA8803CAB9D841 /* SwiftLint */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		7F04D6364232B14AE648A77BB07F7F6C /* Pods-iOS_client_NeoCafe_ */ = {
+			isa = PBXGroup;
+			children = (
+				74F77DA676836E686FFA5E70F8CDC6D3 /* Pods-iOS_client_NeoCafe_.modulemap */,
+				0C9764C8302C86990EFEC52D00598ECE /* Pods-iOS_client_NeoCafe_-acknowledgements.markdown */,
+				55DB1F106B2E6A222E3167A3570A75BC /* Pods-iOS_client_NeoCafe_-acknowledgements.plist */,
+				3AC2329C15B42603CE375649C6586D66 /* Pods-iOS_client_NeoCafe_-dummy.m */,
+				6338A061C82160CF130AF15962B318BC /* Pods-iOS_client_NeoCafe_-frameworks.sh */,
+				99C1277E9626AC8AEF88C705767F9D38 /* Pods-iOS_client_NeoCafe_-Info.plist */,
+				9074F13CBAC84FF35FD4F4B562F5066D /* Pods-iOS_client_NeoCafe_-umbrella.h */,
+				E6B3D29AE2DA59FCB34EB71DA045C0C1 /* Pods-iOS_client_NeoCafe_.debug.xcconfig */,
+				F86D60AA8F8D37A84C9538EFB3B61419 /* Pods-iOS_client_NeoCafe_.release.xcconfig */,
+			);
+			name = "Pods-iOS_client_NeoCafe_";
+			path = "Target Support Files/Pods-iOS_client_NeoCafe_";
+			sourceTree = "<group>";
+		};
+		8928CB321337FBAB25A296F1E822BEE0 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				31D3C6FE32DBA9F9D16B07ADE5DA0E1D /* Pods-iOS_client_NeoCafe_ */,
+				11EA81E2ABBB1FAAB1B2323ED6104A68 /* SVPinView.framework */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		C4DED6ED49DB24B5019CCB40FE888DBB /* Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				6A00BFE9BCF8CA0C2D611B73D98D1739 /* SVPinView.modulemap */,
+				3FB694740EE295C4D64CD65D6EB793B4 /* SVPinView-dummy.m */,
+				0F523EBBC38D73AEA8318C100554711E /* SVPinView-Info.plist */,
+				2D9A891B0FA450DDF5C8D1612F0E12F0 /* SVPinView-prefix.pch */,
+				CD0491FE74EDAB7087E9925D62C13CF2 /* SVPinView-umbrella.h */,
+				CA883E06528DFE3FEF02068D9C718C1C /* SVPinView.debug.xcconfig */,
+				ABFA5DDCC9BCE761BC76C7099DD88F94 /* SVPinView.release.xcconfig */,
+			);
+			name = "Support Files";
+			path = "../Target Support Files/SVPinView";
+			sourceTree = "<group>";
+		};
+		C5BBCFA3403A9310D0BC0BF060EFA455 /* Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				384D0EF595BB922C3290475A29E7A9AA /* SwiftGen.debug.xcconfig */,
+				EA880E82A2BE8571A7A0BA1C24E37BF1 /* SwiftGen.release.xcconfig */,
+			);
+			name = "Support Files";
+			path = "../Target Support Files/SwiftGen";
+			sourceTree = "<group>";
+		};
+		CF1408CF629C7361332E53B88F7BD30C = {
+			isa = PBXGroup;
+			children = (
+				9D940727FF8FB9C785EB98E56350EF41 /* Podfile */,
+				D210D550F4EA176C3123ED886F8F87F5 /* Frameworks */,
+				6DBB9B7960CE06C102BB28BF88FB330D /* Pods */,
+				8928CB321337FBAB25A296F1E822BEE0 /* Products */,
+				EC65097A1D67E266EA2A911FFED56C82 /* Targets Support Files */,
+			);
+			sourceTree = "<group>";
+		};
+		D210D550F4EA176C3123ED886F8F87F5 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				578452D2E740E91742655AC8F1636D1F /* iOS */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		EC65097A1D67E266EA2A911FFED56C82 /* Targets Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				7F04D6364232B14AE648A77BB07F7F6C /* Pods-iOS_client_NeoCafe_ */,
+			);
+			name = "Targets Support Files";
+			sourceTree = "<group>";
+		};
+		F0B309FEBB9579B642284C6E0D7FC8F2 /* Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				704ED8B32C505FB69B409147CC51D065 /* SwiftLint.debug.xcconfig */,
+				E0E50EC8B5F5525D9881F3FF776BECE0 /* SwiftLint.release.xcconfig */,
+			);
+			name = "Support Files";
+			path = "../Target Support Files/SwiftLint";
+			sourceTree = "<group>";
+		};
+		F6D6AF3763DA941503EA8803CAB9D841 /* SwiftLint */ = {
+			isa = PBXGroup;
+			children = (
+				F0B309FEBB9579B642284C6E0D7FC8F2 /* Support Files */,
+			);
+			path = SwiftLint;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXHeadersBuildPhase section */
+		4B69D4BDE49AD945A0F1E5AF416DECD1 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				7A98C8488D0E06FDF46FDC13B88D9C74 /* Pods-iOS_client_NeoCafe_-umbrella.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C5E521CDBB687DEF4F05566C468C13A0 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				EFCA883940D8EC746AAACEB37F88B3BD /* SVPinView-umbrella.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
+
+/* Begin PBXNativeTarget section */
+		5C33D966CC9847B22569BFB030BE2D6F /* Pods-iOS_client_NeoCafe_ */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = BF2C9ACECEB0F46788834402152A6DD6 /* Build configuration list for PBXNativeTarget "Pods-iOS_client_NeoCafe_" */;
+			buildPhases = (
+				4B69D4BDE49AD945A0F1E5AF416DECD1 /* Headers */,
+				973F93A0082FEE772E7572CBE277579D /* Sources */,
+				987B4FAEE796E23155B55444450DEAD1 /* Frameworks */,
+				711EA98AA02F41C10C507DEDF0E7BD05 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				258C67C6438526751C66A8D3C4657B53 /* PBXTargetDependency */,
+				D48C443B6D4D3F8BDA9B5AAEF95229B2 /* PBXTargetDependency */,
+				DEDB9C80D1497C16B1A82136DF0ED7E1 /* PBXTargetDependency */,
+			);
+			name = "Pods-iOS_client_NeoCafe_";
+			productName = Pods_iOS_client_NeoCafe_;
+			productReference = 31D3C6FE32DBA9F9D16B07ADE5DA0E1D /* Pods-iOS_client_NeoCafe_ */;
+			productType = "com.apple.product-type.framework";
+		};
+		8C48B6722F02A3772707DAF5E1572C89 /* SVPinView */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 7936ECE40F2EB32ECFA462CDE3F93224 /* Build configuration list for PBXNativeTarget "SVPinView" */;
+			buildPhases = (
+				C5E521CDBB687DEF4F05566C468C13A0 /* Headers */,
+				ED8B2A11A2CFAC5B94BA2D78F1DD27B0 /* Sources */,
+				7C4D5405E4228FE89F977C439FE9A163 /* Frameworks */,
+				912A0DDD60F7CDE99769A0BE1B2E0714 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = SVPinView;
+			productName = SVPinView;
+			productReference = 11EA81E2ABBB1FAAB1B2323ED6104A68 /* SVPinView.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		BFDFE7DC352907FC980B868725387E98 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 1500;
+				LastUpgradeCheck = 1500;
+			};
+			buildConfigurationList = 4821239608C13582E20E6DA73FD5F1F9 /* Build configuration list for PBXProject "Pods" */;
+			compatibilityVersion = "Xcode 14.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				Base,
+				en,
+			);
+			mainGroup = CF1408CF629C7361332E53B88F7BD30C;
+			productRefGroup = 8928CB321337FBAB25A296F1E822BEE0 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				5C33D966CC9847B22569BFB030BE2D6F /* Pods-iOS_client_NeoCafe_ */,
+				8C48B6722F02A3772707DAF5E1572C89 /* SVPinView */,
+				1E798429DCFA7906F6625CCFC1088744 /* SwiftGen */,
+				52B60EC2A583F24ACBB69C113F5488B9 /* SwiftLint */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		711EA98AA02F41C10C507DEDF0E7BD05 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		912A0DDD60F7CDE99769A0BE1B2E0714 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C1DFE3166C0DDB6A786058CEC3C58624 /* SVPinCell.xib in Resources */,
+				F56A5B117D2F5BFBF408AFEFBA77201A /* SVPinView.xib in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		973F93A0082FEE772E7572CBE277579D /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C3406BFC6E5EA867DEAA0E897BA03BBC /* Pods-iOS_client_NeoCafe_-dummy.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		ED8B2A11A2CFAC5B94BA2D78F1DD27B0 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2354B7659CCDA57A0D441A3BF50B03CE /* SVPinField.swift in Sources */,
+				48AFE578E2A108CDDE2F37B6CFB89ADB /* SVPinView.swift in Sources */,
+				C53D44930F67F408DA36CF4D20852876 /* SVPinView-dummy.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		258C67C6438526751C66A8D3C4657B53 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = SVPinView;
+			target = 8C48B6722F02A3772707DAF5E1572C89 /* SVPinView */;
+			targetProxy = 8BDD179CFE95AAE6CC7CBC5A15628B6A /* PBXContainerItemProxy */;
+		};
+		D48C443B6D4D3F8BDA9B5AAEF95229B2 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = SwiftGen;
+			target = 1E798429DCFA7906F6625CCFC1088744 /* SwiftGen */;
+			targetProxy = 5E7BD3E961F7E86018C581803CFADB78 /* PBXContainerItemProxy */;
+		};
+		DEDB9C80D1497C16B1A82136DF0ED7E1 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = SwiftLint;
+			target = 52B60EC2A583F24ACBB69C113F5488B9 /* SwiftLint */;
+			targetProxy = B9E2036A2F7365E973CBE03ED4DD86DE /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		010C75AC96E45522639A93D066181D9D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = CA883E06528DFE3FEF02068D9C718C1C /* SVPinView.debug.xcconfig */;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				GCC_PREFIX_HEADER = "Target Support Files/SVPinView/SVPinView-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/SVPinView/SVPinView-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MODULEMAP_FILE = "Target Support Files/SVPinView/SVPinView.modulemap";
+				PRODUCT_MODULE_NAME = SVPinView;
+				PRODUCT_NAME = SVPinView;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		2202230BF25CAB2FDC609A71D79055BB /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 384D0EF595BB922C3290475A29E7A9AA /* SwiftGen.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		26EA5A9600226D2B7D8D25152A304F3B /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = E0E50EC8B5F5525D9881F3FF776BECE0 /* SwiftLint.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CLANG_ENABLE_OBJC_WEAK = NO;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		368C0E18E6B04573C06B56DD5ACCF0AD /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = ABFA5DDCC9BCE761BC76C7099DD88F94 /* SVPinView.release.xcconfig */;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				GCC_PREFIX_HEADER = "Target Support Files/SVPinView/SVPinView-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/SVPinView/SVPinView-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MODULEMAP_FILE = "Target Support Files/SVPinView/SVPinView.modulemap";
+				PRODUCT_MODULE_NAME = SVPinView;
+				PRODUCT_NAME = SVPinView;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		6A5C026ED62BBFE3380CD257EEFAEB20 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"POD_CONFIGURATION_DEBUG=1",
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				STRIP_INSTALLED_PRODUCT = NO;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.0;
+				SYMROOT = "${SRCROOT}/../build";
+			};
+			name = Debug;
+		};
+		7C51A2024C656219F6CE99EC6C2549D3 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = F86D60AA8F8D37A84C9538EFB3B61419 /* Pods-iOS_client_NeoCafe_.release.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
+				CLANG_ENABLE_OBJC_WEAK = NO;
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = "Target Support Files/Pods-iOS_client_NeoCafe_/Pods-iOS_client_NeoCafe_-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-iOS_client_NeoCafe_/Pods-iOS_client_NeoCafe_.modulemap";
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		973FCD7F1A52A499107701799212A0FE /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = E6B3D29AE2DA59FCB34EB71DA045C0C1 /* Pods-iOS_client_NeoCafe_.debug.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
+				CLANG_ENABLE_OBJC_WEAK = NO;
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = "Target Support Files/Pods-iOS_client_NeoCafe_/Pods-iOS_client_NeoCafe_-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-iOS_client_NeoCafe_/Pods-iOS_client_NeoCafe_.modulemap";
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		CF3B4AB84D0F77E437676BAFB9C2086C /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = EA880E82A2BE8571A7A0BA1C24E37BF1 /* SwiftGen.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		E873CA97BD124B21839AF13C9BE1CD18 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"POD_CONFIGURATION_RELEASE=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				STRIP_INSTALLED_PRODUCT = NO;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				SWIFT_VERSION = 5.0;
+				SYMROOT = "${SRCROOT}/../build";
+			};
+			name = Release;
+		};
+		E9E1A48A750B946DE9877594C6E735E4 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 704ED8B32C505FB69B409147CC51D065 /* SwiftLint.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CLANG_ENABLE_OBJC_WEAK = NO;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		4821239608C13582E20E6DA73FD5F1F9 /* Build configuration list for PBXProject "Pods" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				6A5C026ED62BBFE3380CD257EEFAEB20 /* Debug */,
+				E873CA97BD124B21839AF13C9BE1CD18 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		7936ECE40F2EB32ECFA462CDE3F93224 /* Build configuration list for PBXNativeTarget "SVPinView" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				010C75AC96E45522639A93D066181D9D /* Debug */,
+				368C0E18E6B04573C06B56DD5ACCF0AD /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		AE7B4FB01588B9E6DF09CB79FC7CE7BD /* Build configuration list for PBXAggregateTarget "SwiftLint" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				E9E1A48A750B946DE9877594C6E735E4 /* Debug */,
+				26EA5A9600226D2B7D8D25152A304F3B /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		BF2C9ACECEB0F46788834402152A6DD6 /* Build configuration list for PBXNativeTarget "Pods-iOS_client_NeoCafe_" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				973FCD7F1A52A499107701799212A0FE /* Debug */,
+				7C51A2024C656219F6CE99EC6C2549D3 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		FB296D1C543ACA89207838196BB823E7 /* Build configuration list for PBXAggregateTarget "SwiftGen" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				2202230BF25CAB2FDC609A71D79055BB /* Debug */,
+				CF3B4AB84D0F77E437676BAFB9C2086C /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = BFDFE7DC352907FC980B868725387E98 /* Project object */;
+}

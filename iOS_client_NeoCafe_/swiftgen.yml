@@ -1,0 +1,25 @@
+# 1
+input_dir: iOS_client_NeoCafe_/Supporting/
+# 2
+output_dir: iOS_client_NeoCafe_/Generated/
+
+## XCAssets
+# 1
+xcassets:
+  # 2
+  inputs:
+    - Assets.xcassets
+#    - Colors.xcassets
+  # 3
+  outputs:
+    # 4
+    templateName: swift5
+    # 5
+    output: XCAssets+Generated.swift
+
+fonts:
+  inputs:
+   - Fonts
+  outputs:
+    templateName: swift5
+    output: Fonts.swift

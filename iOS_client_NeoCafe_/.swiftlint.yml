@@ -2,6 +2,7 @@ line_length:
 - 300 # warning
 - 500 # error
 disabled_rules:
+- cyclomatic_complexity
 - file_length
 - redundant_objc_attribute
 - redundant_optional_initialization

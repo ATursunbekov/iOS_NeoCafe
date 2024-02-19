@@ -202,10 +202,12 @@ public class SVPinView: UIView {
             } else { showPinError(error: "ERR-102: Type Mismatch") }
         }
     }
-    //MARK: Change
+    // MARK: Change
     fileprivate func stylePinField(containerView: UIView, underLine: UIView, isActive: Bool) {
-        containerView.backgroundColor = false ? activeFieldBackgroundColor : fieldBackgroundColor
-        containerView.layer.cornerRadius = false ? activeFieldCornerRadius : fieldCornerRadius
+//        containerView.backgroundColor = false ? activeFieldBackgroundColor : fieldBackgroundColor
+        containerView.backgroundColor = fieldBackgroundColor
+//        containerView.layer.cornerRadius = false ? activeFieldCornerRadius : fieldCornerRadius
+        containerView.layer.cornerRadius = fieldCornerRadius
         
         func setupUnderline(color: UIColor, withThickness thickness: CGFloat) {
             underLine.backgroundColor = color
@@ -225,8 +227,10 @@ public class SVPinView: UIView {
             containerView.layer.borderColor = UIColor.clear.cgColor
         case .box:
             setupUnderline(color: UIColor.clear, withThickness: 0)
-            containerView.layer.borderWidth = false ? activeBorderLineThickness : borderLineThickness
-            containerView.layer.borderColor = false ? activeBorderLineColor.cgColor : borderLineColor.cgColor
+//            containerView.layer.borderWidth = false ? activeBorderLineThickness : borderLineThickness
+//            containerView.layer.borderColor = false ? activeBorderLineColor.cgColor : borderLineColor.cgColor
+            containerView.layer.borderWidth = borderLineThickness
+            containerView.layer.borderColor = borderLineColor.cgColor
         }
      }
     

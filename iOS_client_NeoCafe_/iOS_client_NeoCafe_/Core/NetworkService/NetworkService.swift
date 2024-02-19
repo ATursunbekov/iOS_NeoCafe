@@ -33,12 +33,20 @@ class NetworkService: NetworkServiceProtocol {
             case .success(let response):
                 do {
                     let _ = try response.filterSuccessfulStatusCodes()
-                    do {
-                        let mappedModel = try response.map(SuccessModel.self, failsOnEmptyData: false)
-                        completion(.success(mappedModel))
-                    } catch let modelMappingError {
-                        print(endpoint, modelMappingError)
-                        completion(.failure(MoyaError.encodableMapping(modelMappingError)))
+                    if successModelType == String.self {
+                        if let stringResponse = String(data: response.data, encoding: .utf8) {
+                            completion(.success(stringResponse as! SuccessModel))
+                        } else {
+                            completion(.failure(MoyaError.stringMapping(response)))
+                        }
+                    } else {
+                        do {
+                            let mappedModel = try response.map(SuccessModel.self, failsOnEmptyData: false)
+                            completion(.success(mappedModel))
+                        } catch let modelMappingError {
+                            print(endpoint, modelMappingError)
+                            completion(.failure(MoyaError.encodableMapping(modelMappingError)))
+                        }
                     }
                 } catch let validationError as MoyaError {
                     switch validationError {

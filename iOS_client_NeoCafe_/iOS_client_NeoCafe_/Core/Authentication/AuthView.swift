@@ -22,7 +22,7 @@ class AuthView: UIView {
     
     lazy var titleLabel: UILabel = {
         let label = UILabel()
-        label.text = "Вход"
+        label.text = Str.entry
         label.font = UIFont(name: FontFamily.Poppins.bold.name, size: 32)
         label.textColor = Asset.colorTitle.color
         return label
@@ -46,11 +46,11 @@ class AuthView: UIView {
         return controller
     }()
     
-    lazy var textField = CustomTextField(placeholder: "Введите почту", image: Asset.dog.name)
+    lazy var textField = CustomTextField(placeholder: Str.enterEmail, image: Asset.dog.name)
     
     lazy var button: UIButton = {
         let button = UIButton()
-        button.setTitle("Получить код", for: .normal)
+        button.setTitle(Str.getCode, for: .normal)
         button.backgroundColor = Asset.colorDarkBlue.color
         button.layer.cornerRadius = 16
         button.setTitleColor(Asset.colorWhite.color, for: .normal)
@@ -60,7 +60,7 @@ class AuthView: UIView {
     
     lazy var firstErrorText: UILabel = {
         let label = UILabel()
-        label.text = "Неправильный адрес электронной почты, попробуйте ещё раз"
+        label.text = Str.wrongEmail
         label.textAlignment = .center
         label.numberOfLines = 0
         label.font = UIFont(name: FontFamily.Poppins.medium.name, size: 16)
@@ -78,8 +78,54 @@ class AuthView: UIView {
         pinView.shouldSecureText = false
         pinView.fieldBackgroundColor = Asset.colorGray.color
         pinView.pinInputAccessoryView = UIView()
-//        pinView.borderLineColor = .red
         return pinView
+    }()
+    
+    lazy var backButton: UIButton = {
+        let button = UIButton()
+        button.setImage(UIImage(named: Asset.arrowBack.name), for: .normal)
+        button.layer.cornerRadius = 20
+        button.backgroundColor = Asset.colorDarkBlue.color
+        return button
+    }()
+    
+    lazy var confirmationLabel = {
+        let label = UILabel()
+        label.text = Str.otpCodeLabel
+        label.numberOfLines = 0
+        label.font = UIFont(name: FontFamily.Poppins.medium.name, size: 18)
+        label.textAlignment = .center
+        return label
+    }()
+    
+    lazy var gmailLabel = {
+        let label = UILabel()
+        label.text = Str.exampleEmail
+        label.font = UIFont(name: FontFamily.Poppins.bold.name, size: 16)
+        label.textAlignment = .center
+        return label
+    }()
+    
+    lazy var resendButton = {
+        let button = UIButton()
+        button.setTitle(Str.resend, for: .normal)
+        button.titleLabel?.font = UIFont(name: FontFamily.Poppins.medium.name, size: 14)
+        button.setTitleColor(Asset.colorDarkGray.color, for: .normal)
+        return button
+    }()
+    
+    lazy var timeCounter = {
+        let label = UILabel()
+        label.text = ""
+        label.font =  UIFont(name: FontFamily.Poppins.bold.name, size: 14)
+        label.textColor = Asset.colorDarkGray.color
+        return label
+    }()
+    
+    lazy var underlineView = {
+        let view = UIView()
+        view.backgroundColor = Asset.colorRed.color
+        return view
     }()
     
     override init(frame: CGRect) {
@@ -97,13 +143,6 @@ class AuthView: UIView {
         addSubview(textField)
         addSubview(button)
         addSubview(firstErrorText)
-        addSubview(pinView)
-        
-        pinView.snp.makeConstraints { make in
-            make.centerX.equalToSuperview().offset(23)
-            make.centerY.equalToSuperview()
-            make.height.equalTo(52)
-        }
         
         topView.snp.makeConstraints { make in
             make.top.leading.trailing.equalToSuperview()
@@ -147,7 +186,65 @@ class AuthView: UIView {
             make.leading.trailing.equalToSuperview().inset(22)
             make.top.equalTo(customSegmentedControl.snp.bottom).offset(40)
         }
+
         firstErrorText.isHidden = true
+        
+        //Second View
+        topView.addSubview(backButton)
+        addSubview(confirmationLabel)
+        addSubview(gmailLabel)
+        addSubview(resendButton)
+        addSubview(timeCounter)
+        addSubview(pinView)
+        addSubview(underlineView)
+        
+        backButton.snp.makeConstraints { make in
+            make.centerY.equalToSuperview()
+            make.leading.equalToSuperview().offset(16)
+            make.height.equalTo(40)
+            make.width.equalTo(40)
+        }
+        
+        confirmationLabel.snp.makeConstraints { make in
+            make.top.equalTo(customSegmentedControl.snp.bottom).offset(40)
+            make.centerX.equalToSuperview()
+        }
+        
+        pinView.snp.makeConstraints { make in
+            make.centerX.equalToSuperview().offset(23)
+            make.top.equalTo(gmailLabel.snp.bottom).offset(16)
+            make.height.equalTo(52)
+        }
+        
+        gmailLabel.snp.makeConstraints { make in
+            make.centerX.equalToSuperview()
+            make.top.equalTo(confirmationLabel.snp.bottom)
+        }
+        
+        resendButton.snp.makeConstraints { make in
+            make.top.equalTo(button.snp.bottom).offset(16)
+            make.centerX.equalToSuperview().offset(-5)
+        }
+        
+        timeCounter.snp.makeConstraints { make in
+            make.centerY.equalTo(resendButton.snp.centerY)
+            make.leading.equalTo(resendButton.snp.trailing).offset(1)
+        }
+        
+        underlineView.snp.makeConstraints { make in
+            make.height.equalTo(1)
+            make.leading.equalTo(resendButton.snp.leading)
+            make.trailing.equalTo(resendButton.snp.trailing)
+            make.top.equalTo(resendButton.snp.bottom).offset(1)
+        }
+        
+        backButton.isHidden = true
+        confirmationLabel.isHidden = true
+        gmailLabel.isHidden = true
+        resendButton.isHidden = true
+        timeCounter.isHidden = true
+        pinView.isHidden = true
+        underlineView.isHidden = true
     }
     
     required init?(coder: NSCoder) {

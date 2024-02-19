@@ -8,6 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		41B6076EF66904E7AD338743 /* Pods_iOS_client_NeoCafe_.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8B2A31AA53A32482FB15A58B /* Pods_iOS_client_NeoCafe_.framework */; };
+		778A84312B80C79600805111 /* AuthAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 778A84302B80C79600805111 /* AuthAPI.swift */; };
+		778A84332B81339700805111 /* Token.swift in Sources */ = {isa = PBXBuildFile; fileRef = 778A84322B81339700805111 /* Token.swift */; };
+		778A84372B8134BB00805111 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 778A84362B8134BB00805111 /* MainViewController.swift */; };
 		7790B2E92B76891800431156 /* swiftgen.yml in Resources */ = {isa = PBXBuildFile; fileRef = 7790B2E82B76891800431156 /* swiftgen.yml */; };
 		7790B2EC2B768AB600431156 /* XCAssets+Generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7790B2EB2B768AB600431156 /* XCAssets+Generated.swift */; };
 		7790B2EE2B76A18100431156 /* Fonts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7790B2ED2B76A18100431156 /* Fonts.swift */; };
@@ -20,6 +23,14 @@
 		77BC3C632B7777AF004C644E /* AuthView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77BC3C622B7777AF004C644E /* AuthView.swift */; };
 		77BC3C662B778412004C644E /* CustomSegmentedControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77BC3C652B778412004C644E /* CustomSegmentedControl.swift */; };
 		77BC3C682B779498004C644E /* CustomTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77BC3C672B779498004C644E /* CustomTextField.swift */; };
+		77C065F52B834AAF00688087 /* Extension+UIFont.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77C065F42B834AAF00688087 /* Extension+UIFont.swift */; };
+		77C065F92B835B3100688087 /* Strings+Generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77C065F82B835B3100688087 /* Strings+Generated.swift */; };
+		77C065FF2B83640900688087 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 77C066002B83640900688087 /* Localizable.strings */; };
+		77C066032B838B8E00688087 /* MainCategoryCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77C066022B838B8E00688087 /* MainCategoryCollectionViewCell.swift */; };
+		77C066052B838C1200688087 /* MainMenuCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77C066042B838C1200688087 /* MainMenuCollectionViewCell.swift */; };
+		77E6107A2B82053400FED7F8 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77E610792B82053400FED7F8 /* MainView.swift */; };
+		77E6107C2B82065A00FED7F8 /* TopView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77E6107B2B82065A00FED7F8 /* TopView.swift */; };
+		77E6107E2B8209A500FED7F8 /* CustomSearchBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77E6107D2B8209A500FED7F8 /* CustomSearchBar.swift */; };
 		77FBFB9E2B6F834400F83EC7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77FBFB9D2B6F834400F83EC7 /* AppDelegate.swift */; };
 		77FBFBA02B6F834400F83EC7 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77FBFB9F2B6F834400F83EC7 /* SceneDelegate.swift */; };
 		77FBFBA22B6F834400F83EC7 /* AuthViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77FBFBA12B6F834400F83EC7 /* AuthViewController.swift */; };
@@ -40,6 +51,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		778A84302B80C79600805111 /* AuthAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthAPI.swift; sourceTree = "<group>"; };
+		778A84322B81339700805111 /* Token.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Token.swift; path = iOS_client_NeoCafe_/Core/NetworkService/Model/Token.swift; sourceTree = SOURCE_ROOT; };
+		778A84362B8134BB00805111 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		7790B2E82B76891800431156 /* swiftgen.yml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.yaml; path = swiftgen.yml; sourceTree = "<group>"; };
 		7790B2EB2B768AB600431156 /* XCAssets+Generated.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "XCAssets+Generated.swift"; sourceTree = "<group>"; };
 		7790B2ED2B76A18100431156 /* Fonts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Fonts.swift; sourceTree = "<group>"; };
@@ -52,6 +66,14 @@
 		77BC3C622B7777AF004C644E /* AuthView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthView.swift; sourceTree = "<group>"; };
 		77BC3C652B778412004C644E /* CustomSegmentedControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomSegmentedControl.swift; sourceTree = "<group>"; };
 		77BC3C672B779498004C644E /* CustomTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTextField.swift; sourceTree = "<group>"; };
+		77C065F42B834AAF00688087 /* Extension+UIFont.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension+UIFont.swift"; sourceTree = "<group>"; };
+		77C065F82B835B3100688087 /* Strings+Generated.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Strings+Generated.swift"; sourceTree = "<group>"; };
+		77C066002B83640900688087 /* Localizable.strings */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; path = Localizable.strings; sourceTree = "<group>"; };
+		77C066022B838B8E00688087 /* MainCategoryCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainCategoryCollectionViewCell.swift; sourceTree = "<group>"; };
+		77C066042B838C1200688087 /* MainMenuCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainMenuCollectionViewCell.swift; sourceTree = "<group>"; };
+		77E610792B82053400FED7F8 /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
+		77E6107B2B82065A00FED7F8 /* TopView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopView.swift; sourceTree = "<group>"; };
+		77E6107D2B8209A500FED7F8 /* CustomSearchBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomSearchBar.swift; sourceTree = "<group>"; };
 		77FBFB9A2B6F834400F83EC7 /* iOS_client_NeoCafe_.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iOS_client_NeoCafe_.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		77FBFB9D2B6F834400F83EC7 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		77FBFB9F2B6F834400F83EC7 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -105,11 +127,30 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		778A84342B8133D800805111 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				778A84322B81339700805111 /* Token.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		778A84352B8134A700805111 /* MainScreen */ = {
+			isa = PBXGroup;
+			children = (
+				77C066012B838B7200688087 /* CustomCells */,
+				778A84362B8134BB00805111 /* MainViewController.swift */,
+				77E610792B82053400FED7F8 /* MainView.swift */,
+			);
+			path = MainScreen;
+			sourceTree = "<group>";
+		};
 		7790B2EA2B768A6D00431156 /* Generated */ = {
 			isa = PBXGroup;
 			children = (
 				7790B2EB2B768AB600431156 /* XCAssets+Generated.swift */,
 				7790B2ED2B76A18100431156 /* Fonts.swift */,
+				77C065F82B835B3100688087 /* Strings+Generated.swift */,
 			);
 			path = Generated;
 			sourceTree = "<group>";
@@ -137,8 +178,19 @@
 			children = (
 				77BC3C652B778412004C644E /* CustomSegmentedControl.swift */,
 				77BC3C672B779498004C644E /* CustomTextField.swift */,
+				77E6107B2B82065A00FED7F8 /* TopView.swift */,
+				77E6107D2B8209A500FED7F8 /* CustomSearchBar.swift */,
 			);
 			path = CustomElements;
+			sourceTree = "<group>";
+		};
+		77C066012B838B7200688087 /* CustomCells */ = {
+			isa = PBXGroup;
+			children = (
+				77C066022B838B8E00688087 /* MainCategoryCollectionViewCell.swift */,
+				77C066042B838C1200688087 /* MainMenuCollectionViewCell.swift */,
+			);
+			path = CustomCells;
 			sourceTree = "<group>";
 		};
 		77FBFB912B6F834400F83EC7 = {
@@ -180,6 +232,7 @@
 				77FBFB9F2B6F834400F83EC7 /* SceneDelegate.swift */,
 				77FBFBA62B6F834600F83EC7 /* Assets.xcassets */,
 				77FBFBA82B6F834600F83EC7 /* LaunchScreen.storyboard */,
+				77C066002B83640900688087 /* Localizable.strings */,
 			);
 			path = Supporting;
 			sourceTree = "<group>";
@@ -187,11 +240,12 @@
 		77FBFBD22B6F883100F83EC7 /* Core */ = {
 			isa = PBXGroup;
 			children = (
+				77FBFBE82B6F8A3200F83EC7 /* NetworkService */,
+				77FBFBD62B6F889B00F83EC7 /* Authentication */,
+				778A84352B8134A700805111 /* MainScreen */,
 				77BC3C642B7783FA004C644E /* CustomElements */,
 				77FBFBF32B6F8B4900F83EC7 /* Coordinator */,
 				77FBFBED2B6F8A9900F83EC7 /* DI */,
-				77FBFBE82B6F8A3200F83EC7 /* NetworkService */,
-				77FBFBD62B6F889B00F83EC7 /* Authentication */,
 			);
 			path = Core;
 			sourceTree = "<group>";
@@ -201,6 +255,7 @@
 			children = (
 				77FBFBD42B6F888900F83EC7 /* Extension+UIColor.swift */,
 				7790B2F62B76A44B00431156 /* Extension+UIViewController.swift */,
+				77C065F42B834AAF00688087 /* Extension+UIFont.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -220,7 +275,7 @@
 			isa = PBXGroup;
 			children = (
 				77FBFBE92B6F8A4600F83EC7 /* NetworkService.swift */,
-				77FBFBEC2B6F8A7100F83EC7 /* Models */,
+				778A84342B8133D800805111 /* Model */,
 				77FBFBEB2B6F8A6900F83EC7 /* APIs */,
 			);
 			path = NetworkService;
@@ -229,15 +284,9 @@
 		77FBFBEB2B6F8A6900F83EC7 /* APIs */ = {
 			isa = PBXGroup;
 			children = (
+				778A84302B80C79600805111 /* AuthAPI.swift */,
 			);
 			path = APIs;
-			sourceTree = "<group>";
-		};
-		77FBFBEC2B6F8A7100F83EC7 /* Models */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Models;
 			sourceTree = "<group>";
 		};
 		77FBFBED2B6F8A9900F83EC7 /* DI */ = {
@@ -338,6 +387,7 @@
 				77FBFBA72B6F834600F83EC7 /* Assets.xcassets in Resources */,
 				7790B2E92B76891800431156 /* swiftgen.yml in Resources */,
 				7790B2F52B76A1F600431156 /* Poppins-Regular.ttf in Resources */,
+				77C065FF2B83640900688087 /* Localizable.strings in Resources */,
 				7790B2F32B76A1F600431156 /* Poppins-Bold.ttf in Resources */,
 				7790B2F42B76A1F600431156 /* Poppins-Medium.ttf in Resources */,
 			);
@@ -429,9 +479,15 @@
 			buildActionMask = 2147483647;
 			files = (
 				77BC3C612B77672C004C644E /* AuthViewModel.swift in Sources */,
+				77C066032B838B8E00688087 /* MainCategoryCollectionViewCell.swift in Sources */,
 				77FBFBEA2B6F8A4600F83EC7 /* NetworkService.swift in Sources */,
 				77FBFBEF2B6F8AB000F83EC7 /* InjectionDefaultContainer.swift in Sources */,
+				77C065F92B835B3100688087 /* Strings+Generated.swift in Sources */,
 				77BC3C632B7777AF004C644E /* AuthView.swift in Sources */,
+				778A84312B80C79600805111 /* AuthAPI.swift in Sources */,
+				77E6107A2B82053400FED7F8 /* MainView.swift in Sources */,
+				77E6107C2B82065A00FED7F8 /* TopView.swift in Sources */,
+				77C066052B838C1200688087 /* MainMenuCollectionViewCell.swift in Sources */,
 				77FBFBA22B6F834400F83EC7 /* AuthViewController.swift in Sources */,
 				7790B2EC2B768AB600431156 /* XCAssets+Generated.swift in Sources */,
 				77FBFB9E2B6F834400F83EC7 /* AppDelegate.swift in Sources */,
@@ -439,9 +495,13 @@
 				77FBFBF52B6F8B7E00F83EC7 /* BaseCoordinator.swift in Sources */,
 				77FBFBA02B6F834400F83EC7 /* SceneDelegate.swift in Sources */,
 				77BC3C5F2B7766EA004C644E /* AuthCoordinator.swift in Sources */,
+				77E6107E2B8209A500FED7F8 /* CustomSearchBar.swift in Sources */,
 				7790B2EE2B76A18100431156 /* Fonts.swift in Sources */,
 				7790B2F72B76A44B00431156 /* Extension+UIViewController.swift in Sources */,
 				77FBFBD52B6F888900F83EC7 /* Extension+UIColor.swift in Sources */,
+				778A84372B8134BB00805111 /* MainViewController.swift in Sources */,
+				778A84332B81339700805111 /* Token.swift in Sources */,
+				77C065F52B834AAF00688087 /* Extension+UIFont.swift in Sources */,
 				77BC3C682B779498004C644E /* CustomTextField.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

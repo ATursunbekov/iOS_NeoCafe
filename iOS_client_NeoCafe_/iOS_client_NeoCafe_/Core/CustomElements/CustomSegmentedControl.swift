@@ -77,14 +77,7 @@ class CustomSegmentedControl: UIView {
     }
     
     func updateSelectedState() {
-        switch selectedIndex {
-        case 0:
-            selectionChanges(isFisrt: true)
-        case 1:
-            selectionChanges(isFisrt: false)
-        default:
-            break
-        }
+        selectionChanges(isFisrt: selectedIndex == 0)
         delegate?.valueChanged(selectedIndex: selectedIndex)
     }
     

@@ -4,17 +4,11 @@ input_dir: iOS_client_NeoCafe_/Supporting/
 output_dir: iOS_client_NeoCafe_/Generated/
 
 ## XCAssets
-# 1
 xcassets:
-  # 2
   inputs:
     - Assets.xcassets
-#    - Colors.xcassets
-  # 3
   outputs:
-    # 4
     templateName: swift5
-    # 5
     output: XCAssets+Generated.swift
 
 fonts:
@@ -23,3 +17,12 @@ fonts:
   outputs:
     templateName: swift5
     output: Fonts.swift
+    
+strings:
+  inputs:
+   - Localizable.strings
+  outputs:
+    templateName: structured-swift5
+    output: Strings+Generated.swift
+    params:
+        enumName: Str

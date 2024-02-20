@@ -234,7 +234,7 @@ extension AuthViewController: AuthDelegate {
     }
     
     func successfulConfirmation() {
-        navigationController?.pushViewController(MainViewController(), animated: true)
+        navigationController?.pushViewController(MainViewController(viewModel: MainViewModel()), animated: true)
     }
 }
 

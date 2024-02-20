@@ -33,12 +33,18 @@ internal enum Asset {
   internal static let colorRed = ColorAsset(name: "colorRed")
   internal static let colorTitle = ColorAsset(name: "colorTitle")
   internal static let colorWhite = ColorAsset(name: "colorWhite")
+  internal static let colorYellow = ColorAsset(name: "colorYellow")
   internal static let arrowBack = ImageAsset(name: "arrowBack")
+  internal static let bakering = ImageAsset(name: "bakering")
   internal static let bottomBean = ImageAsset(name: "bottom-bean")
+  internal static let cofe = ImageAsset(name: "cofe")
   internal static let cofeeLogo = ImageAsset(name: "cofeeLogo")
   internal static let coffeeBeans = ImageAsset(name: "coffee-beans")
+  internal static let desert = ImageAsset(name: "desert")
   internal static let dog = ImageAsset(name: "dog")
+  internal static let drink = ImageAsset(name: "drink")
   internal static let neocafe = ImageAsset(name: "neocafe")
+  internal static let tea = ImageAsset(name: "tea")
   internal static let topBean = ImageAsset(name: "top-bean")
 }
 // swiftlint:enable identifier_name line_length nesting type_body_length type_name

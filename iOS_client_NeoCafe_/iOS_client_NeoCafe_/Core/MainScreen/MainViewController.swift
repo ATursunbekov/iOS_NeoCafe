@@ -10,6 +10,16 @@ import UIKit
 class MainViewController: UIViewController {
     
     lazy var mainView = MainView()
+    var viewModel: MainViewModelProtocol?
+    
+    init(viewModel: MainViewModelProtocol) {
+        self.viewModel = viewModel
+        super.init(nibName: nil, bundle: nil)
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -42,6 +52,8 @@ extension MainViewController: UICollectionViewDelegate, UICollectionViewDataSour
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         if indexPath.section == 0 {
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: MainCategoryCollectionViewCell.identifier, for: indexPath) as! MainCategoryCollectionViewCell
+            guard let viewModel = viewModel else { return cell }
+            cell.configureData(name: viewModel.mainCategory[indexPath.row].name, image: viewModel.mainCategory[indexPath.row].image)
             return cell
         } else {
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: MainMenuCollectionViewCell.identifier, for: indexPath) as! MainMenuCollectionViewCell
@@ -51,14 +63,10 @@ extension MainViewController: UICollectionViewDelegate, UICollectionViewDataSour
     
     func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
         if indexPath.section == 0 {
-            let header = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: "header1", for: indexPath)
-            header.backgroundColor = UIColor.gray
-            // Configure your header for the first section
+            let header = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: MainCategoryCollectionReusableView.identifier, for: indexPath) as! MainCategoryCollectionReusableView
             return header
         } else {
-            let header = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: "header2", for: indexPath)
-            header.backgroundColor = UIColor.green
-            // Configure your header for the second section
+            let header = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: PopularCollectionReusableView.identifier, for: indexPath) as! PopularCollectionReusableView
             return header
         }
     }

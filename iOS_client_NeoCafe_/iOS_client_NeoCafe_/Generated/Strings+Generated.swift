@@ -22,9 +22,15 @@ internal enum Str {
   internal static let exampleEmail = Str.tr("Localizable", "exampleEmail", fallback: "example@email.com")
   /// Получить код
   internal static let getCode = Str.tr("Localizable", "getCode", fallback: "Получить код")
+  /// Наше меню
+  internal static let menu = Str.tr("Localizable", "menu", fallback: "Наше меню")
+  /// Перейти к меню
+  internal static let menuButton = Str.tr("Localizable", "menuButton", fallback: "Перейти к меню")
   /// Введите 4-х значный код,
   ///  отправленный на почту
   internal static let otpCodeLabel = Str.tr("Localizable", "OTPCodeLabel", fallback: "Введите 4-х значный код,\n отправленный на почту")
+  /// Популярное
+  internal static let popular = Str.tr("Localizable", "popular", fallback: "Популярное")
   /// Зарегистрироваться
   internal static let register = Str.tr("Localizable", "register", fallback: "Зарегистрироваться")
   /// Регистрация

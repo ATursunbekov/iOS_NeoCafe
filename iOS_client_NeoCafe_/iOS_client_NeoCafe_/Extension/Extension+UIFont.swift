@@ -26,6 +26,6 @@ enum CustomFontWeight: String {
 
 extension UIFont {
     static func poppins(size: Int, weight fontWight: CustomFontWeight) -> UIFont {
-        return UIFont(name: fontWight.fontName(), size: 32) ?? UIFont.systemFont(ofSize: CGFloat(size))
+        return UIFont(name: fontWight.fontName(), size: CGFloat(size)) ?? UIFont.systemFont(ofSize: CGFloat(size))
     }
 }

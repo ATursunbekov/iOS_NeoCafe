@@ -234,16 +234,6 @@ extension AuthViewController: AuthDelegate {
     }
     
     func successfulConfirmation() {
-        navigationController?.pushViewController(MainViewController(viewModel: MainViewModel()), animated: true)
+        navigationController?.pushViewController(CustomTabBarController(), animated: true)
     }
 }
-
-//#if DEBUG
-//
-//@available(iOS 13.0, *)
-//struct AuthViewControllerPreview: PreviewProvider {
-//    static var previews: some View {
-//        AuthViewController().showPreview()
-//    }
-//}
-//#endif

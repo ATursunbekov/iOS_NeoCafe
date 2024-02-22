@@ -23,7 +23,10 @@ class MainViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        navigationController?.navigationBar.isUserInteractionEnabled = false
         setupDelegates()
+        setupTargets()
+        //showBranches()
     }
     
     override func loadView() {
@@ -33,6 +36,16 @@ class MainViewController: UIViewController {
     func setupDelegates() {
         mainView.collectionView.delegate = self
         mainView.collectionView.dataSource = self
+    }
+    
+    func setupTargets() {
+        mainView.bellButton.addTarget(self, action: #selector(showBranches), for: .touchUpInside)
+    }
+    
+    @objc func showBranches() {
+        let branchView = BranchView()
+        branchView.modalPresentationStyle = .overFullScreen
+        present(branchView, animated: false)
     }
 }
 

@@ -14,6 +14,7 @@ protocol AddButtonDelegate: AnyObject {
 class CustomAddButton: UIView {
     var counter = 1
     var delegate: AddButtonDelegate?
+    var buttonSize: Int = 32
     
     lazy var minusButton = {
         let button = UIButton()
@@ -41,11 +42,19 @@ class CustomAddButton: UIView {
         return label
     }()
     
-    override init(frame: CGRect) {
-        super.init(frame: frame)
+    required init(fontSize: Int? = nil, buttonSize: Int? = nil) {
+        super.init(frame: .zero)
+        counterLabel.font = UIFont.poppins(size: fontSize ?? 16, weight: .bold)
+        self.buttonSize = buttonSize ?? 32
+        minusButton.layer.cornerRadius = CGFloat(buttonSize ?? 32) / 2.0
+        plusButton.layer.cornerRadius = CGFloat(buttonSize ?? 32) / 2.0
         setupConstraints()
         minusButton.addTarget(self, action: #selector(minusPressed), for: .touchUpInside)
         plusButton.addTarget(self, action: #selector(plusPressed), for: .touchUpInside)
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
     }
     
     func setupConstraints() {
@@ -55,7 +64,7 @@ class CustomAddButton: UIView {
         
         minusButton.snp.makeConstraints { make in
             make.leading.top.bottom.equalToSuperview()
-            make.width.equalTo(32)
+            make.width.equalTo(buttonSize)
         }
         
         counterLabel.snp.makeConstraints { make in
@@ -64,13 +73,15 @@ class CustomAddButton: UIView {
         
         plusButton.snp.makeConstraints { make in
             make.trailing.top.bottom.equalToSuperview()
-            make.width.equalTo(32)
+            make.width.equalTo(buttonSize)
         }
     }
     
     @objc func plusPressed() {
-        counter += 1
-        counterLabel.text = String(counter)
+        if counter < 9 {
+            counter += 1
+            counterLabel.text = String(counter)
+        }
     }
     
     @objc func minusPressed() {
@@ -80,9 +91,5 @@ class CustomAddButton: UIView {
             counter -= 1
             counterLabel.text = String(counter)
         }
-    }
-    
-    required init?(coder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
     }
 }

@@ -10,8 +10,20 @@ import Foundation
 // swiftlint:disable explicit_type_interface function_parameter_count identifier_name line_length
 // swiftlint:disable nesting type_body_length type_name vertical_whitespace_opening_braces
 internal enum Str {
+  /// Добавить ещё
+  internal static let addMore = Str.tr("Localizable", "addMore", fallback: "Добавить ещё")
+  /// В корзину
+  internal static let basketButton = Str.tr("Localizable", "basketButton", fallback: "В корзину")
+  /// Корзина
+  internal static let basketTitle = Str.tr("Localizable", "basketTitle", fallback: "Корзина")
+  /// Отмена
+  internal static let cancel = Str.tr("Localizable", "cancel", fallback: "Отмена")
+  /// Категории
+  internal static let categoryLabel = Str.tr("Localizable", "categoryLabel", fallback: "Категории")
   /// Подтвердить
   internal static let confirm = Str.tr("Localizable", "confirm", fallback: "Подтвердить")
+  /// Ваша корзина пуста
+  internal static let emptyBasketTitle = Str.tr("Localizable", "EmptyBasketTitle", fallback: "Ваша корзина пуста")
   /// Войти
   internal static let enter = Str.tr("Localizable", "enter", fallback: "Войти")
   /// Введите почту
@@ -22,30 +34,62 @@ internal enum Str {
   internal static let exampleEmail = Str.tr("Localizable", "exampleEmail", fallback: "example@email.com")
   /// Получить код
   internal static let getCode = Str.tr("Localizable", "getCode", fallback: "Получить код")
+  /// В заведении
+  internal static let inCafe = Str.tr("Localizable", "inCafe", fallback: "В заведении")
   /// Наше меню
   internal static let menu = Str.tr("Localizable", "menu", fallback: "Наше меню")
   /// Перейти к меню
   internal static let menuButton = Str.tr("Localizable", "menuButton", fallback: "Перейти к меню")
+  /// Меню:
+  internal static let menuTitle = Str.tr("Localizable", "menuTitle", fallback: "Меню:")
+  /// Молоко
+  internal static let milkTitle = Str.tr("Localizable", "milkTitle", fallback: "Молоко")
+  /// Нет
+  internal static let no = Str.tr("Localizable", "no", fallback: "Нет")
+  /// Заказать
+  internal static let order = Str.tr("Localizable", "order", fallback: "Заказать")
+  /// Ваш заказ принят, пожалуйста ожидайте
+  internal static let orderConfirmationDescription = Str.tr("Localizable", "orderConfirmationDescription", fallback: "Ваш заказ принят, пожалуйста ожидайте")
   /// Введите 4-х значный код,
   ///  отправленный на почту
   internal static let otpCodeLabel = Str.tr("Localizable", "OTPCodeLabel", fallback: "Введите 4-х значный код,\n отправленный на почту")
   /// Популярное
   internal static let popular = Str.tr("Localizable", "popular", fallback: "Популярное")
+  /// Латте — шоколадное пирожное коричневого цвета, прямоугольные куски нарезанного шоколадного пирога.
+  internal static let productDetailDescription = Str.tr("Localizable", "productDetailDescription", fallback: "Латте — шоколадное пирожное коричневого цвета, прямоугольные куски нарезанного шоколадного пирога.")
+  /// Приятное дополнение
+  internal static let productDetailRecommendation = Str.tr("Localizable", "productDetailRecommendation", fallback: "Приятное дополнение")
   /// Зарегистрироваться
   internal static let register = Str.tr("Localizable", "register", fallback: "Зарегистрироваться")
   /// Регистрация
   internal static let registration = Str.tr("Localizable", "registration", fallback: "Регистрация")
   /// Отправить ещё раз через
   internal static let resend = Str.tr("Localizable", "resend", fallback: "Отправить ещё раз через")
+  /// Поиск
+  internal static let searchPlaceholder = Str.tr("Localizable", "searchPlaceholder", fallback: "Поиск")
+  /// Сироп
+  internal static let syrup = Str.tr("Localizable", "syrup", fallback: "Сироп")
+  /// Списание бонусов
+  internal static let takeBonus = Str.tr("Localizable", "takeBonus", fallback: "Списание бонусов")
+  /// Списать
+  internal static let takeBonusButtonTitle = Str.tr("Localizable", "takeBonusButtonTitle", fallback: "Списать")
+  /// Введите количество бонусов, которое хотите списать
+  internal static let takeBonusDescription = Str.tr("Localizable", "takeBonusDescription", fallback: "Введите количество бонусов, которое хотите списать")
+  /// Итого: 
+  internal static let total = Str.tr("Localizable", "total", fallback: "Итого: ")
   /// Код подтверждения
   internal static let verificationCode = Str.tr("Localizable", "verificationCode", fallback: "Код подтверждения")
   /// Доброе утро!
   internal static let welcomeMessage = Str.tr("Localizable", "welcomeMessage", fallback: "Доброе утро!")
+  /// Отлично!
+  internal static let well = Str.tr("Localizable", "well", fallback: "Отлично!")
   /// Код введён неверно,
   ///  попробуйте еще раз
   internal static let wrongCode = Str.tr("Localizable", "wrongCode", fallback: "Код введён неверно,\n попробуйте еще раз")
   /// Неправильный адрес электронной почты, попробуйте ещё раз
   internal static let wrongEmail = Str.tr("Localizable", "wrongEmail", fallback: "Неправильный адрес электронной почты, попробуйте ещё раз")
+  /// Да
+  internal static let yes = Str.tr("Localizable", "yes", fallback: "Да")
 }
 // swiftlint:enable explicit_type_interface function_parameter_count identifier_name line_length
 // swiftlint:enable nesting type_body_length type_name vertical_whitespace_opening_braces

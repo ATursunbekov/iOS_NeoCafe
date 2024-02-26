@@ -29,7 +29,7 @@ class MainView: UIView {
         return button
     }()
     
-    lazy var searchBar = CustomSearchBar()
+    lazy var searchBar = MainScreenSearchBar()
     
     lazy var collectionView = {
         let collecitonView = UICollectionView(frame: .zero, collectionViewLayout: createLayout())

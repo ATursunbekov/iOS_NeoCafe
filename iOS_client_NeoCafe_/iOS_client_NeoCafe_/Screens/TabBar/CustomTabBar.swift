@@ -4,7 +4,6 @@
 //
 //  Created by Alikhan Tursunbekov on 20/2/24.
 //
-
 import UIKit
 import SwiftUI
 
@@ -74,6 +73,8 @@ class CustomTabBarController: UITabBarController {
     private func generateVC(viewController: UIViewController, title: String, image: UIImage?) -> UIViewController {
         viewController.tabBarItem.title = title
         viewController.tabBarItem.image = image
+        viewController.tabBarItem.imageInsets = UIEdgeInsets(top: 10, left: 0, bottom: -10, right: 0)
+        viewController.tabBarItem.titlePositionAdjustment = .init(horizontal: 0, vertical: 10)
         return viewController
     }
 
@@ -82,7 +83,7 @@ class CustomTabBarController: UITabBarController {
         case .home:
             return UINavigationController(rootViewController: MainViewController(viewModel: MainViewModel()))
         case .basket:
-            return UINavigationController(rootViewController: MainViewController(viewModel: MainViewModel()))
+            return UINavigationController(rootViewController: BasketViewController())
         case .branch:
             return UINavigationController(rootViewController: MainViewController(viewModel: MainViewModel()))
         case .profile:

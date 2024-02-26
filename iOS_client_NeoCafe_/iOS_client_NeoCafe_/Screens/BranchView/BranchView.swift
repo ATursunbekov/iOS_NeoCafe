@@ -10,12 +10,12 @@ import SwiftUI
 
 class BranchView: UIViewController {
     let branches = [
-        BranchModel(name: "NeoCafe Dzerzhinka", image: Asset.branchImage.name),
-        BranchModel(name: "NeoCafe Dzerzhinka", image: Asset.branchImage.name),
-        BranchModel(name: "NeoCafe Dzerzhinka", image: Asset.branchImage.name),
-        BranchModel(name: "NeoCafe Dzerzhinka", image: Asset.branchImage.name),
-        BranchModel(name: "NeoCafe Dzerzhinka", image: Asset.branchImage.name),
-        BranchModel(name: "NeoCafe Dzerzhinka", image: Asset.branchImage.name)
+        BranchModel(name: "NeoCafe Dzerzhinka", image: Asset.cafeImage.name),
+        BranchModel(name: "NeoCafe Dzerzhinka", image: Asset.cafeImage.name),
+        BranchModel(name: "NeoCafe Dzerzhinka", image: Asset.cafeImage.name),
+        BranchModel(name: "NeoCafe Dzerzhinka", image: Asset.cafeImage.name),
+        BranchModel(name: "NeoCafe Dzerzhinka", image: Asset.cafeImage.name),
+        BranchModel(name: "NeoCafe Dzerzhinka", image: Asset.cafeImage.name)
     ]
     
     lazy var customView = {
@@ -109,7 +109,8 @@ extension BranchView: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        print("Selected item: \(indexPath.row)")
+        DataManager.shared.setBranch(branches[indexPath.row].name)
+        dismiss(animated: false)
     }
 }
 

@@ -2,7 +2,7 @@
 //  CustomSearchBar.swift
 //  iOS_client_NeoCafe_
 //
-//  Created by Alikhan Tursunbekov on 18/2/24.
+//  Created by Alikhan Tursunbekov on 25/2/24.
 //
 
 import UIKit
@@ -18,41 +18,82 @@ class CustomSearchBar: UIView {
             .font: UIFont(name: FontFamily.Poppins.regular.name, size: 15) ?? UIFont.systemFont(ofSize: 15)
         ]
         textField.font = UIFont(name: FontFamily.Poppins.regular.name, size: 16)
-        textField.attributedPlaceholder = NSAttributedString(string: "Поиск", attributes: attributes)
+        textField.attributedPlaceholder = NSAttributedString(string: Str.searchPlaceholder, attributes: attributes)
         textField.autocapitalizationType = .none
         textField.autocorrectionType = .no
         return textField
     }()
     
-    lazy var searchButton = {
+    lazy var backgroundView = {
+        let view = UIView()
+        view.layer.cornerRadius = 24
+        view.backgroundColor = Asset.colorWhite.color
+        view.layer.shadowColor = UIColor.black.cgColor
+        view.layer.shadowOffset = CGSize(width: 0, height: 2)
+        view.layer.shadowRadius = 4
+        view.layer.shadowOpacity = 0.2
+        return view
+    }()
+    
+    lazy var logoImage: UIImageView = {
+        let image = UIImageView(image: UIImage(systemName: "magnifyingglass"))
+        image.contentMode = .scaleAspectFill
+        image.tintColor = Asset.colorWhite.color
+        return image
+    }()
+    
+    lazy var imageView = {
+        let view = UIView()
+        view.backgroundColor = Asset.colorOrange.color
+        view.layer.cornerRadius = 24
+        return view
+    }()
+    
+    lazy var exitButton: UIButton = {
         let button = UIButton()
-        button.backgroundColor = Asset.colorOrange.color
-        button.setImage(UIImage(systemName: "magnifyingglass"), for: .normal)
-        button.layer.cornerRadius = 24
-        button.tintColor = .white
+        button.setImage(UIImage(named: Asset.exit.name), for: .normal)
+        button.tintColor = Asset.colorDarkGray.color
         return button
     }()
     
     override init(frame: CGRect) {
         super.init(frame: frame)
-        layer.cornerRadius = 24
-        backgroundColor = Asset.colorGray.color
         setupConstraints()
     }
     
     func setupConstraints() {
-        addSubview(textField)
-        addSubview(searchButton)
+        addSubview(backgroundView)
+        backgroundView.addSubview(imageView)
+        imageView.addSubview(logoImage)
+        backgroundView.addSubview(textField)
+        backgroundView.addSubview(exitButton)
         
-        searchButton.snp.makeConstraints { make in
-            make.trailing.top.bottom.equalToSuperview()
+        backgroundView.snp.makeConstraints { make in
+            make.edges.equalToSuperview()
+        }
+        
+        imageView.snp.makeConstraints { make in
+            make.leading.top.bottom.equalToSuperview()
             make.width.equalTo(48)
+        }
+        
+        logoImage.snp.makeConstraints { make in
+            make.centerX.centerY.equalToSuperview()
+            make.height.equalTo(24)
+            make.width.equalTo(24)
         }
         
         textField.snp.makeConstraints { make in
             make.centerY.equalToSuperview()
-            make.leading.equalToSuperview().offset(23)
-            make.trailing.equalTo(searchButton.snp.leading).offset(-10)
+            make.leading.equalTo(imageView.snp.trailing).offset(16)
+            make.trailing.equalTo(exitButton.snp.leading).offset(-10)
+        }
+        
+        exitButton.snp.makeConstraints { make in
+            make.trailing.equalToSuperview().offset(-16)
+            make.centerY.equalToSuperview()
+            make.height.equalTo(24)
+            make.width.equalTo(24)
         }
     }
     

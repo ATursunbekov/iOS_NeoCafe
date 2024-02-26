@@ -39,9 +39,12 @@ class CustomSegmentedControl: UIView {
         return stack
     }()
     
-    override init(frame: CGRect) {
-        super.init(frame: frame)
+    required init(firstOption: String? = "Войти", secondOption: String? = "Регистрация") {
+        super.init(frame: .zero)
         backgroundColor = Asset.colorGray.color
+        firstButton.setTitle(firstOption, for: .normal)
+        secondButton.setTitle(secondOption, for: .normal)
+        layer.cornerRadius = 24
         setupConstraints()
         setupTargets()
         updateSelectedState()

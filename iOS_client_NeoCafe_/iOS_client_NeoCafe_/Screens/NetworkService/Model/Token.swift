@@ -2,7 +2,7 @@
 //  Token.swift
 //  iOS_client_NeoCafe_
 //
-//  Created by Alikhan Tursunbekov on 18/2/24.
+//  Created by Alikhan Tursunbekov on 22/2/24.
 //
 
 import Foundation

@@ -9,11 +9,13 @@ import UIKit
 
 class MenuCollectionViewCell: UICollectionViewCell {
     static let identifier = "MenuCollectionViewCell"
+    var product: PopularProductModel?
     
     lazy var productImage = {
         let image = UIImageView(image: UIImage(named: Asset.cupOfCofe.name))
-        image.contentMode = .scaleAspectFit
-        layer.cornerRadius = 12
+        image.contentMode = .scaleAspectFill
+        image.layer.cornerRadius = 12
+        image.clipsToBounds = true
         return image
     }()
     
@@ -100,6 +102,30 @@ class MenuCollectionViewCell: UICollectionViewCell {
     @objc func plusPressed() {
         customAddButton.isHidden = false
         addButton.isHidden = true
+        DataManager.shared.addProduct(product: product!)
+    }
+    
+    func configureData(name: String, cost: Int, url: String, product: PopularProductModel) {
+        self.name.text = name
+        self.cost.text = "\(cost) c"
+        productImage.kf.setImage(with: URL(string: url))
+        self.product = product
+        setProductAmount()
+    }
+    
+    func setProductAmount() {
+        if let product = product {
+            let amount = DataManager.shared.getQuantity(of: product)
+            if  amount > 0 {
+                customAddButton.setAmount(amount)
+                customAddButton.isHidden = false
+                addButton.isHidden = true
+            } else {
+                customAddButton.setAmount(1)
+                customAddButton.isHidden = true
+                addButton.isHidden = false
+            }
+        }
     }
     
     required init?(coder: NSCoder) {
@@ -108,8 +134,23 @@ class MenuCollectionViewCell: UICollectionViewCell {
 }
 
 extension MenuCollectionViewCell: AddButtonDelegate {
+    func removePressed() {
+        if let product = product {
+            DataManager.shared.removeProduct(product: product)
+        }
+    }
+    
+    func addPressed() {
+        if let product = product {
+            DataManager.shared.addProduct(product: product)
+        }
+    }
+    
     func removeButton() {
         customAddButton.isHidden = true
         addButton.isHidden = false
+        if let product = product {
+            DataManager.shared.removeProduct(product: product)
+        }
     }
 }

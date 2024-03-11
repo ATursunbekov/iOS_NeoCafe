@@ -10,7 +10,7 @@ import SwiftUI
 
 class DetailView: UIView {
     
-    private lazy var productImage: UIImageView = {
+    lazy var productImage: UIImageView = {
         let image = UIImageView(image: UIImage(named: Asset.cofe2.name))
         image.contentMode = .scaleToFill
         image.backgroundColor = .red
@@ -28,7 +28,7 @@ class DetailView: UIView {
         return button
     }()
     
-    private lazy var nameLabel: UILabel = {
+    lazy var nameLabel: UILabel = {
         let label = UILabel()
         label.text = "Латте"
         label.font = .poppins(size: 24, weight: .bold)
@@ -36,7 +36,7 @@ class DetailView: UIView {
         return label
     }()
     
-    private lazy var descriptionLabel: UILabel = {
+    lazy var descriptionLabel: UILabel = {
         let label = UILabel()
         label.text = Str.productDetailDescription
         label.font = .poppins(size: 15, weight: .regular)
@@ -55,7 +55,7 @@ class DetailView: UIView {
         return button
     }()
     
-    private lazy var costLabel: UILabel = {
+    lazy var costLabel: UILabel = {
         let label = UILabel()
         label.text = "140 с"
         label.font = .poppins(size: 20, weight: .bold)
@@ -63,7 +63,7 @@ class DetailView: UIView {
         return label
     }()
     
-    private lazy var customButton = CustomAddButton(fontSize: 32, buttonSize: 40)
+    lazy var customButton = CustomAddButton(fontSize: 32, buttonSize: 40)
     
     private lazy var additionalProductName: UILabel = {
         let label = UILabel()
@@ -90,7 +90,7 @@ class DetailView: UIView {
         backgroundColor = Asset.colorWhite.color
         setupConstaints()
     }
-    
+     
     func setupConstaints() {
         addSubview(productImage)
         addSubview(backButton)
@@ -159,13 +159,3 @@ class DetailView: UIView {
         fatalError("init(coder:) has not been implemented")
     }
 }
-
-#if DEBUG
-
-@available(iOS 13.0, *)
-struct DetailViewControllerPreview: PreviewProvider {
-    static var previews: some View {
-        DetailViewController().showPreview()
-    }
-}
-#endif

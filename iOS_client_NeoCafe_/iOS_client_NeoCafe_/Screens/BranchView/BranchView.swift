@@ -113,13 +113,3 @@ extension BranchView: UITableViewDelegate, UITableViewDataSource {
         dismiss(animated: false)
     }
 }
-
-#if DEBUG
-
-@available(iOS 13.0, *)
-struct BranchViewControllerPreview: PreviewProvider {
-    static var previews: some View {
-        BranchView().showPreview()
-    }
-}
-#endif

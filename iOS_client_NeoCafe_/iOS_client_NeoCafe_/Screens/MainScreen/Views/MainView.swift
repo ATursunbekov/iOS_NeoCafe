@@ -131,7 +131,6 @@ private func createCategorySection() -> NSCollectionLayoutSection {
         elementKind: UICollectionView.elementKindSectionHeader,
         alignment: .top
     )
-//    header.contentInsets = NSDirectionalEdgeInsets(top: 0, leading: 8, bottom: 0, trailing: 0)
     section.boundarySupplementaryItems = [header]
     return section
 }

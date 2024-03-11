@@ -9,6 +9,8 @@ import UIKit
 
 protocol AddButtonDelegate: AnyObject {
     func removeButton()
+    func addPressed()
+    func removePressed()
 }
 
 class CustomAddButton: UIView {
@@ -57,6 +59,11 @@ class CustomAddButton: UIView {
         fatalError("init(coder:) has not been implemented")
     }
     
+    func setAmount(_ amount: Int) {
+        counterLabel.text = String(amount)
+        counter = amount
+    }
+    
     func setupConstraints() {
         addSubview(minusButton)
         addSubview(counterLabel)
@@ -81,6 +88,7 @@ class CustomAddButton: UIView {
         if counter < 9 {
             counter += 1
             counterLabel.text = String(counter)
+            delegate?.addPressed()
         }
     }
     
@@ -88,6 +96,7 @@ class CustomAddButton: UIView {
         if counter == 1 {
             delegate?.removeButton()
         } else {
+            delegate?.removePressed()
             counter -= 1
             counterLabel.text = String(counter)
         }

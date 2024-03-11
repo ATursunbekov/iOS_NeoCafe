@@ -16,6 +16,8 @@ internal enum Str {
   internal static let basketButton = Str.tr("Localizable", "basketButton", fallback: "В корзину")
   /// Корзина
   internal static let basketTitle = Str.tr("Localizable", "basketTitle", fallback: "Корзина")
+  /// Филиалы
+  internal static let branches = Str.tr("Localizable", "Branches", fallback: "Филиалы")
   /// Отмена
   internal static let cancel = Str.tr("Localizable", "cancel", fallback: "Отмена")
   /// Категории
@@ -50,21 +52,31 @@ internal enum Str {
   internal static let order = Str.tr("Localizable", "order", fallback: "Заказать")
   /// Ваш заказ принят, пожалуйста ожидайте
   internal static let orderConfirmationDescription = Str.tr("Localizable", "orderConfirmationDescription", fallback: "Ваш заказ принят, пожалуйста ожидайте")
+  /// Бонусы к списанию: 
+  internal static let orderDeatilBonusLabel = Str.tr("Localizable", "orderDeatilBonusLabel", fallback: "Бонусы к списанию: ")
+  /// История заказов
+  internal static let orderHistoryTitle = Str.tr("Localizable", "orderHistoryTitle", fallback: "История заказов")
   /// Введите 4-х значный код,
   ///  отправленный на почту
   internal static let otpCodeLabel = Str.tr("Localizable", "OTPCodeLabel", fallback: "Введите 4-х значный код,\n отправленный на почту")
   /// Популярное
   internal static let popular = Str.tr("Localizable", "popular", fallback: "Популярное")
+  /// Популярные блюда
+  internal static let popularFood = Str.tr("Localizable", "popularFood", fallback: "Популярные блюда")
   /// Латте — шоколадное пирожное коричневого цвета, прямоугольные куски нарезанного шоколадного пирога.
   internal static let productDetailDescription = Str.tr("Localizable", "productDetailDescription", fallback: "Латте — шоколадное пирожное коричневого цвета, прямоугольные куски нарезанного шоколадного пирога.")
   /// Приятное дополнение
   internal static let productDetailRecommendation = Str.tr("Localizable", "productDetailRecommendation", fallback: "Приятное дополнение")
+  /// Профиль
+  internal static let profileTitle = Str.tr("Localizable", "profileTitle", fallback: "Профиль")
   /// Зарегистрироваться
   internal static let register = Str.tr("Localizable", "register", fallback: "Зарегистрироваться")
   /// Регистрация
   internal static let registration = Str.tr("Localizable", "registration", fallback: "Регистрация")
   /// Отправить ещё раз через
   internal static let resend = Str.tr("Localizable", "resend", fallback: "Отправить ещё раз через")
+  /// График работы: 
+  internal static let schedule = Str.tr("Localizable", "Schedule", fallback: "График работы: ")
   /// Поиск
   internal static let searchPlaceholder = Str.tr("Localizable", "searchPlaceholder", fallback: "Поиск")
   /// Сироп
@@ -79,6 +91,14 @@ internal enum Str {
   internal static let total = Str.tr("Localizable", "total", fallback: "Итого: ")
   /// Код подтверждения
   internal static let verificationCode = Str.tr("Localizable", "verificationCode", fallback: "Код подтверждения")
+  /// Пн:
+  /// Вт:
+  /// Ср:
+  /// Чт:
+  /// Пт:
+  /// Сб:
+  /// Вс:
+  internal static let weekDay = Str.tr("Localizable", "weekDay", fallback: "Пн:\nВт:\nСр:\nЧт:\nПт:\nСб:\nВс:")
   /// Доброе утро!
   internal static let welcomeMessage = Str.tr("Localizable", "welcomeMessage", fallback: "Доброе утро!")
   /// Отлично!

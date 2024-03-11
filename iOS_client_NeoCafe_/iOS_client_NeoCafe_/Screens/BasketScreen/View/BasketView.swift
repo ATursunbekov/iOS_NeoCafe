@@ -68,11 +68,11 @@ class BasketView: UIView {
         return label
     }()
     
-    let customView = UIView(frame: CGRect(x: 0, y: 0, width: UIScreen.main.bounds.width, height: 65))
+    let customView = UIView(frame: CGRect(x: 0, y: 0, width: 0, height: 65))
     
     lazy var tableView: UITableView = {
         let tableView = UITableView(frame: .zero)
-        tableView.rowHeight = 104
+        tableView.rowHeight = 120
         tableView.layer.backgroundColor = UIColor.clear.cgColor
         tableView.backgroundColor = .clear
         tableView.register(BasketTableViewCell.self, forCellReuseIdentifier: BasketTableViewCell.identifier)
@@ -162,9 +162,9 @@ class BasketView: UIView {
         }
         
         addButton.snp.makeConstraints { make in
-//            make.centerX.equalToSuperview()
             make.top.bottom.equalToSuperview().inset(8)
-            make.leading.trailing.equalToSuperview().inset(16)
+            make.width.equalTo(UIScreen.main.bounds.width - 32)
+            make.centerX.equalToSuperview()
         }
         
         emptyTitle.snp.makeConstraints { make in

@@ -168,6 +168,8 @@ class BonusViewController: UIViewController {
         super.viewDidLoad()
         view.backgroundColor = UIColor.black.withAlphaComponent(0.35)
         setupConstraints()
+        setupTargets()
+        updateView()
     }
     
     func setupConstraints() {
@@ -284,6 +286,49 @@ class BonusViewController: UIViewController {
             make.height.equalTo(54)
         }
         
+        popup3.isHidden = true
+    }
+    
+    func setupTargets() {
+        confirmButton.addTarget(self, action: #selector(goForward), for: .touchUpInside)
+        takeBonusButton.addTarget(self, action: #selector(goForward), for: .touchUpInside)
+        finishButton.addTarget(self, action: #selector(goForward), for: .touchUpInside)
+        cancelButton1.addTarget(self, action: #selector(goBackPressed), for: .touchUpInside)
+        cancelButton2.addTarget(self, action: #selector(goBackPressed), for: .touchUpInside)
+    }
+    
+    func updateView() {
+        if statusNumber == 0 {
+            popup1.isHidden = false
+            popup2.isHidden = true
+            popup3.isHidden = true
+        } else if statusNumber == 1 {
+            popup1.isHidden = true
+            popup2.isHidden = false
+            popup3.isHidden = true
+        } else {
+            popup1.isHidden = true
+            popup2.isHidden = true
+            popup3.isHidden = false
+        }
+    }
+    
+    @objc func goBackPressed() {
+        if statusNumber == 0 {
+            dismiss(animated: false)
+        } else {
+            statusNumber -= 1
+            updateView()
+        }
+    }
+    
+    @objc func goForward() {
+        if statusNumber < 2 {
+            statusNumber += 1
+            updateView()
+        } else {
+            dismiss(animated: false)
+        }
     }
 }
 

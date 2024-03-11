@@ -20,6 +20,8 @@ class MainViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         tabBarController?.tabBar.isHidden = false
+        viewModel?.getPopular()
+        mainView.collectionView.reloadData()
     }
     
     override func viewDidLoad() {
@@ -44,6 +46,7 @@ class MainViewController: UIViewController {
     func setupDelegates() {
         mainView.collectionView.delegate = self
         mainView.collectionView.dataSource = self
+        viewModel?.delegate = self
     }
     
     func setupTargets() {
@@ -59,13 +62,15 @@ class MainViewController: UIViewController {
     }
     
     @objc func goToMenuScreen() {
-        navigationController?.pushViewController(MenuViewController(), animated: true)
+//        navigationController?.pushViewController(MenuViewController(), animated: true)
+        viewModel?.goToMenuScreen?(0)
     }
     
     @objc func searchBarPressed() {
-        let vc = SearchViewController()
-        tabBarController?.tabBar.isHidden = true
-        navigationController?.pushViewController(vc, animated: true)
+//        let vc = SearchViewController()
+//        tabBarController?.tabBar.isHidden = true
+//        navigationController?.pushViewController(vc, animated: true)
+        viewModel?.goToSearchScreen?()
     }
     
     required init?(coder: NSCoder) {
@@ -82,7 +87,7 @@ extension MainViewController: UICollectionViewDelegate, UICollectionViewDataSour
         if section == 0 {
             return 5
         } else {
-            return 5
+            return viewModel?.popularProducts.count ?? 0
         }
     }
     
@@ -94,6 +99,10 @@ extension MainViewController: UICollectionViewDelegate, UICollectionViewDataSour
             return cell
         } else {
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: MainMenuCollectionViewCell.identifier, for: indexPath) as! MainMenuCollectionViewCell
+            let temp = viewModel?.popularProducts[indexPath.row]
+            if let temp = temp {
+                cell.configureData(name: temp.name, description: temp.description, cost: temp.price, url: temp.url, product: temp)
+            }
             return cell
         }
     }
@@ -111,11 +120,17 @@ extension MainViewController: UICollectionViewDelegate, UICollectionViewDataSour
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         if indexPath.section == 0 {
-            navigationController?.pushViewController(MenuViewController(selectedIndex: indexPath.row), animated: true)
+            viewModel?.goToMenuScreen?(indexPath.row)
         } else {
-            let vc = DetailViewController()
-            tabBarController?.tabBar.isHidden = true
-            navigationController?.pushViewController(vc, animated: true)
+            if let product = viewModel?.popularProducts[indexPath.row] {
+                viewModel?.gotToProductDetailScreen?(product) 
+            }
         }
+    }
+}
+
+extension MainViewController: MainViewModelDelegate {
+    func getPopularResponse() {
+        mainView.collectionView.reloadData()
     }
 }

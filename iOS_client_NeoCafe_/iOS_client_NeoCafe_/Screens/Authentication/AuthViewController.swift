@@ -15,7 +15,7 @@ class AuthViewController: UIViewController {
     let authView = AuthView()   
     
     var timer: Timer?
-    var secondsRemaining = 5
+    var secondsRemaining = 60
     
     init(viewModel: AuthViewModelProtocol) {
         self.viewModel = viewModel
@@ -147,6 +147,15 @@ class AuthViewController: UIViewController {
         }
     }
     
+    func stopTimer() {
+        timer?.invalidate()
+        authView.timeCounter.isHidden = true
+        secondsRemaining = 60
+        authView.resendButton.isEnabled = true
+        authView.pinView.clearPin()
+        authView.gmailLabel.isHidden = true
+    }
+    
     @objc func resendCode() {
         if authView.customSegmentedControl.selectedIndex == 0 {
             viewModel.signIn(email: authView.textField.textField.text ?? "")
@@ -194,6 +203,7 @@ class AuthViewController: UIViewController {
     
     @objc func backPressed() {
         changeState(isSecond: false)
+        stopTimer()
     }
     
     required init?(coder: NSCoder) {
@@ -207,6 +217,7 @@ extension AuthViewController: SegmentedControlDelegate {
         authView.textField.textField.text = ""
         delay(0.1) {
             self.cleanErrors()
+            self.stopTimer()
         }
         if !viewModel.firstState {
             changeState(isSecond: false)
@@ -234,6 +245,8 @@ extension AuthViewController: AuthDelegate {
     }
     
     func successfulConfirmation() {
-        navigationController?.pushViewController(CustomTabBarController(), animated: true)
+//        navigationController?.pushViewController(CustomTabBarController(), animated: true)
+//        viewModel.onAuthNavigate
+        print("someone")
     }
 }

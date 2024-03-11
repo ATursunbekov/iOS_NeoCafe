@@ -51,13 +51,3 @@ class SearchView: UIView {
         fatalError("init(coder:) has not been implemented")
     }
 }
-
-#if DEBUG
-
-@available(iOS 13.0, *)
-struct SearchViewControllerPreview: PreviewProvider {
-    static var previews: some View {
-        SearchViewController().showPreview()
-    }
-}
-#endif

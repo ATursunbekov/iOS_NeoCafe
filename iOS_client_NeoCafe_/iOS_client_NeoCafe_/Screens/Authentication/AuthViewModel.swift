@@ -16,9 +16,9 @@ protocol AuthDelegate: AnyObject {
 }
 
 protocol AuthViewModelProtocol {
-    var coordinator: AuthCoordinator? {get set}
     var firstState: Bool {get set}
     var delegate: AuthDelegate? {get set}
+    var onAuthNavigate: EmptyCompletion? {get set}
     
     func changeState() 
     func signUp(email: String)
@@ -30,7 +30,7 @@ class AuthViewModel: AuthViewModelProtocol {
     
     @InjectionInjected(\.networkService) var networkService
     
-    var coordinator: AuthCoordinator?
+    var onAuthNavigate: EmptyCompletion?
     var delegate: AuthDelegate?
     var firstState = true
     
@@ -75,9 +75,10 @@ class AuthViewModel: AuthViewModelProtocol {
             switch result {
             case .success(let response):
                 DispatchQueue.main.async {
-                    self.delegate?.successfulConfirmation()
+//                    self.delegate?.successfulConfirmation()
+                    self.onAuthNavigate?()
                 }
-                print(response)
+                DataManager.shared.setTokens(token: response)
             case .failure(let error):
                 print("handle error: \(error)")
                 delegate?.confirmationError()

@@ -37,3 +37,10 @@
 "takeBonusButtonTitle" = "Списать";
 "well" = "Отлично!";
 "orderConfirmationDescription" = "Ваш заказ принят, пожалуйста ожидайте";
+"orderHistoryTitle" = "История заказов";
+"orderDeatilBonusLabel" = "Бонусы к списанию: ";
+"Branches" = "Филиалы";
+"Schedule" = "График работы: ";
+"weekDay" = "Пн:\nВт:\nСр:\nЧт:\nПт:\nСб:\nВс:";
+"popularFood" = "Популярные блюда";
+"profileTitle" = "Профиль";

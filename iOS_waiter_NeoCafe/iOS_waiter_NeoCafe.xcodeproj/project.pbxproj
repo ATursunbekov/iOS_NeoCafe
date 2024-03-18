@@ -7,21 +7,53 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		7553333FB9269C17BB9EB72E /* Pods_iOS_waiter_NeoCafe.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F870B81CFB6EE7CDB4576DED /* Pods_iOS_waiter_NeoCafe.framework */; };
 		77FBFBBE2B6F853100F83EC7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77FBFBBD2B6F853100F83EC7 /* AppDelegate.swift */; };
 		77FBFBC02B6F853100F83EC7 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77FBFBBF2B6F853100F83EC7 /* SceneDelegate.swift */; };
-		77FBFBC22B6F853100F83EC7 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77FBFBC12B6F853100F83EC7 /* ViewController.swift */; };
 		77FBFBC72B6F853400F83EC7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 77FBFBC62B6F853400F83EC7 /* Assets.xcassets */; };
 		77FBFBCA2B6F853400F83EC7 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 77FBFBC82B6F853400F83EC7 /* LaunchScreen.storyboard */; };
+		BA6E79B52BA8A16C0012F220 /* CombineMoya in Frameworks */ = {isa = PBXBuildFile; productRef = BA6E79B42BA8A16C0012F220 /* CombineMoya */; };
+		BA6E79B72BA8A16C0012F220 /* Moya in Frameworks */ = {isa = PBXBuildFile; productRef = BA6E79B62BA8A16C0012F220 /* Moya */; };
+		BA6E79B92BA8A16C0012F220 /* ReactiveMoya in Frameworks */ = {isa = PBXBuildFile; productRef = BA6E79B82BA8A16C0012F220 /* ReactiveMoya */; };
+		BA6E79BB2BA8A16C0012F220 /* RxMoya in Frameworks */ = {isa = PBXBuildFile; productRef = BA6E79BA2BA8A16C0012F220 /* RxMoya */; };
+		BA6E79BE2BA8A1950012F220 /* Factory in Frameworks */ = {isa = PBXBuildFile; productRef = BA6E79BD2BA8A1950012F220 /* Factory */; };
+		BA6E79C02BA8A2010012F220 /* AuthViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA6E79BF2BA8A2010012F220 /* AuthViewController.swift */; };
+		BA6E79C22BA8A20F0012F220 /* AuthView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA6E79C12BA8A20F0012F220 /* AuthView.swift */; };
+		BA6E79C42BA8A21A0012F220 /* AuthViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA6E79C32BA8A21A0012F220 /* AuthViewModel.swift */; };
+		BA6E79C72BA8A2520012F220 /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = BA6E79C62BA8A2520012F220 /* SnapKit */; };
+		BA6E79C92BA8A2520012F220 /* SnapKit-Dynamic in Frameworks */ = {isa = PBXBuildFile; productRef = BA6E79C82BA8A2520012F220 /* SnapKit-Dynamic */; };
+		BA6E79CD2BA8A2A90012F220 /* NetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA6E79CC2BA8A2A90012F220 /* NetworkService.swift */; };
+		BA6E79CF2BA8A2B40012F220 /* AuthAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA6E79CE2BA8A2B40012F220 /* AuthAPI.swift */; };
+		BA6E79D12BA8A2BE0012F220 /* Token.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA6E79D02BA8A2BE0012F220 /* Token.swift */; };
+		BA6E79D62BA8A32D0012F220 /* Ext+UIButton .swift in Sources */ = {isa = PBXBuildFile; fileRef = BA6E79D52BA8A32D0012F220 /* Ext+UIButton .swift */; };
+		BA6E79D82BA8A3450012F220 /* Ext+UIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA6E79D72BA8A3450012F220 /* Ext+UIColor.swift */; };
+		BA6E79DA2BA8A36B0012F220 /* Ext+UIFont.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA6E79D92BA8A36B0012F220 /* Ext+UIFont.swift */; };
+		BA6E79DC2BA8A38A0012F220 /* Ext+UIViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA6E79DB2BA8A38A0012F220 /* Ext+UIViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		302C4D17E9908AA304F693AD /* Pods-iOS_waiter_NeoCafe.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iOS_waiter_NeoCafe.debug.xcconfig"; path = "Target Support Files/Pods-iOS_waiter_NeoCafe/Pods-iOS_waiter_NeoCafe.debug.xcconfig"; sourceTree = "<group>"; };
 		77FBFBBA2B6F853100F83EC7 /* iOS_waiter_NeoCafe.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iOS_waiter_NeoCafe.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		77FBFBBD2B6F853100F83EC7 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		77FBFBBF2B6F853100F83EC7 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		77FBFBC12B6F853100F83EC7 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		77FBFBC62B6F853400F83EC7 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		77FBFBC92B6F853400F83EC7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		77FBFBCB2B6F853400F83EC7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		B1E94354D401818637410E75 /* Pods-iOS_waiter_NeoCafe.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iOS_waiter_NeoCafe.release.xcconfig"; path = "Target Support Files/Pods-iOS_waiter_NeoCafe/Pods-iOS_waiter_NeoCafe.release.xcconfig"; sourceTree = "<group>"; };
+		BA6E79BF2BA8A2010012F220 /* AuthViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthViewController.swift; sourceTree = "<group>"; };
+		BA6E79C12BA8A20F0012F220 /* AuthView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthView.swift; sourceTree = "<group>"; };
+		BA6E79C32BA8A21A0012F220 /* AuthViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthViewModel.swift; sourceTree = "<group>"; };
+		BA6E79CC2BA8A2A90012F220 /* NetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkService.swift; sourceTree = "<group>"; };
+		BA6E79CE2BA8A2B40012F220 /* AuthAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthAPI.swift; sourceTree = "<group>"; };
+		BA6E79D02BA8A2BE0012F220 /* Token.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Token.swift; sourceTree = "<group>"; };
+		BA6E79D52BA8A32D0012F220 /* Ext+UIButton .swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Ext+UIButton .swift"; sourceTree = "<group>"; };
+		BA6E79D72BA8A3450012F220 /* Ext+UIColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Ext+UIColor.swift"; sourceTree = "<group>"; };
+		BA6E79D92BA8A36B0012F220 /* Ext+UIFont.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Ext+UIFont.swift"; sourceTree = "<group>"; };
+		BA6E79DB2BA8A38A0012F220 /* Ext+UIViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Ext+UIViewController.swift"; sourceTree = "<group>"; };
+		BA6E79DE2BA8A3C30012F220 /* Poppins-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Poppins-Medium.ttf"; sourceTree = "<group>"; };
+		BA6E79DF2BA8A3C30012F220 /* Poppins-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Poppins-Bold.ttf"; sourceTree = "<group>"; };
+		BA6E79E02BA8A3C30012F220 /* Poppins-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Poppins-Regular.ttf"; sourceTree = "<group>"; };
+		F870B81CFB6EE7CDB4576DED /* Pods_iOS_waiter_NeoCafe.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_iOS_waiter_NeoCafe.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -29,17 +61,35 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BA6E79B72BA8A16C0012F220 /* Moya in Frameworks */,
+				BA6E79BE2BA8A1950012F220 /* Factory in Frameworks */,
+				BA6E79B52BA8A16C0012F220 /* CombineMoya in Frameworks */,
+				BA6E79C72BA8A2520012F220 /* SnapKit in Frameworks */,
+				BA6E79BB2BA8A16C0012F220 /* RxMoya in Frameworks */,
+				BA6E79C92BA8A2520012F220 /* SnapKit-Dynamic in Frameworks */,
+				BA6E79B92BA8A16C0012F220 /* ReactiveMoya in Frameworks */,
+				7553333FB9269C17BB9EB72E /* Pods_iOS_waiter_NeoCafe.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		5336CE554EDEA07CE67821E8 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				F870B81CFB6EE7CDB4576DED /* Pods_iOS_waiter_NeoCafe.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		77FBFBB12B6F853100F83EC7 = {
 			isa = PBXGroup;
 			children = (
 				77FBFBBC2B6F853100F83EC7 /* iOS_waiter_NeoCafe */,
 				77FBFBBB2B6F853100F83EC7 /* Products */,
+				7E26BD196328749B42E772CB /* Pods */,
+				5336CE554EDEA07CE67821E8 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -54,14 +104,84 @@
 		77FBFBBC2B6F853100F83EC7 /* iOS_waiter_NeoCafe */ = {
 			isa = PBXGroup;
 			children = (
-				77FBFBBD2B6F853100F83EC7 /* AppDelegate.swift */,
-				77FBFBBF2B6F853100F83EC7 /* SceneDelegate.swift */,
-				77FBFBC12B6F853100F83EC7 /* ViewController.swift */,
-				77FBFBC62B6F853400F83EC7 /* Assets.xcassets */,
-				77FBFBC82B6F853400F83EC7 /* LaunchScreen.storyboard */,
+				BA6E79DD2BA8A3A40012F220 /* Fonts */,
+				BA6E79D42BA8A3110012F220 /* Custom Views */,
+				BA6E79D32BA8A3050012F220 /* Extensions */,
+				BA6E79CB2BA8A2930012F220 /* Network Layer */,
+				BA6E79CA2BA8A2890012F220 /* Auth Flow */,
+				BA6E79D22BA8A2F70012F220 /* Supporting Files */,
 				77FBFBCB2B6F853400F83EC7 /* Info.plist */,
 			);
 			path = iOS_waiter_NeoCafe;
+			sourceTree = "<group>";
+		};
+		7E26BD196328749B42E772CB /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				302C4D17E9908AA304F693AD /* Pods-iOS_waiter_NeoCafe.debug.xcconfig */,
+				B1E94354D401818637410E75 /* Pods-iOS_waiter_NeoCafe.release.xcconfig */,
+			);
+			name = Pods;
+			path = Pods;
+			sourceTree = "<group>";
+		};
+		BA6E79CA2BA8A2890012F220 /* Auth Flow */ = {
+			isa = PBXGroup;
+			children = (
+				BA6E79BF2BA8A2010012F220 /* AuthViewController.swift */,
+				BA6E79C12BA8A20F0012F220 /* AuthView.swift */,
+				BA6E79C32BA8A21A0012F220 /* AuthViewModel.swift */,
+			);
+			path = "Auth Flow";
+			sourceTree = "<group>";
+		};
+		BA6E79CB2BA8A2930012F220 /* Network Layer */ = {
+			isa = PBXGroup;
+			children = (
+				BA6E79CC2BA8A2A90012F220 /* NetworkService.swift */,
+				BA6E79CE2BA8A2B40012F220 /* AuthAPI.swift */,
+				BA6E79D02BA8A2BE0012F220 /* Token.swift */,
+			);
+			path = "Network Layer";
+			sourceTree = "<group>";
+		};
+		BA6E79D22BA8A2F70012F220 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				77FBFBBD2B6F853100F83EC7 /* AppDelegate.swift */,
+				77FBFBBF2B6F853100F83EC7 /* SceneDelegate.swift */,
+				77FBFBC62B6F853400F83EC7 /* Assets.xcassets */,
+				77FBFBC82B6F853400F83EC7 /* LaunchScreen.storyboard */,
+			);
+			path = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		BA6E79D32BA8A3050012F220 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				BA6E79D52BA8A32D0012F220 /* Ext+UIButton .swift */,
+				BA6E79D72BA8A3450012F220 /* Ext+UIColor.swift */,
+				BA6E79D92BA8A36B0012F220 /* Ext+UIFont.swift */,
+				BA6E79DB2BA8A38A0012F220 /* Ext+UIViewController.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		BA6E79D42BA8A3110012F220 /* Custom Views */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = "Custom Views";
+			sourceTree = "<group>";
+		};
+		BA6E79DD2BA8A3A40012F220 /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				BA6E79DF2BA8A3C30012F220 /* Poppins-Bold.ttf */,
+				BA6E79DE2BA8A3C30012F220 /* Poppins-Medium.ttf */,
+				BA6E79E02BA8A3C30012F220 /* Poppins-Regular.ttf */,
+			);
+			path = Fonts;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -71,15 +191,26 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 77FBFBCE2B6F853400F83EC7 /* Build configuration list for PBXNativeTarget "iOS_waiter_NeoCafe" */;
 			buildPhases = (
+				EF6776E365EE9C03305708B7 /* [CP] Check Pods Manifest.lock */,
 				77FBFBB62B6F853100F83EC7 /* Sources */,
 				77FBFBB72B6F853100F83EC7 /* Frameworks */,
 				77FBFBB82B6F853100F83EC7 /* Resources */,
+				B93ACF9D45EF33FDA71805DF /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 			);
 			name = iOS_waiter_NeoCafe;
+			packageProductDependencies = (
+				BA6E79B42BA8A16C0012F220 /* CombineMoya */,
+				BA6E79B62BA8A16C0012F220 /* Moya */,
+				BA6E79B82BA8A16C0012F220 /* ReactiveMoya */,
+				BA6E79BA2BA8A16C0012F220 /* RxMoya */,
+				BA6E79BD2BA8A1950012F220 /* Factory */,
+				BA6E79C62BA8A2520012F220 /* SnapKit */,
+				BA6E79C82BA8A2520012F220 /* SnapKit-Dynamic */,
+			);
 			productName = iOS_waiter_NeoCafe;
 			productReference = 77FBFBBA2B6F853100F83EC7 /* iOS_waiter_NeoCafe.app */;
 			productType = "com.apple.product-type.application";
@@ -108,6 +239,11 @@
 				Base,
 			);
 			mainGroup = 77FBFBB12B6F853100F83EC7;
+			packageReferences = (
+				BA6E79B32BA8A16C0012F220 /* XCRemoteSwiftPackageReference "Moya.git" */,
+				BA6E79BC2BA8A1950012F220 /* XCRemoteSwiftPackageReference "Factory.git" */,
+				BA6E79C52BA8A2520012F220 /* XCRemoteSwiftPackageReference "SnapKit.git" */,
+			);
 			productRefGroup = 77FBFBBB2B6F853100F83EC7 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -129,14 +265,65 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		B93ACF9D45EF33FDA71805DF /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-iOS_waiter_NeoCafe/Pods-iOS_waiter_NeoCafe-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-iOS_waiter_NeoCafe/Pods-iOS_waiter_NeoCafe-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-iOS_waiter_NeoCafe/Pods-iOS_waiter_NeoCafe-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		EF6776E365EE9C03305708B7 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-iOS_waiter_NeoCafe-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		77FBFBB62B6F853100F83EC7 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				77FBFBC22B6F853100F83EC7 /* ViewController.swift in Sources */,
+				BA6E79C42BA8A21A0012F220 /* AuthViewModel.swift in Sources */,
 				77FBFBBE2B6F853100F83EC7 /* AppDelegate.swift in Sources */,
+				BA6E79DA2BA8A36B0012F220 /* Ext+UIFont.swift in Sources */,
+				BA6E79C02BA8A2010012F220 /* AuthViewController.swift in Sources */,
+				BA6E79C22BA8A20F0012F220 /* AuthView.swift in Sources */,
+				BA6E79CD2BA8A2A90012F220 /* NetworkService.swift in Sources */,
+				BA6E79DC2BA8A38A0012F220 /* Ext+UIViewController.swift in Sources */,
+				BA6E79D82BA8A3450012F220 /* Ext+UIColor.swift in Sources */,
+				BA6E79D62BA8A32D0012F220 /* Ext+UIButton .swift in Sources */,
 				77FBFBC02B6F853100F83EC7 /* SceneDelegate.swift in Sources */,
+				BA6E79CF2BA8A2B40012F220 /* AuthAPI.swift in Sources */,
+				BA6E79D12BA8A2BE0012F220 /* Token.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -275,6 +462,7 @@
 		};
 		77FBFBCF2B6F853400F83EC7 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 302C4D17E9908AA304F693AD /* Pods-iOS_waiter_NeoCafe.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -285,8 +473,9 @@
 				INFOPLIST_FILE = iOS_waiter_NeoCafe/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -294,14 +483,18 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.alikhan.iOS-waiter-NeoCafe";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
 		77FBFBD02B6F853400F83EC7 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = B1E94354D401818637410E75 /* Pods-iOS_waiter_NeoCafe.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -312,8 +505,9 @@
 				INFOPLIST_FILE = iOS_waiter_NeoCafe/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -321,9 +515,12 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.alikhan.iOS-waiter-NeoCafe";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
@@ -349,6 +546,71 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		BA6E79B32BA8A16C0012F220 /* XCRemoteSwiftPackageReference "Moya.git" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Moya/Moya.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 15.0.3;
+			};
+		};
+		BA6E79BC2BA8A1950012F220 /* XCRemoteSwiftPackageReference "Factory.git" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/hmlongco/Factory.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 2.3.2;
+			};
+		};
+		BA6E79C52BA8A2520012F220 /* XCRemoteSwiftPackageReference "SnapKit.git" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/SnapKit/SnapKit.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.7.1;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		BA6E79B42BA8A16C0012F220 /* CombineMoya */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = BA6E79B32BA8A16C0012F220 /* XCRemoteSwiftPackageReference "Moya.git" */;
+			productName = CombineMoya;
+		};
+		BA6E79B62BA8A16C0012F220 /* Moya */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = BA6E79B32BA8A16C0012F220 /* XCRemoteSwiftPackageReference "Moya.git" */;
+			productName = Moya;
+		};
+		BA6E79B82BA8A16C0012F220 /* ReactiveMoya */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = BA6E79B32BA8A16C0012F220 /* XCRemoteSwiftPackageReference "Moya.git" */;
+			productName = ReactiveMoya;
+		};
+		BA6E79BA2BA8A16C0012F220 /* RxMoya */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = BA6E79B32BA8A16C0012F220 /* XCRemoteSwiftPackageReference "Moya.git" */;
+			productName = RxMoya;
+		};
+		BA6E79BD2BA8A1950012F220 /* Factory */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = BA6E79BC2BA8A1950012F220 /* XCRemoteSwiftPackageReference "Factory.git" */;
+			productName = Factory;
+		};
+		BA6E79C62BA8A2520012F220 /* SnapKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = BA6E79C52BA8A2520012F220 /* XCRemoteSwiftPackageReference "SnapKit.git" */;
+			productName = SnapKit;
+		};
+		BA6E79C82BA8A2520012F220 /* SnapKit-Dynamic */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = BA6E79C52BA8A2520012F220 /* XCRemoteSwiftPackageReference "SnapKit.git" */;
+			productName = "SnapKit-Dynamic";
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 77FBFBB22B6F853100F83EC7 /* Project object */;
 }

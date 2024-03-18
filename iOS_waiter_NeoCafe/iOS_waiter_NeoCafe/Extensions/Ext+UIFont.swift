@@ -5,6 +5,8 @@
 //  Created by iPak Tulane on 18/03/24.
 //
 
+import UIKit
+
 // MARK: - UIFont Extension
 
 /// This extension enhances UIFont by providing a convenient way to create Poppins font instances with specified size and weight.

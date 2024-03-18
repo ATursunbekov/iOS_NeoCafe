@@ -29,6 +29,8 @@
 		BA6E79D82BA8A3450012F220 /* Ext+UIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA6E79D72BA8A3450012F220 /* Ext+UIColor.swift */; };
 		BA6E79DA2BA8A36B0012F220 /* Ext+UIFont.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA6E79D92BA8A36B0012F220 /* Ext+UIFont.swift */; };
 		BA6E79DC2BA8A38A0012F220 /* Ext+UIViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA6E79DB2BA8A38A0012F220 /* Ext+UIViewController.swift */; };
+		BA6E79E22BA8A8D90012F220 /* TopView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA6E79E12BA8A8D90012F220 /* TopView.swift */; };
+		BA6E79E42BA8A8E90012F220 /* CustomTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA6E79E32BA8A8E90012F220 /* CustomTextField.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -53,6 +55,8 @@
 		BA6E79DE2BA8A3C30012F220 /* Poppins-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Poppins-Medium.ttf"; sourceTree = "<group>"; };
 		BA6E79DF2BA8A3C30012F220 /* Poppins-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Poppins-Bold.ttf"; sourceTree = "<group>"; };
 		BA6E79E02BA8A3C30012F220 /* Poppins-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Poppins-Regular.ttf"; sourceTree = "<group>"; };
+		BA6E79E12BA8A8D90012F220 /* TopView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopView.swift; sourceTree = "<group>"; };
+		BA6E79E32BA8A8E90012F220 /* CustomTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTextField.swift; sourceTree = "<group>"; };
 		F870B81CFB6EE7CDB4576DED /* Pods_iOS_waiter_NeoCafe.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_iOS_waiter_NeoCafe.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -121,7 +125,6 @@
 				302C4D17E9908AA304F693AD /* Pods-iOS_waiter_NeoCafe.debug.xcconfig */,
 				B1E94354D401818637410E75 /* Pods-iOS_waiter_NeoCafe.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -170,6 +173,8 @@
 		BA6E79D42BA8A3110012F220 /* Custom Views */ = {
 			isa = PBXGroup;
 			children = (
+				BA6E79E12BA8A8D90012F220 /* TopView.swift */,
+				BA6E79E32BA8A8E90012F220 /* CustomTextField.swift */,
 			);
 			path = "Custom Views";
 			sourceTree = "<group>";
@@ -240,9 +245,9 @@
 			);
 			mainGroup = 77FBFBB12B6F853100F83EC7;
 			packageReferences = (
-				BA6E79B32BA8A16C0012F220 /* XCRemoteSwiftPackageReference "Moya.git" */,
-				BA6E79BC2BA8A1950012F220 /* XCRemoteSwiftPackageReference "Factory.git" */,
-				BA6E79C52BA8A2520012F220 /* XCRemoteSwiftPackageReference "SnapKit.git" */,
+				BA6E79B32BA8A16C0012F220 /* XCRemoteSwiftPackageReference "Moya" */,
+				BA6E79BC2BA8A1950012F220 /* XCRemoteSwiftPackageReference "Factory" */,
+				BA6E79C52BA8A2520012F220 /* XCRemoteSwiftPackageReference "SnapKit" */,
 			);
 			productRefGroup = 77FBFBBB2B6F853100F83EC7 /* Products */;
 			projectDirPath = "";
@@ -312,6 +317,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BA6E79E42BA8A8E90012F220 /* CustomTextField.swift in Sources */,
+				BA6E79E22BA8A8D90012F220 /* TopView.swift in Sources */,
 				BA6E79C42BA8A21A0012F220 /* AuthViewModel.swift in Sources */,
 				77FBFBBE2B6F853100F83EC7 /* AppDelegate.swift in Sources */,
 				BA6E79DA2BA8A36B0012F220 /* Ext+UIFont.swift in Sources */,
@@ -548,7 +555,7 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
-		BA6E79B32BA8A16C0012F220 /* XCRemoteSwiftPackageReference "Moya.git" */ = {
+		BA6E79B32BA8A16C0012F220 /* XCRemoteSwiftPackageReference "Moya" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/Moya/Moya.git";
 			requirement = {
@@ -556,7 +563,7 @@
 				minimumVersion = 15.0.3;
 			};
 		};
-		BA6E79BC2BA8A1950012F220 /* XCRemoteSwiftPackageReference "Factory.git" */ = {
+		BA6E79BC2BA8A1950012F220 /* XCRemoteSwiftPackageReference "Factory" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/hmlongco/Factory.git";
 			requirement = {
@@ -564,7 +571,7 @@
 				minimumVersion = 2.3.2;
 			};
 		};
-		BA6E79C52BA8A2520012F220 /* XCRemoteSwiftPackageReference "SnapKit.git" */ = {
+		BA6E79C52BA8A2520012F220 /* XCRemoteSwiftPackageReference "SnapKit" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/SnapKit/SnapKit.git";
 			requirement = {
@@ -577,37 +584,37 @@
 /* Begin XCSwiftPackageProductDependency section */
 		BA6E79B42BA8A16C0012F220 /* CombineMoya */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = BA6E79B32BA8A16C0012F220 /* XCRemoteSwiftPackageReference "Moya.git" */;
+			package = BA6E79B32BA8A16C0012F220 /* XCRemoteSwiftPackageReference "Moya" */;
 			productName = CombineMoya;
 		};
 		BA6E79B62BA8A16C0012F220 /* Moya */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = BA6E79B32BA8A16C0012F220 /* XCRemoteSwiftPackageReference "Moya.git" */;
+			package = BA6E79B32BA8A16C0012F220 /* XCRemoteSwiftPackageReference "Moya" */;
 			productName = Moya;
 		};
 		BA6E79B82BA8A16C0012F220 /* ReactiveMoya */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = BA6E79B32BA8A16C0012F220 /* XCRemoteSwiftPackageReference "Moya.git" */;
+			package = BA6E79B32BA8A16C0012F220 /* XCRemoteSwiftPackageReference "Moya" */;
 			productName = ReactiveMoya;
 		};
 		BA6E79BA2BA8A16C0012F220 /* RxMoya */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = BA6E79B32BA8A16C0012F220 /* XCRemoteSwiftPackageReference "Moya.git" */;
+			package = BA6E79B32BA8A16C0012F220 /* XCRemoteSwiftPackageReference "Moya" */;
 			productName = RxMoya;
 		};
 		BA6E79BD2BA8A1950012F220 /* Factory */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = BA6E79BC2BA8A1950012F220 /* XCRemoteSwiftPackageReference "Factory.git" */;
+			package = BA6E79BC2BA8A1950012F220 /* XCRemoteSwiftPackageReference "Factory" */;
 			productName = Factory;
 		};
 		BA6E79C62BA8A2520012F220 /* SnapKit */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = BA6E79C52BA8A2520012F220 /* XCRemoteSwiftPackageReference "SnapKit.git" */;
+			package = BA6E79C52BA8A2520012F220 /* XCRemoteSwiftPackageReference "SnapKit" */;
 			productName = SnapKit;
 		};
 		BA6E79C82BA8A2520012F220 /* SnapKit-Dynamic */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = BA6E79C52BA8A2520012F220 /* XCRemoteSwiftPackageReference "SnapKit.git" */;
+			package = BA6E79C52BA8A2520012F220 /* XCRemoteSwiftPackageReference "SnapKit" */;
 			productName = "SnapKit-Dynamic";
 		};
 /* End XCSwiftPackageProductDependency section */

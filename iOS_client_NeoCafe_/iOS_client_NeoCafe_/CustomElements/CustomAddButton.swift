@@ -11,6 +11,11 @@ protocol AddButtonDelegate: AnyObject {
     func removeButton()
     func addPressed()
     func removePressed()
+    func isEmptyCheck()
+}
+
+extension AddButtonDelegate {
+    func isEmptyCheck() {}
 }
 
 class CustomAddButton: UIView {
@@ -90,6 +95,7 @@ class CustomAddButton: UIView {
             counterLabel.text = String(counter)
             delegate?.addPressed()
         }
+        delegate?.isEmptyCheck()
     }
     
     @objc func minusPressed() {
@@ -100,5 +106,6 @@ class CustomAddButton: UIView {
             counter -= 1
             counterLabel.text = String(counter)
         }
+        delegate?.isEmptyCheck()
     }
 }

@@ -40,8 +40,8 @@ internal enum Str {
   internal static let inCafe = Str.tr("Localizable", "inCafe", fallback: "В заведении")
   /// Наше меню
   internal static let menu = Str.tr("Localizable", "menu", fallback: "Наше меню")
-  /// Перейти к меню
-  internal static let menuButton = Str.tr("Localizable", "menuButton", fallback: "Перейти к меню")
+  /// В меню
+  internal static let menuButton = Str.tr("Localizable", "menuButton", fallback: "В меню")
   /// Меню:
   internal static let menuTitle = Str.tr("Localizable", "menuTitle", fallback: "Меню:")
   /// Молоко

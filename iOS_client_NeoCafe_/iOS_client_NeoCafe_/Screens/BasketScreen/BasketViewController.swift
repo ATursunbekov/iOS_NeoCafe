@@ -21,6 +21,7 @@ class BasketViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         basketView.tableView.reloadData()
+        isEmptyBasket()
     }
     
     override func loadView() {
@@ -35,6 +36,25 @@ class BasketViewController: UIViewController {
     func setupTargets() {
         basketView.orderButton.addTarget(self, action: #selector(orderPressed), for: .touchUpInside)
         basketView.historyButton.addTarget(self, action: #selector(orderHistoryPressed), for: .touchUpInside)
+    }
+    
+    func isEmptyBasket() {
+        let check = DataManager.shared.getAllProducts().count == 0
+        basketView.segmentedController.isHidden = check
+        basketView.tableView.isHidden = check
+        basketView.orderButton.isHidden = check
+        basketView.totalTitle.isHidden = check
+        basketView.costLabel.isHidden = check
+        basketView.emptyTitle.isHidden = !check
+        basketView.emptyStatusImage.isHidden = !check
+        basketView.menuButton.isHidden = !check
+        if !check {
+            var temp = 0
+            for i in DataManager.shared.getAllProducts() {
+                temp += i.price * DataManager.shared.getQuantity(of: i)
+            }
+            basketView.costLabel.text = String(temp)
+        }
     }
     
     @objc func orderPressed() {
@@ -64,6 +84,10 @@ extension BasketViewController: UITableViewDelegate, UITableViewDataSource {
 }
 
 extension BasketViewController: BasketTableViewCellDelegate {
+    func isEmptyCheck() {
+        isEmptyBasket()
+    }
+    
     func reloadData() {
         basketView.tableView.reloadData()
     }

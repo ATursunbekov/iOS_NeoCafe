@@ -40,11 +40,21 @@ class BasketView: UIView {
         return button
     }()
     
-    lazy var segmentedController = CustomSegmentedControl(firstOption: Str.registration, secondOption: Str.inCafe)
+    lazy var segmentedController = CustomSegmentedControl(firstOption: "Возьму с собой", secondOption: Str.inCafe)
     
     lazy var orderButton: UIButton = {
         let button = UIButton()
         button.setTitle(Str.order, for: .normal)
+        button.setTitleColor(Asset.colorWhite.color, for: .normal)
+        button.layer.cornerRadius = 16
+        button.backgroundColor = Asset.colorDarkBlue.color
+        button.titleLabel?.font = .poppins(size: 16, weight: .bold)
+        return button
+    }()
+    
+    lazy var menuButton: UIButton = {
+        let button = UIButton()
+        button.setTitle(Str.menuButton, for: .normal)
         button.setTitleColor(Asset.colorWhite.color, for: .normal)
         button.layer.cornerRadius = 16
         button.backgroundColor = Asset.colorDarkBlue.color
@@ -116,6 +126,8 @@ class BasketView: UIView {
         addSubview(tableView)
         addSubview(emptyTitle)
         addSubview(emptyStatusImage)
+        addSubview(menuButton)
+        
         topView.snp.makeConstraints { make in
             make.leading.top.trailing.equalToSuperview()
             make.height.equalTo(140)
@@ -140,6 +152,12 @@ class BasketView: UIView {
         }
         
         orderButton.snp.makeConstraints { make in
+            make.leading.trailing.equalToSuperview().inset(16)
+            make.bottom.equalToSuperview().offset(-90)
+            make.height.equalTo(54)
+        }
+        
+        menuButton.snp.makeConstraints { make in
             make.leading.trailing.equalToSuperview().inset(16)
             make.bottom.equalToSuperview().offset(-90)
             make.height.equalTo(54)
@@ -181,6 +199,7 @@ class BasketView: UIView {
         
         emptyTitle.isHidden = true
         emptyStatusImage.isHidden = true
+        menuButton.isHidden = true
     }
     
     required init?(coder: NSCoder) {

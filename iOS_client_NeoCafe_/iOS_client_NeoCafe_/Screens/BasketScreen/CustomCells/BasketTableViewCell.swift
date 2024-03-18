@@ -9,6 +9,7 @@ import UIKit
 
 protocol BasketTableViewCellDelegate: AnyObject {
     func reloadData()
+    func isEmptyCheck()
 }
 
 class BasketTableViewCell: UITableViewCell {
@@ -121,6 +122,10 @@ class BasketTableViewCell: UITableViewCell {
 }
 
 extension BasketTableViewCell: AddButtonDelegate {
+    func isEmptyCheck() {
+        delegate?.isEmptyCheck()
+    }
+    
     func removePressed() {
         if let product = product {
             DataManager.shared.removeProduct(product: product)

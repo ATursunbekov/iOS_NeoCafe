@@ -95,4 +95,3 @@ class OrderTableViewCell: UITableViewCell {
         fatalError("init(coder:) has not been implemented")
     }
 }
-

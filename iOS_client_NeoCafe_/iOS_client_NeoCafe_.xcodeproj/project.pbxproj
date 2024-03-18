@@ -380,9 +380,9 @@
 		7737B5882B8BBB1D0045BE2A /* BasketScreen */ = {
 			isa = PBXGroup;
 			children = (
+				7737B58D2B8BBED90045BE2A /* View */,
 				7737F0392B8C657100572AC8 /* CustomCells */,
 				7737B5892B8BBE9A0045BE2A /* BasketViewController.swift */,
-				7737B58D2B8BBED90045BE2A /* View */,
 			);
 			path = BasketScreen;
 			sourceTree = "<group>";

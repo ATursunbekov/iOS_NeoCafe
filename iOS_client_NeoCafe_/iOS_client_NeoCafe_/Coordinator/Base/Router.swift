@@ -38,8 +38,7 @@ final class RouterImpl: NSObject, Router, UINavigationControllerDelegate, UIAdap
     func showAlert(withTitle title: String, message: String, buttonName: String) {
         
     }
-    
-    
+
     var navigationController: UINavigationController
     var completions: [UIViewController: EmptyCompletion]
     

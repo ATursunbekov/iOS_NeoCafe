@@ -31,6 +31,11 @@
 		BA6E79DC2BA8A38A0012F220 /* Ext+UIViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA6E79DB2BA8A38A0012F220 /* Ext+UIViewController.swift */; };
 		BA6E79E22BA8A8D90012F220 /* TopView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA6E79E12BA8A8D90012F220 /* TopView.swift */; };
 		BA6E79E42BA8A8E90012F220 /* CustomTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA6E79E32BA8A8E90012F220 /* CustomTextField.swift */; };
+		BA6E79E72BA9747B0012F220 /* DataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA6E79E62BA9747B0012F220 /* DataManager.swift */; };
+		BA6E79E92BA975EC0012F220 /* CategoryModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA6E79E82BA975EC0012F220 /* CategoryModel.swift */; };
+		BA6E79EB2BA976000012F220 /* BranchModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA6E79EA2BA976000012F220 /* BranchModel.swift */; };
+		BA6E79ED2BA9762C0012F220 /* ProductModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA6E79EC2BA9762C0012F220 /* ProductModel.swift */; };
+		BA6E79F02BA977B10012F220 /* InjectionDefaultContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA6E79EF2BA977B10012F220 /* InjectionDefaultContainer.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -57,6 +62,11 @@
 		BA6E79E02BA8A3C30012F220 /* Poppins-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Poppins-Regular.ttf"; sourceTree = "<group>"; };
 		BA6E79E12BA8A8D90012F220 /* TopView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopView.swift; sourceTree = "<group>"; };
 		BA6E79E32BA8A8E90012F220 /* CustomTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTextField.swift; sourceTree = "<group>"; };
+		BA6E79E62BA9747B0012F220 /* DataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataManager.swift; sourceTree = "<group>"; };
+		BA6E79E82BA975EC0012F220 /* CategoryModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryModel.swift; sourceTree = "<group>"; };
+		BA6E79EA2BA976000012F220 /* BranchModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BranchModel.swift; sourceTree = "<group>"; };
+		BA6E79EC2BA9762C0012F220 /* ProductModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductModel.swift; sourceTree = "<group>"; };
+		BA6E79EF2BA977B10012F220 /* InjectionDefaultContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InjectionDefaultContainer.swift; sourceTree = "<group>"; };
 		F870B81CFB6EE7CDB4576DED /* Pods_iOS_waiter_NeoCafe.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_iOS_waiter_NeoCafe.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -108,6 +118,8 @@
 		77FBFBBC2B6F853100F83EC7 /* iOS_waiter_NeoCafe */ = {
 			isa = PBXGroup;
 			children = (
+				BA6E79EE2BA977920012F220 /* DI */,
+				BA6E79E52BA974680012F220 /* Data Manager */,
 				BA6E79DD2BA8A3A40012F220 /* Fonts */,
 				BA6E79D42BA8A3110012F220 /* Custom Views */,
 				BA6E79D32BA8A3050012F220 /* Extensions */,
@@ -144,6 +156,9 @@
 				BA6E79CC2BA8A2A90012F220 /* NetworkService.swift */,
 				BA6E79CE2BA8A2B40012F220 /* AuthAPI.swift */,
 				BA6E79D02BA8A2BE0012F220 /* Token.swift */,
+				BA6E79E82BA975EC0012F220 /* CategoryModel.swift */,
+				BA6E79EA2BA976000012F220 /* BranchModel.swift */,
+				BA6E79EC2BA9762C0012F220 /* ProductModel.swift */,
 			);
 			path = "Network Layer";
 			sourceTree = "<group>";
@@ -187,6 +202,22 @@
 				BA6E79E02BA8A3C30012F220 /* Poppins-Regular.ttf */,
 			);
 			path = Fonts;
+			sourceTree = "<group>";
+		};
+		BA6E79E52BA974680012F220 /* Data Manager */ = {
+			isa = PBXGroup;
+			children = (
+				BA6E79E62BA9747B0012F220 /* DataManager.swift */,
+			);
+			path = "Data Manager";
+			sourceTree = "<group>";
+		};
+		BA6E79EE2BA977920012F220 /* DI */ = {
+			isa = PBXGroup;
+			children = (
+				BA6E79EF2BA977B10012F220 /* InjectionDefaultContainer.swift */,
+			);
+			path = DI;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -318,7 +349,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				BA6E79E42BA8A8E90012F220 /* CustomTextField.swift in Sources */,
+				BA6E79F02BA977B10012F220 /* InjectionDefaultContainer.swift in Sources */,
+				BA6E79E72BA9747B0012F220 /* DataManager.swift in Sources */,
 				BA6E79E22BA8A8D90012F220 /* TopView.swift in Sources */,
+				BA6E79EB2BA976000012F220 /* BranchModel.swift in Sources */,
 				BA6E79C42BA8A21A0012F220 /* AuthViewModel.swift in Sources */,
 				77FBFBBE2B6F853100F83EC7 /* AppDelegate.swift in Sources */,
 				BA6E79DA2BA8A36B0012F220 /* Ext+UIFont.swift in Sources */,
@@ -328,7 +362,9 @@
 				BA6E79DC2BA8A38A0012F220 /* Ext+UIViewController.swift in Sources */,
 				BA6E79D82BA8A3450012F220 /* Ext+UIColor.swift in Sources */,
 				BA6E79D62BA8A32D0012F220 /* Ext+UIButton .swift in Sources */,
+				BA6E79ED2BA9762C0012F220 /* ProductModel.swift in Sources */,
 				77FBFBC02B6F853100F83EC7 /* SceneDelegate.swift in Sources */,
+				BA6E79E92BA975EC0012F220 /* CategoryModel.swift in Sources */,
 				BA6E79CF2BA8A2B40012F220 /* AuthAPI.swift in Sources */,
 				BA6E79D12BA8A2BE0012F220 /* Token.swift in Sources */,
 			);

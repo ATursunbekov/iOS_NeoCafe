@@ -236,12 +236,12 @@ class AuthView: UIView {
     }
 }
 
-//#if DEBUG
-//import SwiftUI
-//@available(iOS 13.0, *)
-//struct AuthViewControllerPreview: PreviewProvider {
-//    static var previews: some View {
-//        AuthViewController(viewModel: AuthViewModel()).showPreview()
-//    }
-//}
-//#endif
+#if DEBUG
+import SwiftUI
+@available(iOS 13.0, *)
+struct AuthViewControllerPreview: PreviewProvider {
+    static var previews: some View {
+        AuthViewController(viewModel: AuthViewModel()).showPreview()
+    }
+}
+#endif

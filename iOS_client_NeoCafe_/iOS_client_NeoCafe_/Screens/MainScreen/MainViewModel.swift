@@ -44,9 +44,6 @@ class MainViewModel: MainViewModelProtocol {
             switch result {
             case .success(let response):
                 popularProducts = response
-                for i in response {
-                    print("Product id: \(i.id)")
-                }
                 delegate?.getPopularResponse()
             case .failure(let error):
                 print("handle error: \(error)")

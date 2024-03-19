@@ -41,7 +41,6 @@
 		776DF0B92B91BD510001A354 /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 776DF0B82B91BD510001A354 /* ProfileView.swift */; };
 		778140022B86027C00392707 /* BranchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 778140012B86027C00392707 /* BranchView.swift */; };
 		778140072B860B2400392707 /* BranchTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 778140062B860B2400392707 /* BranchTableViewCell.swift */; };
-		778140092B860DBA00392707 /* BranchModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 778140082B860DBA00392707 /* BranchModel.swift */; };
 		778A84312B80C79600805111 /* AuthAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 778A84302B80C79600805111 /* AuthAPI.swift */; };
 		778A84372B8134BB00805111 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 778A84362B8134BB00805111 /* MainViewController.swift */; };
 		7790B2E92B76891800431156 /* swiftgen.yml in Resources */ = {isa = PBXBuildFile; fileRef = 7790B2E82B76891800431156 /* swiftgen.yml */; };
@@ -54,6 +53,10 @@
 		779AF66A2B8DCC1600F69D40 /* OrderHistoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 779AF6692B8DCC1600F69D40 /* OrderHistoryViewController.swift */; };
 		779AF66D2B8DCC6900F69D40 /* OrderHistoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 779AF66C2B8DCC6900F69D40 /* OrderHistoryView.swift */; };
 		779F38232B9EE9D4004DB7AA /* СompositionModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 779F38222B9EE9D4004DB7AA /* СompositionModel.swift */; };
+		77A1B2C52BA97F880007BD99 /* BranchViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77A1B2C42BA97F880007BD99 /* BranchViewModel.swift */; };
+		77A1B2C82BA982350007BD99 /* BranchModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77A1B2C72BA982350007BD99 /* BranchModel.swift */; };
+		77A1B2CA2BA9851C0007BD99 /* BranchAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77A1B2C92BA9851C0007BD99 /* BranchAPI.swift */; };
+		77A1B2CC2BA98D910007BD99 /* BranchDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77A1B2CB2BA98D910007BD99 /* BranchDetailViewModel.swift */; };
 		77B24B1A2B9ADBFC00B8BEC8 /* SearchViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77B24B192B9ADBFC00B8BEC8 /* SearchViewModel.swift */; };
 		77B64B122B87A6B300437BD8 /* DataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77B64B112B87A6B300437BD8 /* DataManager.swift */; };
 		77B64B142B87A8EF00437BD8 /* Token.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77B64B132B87A8EF00437BD8 /* Token.swift */; };
@@ -141,7 +144,6 @@
 		776DF0B82B91BD510001A354 /* ProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
 		778140012B86027C00392707 /* BranchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BranchView.swift; sourceTree = "<group>"; };
 		778140062B860B2400392707 /* BranchTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BranchTableViewCell.swift; sourceTree = "<group>"; };
-		778140082B860DBA00392707 /* BranchModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BranchModel.swift; sourceTree = "<group>"; };
 		778A84302B80C79600805111 /* AuthAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthAPI.swift; sourceTree = "<group>"; };
 		778A84362B8134BB00805111 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		7790B2E82B76891800431156 /* swiftgen.yml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.yaml; path = swiftgen.yml; sourceTree = "<group>"; };
@@ -154,6 +156,10 @@
 		779AF6692B8DCC1600F69D40 /* OrderHistoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderHistoryViewController.swift; sourceTree = "<group>"; };
 		779AF66C2B8DCC6900F69D40 /* OrderHistoryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderHistoryView.swift; sourceTree = "<group>"; };
 		779F38222B9EE9D4004DB7AA /* СompositionModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "СompositionModel.swift"; sourceTree = "<group>"; };
+		77A1B2C42BA97F880007BD99 /* BranchViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BranchViewModel.swift; sourceTree = "<group>"; };
+		77A1B2C72BA982350007BD99 /* BranchModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BranchModel.swift; sourceTree = "<group>"; };
+		77A1B2C92BA9851C0007BD99 /* BranchAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BranchAPI.swift; sourceTree = "<group>"; };
+		77A1B2CB2BA98D910007BD99 /* BranchDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BranchDetailViewModel.swift; sourceTree = "<group>"; };
 		77B24B192B9ADBFC00B8BEC8 /* SearchViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewModel.swift; sourceTree = "<group>"; };
 		77B64B112B87A6B300437BD8 /* DataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataManager.swift; sourceTree = "<group>"; };
 		77B64B132B87A8EF00437BD8 /* Token.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Token.swift; sourceTree = "<group>"; };
@@ -269,9 +275,11 @@
 		7704DAD52B8F664600D6E87F /* BranchScreen */ = {
 			isa = PBXGroup;
 			children = (
+				77A1B2C62BA982250007BD99 /* Model */,
 				7704DADA2B8F69FC00D6E87F /* CustomCells */,
 				7704DAD62B8F668A00D6E87F /* BranchViewController.swift */,
 				7704DAD82B8F66C200D6E87F /* BranchScreenView.swift */,
+				77A1B2C42BA97F880007BD99 /* BranchViewModel.swift */,
 			);
 			path = BranchScreen;
 			sourceTree = "<group>";
@@ -318,6 +326,7 @@
 				776DF0AE2B9199220001A354 /* CustomCells */,
 				7729A1E42B90ABE60050C339 /* View */,
 				7729A1E22B90ABAA0050C339 /* BranchDetailViewController.swift */,
+				77A1B2CB2BA98D910007BD99 /* BranchDetailViewModel.swift */,
 			);
 			path = BranchDetailScreen;
 			sourceTree = "<group>";
@@ -489,7 +498,6 @@
 		7781400A2B860DBF00392707 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				778140082B860DBA00392707 /* BranchModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -556,6 +564,14 @@
 			isa = PBXGroup;
 			children = (
 				779F38222B9EE9D4004DB7AA /* СompositionModel.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		77A1B2C62BA982250007BD99 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				77A1B2C72BA982350007BD99 /* BranchModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -767,6 +783,7 @@
 			children = (
 				778A84302B80C79600805111 /* AuthAPI.swift */,
 				7761E0162B9652E300B6E76A /* MenuAPI.swift */,
+				77A1B2C92BA9851C0007BD99 /* BranchAPI.swift */,
 			);
 			path = APIs;
 			sourceTree = "<group>";
@@ -969,7 +986,6 @@
 				77E0FC1A2B94F02E0021E41C /* BasketCoordinator.swift in Sources */,
 				77C066032B838B8E00688087 /* MainCategoryCollectionViewCell.swift in Sources */,
 				77F0D3312B971DA800197DA3 /* MenuCategoryProducts.swift in Sources */,
-				778140092B860DBA00392707 /* BranchModel.swift in Sources */,
 				776DF0B62B91BCEB0001A354 /* ProfileViewController.swift in Sources */,
 				77FBFBEA2B6F8A4600F83EC7 /* NetworkService.swift in Sources */,
 				7737B57A2B8B413C0045BE2A /* IngredientViewController.swift in Sources */,
@@ -1024,7 +1040,10 @@
 				77B64B122B87A6B300437BD8 /* DataManager.swift in Sources */,
 				77C066092B83CC2400688087 /* PopularCollectionReusableView.swift in Sources */,
 				7704DACE2B8F4ECF00D6E87F /* OrderTableViewCell.swift in Sources */,
+				77A1B2CC2BA98D910007BD99 /* BranchDetailViewModel.swift in Sources */,
+				77A1B2CA2BA9851C0007BD99 /* BranchAPI.swift in Sources */,
 				7790B2EE2B76A18100431156 /* Fonts.swift in Sources */,
+				77A1B2C52BA97F880007BD99 /* BranchViewModel.swift in Sources */,
 				776DF0B02B9199450001A354 /* DetailCollectionViewCell.swift in Sources */,
 				7768447F2B99B56B00BB29D1 /* DetailViewModel.swift in Sources */,
 				77E0FC0C2B9473A60021E41C /* Presenter.swift in Sources */,
@@ -1039,6 +1058,7 @@
 				7737B57D2B8B474F0045BE2A /* CircleButton.swift in Sources */,
 				772F10252B875A4D00B4162E /* MenuViewController.swift in Sources */,
 				77CE04D72B84D03900E2159A /* CustomTabBar.swift in Sources */,
+				77A1B2C82BA982350007BD99 /* BranchModel.swift in Sources */,
 				7704DAD72B8F668A00D6E87F /* BranchViewController.swift in Sources */,
 				77F0D32E2B97001400197DA3 /* MenuViewModel.swift in Sources */,
 				77BC3C682B779498004C644E /* CustomTextField.swift in Sources */,

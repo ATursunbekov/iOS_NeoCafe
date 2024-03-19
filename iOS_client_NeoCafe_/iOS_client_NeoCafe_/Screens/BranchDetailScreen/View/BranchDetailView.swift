@@ -105,7 +105,7 @@ class BranchDetailView: UIView {
         let layout = UICollectionViewFlowLayout()
         layout.scrollDirection = .horizontal
         layout.sectionInset = UIEdgeInsets(top: 0, left: 16, bottom: 0, right: 16)
-        layout.itemSize = CGSize(width: 141, height: 201)
+        layout.itemSize = CGSize(width: 166, height: 201)
         let collection = UICollectionView(frame: .zero, collectionViewLayout: layout)
         collection.backgroundColor = .clear
         collection.register(MenuCollectionViewCell.self, forCellWithReuseIdentifier: MenuCollectionViewCell.identifier)
@@ -214,13 +214,3 @@ class BranchDetailView: UIView {
         fatalError("init(coder:) has not been implemented")
     }
 }
-
-#if DEBUG
-
-@available(iOS 13.0, *)
-struct BranchDetailViewControllerPreview: PreviewProvider {
-    static var previews: some View {
-        BranchDetailViewController().showPreview()
-    }
-}
-#endif

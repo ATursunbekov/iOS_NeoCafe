@@ -10,12 +10,12 @@ import SwiftUI
 
 class BranchView: UIViewController {
     let branches = [
-        BranchModel(name: "NeoCafe Dzerzhinka", image: Asset.cafeImage.name),
-        BranchModel(name: "NeoCafe Dzerzhinka", image: Asset.cafeImage.name),
-        BranchModel(name: "NeoCafe Dzerzhinka", image: Asset.cafeImage.name),
-        BranchModel(name: "NeoCafe Dzerzhinka", image: Asset.cafeImage.name),
-        BranchModel(name: "NeoCafe Dzerzhinka", image: Asset.cafeImage.name),
-        BranchModel(name: "NeoCafe Dzerzhinka", image: Asset.cafeImage.name)
+        Branches(name: "NeoCafe Dzerzhinka", image: Asset.cafeImage.name),
+        Branches(name: "NeoCafe Dzerzhinka", image: Asset.cafeImage.name),
+        Branches(name: "NeoCafe Dzerzhinka", image: Asset.cafeImage.name),
+        Branches(name: "NeoCafe Dzerzhinka", image: Asset.cafeImage.name),
+        Branches(name: "NeoCafe Dzerzhinka", image: Asset.cafeImage.name),
+        Branches(name: "NeoCafe Dzerzhinka", image: Asset.cafeImage.name)
     ]
     
     lazy var customView = {
@@ -112,4 +112,9 @@ extension BranchView: UITableViewDelegate, UITableViewDataSource {
         DataManager.shared.setBranch(branches[indexPath.row].name)
         dismiss(animated: false)
     }
+}
+
+struct Branches {
+    let name: String
+    let image: String
 }

@@ -17,7 +17,7 @@ class BranchCoordinator: BaseCoordinator {
 
     override func start() {
         let viewModel = MainViewModel()
-        let viewController = BranchViewController()
+        let viewController = BranchViewController(viewModel: BranchViewModel())
         mainVC = viewController
         viewController.tabBarItem.title = "Филиалы"
         viewController.tabBarItem.image = UIImage(named: Asset.branch.name)

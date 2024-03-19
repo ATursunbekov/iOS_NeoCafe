@@ -27,7 +27,7 @@ class BranchScreenTableViewCell: UITableViewCell {
     
     lazy var workingTime: UILabel = {
         let label = UILabel()
-        label.text = "Сегодня с 11:00 до 22:00"
+        label.text = "Сегодня с 11:00 до 21:00"
         label.textColor = Asset.colorDarkBlue.color
         label.font = .poppins(size: 14, weight: .regular)
         return label
@@ -86,6 +86,20 @@ class BranchScreenTableViewCell: UITableViewCell {
         contentView.layer.shadowOpacity = 0.2
         contentView.layer.cornerRadius = 12
         setupConstraints()
+    }
+    
+    func configureData(response: BranchResponses) {
+        adressLabel.text = response.address
+        numberLabel.text = response.phoneNumber
+        name.text = response.name
+        workingTime.text = "Сегодня с \(response.workDays[getWeekDay()].from) до \(response.workDays[getWeekDay()].to)"
+    }
+    
+    func getWeekDay() -> Int {
+        let now = Date()
+        let calendar = Calendar.current
+        let weekDay = calendar.component(.weekday, from: now)
+        return (weekDay + 5) % 7
     }
     
     func setupConstraints() {

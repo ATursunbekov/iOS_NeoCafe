@@ -163,6 +163,7 @@ class AuthViewController: UIViewController {
         authView.topLabel.font = UIFont.poppins(size: isOnCodeView ? 20: 32, weight: .bold)
         
         viewModel.changeState()
+        
         if !authView.underlineView.isHidden {
             showConfirmationError(false)
         }
@@ -282,7 +283,7 @@ extension AuthViewController: AuthDelegate {
     
     func successfulConfirmation() {
         //        navigationController?.pushViewController(CustomTabBarController(), animated: true)
-        //        viewModel.onMainNavigate
+        //        viewModel.onAuthNavigate
         print("someone")
     }
 }

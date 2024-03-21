@@ -18,6 +18,14 @@ class TopView: UIView {
         return view
     }()
     
+    lazy var topLabel: UILabel = {
+        let label = UILabel()
+        label.text = ""
+        label.font = .boldSystemFont(ofSize: 32)
+        label.textColor = .colorDarkBlue
+        return label
+    }()
+    
     lazy var topBean: UIImageView = {
         let image = UIImageView(image: UIImage(named: "topBean"))
         image.contentMode = .scaleAspectFit
@@ -37,12 +45,17 @@ class TopView: UIView {
     
     func setupConstraints() {
         addSubview(topView)
+        topView.addSubview(topLabel)
         topView.addSubview(topBean)
         topView.addSubview(bottomBean)
         
         topView.snp.makeConstraints { make in
             make.top.leading.trailing.equalToSuperview()
             make.height.equalTo(140)
+        }
+        
+        topLabel.snp.makeConstraints { make in
+            make.centerX.centerY.equalToSuperview()
         }
         
         topBean.snp.makeConstraints { make in

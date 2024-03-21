@@ -70,7 +70,7 @@ class AuthView: UIView {
         let button = UIButton()
         button.setImage(UIImage(named: "arrowBack"), for: .normal)
         button.layer.cornerRadius = 20
-        button.backgroundColor = UIColor.colorDarkGray
+        button.backgroundColor = UIColor.colorDarkGray // UIColor.colorLightBlue
         return button
     }()
     

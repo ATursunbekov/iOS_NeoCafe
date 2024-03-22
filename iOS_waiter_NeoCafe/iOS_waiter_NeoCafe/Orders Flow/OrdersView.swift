@@ -77,37 +77,34 @@ class OrdersView: UIView {
     }()
     
     lazy var availabilityCollectionView: UICollectionView = {
-        let collectionView = UICollectionView(frame: .zero, collectionViewLayout: createLayout(isOnTablesSegment: true))
+        let collectionView = UICollectionView(frame: .zero, collectionViewLayout: createAvailabilitySection())
         collectionView.backgroundColor = .none
         collectionView.bounces = false
         collectionView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
         collectionView.register(AvailabilityCell.self, forCellWithReuseIdentifier: AvailabilityCell.identifier)
         collectionView.showsVerticalScrollIndicator = false
-//        collectionView.contentInset = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
         return collectionView
     }()
     
     // MARK: - Orders subviews
 
     lazy var orderStatesCollectionView: UICollectionView = {
-        let collectionView = UICollectionView(frame: .zero, collectionViewLayout: createLayout(isOnTablesSegment: false))
+        let collectionView = UICollectionView(frame: .zero, collectionViewLayout: createOrderStatesSection())
         collectionView.backgroundColor = .none
         collectionView.bounces = false
-//        collectionView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
+        collectionView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
         collectionView.register(OrderStateCell.self, forCellWithReuseIdentifier: OrderStateCell.identifier)
         collectionView.showsHorizontalScrollIndicator = false
-//        collectionView.contentInset = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
         return collectionView
     }()
     
     lazy var tablesCollectionView: UICollectionView = {
-        let collectionView = UICollectionView(frame: .zero, collectionViewLayout: createLayout(isOnTablesSegment: false))
+        let collectionView = UICollectionView(frame: .zero, collectionViewLayout: createTablesSection())
         collectionView.backgroundColor = .none
         collectionView.bounces = true
-//        collectionView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
+        collectionView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
         collectionView.register(TableCell.self, forCellWithReuseIdentifier: TableCell.identifier)
         collectionView.showsVerticalScrollIndicator = false
-//        collectionView.contentInset = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
         return collectionView
     }()
     
@@ -222,23 +219,7 @@ class OrdersView: UIView {
 // MARK: - Compositional Layout
 extension OrdersView {
     
-    private func createLayout(isOnTablesSegment: Bool) -> UICollectionViewCompositionalLayout {
-        UICollectionViewCompositionalLayout { sectionIndex, _ in
-            if isOnTablesSegment {
-                return self.createAvailabilitySection()
-            } else {
-                if sectionIndex == 0 {
-                    return self.createOrderStatesSection()
-                } else if sectionIndex == 1 {
-                    return self.createTablesSection()
-                } else {
-                    fatalError("")
-                }
-            }
-        }
-    }
-    
-    private func createAvailabilitySection() -> NSCollectionLayoutSection {
+    private func createAvailabilitySection() -> UICollectionViewCompositionalLayout {
         let itemSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(0.33), heightDimension: .fractionalHeight(1))
         let item = NSCollectionLayoutItem(layoutSize: itemSize)
         item.contentInsets = NSDirectionalEdgeInsets(top: 0, leading: 0, bottom: 8, trailing: 0)
@@ -248,10 +229,10 @@ extension OrdersView {
         group.interItemSpacing = .fixed(8)
         
         let section = NSCollectionLayoutSection(group: group)
-        return section
+        return UICollectionViewCompositionalLayout(section: section)
     }
 
-    private func createOrderStatesSection() -> NSCollectionLayoutSection {
+    private func createOrderStatesSection() -> UICollectionViewCompositionalLayout {
 
         let itemSize = NSCollectionLayoutSize(widthDimension: .estimated(100), heightDimension: .fractionalHeight(1.0))
         let item = NSCollectionLayoutItem(layoutSize: itemSize)
@@ -262,21 +243,21 @@ extension OrdersView {
         
         let section = NSCollectionLayoutSection(group: group)
         section.orthogonalScrollingBehavior = .continuous
-        return section
+        return UICollectionViewCompositionalLayout(section: section)
     }
     
-    private func createTablesSection() -> NSCollectionLayoutSection {
+    private func createTablesSection() -> UICollectionViewCompositionalLayout {
 
         let itemSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.0), heightDimension: .absolute(100))
         let item = NSCollectionLayoutItem(layoutSize: itemSize)
 
         let groupSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.0), heightDimension: .absolute(100))
         let group = NSCollectionLayoutGroup.vertical(layoutSize: groupSize, subitems: [item])
-        group.interItemSpacing = .fixed(12)
 
         let section = NSCollectionLayoutSection(group: group)
+        section.interGroupSpacing = 12
 
-        return section
+        return UICollectionViewCompositionalLayout(section: section)
     }
 
 }

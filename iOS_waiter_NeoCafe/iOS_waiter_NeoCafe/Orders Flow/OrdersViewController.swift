@@ -72,7 +72,15 @@ class OrdersViewController: UIViewController {
 extension OrdersViewController: UICollectionViewDelegate, UICollectionViewDataSource {
     
     func numberOfSections(in collectionView: UICollectionView) -> Int {
-        (collectionView == ordersView.availabilityCollectionView) ? 1 : 2
+        if collectionView == ordersView.availabilityCollectionView {
+            return 1
+        } else if collectionView == ordersView.orderStatesCollectionView {
+            return 2
+        } else if collectionView == ordersView.tablesCollectionView {
+            return 1
+        } else {
+            return 0
+        }
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
@@ -208,12 +216,12 @@ extension OrdersViewController: SegmentedControlDelegate {
     }
 }
 
-#if DEBUG
-import SwiftUI
-@available(iOS 13.0, *)
-struct OrdersViewControllerPreview: PreviewProvider {
-    static var previews: some View {
-        OrdersViewController(viewModel: OrdersViewModel()).showPreview()
-    }
-}
-#endif
+//#if DEBUG
+//import SwiftUI
+//@available(iOS 13.0, *)
+//struct OrdersViewControllerPreview: PreviewProvider {
+//    static var previews: some View {
+//        OrdersViewController(viewModel: OrdersViewModel()).showPreview()
+//    }
+//}
+//#endif

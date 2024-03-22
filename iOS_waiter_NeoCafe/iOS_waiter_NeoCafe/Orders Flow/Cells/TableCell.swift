@@ -131,18 +131,9 @@ class TableCell: UICollectionViewCell {
             self.circleView.backgroundColor = UIColor.colorGreen
         case .cancelled:
             self.circleView.backgroundColor = UIColor.colorDarkBlue
-        default:
+        default: // .finished
             self.circleView.backgroundColor = UIColor.colorGray
         }
     }
 }
 
-//#if DEBUG
-//import SwiftUI
-//@available(iOS 13.0, *)
-//struct OrdersViewControllerPreview: PreviewProvider {
-//    static var previews: some View {
-//        OrdersViewController(viewModel: OrdersViewModel()).showPreview()
-//    }
-//}
-//#endif

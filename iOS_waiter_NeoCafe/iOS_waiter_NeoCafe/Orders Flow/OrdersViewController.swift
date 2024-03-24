@@ -160,7 +160,7 @@ extension OrdersViewController: UICollectionViewDelegate, UICollectionViewDataSo
     }
 }
 
-// MARK: - ORders Delegate
+// MARK: - Orders Delegate
 extension OrdersViewController: OrdersDelegate {
     
     func availableTablesResponse() {

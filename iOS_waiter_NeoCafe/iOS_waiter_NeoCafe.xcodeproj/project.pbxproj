@@ -55,6 +55,17 @@
 		BA6E7A172BAAAFF10012F220 /* OrderStateCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA6E7A162BAAAFF10012F220 /* OrderStateCell.swift */; };
 		BA6E7A192BAAB00F0012F220 /* TableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA6E7A182BAAB00F0012F220 /* TableCell.swift */; };
 		BA6E7A1C2BAB05DE0012F220 /* TableInfoModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA6E7A1B2BAB05DE0012F220 /* TableInfoModel.swift */; };
+		BAC9551A2BAD522A00C205D8 /* DetailsOrderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAC955192BAD522A00C205D8 /* DetailsOrderView.swift */; };
+		BAC9551C2BAD523400C205D8 /* DetailsOrderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAC9551B2BAD523400C205D8 /* DetailsOrderViewController.swift */; };
+		BAC9551E2BAD524500C205D8 /* DetailsOrderViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAC9551D2BAD524500C205D8 /* DetailsOrderViewModel.swift */; };
+		BAC955212BAD52DF00C205D8 /* ItemOrderedCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAC955202BAD52DF00C205D8 /* ItemOrderedCell.swift */; };
+		BAC955232BAD566200C205D8 /* CustomCounter.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAC955222BAD566200C205D8 /* CustomCounter.swift */; };
+		BAC955272BAE0AF600C205D8 /* ClosingOrderDrawerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAC955262BAE0AF600C205D8 /* ClosingOrderDrawerView.swift */; };
+		BAC955292BAE0C0C00C205D8 /* RemoveItemModalView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAC955282BAE0C0C00C205D8 /* RemoveItemModalView.swift */; };
+		BAC9552B2BAEB3EB00C205D8 /* CircleButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAC9552A2BAEB3EB00C205D8 /* CircleButton.swift */; };
+		BAC9552D2BAEB41400C205D8 /* RectangularButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAC9552C2BAEB41400C205D8 /* RectangularButton.swift */; };
+		BAC9552F2BAEB47900C205D8 /* CoffeeSupplementsDrawerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAC9552E2BAEB47900C205D8 /* CoffeeSupplementsDrawerView.swift */; };
+		BAD072972BB00F2400BED543 /* SuccessfulClosingModal.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAD072962BB00F2400BED543 /* SuccessfulClosingModal.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -105,6 +116,17 @@
 		BA6E7A162BAAAFF10012F220 /* OrderStateCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderStateCell.swift; sourceTree = "<group>"; };
 		BA6E7A182BAAB00F0012F220 /* TableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableCell.swift; sourceTree = "<group>"; };
 		BA6E7A1B2BAB05DE0012F220 /* TableInfoModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableInfoModel.swift; sourceTree = "<group>"; };
+		BAC955192BAD522A00C205D8 /* DetailsOrderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsOrderView.swift; sourceTree = "<group>"; };
+		BAC9551B2BAD523400C205D8 /* DetailsOrderViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsOrderViewController.swift; sourceTree = "<group>"; };
+		BAC9551D2BAD524500C205D8 /* DetailsOrderViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsOrderViewModel.swift; sourceTree = "<group>"; };
+		BAC955202BAD52DF00C205D8 /* ItemOrderedCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemOrderedCell.swift; sourceTree = "<group>"; };
+		BAC955222BAD566200C205D8 /* CustomCounter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomCounter.swift; sourceTree = "<group>"; };
+		BAC955262BAE0AF600C205D8 /* ClosingOrderDrawerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClosingOrderDrawerView.swift; sourceTree = "<group>"; };
+		BAC955282BAE0C0C00C205D8 /* RemoveItemModalView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoveItemModalView.swift; sourceTree = "<group>"; };
+		BAC9552A2BAEB3EB00C205D8 /* CircleButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircleButton.swift; sourceTree = "<group>"; };
+		BAC9552C2BAEB41400C205D8 /* RectangularButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RectangularButton.swift; sourceTree = "<group>"; };
+		BAC9552E2BAEB47900C205D8 /* CoffeeSupplementsDrawerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoffeeSupplementsDrawerView.swift; sourceTree = "<group>"; };
+		BAD072962BB00F2400BED543 /* SuccessfulClosingModal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SuccessfulClosingModal.swift; sourceTree = "<group>"; };
 		F870B81CFB6EE7CDB4576DED /* Pods_iOS_waiter_NeoCafe.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_iOS_waiter_NeoCafe.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -156,6 +178,7 @@
 		77FBFBBC2B6F853100F83EC7 /* iOS_waiter_NeoCafe */ = {
 			isa = PBXGroup;
 			children = (
+				BAC955182BAD520900C205D8 /* Order Details */,
 				BA6E7A092BA9D2F50012F220 /* Orders Flow */,
 				BA6E79F12BA999420012F220 /* Coordinator */,
 				BA6E79EE2BA977920012F220 /* DI */,
@@ -234,6 +257,9 @@
 				BA6E79E12BA8A8D90012F220 /* TopView.swift */,
 				BA6E79E32BA8A8E90012F220 /* CustomTextField.swift */,
 				BA6E7A072BA9D2870012F220 /* CustomSegmentedControl.swift */,
+				BAC955222BAD566200C205D8 /* CustomCounter.swift */,
+				BAC9552A2BAEB3EB00C205D8 /* CircleButton.swift */,
+				BAC9552C2BAEB41400C205D8 /* RectangularButton.swift */,
 			);
 			path = "Custom Views";
 			sourceTree = "<group>";
@@ -323,6 +349,21 @@
 				BA6E7A182BAAB00F0012F220 /* TableCell.swift */,
 			);
 			path = Cells;
+			sourceTree = "<group>";
+		};
+		BAC955182BAD520900C205D8 /* Order Details */ = {
+			isa = PBXGroup;
+			children = (
+				BAC9551B2BAD523400C205D8 /* DetailsOrderViewController.swift */,
+				BAC955192BAD522A00C205D8 /* DetailsOrderView.swift */,
+				BAC9551D2BAD524500C205D8 /* DetailsOrderViewModel.swift */,
+				BAC955202BAD52DF00C205D8 /* ItemOrderedCell.swift */,
+				BAC955282BAE0C0C00C205D8 /* RemoveItemModalView.swift */,
+				BAC9552E2BAEB47900C205D8 /* CoffeeSupplementsDrawerView.swift */,
+				BAD072962BB00F2400BED543 /* SuccessfulClosingModal.swift */,
+				BAC955262BAE0AF600C205D8 /* ClosingOrderDrawerView.swift */,
+			);
+			path = "Order Details";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -460,20 +501,27 @@
 				BA6E7A002BA99A1A0012F220 /* TabBarCoordinator.swift in Sources */,
 				BA6E79E72BA9747B0012F220 /* DataManager.swift in Sources */,
 				BA6E7A1C2BAB05DE0012F220 /* TableInfoModel.swift in Sources */,
+				BAC9551E2BAD524500C205D8 /* DetailsOrderViewModel.swift in Sources */,
 				BA6E7A062BA99AB80012F220 /* MenuCoordinator.swift in Sources */,
+				BAC9551C2BAD523400C205D8 /* DetailsOrderViewController.swift in Sources */,
 				BA6E79E22BA8A8D90012F220 /* TopView.swift in Sources */,
 				BA6E79EB2BA976000012F220 /* BranchModel.swift in Sources */,
 				BA6E79FE2BA99A080012F220 /* InitializationCoordinator.swift in Sources */,
+				BAC9552B2BAEB3EB00C205D8 /* CircleButton.swift in Sources */,
 				BA6E79C42BA8A21A0012F220 /* AuthViewModel.swift in Sources */,
 				BA6E7A0D2BA9D3140012F220 /* OrdersView.swift in Sources */,
+				BAC955292BAE0C0C00C205D8 /* RemoveItemModalView.swift in Sources */,
 				BA6E7A0F2BA9D31E0012F220 /* OrdersViewModel.swift in Sources */,
 				77FBFBBE2B6F853100F83EC7 /* AppDelegate.swift in Sources */,
+				BAD072972BB00F2400BED543 /* SuccessfulClosingModal.swift in Sources */,
 				BA6E79DA2BA8A36B0012F220 /* Ext+UIFont.swift in Sources */,
+				BAC955212BAD52DF00C205D8 /* ItemOrderedCell.swift in Sources */,
 				BA6E79C02BA8A2010012F220 /* AuthViewController.swift in Sources */,
 				BA6E7A132BA9F79A0012F220 /* TableModel.swift in Sources */,
 				BA6E79C22BA8A20F0012F220 /* AuthView.swift in Sources */,
 				BA6E7A042BA99A9F0012F220 /* NewOrderCoordinator.swift in Sources */,
 				BA6E79CD2BA8A2A90012F220 /* NetworkService.swift in Sources */,
+				BAC955232BAD566200C205D8 /* CustomCounter.swift in Sources */,
 				BA6E79FC2BA999EE0012F220 /* ApplicationCoordinator.swift in Sources */,
 				BA6E79DC2BA8A38A0012F220 /* Ext+UIViewController.swift in Sources */,
 				BA6E79D82BA8A3450012F220 /* Ext+UIColor.swift in Sources */,
@@ -484,12 +532,16 @@
 				BA6E79F82BA999A80012F220 /* Presenter.swift in Sources */,
 				BA6E79F62BA999910012F220 /* BaseCoordinator.swift in Sources */,
 				77FBFBC02B6F853100F83EC7 /* SceneDelegate.swift in Sources */,
+				BAC9552D2BAEB41400C205D8 /* RectangularButton.swift in Sources */,
 				BA6E79E92BA975EC0012F220 /* CategoryModel.swift in Sources */,
 				BA6E7A0B2BA9D3080012F220 /* OrdersViewController.swift in Sources */,
 				BA6E7A172BAAAFF10012F220 /* OrderStateCell.swift in Sources */,
 				BA6E79CF2BA8A2B40012F220 /* AuthAPI.swift in Sources */,
 				BA6E79D12BA8A2BE0012F220 /* Token.swift in Sources */,
+				BAC955272BAE0AF600C205D8 /* ClosingOrderDrawerView.swift in Sources */,
 				BA6E7A082BA9D2870012F220 /* CustomSegmentedControl.swift in Sources */,
+				BAC9551A2BAD522A00C205D8 /* DetailsOrderView.swift in Sources */,
+				BAC9552F2BAEB47900C205D8 /* CoffeeSupplementsDrawerView.swift in Sources */,
 				BA6E7A022BA99A920012F220 /* OrdersCoordinator.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

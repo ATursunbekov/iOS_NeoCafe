@@ -11,11 +11,22 @@ import SwiftUI
 class ProfileViewController: UIViewController {
     
     lazy var profileView = ProfileView()
+    var viewModel: ProfileViewModelProtocol
+    
+    init(viewModel: ProfileViewModelProtocol) {
+        self.viewModel = viewModel
+        super.init(nibName: nil, bundle: nil)
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         setupDelegate()
         setupTargets()
+        viewModel.getProfileData()
     }
     
     override func loadView() {
@@ -25,10 +36,19 @@ class ProfileViewController: UIViewController {
     func setupDelegate() {
         profileView.tableView.delegate = self
         profileView.tableView.dataSource = self
+        viewModel.delegate = self
     }
     
     func setupTargets() {
 //        profileView.exitButton.addTarget(self, action: #selector(backPressed), for: .touchUpInside)
+        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(viewTapped))
+        profileView.bonusView.addGestureRecognizer(tapGesture)
+    }
+    
+    @objc func viewTapped() {
+        let vc = ProfileBonusView()
+        vc.modalPresentationStyle = .overFullScreen
+        present(vc, animated: false)
     }
     
     @objc func backPressed() {
@@ -85,13 +105,9 @@ extension ProfileViewController: UITableViewDelegate, UITableViewDataSource {
     }
 }
 
-#if DEBUG
-
-@available(iOS 13.0, *)
-struct ProfileViewControllerPreview: PreviewProvider {
-    static var previews: some View {
-        ProfileViewController().showPreview()
+extension ProfileViewController: ProfileViewModelDelegate {
+    func updateData(fetchedData: ProfileModel) {
+        profileView.userName.text = fetchedData.email
+        profileView.bonusAmount.text = fetchedData.bonus
     }
 }
-
-#endif

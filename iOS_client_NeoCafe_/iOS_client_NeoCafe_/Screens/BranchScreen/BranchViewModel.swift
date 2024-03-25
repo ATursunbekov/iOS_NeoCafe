@@ -11,10 +11,18 @@ protocol BranchViewModelDelegate: AnyObject {
     func getAllBranchesResponse()
 }
 
+protocol BranchNameDelegate: AnyObject {
+    func updateBranchNames()
+}
+
 protocol BranchViewModelProtocol {
     var branches: [BranchResponses] {get set}
     var delegate: BranchViewModelDelegate? {get set}
+    var branchNames: [String] {get set}
+    var nameDelegate: BranchNameDelegate? {get set}
+    
     func getAllBranches()
+    func  getBranchNames()
 }
 
 class BranchViewModel: BranchViewModelProtocol {
@@ -34,4 +42,22 @@ class BranchViewModel: BranchViewModelProtocol {
             }
         }
     }
+    
+    // PopUp View data
+    var branchNames: [String] = []
+    var nameDelegate: BranchNameDelegate?
+    
+    func getBranchNames() {
+        networkService.sendRequest(successModelType: [String].self, endpoint: MultiTarget(BranchAPI.getAllNames)) { [weak self] result in
+            guard let self else { return }
+            switch result {
+            case .success(let response):
+                branchNames = response
+                nameDelegate?.updateBranchNames()
+            case .failure(let error):
+                print("handle error: \(error)")
+            }
+        }
+    }
+
 }

@@ -36,8 +36,8 @@ class ProfileView: UIView {
     
     lazy var userName: UILabel = {
         let label = UILabel()
-        label.text = "Лаура"
-        label.font = .poppins(size: 24, weight: .medium)
+        label.text = ""
+        label.font = .poppins(size: 14, weight: .medium)
         label.textColor = Asset.colorDarkBlue.color
         return label
     }()

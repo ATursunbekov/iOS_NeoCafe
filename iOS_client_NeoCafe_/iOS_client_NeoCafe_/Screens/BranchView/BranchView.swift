@@ -8,15 +8,27 @@
 import UIKit
 import SwiftUI
 
+protocol BranchViewNameDelegate: AnyObject {
+    func updateName(_ name: String)
+}
+
+extension BranchViewNameDelegate {
+    func updateName(_ name: String) {}
+}
+
 class BranchView: UIViewController {
-    let branches = [
-        Branches(name: "NeoCafe Dzerzhinka", image: Asset.cafeImage.name),
-        Branches(name: "NeoCafe Dzerzhinka", image: Asset.cafeImage.name),
-        Branches(name: "NeoCafe Dzerzhinka", image: Asset.cafeImage.name),
-        Branches(name: "NeoCafe Dzerzhinka", image: Asset.cafeImage.name),
-        Branches(name: "NeoCafe Dzerzhinka", image: Asset.cafeImage.name),
-        Branches(name: "NeoCafe Dzerzhinka", image: Asset.cafeImage.name)
-    ]
+    
+    var viewModel: BranchViewModelProtocol?
+    var delegate: BranchViewNameDelegate?
+    
+    init(viewModel: BranchViewModelProtocol) {
+        self.viewModel = viewModel
+        super.init(nibName: nil, bundle: nil)
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
     
     lazy var customView = {
         let view = UIView()
@@ -60,6 +72,8 @@ class BranchView: UIViewController {
         tableView.delegate = self
         tableView.dataSource = self
         exitButton.addTarget(self, action: #selector(dismissView), for: .touchUpInside)
+        viewModel?.nameDelegate = self
+        viewModel?.getBranchNames()
     }
     
     func setupConstraints() {
@@ -98,19 +112,31 @@ class BranchView: UIViewController {
 
 extension BranchView: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        branches.count
+        viewModel?.branchNames.count ?? 0
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: BranchTableViewCell.identifier, for: indexPath) as! BranchTableViewCell
-        cell.configureData(name: branches[indexPath.row].name, image: branches[indexPath.row].image)
+        if let viewModel = viewModel {
+            cell.configureData(name: viewModel.branchNames[indexPath.row], image: Asset.cafeImage.name)
+        }
         cell.selectionStyle = .none
         return cell
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        DataManager.shared.setBranch(branches[indexPath.row].name)
+        let name = viewModel?.branchNames[indexPath.row] ?? "NeoCafe Dzerzhinka"
+        DataManager.shared.setBranch(name)
+        delegate?.updateName(name)
         dismiss(animated: false)
+    }
+}
+
+extension BranchView: BranchNameDelegate {
+    func updateBranchNames() {
+        DispatchQueue.main.async {
+            self.tableView.reloadData()
+        }
     }
 }
 

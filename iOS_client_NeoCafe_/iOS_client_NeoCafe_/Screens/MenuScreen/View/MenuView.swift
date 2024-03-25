@@ -20,7 +20,7 @@ class MenuView: UIView {
         return label
     }()
     
-    private lazy var placeName = {
+    lazy var placeName = {
         let label = UILabel()
         label.font = .poppins(size: 16, weight: .medium)
         label.textColor = Asset.colorTitle.color

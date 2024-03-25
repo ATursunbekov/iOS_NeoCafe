@@ -17,7 +17,7 @@ class ProfileCoordinator: BaseCoordinator {
 
     override func start() {
         let viewModel = MainViewModel()
-        let viewController = ProfileViewController()
+        let viewController = ProfileViewController(viewModel: ProfileViewModel())
         mainVC = viewController
         viewController.tabBarItem.title = "Профиль"
         viewController.tabBarItem.image = UIImage(named: Asset.profile.name)

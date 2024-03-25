@@ -56,7 +56,7 @@ class MainViewController: UIViewController {
     }
     
     @objc func showBranches() {
-        let branchView = BranchView()
+        let branchView = BranchView(viewModel: BranchViewModel())
         branchView.modalPresentationStyle = .overFullScreen
         present(branchView, animated: false)
     }

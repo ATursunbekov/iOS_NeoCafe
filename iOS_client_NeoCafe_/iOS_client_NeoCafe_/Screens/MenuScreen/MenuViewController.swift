@@ -52,7 +52,8 @@ class MenuViewController: UIViewController {
     }
     
     @objc func showBranches() {
-        let branchView = BranchView()
+        let branchView = BranchView(viewModel: BranchViewModel())
+        branchView.delegate = self
         branchView.modalPresentationStyle = .overFullScreen
         present(branchView, animated: false)
     }
@@ -136,5 +137,11 @@ extension MenuViewController: UICollectionViewDelegateFlowLayout {
 extension MenuViewController: MenuViewModelDelegate {
     func getCategoryObjects() {
         menuView.menuCollectionView.reloadData()
+    }
+}
+
+extension MenuViewController: BranchViewNameDelegate {
+    func updateName(_ name: String) {
+        menuView.placeName.text = name
     }
 }

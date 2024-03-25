@@ -9,7 +9,7 @@ import UIKit
 import SwiftUI
 
 class BonusViewController: UIViewController {
-    
+     
     var statusNumber = 0
     
     // MARK: First popup

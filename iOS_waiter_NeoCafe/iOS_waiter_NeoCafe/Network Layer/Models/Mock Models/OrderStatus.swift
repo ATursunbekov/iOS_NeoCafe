@@ -10,13 +10,13 @@ import Foundation
 struct OrderModel {
     let id: Int
     let tableNumber: Int
-    let orderState: String
+    let orderState: OrderState
     let time: String
 }
 
-struct OrderStateModel {
-    let title: String
-}
+//struct OrderStateModel {
+//    let title: String
+//}
 
 enum OrderState: String {
     case all = "Все"

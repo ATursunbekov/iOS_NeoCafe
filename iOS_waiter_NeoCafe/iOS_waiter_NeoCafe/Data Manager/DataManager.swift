@@ -11,7 +11,7 @@ class DataManager {
     
     static var shared = DataManager()
     
-    var tokens: Token = Token(refreshToken: "", accessToken: "")
+    var tokens: TokenModel = TokenModel(refreshToken: "", accessToken: "")
     private var branch = ""
     var showedBranches = false
     var productOrders: [ProductModel: Int] = [:]
@@ -25,7 +25,7 @@ class DataManager {
     }
     
     // MARK: Token getter and setter
-    func setTokens(token: Token) {
+    func setTokens(token: TokenModel) {
         self.tokens = token
     }
     
@@ -59,4 +59,16 @@ class DataManager {
         // If quantity is greater than 1, decrease it by 1
         productOrders[product] = quantity - 1
     }
+    
+    // Method to calculate the total price of all ordered products
+    func calculateTotalPrice() -> Int {
+        var totalPrice = 0
+        for (product, quantity) in productOrders {
+            let productPrice = product.price
+            totalPrice += (productPrice * quantity)
+        }
+        return totalPrice
+    }
+    
+    
 }

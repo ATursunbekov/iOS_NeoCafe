@@ -58,7 +58,7 @@ class OrdersView: UIView {
         return circle
     }()
     
-    lazy var occupiedLabel: UILabel = {
+    lazy var reservedLabel: UILabel = {
         let label = UILabel()
         label.text = "Занято"
         label.font = .systemFont(ofSize: 14)
@@ -124,7 +124,7 @@ class OrdersView: UIView {
         addSubview(customSegmentedControl)
         addSubview(colorsContainer)
         colorsContainer.addSubview(grayCircle)
-        colorsContainer.addSubview(occupiedLabel)
+        colorsContainer.addSubview(reservedLabel)
         colorsContainer.addSubview(greenCircle)
         colorsContainer.addSubview(vacantLabel)
         addSubview(availabilityCollectionView)
@@ -165,14 +165,14 @@ class OrdersView: UIView {
             make.height.width.equalTo(20)
         }
 
-        occupiedLabel.snp.makeConstraints { make in
+        reservedLabel.snp.makeConstraints { make in
             make.centerY.equalToSuperview()
             make.leading.equalTo(grayCircle.snp.trailing).offset(8)
         }
         
         greenCircle.snp.makeConstraints { make in
             make.centerY.equalToSuperview()
-            make.leading.equalTo(occupiedLabel.snp.trailing).offset(32)
+            make.leading.equalTo(reservedLabel.snp.trailing).offset(32)
             make.height.width.equalTo(20)
         }
         

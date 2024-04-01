@@ -39,9 +39,17 @@ class CoffeeSupplementsDrawerViewController: UIViewController {
         return view
     }()
     
-    lazy var milkTitle: UILabel = {
+    lazy var headerTitle: UILabel = {
         let label = UILabel()
         label.text = "Латте"
+        label.font = .poppins(size: 24, weight: .bold)
+        label.textColor = .colorDarkBlue
+        return label
+    }()
+    
+    lazy var milkTitle: UILabel = {
+        let label = UILabel()
+        label.text = "Молоко"
         label.font = .poppins(size: 20, weight: .bold)
         label.textColor = .colorDarkBlue
         return label
@@ -99,6 +107,7 @@ class CoffeeSupplementsDrawerViewController: UIViewController {
     func setupConstraints() {
         view.addSubview(backgroundView)
         view.addSubview(popUpView)
+        popUpView.addSubview(headerTitle)
         popUpView.addSubview(milkTitle)
         popUpView.addSubview(circleButton1)
         popUpView.addSubview(circleButton2)
@@ -110,17 +119,22 @@ class CoffeeSupplementsDrawerViewController: UIViewController {
         
         popUpView.snp.makeConstraints { make in
             make.leading.trailing.bottom.equalToSuperview()
-            make.height.equalTo(378)
+            make.height.equalTo(419)
         }
         
         backgroundView.snp.makeConstraints { make in
-            make.top.leading.trailing.equalToSuperview()
-            make.bottom.equalTo(popUpView.snp.top).offset(10)
+            make.edges.equalToSuperview()
+        }
+        
+        headerTitle.snp.makeConstraints { make in
+            make.centerX.equalToSuperview()
+            make.top.equalToSuperview().inset(32)
+            make.height.equalTo(29)
         }
         
         milkTitle.snp.makeConstraints { make in
             make.leading.equalToSuperview().offset(16)
-            make.top.equalToSuperview().offset(32)
+            make.top.equalTo(headerTitle.snp.bottom).offset(15)
         }
         
         circleButton1.snp.makeConstraints { make in

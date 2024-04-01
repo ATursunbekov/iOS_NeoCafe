@@ -8,7 +8,7 @@
 import UIKit
 import SnapKit
 
-class RemoveItemFromOrderModalView: UIViewController {
+class RemoveItemFromOrderModalViewController: UIViewController {
     
     var statusNumber = 0
     
@@ -109,11 +109,19 @@ class RemoveItemFromOrderModalView: UIViewController {
 }
 
 
-
-
-
 //@objc func minusButtonPressed() {
-//    let vc = RemoveItemFromOrderModalView()
+//    let vc = RemoveItemFromOrderModalViewController()
 //    vc.modalPresentationStyle = .overFullScreen
 //    present(vc, animated: false)
 //}
+
+
+//#if DEBUG
+//import SwiftUI
+//@available(iOS 13.0, *)
+//struct RemoveItemFromOrderModalViewControllerPreview: PreviewProvider {
+//    static var previews: some View {
+//        RemoveItemFromOrderModalViewController().showPreview()
+//    }
+//}
+//#endif

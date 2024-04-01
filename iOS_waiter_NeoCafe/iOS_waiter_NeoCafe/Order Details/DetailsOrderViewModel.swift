@@ -7,14 +7,6 @@
 
 import Foundation
 
-struct ItemOrderedModel {
-    let title: String
-    let quantity: Int
-    let price: Double
-    let milkSupplement: String
-    let syrupSupplement: String
-}
-
 protocol DetailsOrderDelegate: AnyObject {
     func updateScreenWithSuccessfulResponse()
     func updateScreenWithFailedResponse()
@@ -26,7 +18,7 @@ protocol DetailsOrderViewModelProtocol {
 
     var onBackScreenNavigate: EmptyCompletion? {get set}
     var onAddSupplementsScreenNavigate: EmptyCompletion? {get set}
-    var onClosingAccountScreenNavigate: (([ItemOrderedModel])->Void)? {get set}
+    var onClosingOrderScreenNavigate: ((MockOrder)->Void)? {get set}
     
     var itemsOrdered: [ItemOrderedModel] {get set}
     
@@ -38,14 +30,16 @@ class DetailsOrderViewModel: DetailsOrderViewModelProtocol {
     
     var onBackScreenNavigate: EmptyCompletion?
     
-    var onClosingAccountScreenNavigate: (([ItemOrderedModel]) -> Void)?
+    var onClosingOrderScreenNavigate: ((MockOrder) -> Void)?
     
-    var delegate: DetailsOrderDelegate?
+    weak var delegate: DetailsOrderDelegate?
     
     var itemsOrdered = [
-        ItemOrderedModel(title: "Чизкейк", quantity: 1, price: 100),
-        ItemOrderedModel(title: "Капучино", quantity: 2, price: 200),
-        ItemOrderedModel(title: "Латте", quantity: 3, price: 300),
+        ItemOrderedModel(title: "Чизкейк", quantity: 1, price: 100, milkSupplement: nil, syrupSupplement: nil),
+        ItemOrderedModel(title: "Капучино", quantity: 2, price: 200, milkSupplement: nil, syrupSupplement: nil),
+        ItemOrderedModel(title: "Латте", quantity: 3, price: 300, milkSupplement: nil, syrupSupplement: nil),
     ]
+    
+    var mockOrder = AppMockOrder.shared.mockOrder
     
 }

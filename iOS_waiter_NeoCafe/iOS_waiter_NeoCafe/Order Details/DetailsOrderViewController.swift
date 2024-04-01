@@ -35,7 +35,7 @@ class DetailsOrderViewController: UIViewController {
     
     func setupTargets() { 
         contentView.backButton.addTarget(self, action: #selector(backButtonPressed), for: .touchUpInside)
-        contentView.closeAccountButton.addTarget(self, action: #selector(closeAccountButtonPressed), for: .touchUpInside)
+        contentView.closeOrderButton.addTarget(self, action: #selector(closeOrderButtonPressed), for: .touchUpInside)
         contentView.addSupplementsButton.addTarget(self, action: #selector(addSupplementsButtonPressed), for: .touchUpInside)
     }
     
@@ -59,9 +59,11 @@ class DetailsOrderViewController: UIViewController {
 //        present(coffeeSupplementsDrawerViewController, animated: false)
     }
     
-    @objc func closeAccountButtonPressed() {
+    @objc func closeOrderButtonPressed() {
         // TODO: - (([ItemOrderedModel])
-        viewModel.onClosingAccountScreenNavigate?([])
+        viewModel.onClosingOrderScreenNavigate
+//        viewModel.onClosingOrderScreenNavigate?()
+        
         //        let closingOrderDrawerView = ClosingOrderDrawerView()
         //        closingOrderDrawerView.modalPresentationStyle = .overFullScreen
         //        present(closingOrderDrawerView, animated: false)
@@ -110,14 +112,14 @@ extension DetailsOrderViewController: DetailsOrderDelegate {
 extension DetailsOrderViewController: CustomCounterDelegate {
     
     func addItemToOrder() {
-        <#code#>
+        //
     }
     
     func removeItemFromOrder() {
-        <#code#>
+        //
     }
     
     func minusButton() {
-        <#code#>
+        //
     }
 }

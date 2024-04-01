@@ -19,7 +19,7 @@ protocol AuthDelegate: AnyObject {
 protocol AuthViewModelProtocol {
     var isOnLoginView: Bool {get set}
     var delegate: AuthDelegate? {get set}
-    var onAuthNavigate: EmptyCompletion? {get set}
+    var onOrdersNavigate: EmptyCompletion? {get set}
 
     func changeState()
     
@@ -31,8 +31,8 @@ class AuthViewModel: AuthViewModelProtocol {
     
     @InjectionInjected(\.networkService) var networkService
     
-    var onAuthNavigate: EmptyCompletion?
-    var delegate: AuthDelegate?
+    var onOrdersNavigate: EmptyCompletion?
+    weak var delegate: AuthDelegate?
     var isOnLoginView = true
     
     func changeState() {
@@ -56,13 +56,13 @@ class AuthViewModel: AuthViewModelProtocol {
     }
     
     func confirmationCode(email: String, code: String) {
-        networkService.sendRequest(successModelType: Token.self, endpoint: MultiTarget(AuthAPI.confirm(email: email, code: code))) { [weak self] result in
+        networkService.sendRequest(successModelType: TokenModel.self, endpoint: MultiTarget(AuthAPI.confirm(email: email, code: code))) { [weak self] result in
             guard let self else { return }
             switch result {
             case .success(let response):
                 DispatchQueue.main.async {
                     self.delegate?.successfulConfirmation()
-                    self.onAuthNavigate?()
+                    self.onOrdersNavigate?()
                 }
                 DataManager.shared.setTokens(token: response)
             case .failure(let error):

@@ -15,14 +15,15 @@ protocol OrdersDelegate: AnyObject {
 protocol OrdersViewModelProtocol {
     var isOnTablesSegment: Bool {get set}
     var delegate: OrdersDelegate? {get set}
-    var goToProfileScreen: EmptyCompletion? {get set}
-    var goToNoticeScreen: EmptyCompletion? {get set}
-    var goToDetailsScreen: ((Int)->Void)? {get set}
+    
+    var onProfileNavigate: EmptyCompletion? {get set}
+    var onNoticeNavigate: EmptyCompletion? {get set}
+    var onDetailsNavigate: ((MockOrder)->Void)? {get set}
     
     var availableTables: [TableModel] {get set}
-    var orderStates: [OrderStateModel] {get set}
+    var orderStates: [OrderState] {get set}
     var tables: [TableInfoModel] {get set}
-    var orderStateSelectedIndex: Int {get set}
+    var selectedIndex: Int {get set}
     
     func changeSegment()
     func fetchAvailableTablesData()
@@ -30,21 +31,23 @@ protocol OrdersViewModelProtocol {
 }
 
 class OrdersViewModel: OrdersViewModelProtocol {
+//    var orderStates: [OrderState]
+//    var onDetailsNavigate: ((Int) -> Void)?
 
-    var orderStateSelectedIndex: Int = 0
+    var selectedIndex: Int = 0
     
     init(selectedIndex: Int = 0) {
-        self.orderStateSelectedIndex = selectedIndex
+        self.selectedIndex = selectedIndex
     }
     
     @InjectionInjected(\.networkService) var networkService
 
     var isOnTablesSegment = true
-    var delegate: OrdersDelegate?
+    weak var delegate: OrdersDelegate?
     
-    var goToProfileScreen: EmptyCompletion? // TODO: - via Coordinator
-    var goToNoticeScreen: EmptyCompletion? // TODO: - via Coordinator
-    var goToDetailsScreen: ((Int)->Void)? // TODO: - via Coordinator
+    var onProfileNavigate: EmptyCompletion? // TODO: - via Coordinator
+    var onNoticeNavigate: EmptyCompletion? // TODO: - via Coordinator
+    var onDetailsNavigate: ((MockOrder)->Void)? // TODO: - via Coordinator
     
     var availableTables = [
         TableModel(number: 1, status: .reserved),
@@ -64,13 +67,13 @@ class OrdersViewModel: OrdersViewModelProtocol {
         TableModel(number: 15, status: .reserved),
     ]
     
-    var orderStates = [
-        OrderStateModel(title: OrderState.all.rawValue),
-        OrderStateModel(title: OrderState.new.rawValue),
-        OrderStateModel(title: OrderState.inProcess.rawValue),
-        OrderStateModel(title: OrderState.ready.rawValue),
-        OrderStateModel(title: OrderState.cancelled.rawValue),
-        OrderStateModel(title: OrderState.finished.rawValue),
+    var orderStates: [OrderState] = [
+        OrderState.all,
+        OrderState.new,
+        OrderState.inProcess,
+        OrderState.ready,
+        OrderState.cancelled,
+        OrderState.finished,
     ]
     
     var tables = [
@@ -85,6 +88,8 @@ class OrdersViewModel: OrdersViewModelProtocol {
         TableInfoModel(id: 23144, number: 9, orderState: .cancelled, time: "19:02"),
         TableInfoModel(id: 23144, number: 10, orderState: .finished, time: "19:02"),
     ]
+    
+    var mockOrder = AppMockOrder.shared.mockOrder
     
     func changeSegment() {
         isOnTablesSegment.toggle()

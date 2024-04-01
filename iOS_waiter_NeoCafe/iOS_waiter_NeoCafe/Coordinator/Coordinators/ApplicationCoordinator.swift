@@ -27,15 +27,16 @@ final class ApplicationCoordinator: BaseCoordinator {
             window.makeKeyAndVisible()
     }
     
-    func start(_ with: String?) {
-        performInitializationFlow()
+    override func start() {
+        performAuthFlow()
+        /// TODO: - Probably there should be an if statement checking the registration status of a user prior to moving onto Auth screen.
     }
 
-    func performInitializationFlow() {
-        let coordinator = InitializationCoordinator(router: router)
+    func performAuthFlow() {
+        let coordinator = AuthCoordinator(router: router)
         addChild(coordinator)
         coordinator.start()
-        coordinator.onAuthenticationNavigate = { [weak self, weak coordinator] in
+        coordinator.onOrdersNavigate = { [weak self, weak coordinator] in
             self?.removeChild(coordinator)
             self?.performOrdersFlow()
         }
@@ -53,4 +54,3 @@ final class ApplicationCoordinator: BaseCoordinator {
         window.tintColor = .white
     }
 }
-

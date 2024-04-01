@@ -34,6 +34,8 @@ class OrdersViewController: UIViewController {
     }
     
     override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        tabBarController?.tabBar.isHidden = false
         ordersView.availabilityCollectionView.reloadData()
         ordersView.orderStatesCollectionView.reloadData()
         ordersView.tablesCollectionView.reloadData()
@@ -60,11 +62,11 @@ class OrdersViewController: UIViewController {
     }
     
     @objc func profileButtonPressed() {
-        viewModel.goToProfileScreen?()
+        viewModel.onProfileNavigate?()
     }
     
     @objc func noticeButtonPressed() {
-        viewModel.goToNoticeScreen?()
+        viewModel.onNoticeNavigate?()
     }
 }
 
@@ -109,9 +111,9 @@ extension OrdersViewController: UICollectionViewDelegate, UICollectionViewDataSo
             let data = viewModel.orderStates[indexPath.item]
             cell.configureCell(with: data)
             
-            if indexPath.item == viewModel.orderStateSelectedIndex {
+            if indexPath.item == viewModel.selectedIndex {
                 cell.selected()
-//                let orderState = viewModel.orderStates[indexPath.item].title
+//                let orderState = viewModel.orderStates[indexPath.item]
 //                viewModel.fetchTableInfoData(by: OrderState(rawValue: orderState) ?? .all)
             } else {
                 cell.deselected()
@@ -132,30 +134,30 @@ extension OrdersViewController: UICollectionViewDelegate, UICollectionViewDataSo
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         if collectionView == ordersView.orderStatesCollectionView {
-//            if indexPath.item == viewModel.orderStateSelectedIndex {
-//                let orderState = viewModel.orderStates[indexPath.item].title
+//            if indexPath.item == viewModel.selectedIndex {
+//                let orderState = viewModel.orderStates[indexPath.item]
 //                viewModel.fetchTableInfoData(by: OrderState(rawValue: orderState) ?? .all)
 //                ordersView.tablesCollectionView.reloadData()
 //            } else {
-//                viewModel.orderStateSelectedIndex = indexPath.item
+//                viewModel.selectedIndex = indexPath.item
 //                collectionView.reloadData()
 //            }
             
-//            viewModel.orderStateSelectedIndex = indexPath.item
+//            viewModel.selectedIndex = indexPath.item
 //            collectionView.reloadData()
             
-            let previousSelectedIndexPath = IndexPath(item: viewModel.orderStateSelectedIndex, section: 0)
+            let previousSelectedIndexPath = IndexPath(item: viewModel.selectedIndex, section: 0)
             let cell = ordersView.orderStatesCollectionView.cellForItem(at: previousSelectedIndexPath) as? OrderStateCell
             cell?.deselected()
             let chosenCell = ordersView.orderStatesCollectionView.cellForItem(at: indexPath) as? OrderStateCell
             chosenCell?.selected()
-            viewModel.orderStateSelectedIndex = indexPath.row
-            let selectedOrderState = OrderState(rawValue: viewModel.orderStates[indexPath.item].title)
+            viewModel.selectedIndex = indexPath.row
+            let selectedOrderState = OrderState(rawValue: viewModel.orderStates[indexPath.item].rawValue)
             viewModel.fetchTableInfoData(by: selectedOrderState ?? .all)
             
         } else if collectionView == ordersView.tablesCollectionView {
-            let tableNumber = viewModel.tables[indexPath.item].number
-            viewModel.goToDetailsScreen?(tableNumber)
+//            let tableNumber = viewModel.tables[indexPath.item].number
+//            viewModel.onDetailsNavigate?(tableNumber)
         }
     }
 }
@@ -176,12 +178,10 @@ extension OrdersViewController: OrdersDelegate {
 extension OrdersViewController {
     
     func changeView(isOnOrdersSegment: Bool) {
-        if isOnOrdersSegment {
-            DispatchQueue.main.async {
+        DispatchQueue.main.async {
+            if isOnOrdersSegment {
                 self.showOrdersSegmentView()
-            }
-        } else {
-            DispatchQueue.main.async {
+            } else {
                 self.showTablesSegmentView()
             }
         }

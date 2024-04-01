@@ -49,8 +49,8 @@ class OrderStateCell: UICollectionViewCell {
         }
     }
     
-    func configureCell(with data: OrderStateModel) {
-        self.title.text = data.title
+    func configureCell(with data: OrderState) {
+        self.title.text = data.rawValue
     }
     
     func selected() {

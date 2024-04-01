@@ -206,13 +206,3 @@ class BasketView: UIView {
         fatalError("init(coder:) has not been implemented")
     }
 }
-
-#if DEBUG
-
-@available(iOS 13.0, *)
-struct BasketViewControllerPreview: PreviewProvider {
-    static var previews: some View {
-        BasketViewController().showPreview()
-    }
-}
-#endif

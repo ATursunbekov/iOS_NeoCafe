@@ -11,17 +11,22 @@ protocol EditProfileDelegate: AnyObject {
     func savingData()
 }
 
-protocol EditProfileProtocol {}
+protocol EditProfileProtocol {
+    var delegate: EditProfileDelegate? {get set}
+    func updateData(newEmail: String)
+}
 
 class EditProfileViewModel: EditProfileProtocol {
     @InjectionInjected(\.networkService) var networkService
     var delegate: EditProfileDelegate?
     
     func updateData(newEmail: String) {
-        networkService.sendRequest(successModelType: ProfileModel.self, endpoint: MultiTarget(GeneralAPI.getProfileData)) { [weak self] result in
+        networkService.sendRequest(successModelType: String.self, endpoint: MultiTarget(GeneralAPI.updateUserData(email: newEmail)))
+        { [weak self] result in
             guard let self else { return }
             switch result {
-            case .success(let response):
+            case .success(_):
+                print("Change!")
                 DispatchQueue.main.async {
                     self.delegate?.savingData()
                 }

@@ -16,7 +16,7 @@ class BasketCoordinator: BaseCoordinator {
     var tabBarCoordinator: TabBarCoordinator?
 
     override func start() {
-        let viewController = BasketViewController()
+        let viewController = BasketViewController(viewModel: BasketViewModel())
         mainVC = viewController
         viewController.tabBarItem.title = "Корзина"
         viewController.tabBarItem.image = UIImage(named: Asset.basket.name)

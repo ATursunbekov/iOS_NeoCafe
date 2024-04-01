@@ -167,13 +167,3 @@ class OrderDetailView: UIView {
         fatalError("init(coder:) has not been implemented")
     }
 }
- 
-#if DEBUG
-
-@available(iOS 13.0, *)
-struct OrderDetailViewControllerPreview: PreviewProvider {
-    static var previews: some View {
-        OrderDetailViewController().showPreview()
-    }
-}
-#endif

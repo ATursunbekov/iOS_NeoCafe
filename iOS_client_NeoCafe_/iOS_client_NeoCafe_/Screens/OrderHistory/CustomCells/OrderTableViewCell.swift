@@ -86,6 +86,12 @@ class OrderTableViewCell: UITableViewCell {
         }
     }
     
+    func configureData(order: OrderModel) {
+        name.text = order.where
+        descriptionLabel.text = order.composition
+        statusLabel.text = order.date
+    }
+    
     func activeStatus() {
         statusLabel.text = "Сейчас"
         statusLabel.textColor = Asset.colorOrange.color

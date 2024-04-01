@@ -11,11 +11,22 @@ import SwiftUI
 class OrderHistoryViewController: UIViewController {
     
     lazy var orderView = OrderHistoryView()
+    var viewModel: OrderHistoryViewModelProtocol
+    
+    init(viewModel: OrderHistoryViewModelProtocol) {
+        self.viewModel = viewModel
+        super.init(nibName: nil, bundle: nil)
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         setupDelegate()
         setupTargets()
+        viewModel.getOrderHistory()
     }
     
     override func loadView() {
@@ -25,6 +36,7 @@ class OrderHistoryViewController: UIViewController {
     func setupDelegate() {
         orderView.tableView.delegate = self
         orderView.tableView.dataSource = self
+        viewModel.delegate = self
     }
     
     func setupTargets() {
@@ -44,9 +56,9 @@ extension OrderHistoryViewController: UITableViewDelegate, UITableViewDataSource
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if section == 0 {
-            return 1
+            return viewModel.activeOrders.count
         } else {
-            return 3
+            return viewModel.doneOrders.count
         }
     }
     
@@ -55,10 +67,12 @@ extension OrderHistoryViewController: UITableViewDelegate, UITableViewDataSource
             let cell = tableView.dequeueReusableCell(withIdentifier: OrderTableViewCell.identifier, for: indexPath) as! OrderTableViewCell
             cell.activeStatus()
             cell.selectionStyle = .none
+            cell.configureData(order: viewModel.activeOrders[indexPath.row])
             return cell
         } else {
             let cell = tableView.dequeueReusableCell(withIdentifier: OrderTableViewCell.identifier, for: indexPath) as! OrderTableViewCell
             cell.selectionStyle = .none
+            cell.configureData(order: viewModel.doneOrders[indexPath.row])
             return cell
         }
     }
@@ -81,17 +95,18 @@ extension OrderHistoryViewController: UITableViewDelegate, UITableViewDataSource
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        navigationController?.pushViewController(OrderDetailViewController(), animated: true)
+        if indexPath.section == 0 {
+            navigationController?.pushViewController(OrderDetailViewController(viewModel: OrderHistoryDetailViewModel(id: viewModel.activeOrders[indexPath.row].id)), animated: true)
+        } else {
+            navigationController?.pushViewController(OrderDetailViewController(viewModel: OrderHistoryDetailViewModel(id: viewModel.doneOrders[indexPath.row].id)), animated: true)
+        }
     }
 }
 
-#if DEBUG
-
-@available(iOS 13.0, *)
-struct OrderHistoryViewControllerPreview: PreviewProvider {
-    static var previews: some View {
-        OrderHistoryViewController().showPreview()
+extension OrderHistoryViewController: OrderHistoryDelegate {
+    func reloadData() {
+        DispatchQueue.main.async {
+            self.orderView.tableView.reloadData()
+        }
     }
 }
-
-#endif

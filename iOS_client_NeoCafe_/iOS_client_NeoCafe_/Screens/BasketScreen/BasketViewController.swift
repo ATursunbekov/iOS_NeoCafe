@@ -12,6 +12,17 @@ class BasketViewController: UIViewController {
     
     lazy var basketView = BasketView()
     
+    var viewModel: BasketViewModelProtocol
+    
+    init(viewModel: BasketViewModelProtocol) {
+        self.viewModel = viewModel
+        super.init(nibName: nil, bundle: nil)
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         setupDelegate()
@@ -31,6 +42,7 @@ class BasketViewController: UIViewController {
     func setupDelegate() {
         basketView.tableView.delegate = self
         basketView.tableView.dataSource = self
+        viewModel.delegate = self
     }
     
     func setupTargets() {
@@ -58,13 +70,14 @@ class BasketViewController: UIViewController {
     }
     
     @objc func orderPressed() {
+        viewModel.makeOrder()
         let vc = BonusViewController()
         vc.modalPresentationStyle = .overFullScreen
         present(vc, animated: false)
     }
     
     @objc func orderHistoryPressed() {
-        navigationController?.pushViewController(OrderHistoryViewController(), animated: true)
+        navigationController?.pushViewController(OrderHistoryViewController(viewModel: OrderHistoryViewModel()), animated: true)
     }
 }
 
@@ -89,6 +102,13 @@ extension BasketViewController: BasketTableViewCellDelegate {
     }
     
     func reloadData() {
+        basketView.tableView.reloadData()
+    }
+}
+
+extension BasketViewController: BasketDelegate {
+    func clearData() {
+        DataManager.shared.productOrders.removeAll()
         basketView.tableView.reloadData()
     }
 }

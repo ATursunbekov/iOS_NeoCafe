@@ -116,6 +116,14 @@ class BasketTableViewCell: UITableViewCell {
         customAddButton.setAmount(amount)
     }
     
+    func configureData(model: OrderHistoryDetailModel) {
+        self.name.text = model.name
+        self.descriptionLabel.text = ""
+        self.cost.text = "\(model.price) c"
+        productImage.kf.setImage(with: URL(string: model.imageUrl))
+        customAddButton.setAmount(model.quantity)
+    }
+    
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }

@@ -60,13 +60,14 @@ class DetailViewController: UIViewController {
     }
     
     func setProductAmount() {
-        let product = viewModel.productModel
-        let amount = DataManager.shared.getQuantity(of: product)
-        if  amount > 0 {
-            detailView.customButton.setAmount(amount)
-        } else {
-            detailView.customButton.setAmount(0)
-        }
+//        let product = viewModel.productModel
+//        let amount = DataManager.shared.getQuantity(of: product)
+//        if  amount > 0 {
+//            detailView.customButton.setAmount(amount)
+//        } else {
+//            detailView.customButton.setAmount(0)
+//        }
+        detailView.customButton.setAmount(1)
     }
     
     @objc func backPressed() {
@@ -74,9 +75,10 @@ class DetailViewController: UIViewController {
     }
     
     @objc func addToBasketPressed() {
-        let vc = IngredientViewController {
+        let vc = IngredientViewController { [self] in
+            DataManager.shared.addProduct(product: viewModel.productModel, quantity: detailView.customButton.counter)
             self.navigationController?.popToRootViewController(animated: true)
-        }
+        } 
         vc.modalPresentationStyle = .overFullScreen
         present(vc, animated: false)
     }
@@ -108,14 +110,14 @@ extension DetailViewController: DetailViewModelDelegate {
 
 extension DetailViewController: AddButtonDelegate {
     func removePressed() {
-        DataManager.shared.removeProduct(product: viewModel.productModel)
+//        DataManager.shared.removeProduct(product: viewModel.productModel)
     }
     
     func addPressed() {
-        DataManager.shared.addProduct(product: viewModel.productModel)
+//        DataManager.shared.addProduct(product: viewModel.productModel)
     }
     
     func removeButton() {
-        DataManager.shared.removeProduct(product: viewModel.productModel)
+//        DataManager.shared.removeProduct(product: viewModel.productModel)
     }
 }

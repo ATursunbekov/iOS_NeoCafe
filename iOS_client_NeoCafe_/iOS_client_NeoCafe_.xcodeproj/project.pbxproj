@@ -63,6 +63,7 @@
 		7790B2F42B76A1F600431156 /* Poppins-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 7790B2F12B76A1F600431156 /* Poppins-Medium.ttf */; };
 		7790B2F52B76A1F600431156 /* Poppins-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 7790B2F22B76A1F600431156 /* Poppins-Regular.ttf */; };
 		7790B2F72B76A44B00431156 /* Extension+UIViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7790B2F62B76A44B00431156 /* Extension+UIViewController.swift */; };
+		7795F4A42BBAA1DE00B49A1B /* BonusViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7795F4A32BBAA1DE00B49A1B /* BonusViewModel.swift */; };
 		779AF66A2B8DCC1600F69D40 /* OrderHistoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 779AF6692B8DCC1600F69D40 /* OrderHistoryViewController.swift */; };
 		779AF66D2B8DCC6900F69D40 /* OrderHistoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 779AF66C2B8DCC6900F69D40 /* OrderHistoryView.swift */; };
 		779F38232B9EE9D4004DB7AA /* СompositionModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 779F38222B9EE9D4004DB7AA /* СompositionModel.swift */; };
@@ -184,6 +185,7 @@
 		7790B2F12B76A1F600431156 /* Poppins-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Poppins-Medium.ttf"; sourceTree = "<group>"; };
 		7790B2F22B76A1F600431156 /* Poppins-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Poppins-Regular.ttf"; sourceTree = "<group>"; };
 		7790B2F62B76A44B00431156 /* Extension+UIViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension+UIViewController.swift"; sourceTree = "<group>"; };
+		7795F4A32BBAA1DE00B49A1B /* BonusViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BonusViewModel.swift; sourceTree = "<group>"; };
 		779AF6692B8DCC1600F69D40 /* OrderHistoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderHistoryViewController.swift; sourceTree = "<group>"; };
 		779AF66C2B8DCC6900F69D40 /* OrderHistoryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderHistoryView.swift; sourceTree = "<group>"; };
 		779F38222B9EE9D4004DB7AA /* СompositionModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "СompositionModel.swift"; sourceTree = "<group>"; };
@@ -515,6 +517,7 @@
 			isa = PBXGroup;
 			children = (
 				7737F0402B8C8B9100572AC8 /* BonusViewController.swift */,
+				7795F4A32BBAA1DE00B49A1B /* BonusViewModel.swift */,
 			);
 			path = BonusView;
 			sourceTree = "<group>";
@@ -1106,6 +1109,7 @@
 				77F0D3312B971DA800197DA3 /* MenuCategoryProducts.swift in Sources */,
 				776DF0B62B91BCEB0001A354 /* ProfileViewController.swift in Sources */,
 				77FBFBEA2B6F8A4600F83EC7 /* NetworkService.swift in Sources */,
+				7795F4A42BBAA1DE00B49A1B /* BonusViewModel.swift in Sources */,
 				7737B57A2B8B413C0045BE2A /* IngredientViewController.swift in Sources */,
 				7729A1E32B90ABAA0050C339 /* BranchDetailViewController.swift in Sources */,
 				772422F22BAD6725005C6A3E /* GeneralAPI.swift in Sources */,

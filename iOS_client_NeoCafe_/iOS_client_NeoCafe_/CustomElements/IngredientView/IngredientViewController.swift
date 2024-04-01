@@ -8,6 +8,10 @@
 import UIKit
 import SwiftUI
 
+protocol IngredientViewDelegate: AnyObject {
+    func orderPressed()
+}
+ 
 class IngredientViewController: UIViewController {
     
     var chooseMilk = 0

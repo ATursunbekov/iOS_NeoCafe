@@ -70,9 +70,9 @@ class BasketViewController: UIViewController {
     }
     
     @objc func orderPressed() {
-        viewModel.makeOrder()
-        let vc = BonusViewController()
+        let vc = BonusViewController(viewModel: BonusViewModel())
         vc.modalPresentationStyle = .overFullScreen
+        vc.delegate = self
         present(vc, animated: false)
     }
     
@@ -110,5 +110,12 @@ extension BasketViewController: BasketDelegate {
     func clearData() {
         DataManager.shared.productOrders.removeAll()
         basketView.tableView.reloadData()
+        basketView.costLabel.text = ""
+    }
+}
+
+extension BasketViewController: BonusViewDelegate {
+    func makeOrder(bonus: Int) {
+        viewModel.makeOrder(bonus: bonus)
     }
 }

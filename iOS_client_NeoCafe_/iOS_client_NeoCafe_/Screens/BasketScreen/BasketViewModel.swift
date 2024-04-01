@@ -13,15 +13,15 @@ protocol BasketDelegate: AnyObject {
 
 protocol BasketViewModelProtocol {
     var delegate: BasketDelegate? {get set}
-    func makeOrder()
+    func makeOrder(bonus: Int)
 }
 
 class BasketViewModel: BasketViewModelProtocol {
     @InjectionInjected(\.networkService) var networkService
     var delegate: BasketDelegate?
     
-    func makeOrder() {
-        networkService.sendRequest(successModelType: String.self, endpoint: MultiTarget(GeneralAPI.makeOrder(order: geatherAllData()))) { [weak self] result in
+    func makeOrder(bonus: Int) {
+        networkService.sendRequest(successModelType: String.self, endpoint: MultiTarget(GeneralAPI.makeOrder(order: geatherAllData(bonus: bonus)))) { [weak self] result in
             guard let self else { return }
             switch result {
             case .success(_):
@@ -35,7 +35,7 @@ class BasketViewModel: BasketViewModelProtocol {
         }
     }
     
-    func geatherAllData() -> BasketModel {
+    func geatherAllData(bonus: Int) -> BasketModel {
         var price = 0
         var orderDetail: [OrderDetailModel] = []
         for i in DataManager.shared.getAllProducts() {
@@ -43,6 +43,7 @@ class BasketViewModel: BasketViewModelProtocol {
             price += i.price * amount
             orderDetail.append(OrderDetailModel(productId: i.id, quantity: amount, additions: []))
         }
+        price -= bonus
         let basket = BasketModel(price: price, filialId: 1, orderDetails: orderDetail)
         return basket
     }

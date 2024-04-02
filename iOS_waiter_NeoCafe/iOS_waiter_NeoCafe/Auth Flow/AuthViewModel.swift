@@ -21,7 +21,7 @@ protocol AuthViewModelProtocol {
     var delegate: AuthDelegate? {get set}
     var onOrdersNavigate: EmptyCompletion? {get set}
 
-    func changeState()
+    func toggleState()
     
     func login(identifier: String, password: String)
     func confirmationCode(email: String, code: String)
@@ -35,7 +35,7 @@ class AuthViewModel: AuthViewModelProtocol {
     weak var delegate: AuthDelegate?
     var isOnLoginView = true
     
-    func changeState() {
+    func toggleState() {
         isOnLoginView.toggle()
     }
     

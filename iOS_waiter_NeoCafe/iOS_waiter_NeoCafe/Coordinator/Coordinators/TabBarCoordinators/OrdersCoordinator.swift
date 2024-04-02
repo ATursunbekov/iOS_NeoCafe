@@ -25,12 +25,15 @@ final class OrdersCoordinator: BaseCoordinator {
         viewController.tabBarItem.image = UIImage(named: "ordersNormal")
         viewController.tabBarItem.selectedImage = UIImage(named: "ordersSelected")
         router.setRootModule(viewController, hideBar: false)
-        //        router.push(viewController, hideBottomBar: true)
-        //        tabBarCoordinator?.hideShadowView()
+
+//        router.push(viewController, hideBottomBar: false)
+        
+//        router.push(viewController, hideBottomBar: false)
+//        tabBarCoordinator?.hideShadowView()
     }
     
     func showDetailsScreen(order: MockOrder) {
-        let viewModel = DetailsOrderViewModel()
+        let viewModel = OrderDetailsViewModel()
         viewModel.onBackScreenNavigate = { [weak self] in
             self?.router.popModule(animated: true)
         }
@@ -38,7 +41,7 @@ final class OrdersCoordinator: BaseCoordinator {
         viewModel.onClosingOrderScreenNavigate = { [weak self] order in
             self?.showClosingOrderScreen(order: order)
         }
-        let viewController = DetailsOrderViewController(viewModel: viewModel)
+        let viewController = OrderDetailsViewController(viewModel: viewModel)
         router.push(viewController, hideBottomBar: true)
         tabBarCoordinator?.hideShadowView()
     }

@@ -28,8 +28,16 @@ final class ApplicationCoordinator: BaseCoordinator {
     }
     
     override func start() {
-        performAuthFlow()
-        /// TODO: - Probably there should be an if statement checking the registration status of a user prior to moving onto Auth screen.
+        if !isUserRegistered() {
+            performAuthFlow()
+        } else {
+            performOrdersFlow()
+        }
+    }
+    
+    func isUserRegistered() -> Bool {
+        let accessToken = DataManager.shared.tokens.accessToken
+        return !accessToken.isEmpty
     }
 
     func performAuthFlow() {
@@ -47,7 +55,7 @@ final class ApplicationCoordinator: BaseCoordinator {
         let coordinator = TabBarCoordinator(router: router)
         addChild(coordinator)
         coordinator.start()
-        router.setRootModule(coordinator, hideBar: true)
+        router.setRootModule(coordinator, hideBar: false)
     }
     
     private func setupColors() {

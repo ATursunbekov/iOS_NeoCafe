@@ -30,3 +30,4 @@ struct PopularProductModel: Codable, Hashable {
         return lhs.id == rhs.id
     }
 }
+

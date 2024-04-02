@@ -90,8 +90,6 @@ class AuthViewController: UIViewController {
         }
     }
     
-
-    
     func cleanErrors(for textField: CustomTextField) {
         UIView.animate(withDuration: 0.5) {
             
@@ -130,11 +128,11 @@ class AuthViewController: UIViewController {
         }
     }
     
-    func changeState(isOnCodeView: Bool) {
+    func changeView(isOnCodeView: Bool) {
         if isOnCodeView {
             authView.topLabel.text = "Код подтверждения"
             authView.confirmationLabel.text = "Введите 4-хзначный код, \nотправленный на почту"
-            authView.gmailLabel.text = "user@gmail.com"
+            authView.gmailLabel.text = "ipak.dev@gmail.com"
             authView.button.setTitle("Подтвердить", for: .normal)
             authView.button.snp.updateConstraints { make in
                 make.top.equalTo(authView.topView.snp.bottom).offset(228)
@@ -144,7 +142,7 @@ class AuthViewController: UIViewController {
             authView.topLabel.isHidden = false
             authView.button.setTitle("Получить код", for: .normal)
             authView.button.snp.updateConstraints { make in
-                make.top.equalTo(authView.passwordTextField.snp.bottom).offset(56)
+                make.top.equalTo(authView.topView.snp.bottom).offset(216)
             }
         }
         
@@ -162,7 +160,7 @@ class AuthViewController: UIViewController {
         
         authView.topLabel.font = UIFont.poppins(size: isOnCodeView ? 20: 32, weight: .bold)
         
-        viewModel.changeState()
+        viewModel.toggleState()
         
         if !authView.underlineView.isHidden {
             showConfirmationError(false)
@@ -191,7 +189,7 @@ class AuthViewController: UIViewController {
         } else {
             authView.confirmationLabel.textColor = UIColor.colorDarkGray
             authView.confirmationLabel.text = "Введите 4-хзначный код, \nотправленный на почту"
-            authView.gmailLabel.text = "user@gmail.com"
+            authView.gmailLabel.text = "ipak.dev@gmail.com"
             authView.gmailLabel.isHidden = false
             authView.pinView.borderLineColor = UIColor.colorDarkGray
             authView.resendButton.setTitleColor(UIColor.colorDarkGray, for: .normal)
@@ -222,7 +220,6 @@ class AuthViewController: UIViewController {
         }
     }
 
-    
     @objc func nextPressed() {
         if viewModel.isOnLoginView {
             if authView.emailTextField.textField.text == "" && authView.emailTextField.textField.text != nil {
@@ -253,7 +250,7 @@ class AuthViewController: UIViewController {
     }
     
     @objc func backPressed() {
-        changeState(isOnCodeView: false)
+        changeView(isOnCodeView: false)
         stopTimer()
     }
     
@@ -277,13 +274,13 @@ extension AuthViewController: AuthDelegate {
     }
     
     func loginResponse() {
-        changeState(isOnCodeView: true)
+        changeView(isOnCodeView: true)
         startTimer()
     }
     
     func successfulConfirmation() {
         //        navigationController?.pushViewController(CustomTabBarController(), animated: true)
-        //        viewModel.onOrdersNavigate
+        viewModel.onOrdersNavigate?()
         print("someone")
     }
 }

@@ -17,7 +17,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         self.window = UIWindow(frame: UIScreen.main.bounds)
         self.window?.overrideUserInterfaceStyle = .light
         
-        applicationCoordinator.start(nil)
+        applicationCoordinator.start()
     }
 }
 

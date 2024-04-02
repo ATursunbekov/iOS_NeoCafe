@@ -14,13 +14,21 @@ final class AuthCoordinator: BaseCoordinator {
     private lazy var startController: UIViewController = {
 
         let viewModel = AuthViewModel()
-        viewModel.onOrdersNavigate = onOrdersNavigate
-        
+//        viewModel.onOrdersNavigate = onOrdersNavigate
+        viewModel.onOrdersNavigate = showOrdersScreen
+
         let viewController = AuthViewController(viewModel: viewModel)
 
         router.setRootModule(viewController, hideBar: true)
         return viewController
     }()
+    
+    func showOrdersScreen() {
+        let viewModel = OrdersViewModel()
+        
+        let viewController = OrdersViewController(viewModel: viewModel)
+        router.push(viewController)
+    }
 
     override var toPresent: UIViewController {
         startController

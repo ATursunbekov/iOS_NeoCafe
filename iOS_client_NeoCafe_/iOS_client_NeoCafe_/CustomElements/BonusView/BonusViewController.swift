@@ -8,9 +8,24 @@
 import UIKit
 import SwiftUI
 
+protocol BonusViewDelegate {
+    func makeOrder(bonus: Int)
+}
+
 class BonusViewController: UIViewController {
-    
+     
     var statusNumber = 0
+    var viewModel: BonusViewModelProtocol
+    var delegate: BonusViewDelegate?
+    
+    init(viewModel: BonusViewModelProtocol) {
+        self.viewModel = viewModel
+        super.init(nibName: nil, bundle: nil)
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
     
     // MARK: First popup
     lazy var popup1: UIView = {
@@ -30,7 +45,7 @@ class BonusViewController: UIViewController {
     
     lazy var descriptionLabel1: UILabel = {
         let label = UILabel()
-        label.text = "У вас есть 100 бонусов, хотите использовать их?"
+        label.text = "У вас есть ? бонусов, хотите использовать их?"
         label.numberOfLines = 0
         label.textAlignment = .center
         label.font = .poppins(size: 14, weight: .medium)
@@ -70,7 +85,7 @@ class BonusViewController: UIViewController {
     
     lazy var titleLabel2: UILabel = {
         let label = UILabel()
-        label.text = "Ваши бонусы: 100"
+        label.text = "Ваши бонусы: ?"
         label.font = .poppins(size: 24, weight: .bold)
         label.textColor = Asset.colorDarkBlue.color
         return label
@@ -170,6 +185,8 @@ class BonusViewController: UIViewController {
         setupConstraints()
         setupTargets()
         updateView()
+        self.viewModel.delegate = self
+        viewModel.getProfileData()
     }
     
     func setupConstraints() {
@@ -315,6 +332,7 @@ class BonusViewController: UIViewController {
     
     @objc func goBackPressed() {
         if statusNumber == 0 {
+            delegate?.makeOrder(bonus: 0)
             dismiss(animated: false)
         } else {
             statusNumber -= 1
@@ -326,18 +344,31 @@ class BonusViewController: UIViewController {
         if statusNumber < 2 {
             statusNumber += 1
             updateView()
+            if statusNumber == 2 {
+                if let text = textField.text, let num = Int(text) {
+                    let finalAmount = viewModel.bonusAmount > num ? num : viewModel.bonusAmount
+                    delegate?.makeOrder(bonus: finalAmount)
+                }
+            }
         } else {
             dismiss(animated: false)
         }
     }
 }
 
-#if DEBUG
-
-@available(iOS 13.0, *)
-struct BonusViewControllerPreview: PreviewProvider {
-    static var previews: some View {
-        BonusViewController().showPreview()
+extension BonusViewController: BonusViewModelDelegate {
+    func updateData() {
+        titleLabel2.text = "Ваши бонусы: \(viewModel.bonusAmount)"
+        descriptionLabel1.text = "У вас есть \(viewModel.bonusAmount) бонусов, хотите использовать их?"
     }
 }
-#endif
+
+//#if DEBUG
+//
+//@available(iOS 13.0, *)
+//struct BonusViewControllerPreview: PreviewProvider {
+//    static var previews: some View {
+//        BonusViewController().showPreview()
+//    }
+//}
+//#endif

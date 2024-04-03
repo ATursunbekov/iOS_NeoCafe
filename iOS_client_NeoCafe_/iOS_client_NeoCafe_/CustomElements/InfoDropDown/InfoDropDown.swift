@@ -49,6 +49,10 @@ class InfoDropDown: UIView {
         showButton.addTarget(self, action: #selector(showPressed), for: .touchUpInside)
     }
     
+    func setTime(time: String) {
+        self.time.text = time
+    }
+    
     func setupConstraints() {
         addSubview(mainView)
         addSubview(scheduleLabel)

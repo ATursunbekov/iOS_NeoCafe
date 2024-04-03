@@ -20,15 +20,6 @@ class BranchScreenView: UIView {
         return label
     }()
     
-    lazy var historyButton: UIButton = {
-        let button = UIButton()
-        button.setImage(UIImage(named: Asset.orderHistory.name), for: .normal)
-        button.tintColor = Asset.colorWhite.color
-        button.backgroundColor = Asset.colorDarkBlue.color
-        button.layer.cornerRadius = 20
-        return button
-    }()
-    
     lazy var tableView: UITableView = {
         let tableView = UITableView(frame: .zero, style: .insetGrouped)
         tableView.rowHeight = 280
@@ -49,7 +40,6 @@ class BranchScreenView: UIView {
     func setupConstraitns() {
         addSubview(topView)
         topView.addSubview(screenTitle)
-        topView.addSubview(historyButton)
         addSubview(tableView)
         
         topView.snp.makeConstraints { make in
@@ -62,13 +52,6 @@ class BranchScreenView: UIView {
             make.centerY.equalToSuperview()
         }
         
-        historyButton.snp.makeConstraints { make in
-            make.centerY.equalToSuperview()
-            make.trailing.equalToSuperview().offset(-16)
-            make.height.equalTo(40)
-            make.width.equalTo(40)
-        }
-        
         tableView.snp.makeConstraints { make in
             make.top.equalTo(topView.snp.bottom)
             make.leading.trailing.bottom.equalToSuperview()
@@ -79,13 +62,3 @@ class BranchScreenView: UIView {
         fatalError("init(coder:) has not been implemented")
     }
 }
-
-#if DEBUG
-
-@available(iOS 13.0, *)
-struct BranchViewControllerPreview: PreviewProvider {
-    static var previews: some View {
-        BranchViewController().showPreview()
-    }
-}
-#endif

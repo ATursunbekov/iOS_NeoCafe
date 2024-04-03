@@ -16,11 +16,28 @@ class BasketCoordinator: BaseCoordinator {
     var tabBarCoordinator: TabBarCoordinator?
 
     override func start() {
-        let viewController = BasketViewController()
+        let viewModel = BasketViewModel()
+        viewModel.goToMainScreen = goToMainTab
+        let viewController = BasketViewController(viewModel: viewModel)
         mainVC = viewController
         viewController.tabBarItem.title = "Корзина"
         viewController.tabBarItem.image = UIImage(named: Asset.basket.name)
         viewController.tabBarItem.selectedImage = UIImage(named: Asset.basket.name)
         router.setRootModule(viewController, hideBar: false)
+    }
+    
+    func goToMainTab() {
+        let viewModel = MenuViewModel(selectedIndex: 0)
+        viewModel.goToDetailProductScreen = goToProductDetailScreen
+        let viewController = MenuViewController(viewModel: viewModel)
+        router.push(viewController, animated: true)
+    }
+    
+    func goToProductDetailScreen(product: PopularProductModel) {
+        let viewModel = DetailViewModel(productModel: product)
+        viewModel.goToDetailProductScreen = goToProductDetailScreen
+        let vc = DetailViewController(viewModel: viewModel)
+        router.push(vc, hideBottomBar: true)
+        tabBarCoordinator?.hideShadowView()
     }
 }

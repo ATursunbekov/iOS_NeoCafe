@@ -50,26 +50,26 @@ class MainViewController: UIViewController {
     }
     
     func setupTargets() {
-        mainView.bellButton.addTarget(self, action: #selector(showBranches), for: .touchUpInside)
+        mainView.bellButton.addTarget(self, action: #selector(showNotifivations), for: .touchUpInside)
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(searchBarPressed))
         mainView.searchBar.addGestureRecognizer(tapGesture)
     }
     
-    @objc func showBranches() {
-        let branchView = BranchView()
+    @objc func showNotifivations() {
+        viewModel?.goToNotificationScreen?()
+    }
+    
+    func showBranches() {
+        let branchView = BranchView(viewModel: BranchViewModel())
         branchView.modalPresentationStyle = .overFullScreen
         present(branchView, animated: false)
     }
     
     @objc func goToMenuScreen() {
-//        navigationController?.pushViewController(MenuViewController(), animated: true)
         viewModel?.goToMenuScreen?(0)
     }
     
     @objc func searchBarPressed() {
-//        let vc = SearchViewController()
-//        tabBarController?.tabBar.isHidden = true
-//        navigationController?.pushViewController(vc, animated: true)
         viewModel?.goToSearchScreen?()
     }
     
@@ -123,7 +123,7 @@ extension MainViewController: UICollectionViewDelegate, UICollectionViewDataSour
             viewModel?.goToMenuScreen?(indexPath.row)
         } else {
             if let product = viewModel?.popularProducts[indexPath.row] {
-                viewModel?.gotToProductDetailScreen?(product) 
+                viewModel?.gotToProductDetailScreen?(product)
             }
         }
     }

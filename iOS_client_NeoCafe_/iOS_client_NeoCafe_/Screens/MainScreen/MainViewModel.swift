@@ -18,6 +18,7 @@ protocol MainViewModelProtocol {
     var goToMenuScreen: ((Int) -> Void)? {get set}
     var gotToProductDetailScreen: ((PopularProductModel) -> Void)? {get set}
     var goToSearchScreen: EmptyCompletion? {get set}
+    var goToNotificationScreen: EmptyCompletion? {get set}
     func getPopular()
 }
 
@@ -26,6 +27,7 @@ class MainViewModel: MainViewModelProtocol {
     var goToMenuScreen: ((Int) -> Void)?
     var gotToProductDetailScreen: ((PopularProductModel) -> Void)?
     var goToSearchScreen: EmptyCompletion?
+    var goToNotificationScreen: EmptyCompletion?
     
     @InjectionInjected(\.networkService) var networkService
     var mainCategory: [CategoryModel] = [
@@ -44,9 +46,6 @@ class MainViewModel: MainViewModelProtocol {
             switch result {
             case .success(let response):
                 popularProducts = response
-                for i in response {
-                    print("Product id: \(i.id)")
-                }
                 delegate?.getPopularResponse()
             case .failure(let error):
                 print("handle error: \(error)")

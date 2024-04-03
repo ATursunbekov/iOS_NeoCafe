@@ -45,18 +45,15 @@ class DataManager {
         return productOrders[product] ?? 0
     }
     
-    // Function to get an array of all products in the inventory
     func getAllProducts() -> [PopularProductModel] {
         return Array(productOrders.keys)
     }
     
     func removeProduct(product: PopularProductModel) {
         guard let quantity = productOrders[product], quantity > 1 else {
-            // If quantity is 1 or the product isn't found, remove the product from the dictionary
             productOrders.removeValue(forKey: product)
             return
         }
-        // If quantity is greater than 1, decrease it by 1
         productOrders[product] = quantity - 1
     }
 }

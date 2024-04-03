@@ -48,19 +48,4 @@ class DetailViewModel: DetailViewModelProtocol {
             }
         }
     }
-
-//    func getProductDetail() {
-//        networkService.sendRequest(successModelType: PopularProductModel.self, endpoint: MultiTarget(MenuAPI.getProductDetail(productID))) { [weak self] result in
-//            guard let self else { return }
-//            switch result {
-//            case .success(let response):
-//                productDetail = response
-//                DispatchQueue.main.async {
-//                    self.delegate?.setData(model: response)
-//                }
-//            case .failure(let error):
-//                print("handle error: \(error)")
-//            }
-//        }
-//    }
 }

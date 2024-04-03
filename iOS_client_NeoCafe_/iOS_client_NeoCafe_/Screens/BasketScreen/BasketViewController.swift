@@ -12,6 +12,17 @@ class BasketViewController: UIViewController {
     
     lazy var basketView = BasketView()
     
+    var viewModel: BasketViewModelProtocol
+    
+    init(viewModel: BasketViewModelProtocol) {
+        self.viewModel = viewModel
+        super.init(nibName: nil, bundle: nil)
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         setupDelegate()
@@ -31,11 +42,13 @@ class BasketViewController: UIViewController {
     func setupDelegate() {
         basketView.tableView.delegate = self
         basketView.tableView.dataSource = self
+        viewModel.delegate = self
     }
     
     func setupTargets() {
         basketView.orderButton.addTarget(self, action: #selector(orderPressed), for: .touchUpInside)
         basketView.historyButton.addTarget(self, action: #selector(orderHistoryPressed), for: .touchUpInside)
+        basketView.menuButton.addTarget(self, action: #selector(menuPressed), for: .touchUpInside)
     }
     
     func isEmptyBasket() {
@@ -57,14 +70,20 @@ class BasketViewController: UIViewController {
         }
     }
     
+    @objc func menuPressed() {
+        tabBarController?.tabBar.isHidden = true
+        viewModel.goToMainScreen?()
+    }
+    
     @objc func orderPressed() {
-        let vc = BonusViewController()
+        let vc = BonusViewController(viewModel: BonusViewModel())
         vc.modalPresentationStyle = .overFullScreen
+        vc.delegate = self
         present(vc, animated: false)
     }
     
     @objc func orderHistoryPressed() {
-        navigationController?.pushViewController(OrderHistoryViewController(), animated: true)
+        navigationController?.pushViewController(OrderHistoryViewController(viewModel: OrderHistoryViewModel()), animated: true)
     }
 }
 
@@ -90,5 +109,20 @@ extension BasketViewController: BasketTableViewCellDelegate {
     
     func reloadData() {
         basketView.tableView.reloadData()
+    }
+}
+
+extension BasketViewController: BasketDelegate {
+    func clearData() {
+        DataManager.shared.productOrders.removeAll()
+        basketView.tableView.reloadData()
+        basketView.costLabel.text = ""
+        isEmptyCheck()
+    }
+}
+
+extension BasketViewController: BonusViewDelegate {
+    func makeOrder(bonus: Int) {
+        viewModel.makeOrder(bonus: bonus)
     }
 }

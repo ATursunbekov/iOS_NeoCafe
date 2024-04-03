@@ -62,21 +62,21 @@ class OrderDetailView: UIView {
         return label
     }()
     
-    lazy var bonusTitle: UILabel = {
-        let label = UILabel()
-        label.text = Str.orderDeatilBonusLabel
-        label.font = .poppins(size: 16, weight: .bold)
-        label.textColor = Asset.colorDarkGray.color
-        return label
-    }()
-    
-    lazy var bonusAmount: UILabel = {
-        let label = UILabel()
-        label.text = "50"
-        label.font = .poppins(size: 20, weight: .bold)
-        label.textColor = Asset.colorOrange.color
-        return label
-    }()
+//    lazy var bonusTitle: UILabel = {
+//        let label = UILabel()
+//        label.text = Str.orderDeatilBonusLabel
+//        label.font = .poppins(size: 16, weight: .bold)
+//        label.textColor = Asset.colorDarkGray.color
+//        return label
+//    }()
+//    
+//    lazy var bonusAmount: UILabel = {
+//        let label = UILabel()
+//        label.text = "50"
+//        label.font = .poppins(size: 20, weight: .bold)
+//        label.textColor = Asset.colorOrange.color
+//        return label
+//    }()
     
     lazy var tableView: UITableView = {
         let tableView = UITableView(frame: .zero)
@@ -104,8 +104,8 @@ class OrderDetailView: UIView {
         addSubview(orderButton)
         addSubview(totalTitle)
         addSubview(costLabel)
-        addSubview(bonusTitle)
-        addSubview(bonusAmount)
+//        addSubview(bonusTitle)
+//        addSubview(bonusAmount)
         addSubview(tableView)
         
         topView.snp.makeConstraints { make in
@@ -146,20 +146,20 @@ class OrderDetailView: UIView {
             make.leading.equalTo(totalTitle.snp.trailing)
         }
         
-        bonusTitle.snp.makeConstraints { make in
-            make.leading.equalToSuperview().offset(16)
-            make.bottom.equalTo(totalTitle.snp.top).offset(-16)
-        }
-        
-        bonusAmount.snp.makeConstraints { make in
-            make.bottom.equalTo(bonusTitle.snp.bottom).offset(1)
-            make.leading.equalTo(bonusTitle.snp.trailing)
-        }
+//        bonusTitle.snp.makeConstraints { make in
+//            make.leading.equalToSuperview().offset(16)
+//            make.bottom.equalTo(totalTitle.snp.top).offset(-16)
+//        }
+//        
+//        bonusAmount.snp.makeConstraints { make in
+//            make.bottom.equalTo(bonusTitle.snp.bottom).offset(1)
+//            make.leading.equalTo(bonusTitle.snp.trailing)
+//        }
         
         tableView.snp.makeConstraints { make in
             make.top.equalTo(adressLabel.snp.bottom)
             make.leading.trailing.equalToSuperview()
-            make.bottom.equalTo(bonusAmount.snp.top).offset(-1)
+            make.bottom.equalTo(costLabel.snp.top).offset(-1)
         }
     }
     
@@ -167,13 +167,3 @@ class OrderDetailView: UIView {
         fatalError("init(coder:) has not been implemented")
     }
 }
- 
-#if DEBUG
-
-@available(iOS 13.0, *)
-struct OrderDetailViewControllerPreview: PreviewProvider {
-    static var previews: some View {
-        OrderDetailViewController().showPreview()
-    }
-}
-#endif

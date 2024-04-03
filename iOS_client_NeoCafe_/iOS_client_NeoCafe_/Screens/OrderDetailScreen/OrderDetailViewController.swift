@@ -10,11 +10,23 @@ import UIKit
 class OrderDetailViewController: UIViewController {
     
     lazy var orderView = OrderDetailView()
+    var viewModel: OrderHistoryDetailViewModelProtocol
+    
+    init(viewModel: OrderHistoryDetailViewModelProtocol) {
+        self.viewModel = viewModel
+        super.init(nibName: nil, bundle: nil)
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         setupDelegate()
         setupTargets()
+        viewModel.getOrderHistoryDetail()
+        navigationController?.isNavigationBarHidden = true
     }
     
     override func loadView() {
@@ -24,6 +36,7 @@ class OrderDetailViewController: UIViewController {
     func setupDelegate() {
         orderView.tableView.delegate = self
         orderView.tableView.dataSource = self
+        viewModel.delegate = self
     }
     
     func setupTargets() {
@@ -37,12 +50,22 @@ class OrderDetailViewController: UIViewController {
 
 extension OrderDetailViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        3
+        //return viewModel.orderDetail.count
+        return 3
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: BasketTableViewCell.identifier, for: indexPath) as! BasketTableViewCell
         cell.selectionStyle = .none
+        //cell.configureData(model: viewModel.orderDetail[indexPath.row])
         return cell
+    }
+}
+
+extension OrderDetailViewController: OrderHistoryDetailDelegate {
+    func reloadData() {
+        DispatchQueue.main.async {
+            self.orderView.tableView.reloadData()
+        }
     }
 }

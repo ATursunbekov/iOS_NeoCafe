@@ -39,7 +39,7 @@
 //        let viewModel = NewOrderCoffeeSupplementsDrawerViewModel()
 //
 //        let viewController = NewOrderCoffeeSupplementsDrawerViewController(viewModel: viewModel)
-//        router.push(viewController, hideBottomBar: true)
+//        router.push(viewController, hideBottomBar: false)
 //        tabBarCoordinator?.hideShadowView()
 //    }
 //    
@@ -47,7 +47,7 @@
 //        let viewModel = NewOrderInfoDrawerViewModel()
 //
 //        let viewController = NewOrderInfoDrawerViewController(viewModel: viewModel)
-//        router.push(viewController, hideBottomBar: true)
+//        router.push(viewController, hideBottomBar: false)
 //        tabBarCoordinator?.hideShadowView()
 //    }
 //    
@@ -74,3 +74,24 @@
 //    
 //}
 //
+
+
+import UIKit
+
+final class NewOrderCoordinator: BaseCoordinator {
+    
+    private var newOrderViewController: NewOrderViewController!
+    var tabBarCoordinator: TabBarCoordinator?
+    
+    override func start() {
+        let viewModel = NewOrderViewModel()
+        let viewController = NewOrderViewController(viewModel: viewModel)
+        newOrderViewController = viewController
+        viewController.tabBarItem.title = "Новый заказ"
+        viewController.tabBarItem.image = UIImage(named: "newOrderNormal")
+        viewController.tabBarItem.selectedImage = UIImage(named: "newOrderSelected")
+        router.setRootModule(viewController, hideBar: false)
+    }
+    
+}
+

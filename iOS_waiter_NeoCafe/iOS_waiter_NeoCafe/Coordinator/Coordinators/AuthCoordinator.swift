@@ -14,12 +14,12 @@ final class AuthCoordinator: BaseCoordinator {
     private lazy var startController: UIViewController = {
 
         let viewModel = AuthViewModel()
-//        viewModel.onOrdersNavigate = onOrdersNavigate
-        viewModel.onOrdersNavigate = showOrdersScreen
+        viewModel.onOrdersNavigate = onOrdersNavigate
+//        viewModel.onOrdersNavigate = showOrdersScreen
 
         let viewController = AuthViewController(viewModel: viewModel)
 
-        router.setRootModule(viewController, hideBar: true)
+        router.setRootModule(viewController, hideBar: false)
         return viewController
     }()
     

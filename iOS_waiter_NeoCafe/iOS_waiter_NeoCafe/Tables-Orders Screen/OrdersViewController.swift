@@ -226,7 +226,6 @@ extension OrdersViewController: SegmentedControlDelegate {
 }
 
 
-
 //#if DEBUG
 //import SwiftUI
 //@available(iOS 13.0, *)

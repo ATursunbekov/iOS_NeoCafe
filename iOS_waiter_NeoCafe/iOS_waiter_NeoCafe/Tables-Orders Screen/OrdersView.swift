@@ -184,7 +184,7 @@ class OrdersView: UIView {
         availabilityCollectionView.snp.makeConstraints { make in
             make.top.equalTo(colorsContainer.snp.bottom).offset(33)
             make.leading.trailing.equalToSuperview().inset(16)
-            make.bottom.equalToSuperview().inset(70)
+            make.bottom.equalToSuperview().inset(80)
         }
         
         // MARK: - Orders constraints
@@ -201,7 +201,7 @@ class OrdersView: UIView {
         tablesCollectionView.snp.makeConstraints { make in
             make.top.equalTo(customSegmentedControl.snp.bottom).offset(80)
             make.leading.trailing.equalToSuperview().inset(16)
-            make.bottom.equalToSuperview().inset(70)
+            make.bottom.equalToSuperview().inset(80)
         }
     }
     

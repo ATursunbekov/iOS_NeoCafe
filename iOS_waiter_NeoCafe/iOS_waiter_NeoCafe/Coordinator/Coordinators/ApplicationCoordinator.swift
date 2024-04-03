@@ -48,7 +48,7 @@ final class ApplicationCoordinator: BaseCoordinator {
             self?.removeChild(coordinator)
             self?.performOrdersFlow()
         }
-        router.setRootModule(coordinator, hideBar: true)
+        router.setRootModule(coordinator, hideBar: false)
     }
     
     func performOrdersFlow() {

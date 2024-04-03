@@ -10,7 +10,7 @@ import UIKit
 final class TabBarCoordinator: BaseCoordinator {
 
     var ordersCoordinator: OrdersCoordinator?
-//    var newOrderCoordinator: NewOrderCoordinator?
+    var newOrderCoordinator: NewOrderCoordinator?
     var menuCoordinator: MenuCoordinator?
 
     private var shadowedView: UIView?
@@ -22,19 +22,19 @@ final class TabBarCoordinator: BaseCoordinator {
     }
 
     private lazy var tabBarViewController = configure(CustomTabBarController()) { tabBarController in
-//        configureAppearance(for: tabBarController as UITabBarController)
-//        configureShadow(for: tabBarController as UITabBarController)
-        configureAppearance(for: tabBarController)
-        configureShadow(for: tabBarController)
+        configureAppearance(for: tabBarController as UITabBarController)
+        configureShadow(for: tabBarController as UITabBarController)
+//        configureAppearance(for: tabBarController)
+//        configureShadow(for: tabBarController)
 
         let ordersCoordinator = makeOrdersCoordinator
         ordersCoordinator.tabBarCoordinator = self
         self.ordersCoordinator = ordersCoordinator
         addChild(ordersCoordinator)
 
-//        let newOrderCoordinator = makeNewOrderCoordinator
-//        self.newOrderCoordinator = newOrderCoordinator
-//        addChild(newOrderCoordinator)
+        let newOrderCoordinator = makeNewOrderCoordinator
+        self.newOrderCoordinator = newOrderCoordinator
+        addChild(newOrderCoordinator)
         
         let menuCoordinator = makeMenuCoordinator
         self.menuCoordinator = menuCoordinator
@@ -42,12 +42,12 @@ final class TabBarCoordinator: BaseCoordinator {
 
         tabBarController.viewControllers = [
             ordersCoordinator.toPresent,
-//            newOrderCoordinator.toPresent,
+            newOrderCoordinator.toPresent,
             menuCoordinator.toPresent
         ]
 
         ordersCoordinator.start()
-//        newOrderCoordinator.start()
+        newOrderCoordinator.start()
         menuCoordinator.start()
     }
 
@@ -60,10 +60,10 @@ final class TabBarCoordinator: BaseCoordinator {
         return ordersCoordinator
     }
     
-//    private var makeNewOrderCoordinator: NewOrderCoordinator {
-//        let newOrderCoordinator = NewOrderCoordinator(router: RouterImpl())
-//        return newOrderCoordinator
-//    }
+    private var makeNewOrderCoordinator: NewOrderCoordinator {
+        let newOrderCoordinator = NewOrderCoordinator(router: RouterImpl())
+        return newOrderCoordinator
+    }
     
     private var makeMenuCoordinator: MenuCoordinator {
         let menuCoordinator = MenuCoordinator(router: RouterImpl())

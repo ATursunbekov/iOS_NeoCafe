@@ -42,7 +42,7 @@ final class OrdersCoordinator: BaseCoordinator {
             self?.showClosingOrderScreen(order: order)
         }
         let viewController = OrderDetailsViewController(viewModel: viewModel)
-        router.push(viewController, hideBottomBar: true)
+        router.push(viewController, hideBottomBar: false)
         tabBarCoordinator?.hideShadowView()
     }
     

@@ -164,7 +164,7 @@
 //        collectionView.snp.makeConstraints { make in
 //            make.top.equalTo(colorsContainer.snp.bottom).offset(33)
 //            make.leading.trailing.equalToSuperview().inset(16)
-//            make.bottom.equalToSuperview().inset(70)
+//            make.bottom.equalToSuperview().inset(80)
 //        }
 //    }
 //    
@@ -200,3 +200,50 @@
 ////    }
 ////}
 ////#endif
+
+
+import UIKit
+import SnapKit
+
+// TODO: -
+class NewOrderView: UIView {
+}
+
+// TODO: -
+protocol NewOrderViewModelProtocol {
+}
+
+class NewOrderViewModel: NewOrderViewModelProtocol {
+}
+
+// TODO: -
+class NewOrderViewController: UIViewController {
+    var viewModel: NewOrderViewModelProtocol
+    let contentView = NewOrderView()
+    
+    init(viewModel: NewOrderViewModelProtocol) {
+        self.viewModel = viewModel
+        super.init(nibName: nil, bundle: nil)
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
+    override func loadView() {
+        view = contentView
+    }
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+//        setupTargets()
+//        setupDelegates()
+//        navigationController?.navigationBar.isHidden = true
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        tabBarController?.tabBar.isHidden = false
+//        ordersView.collectionView.reloadData()
+    }
+}

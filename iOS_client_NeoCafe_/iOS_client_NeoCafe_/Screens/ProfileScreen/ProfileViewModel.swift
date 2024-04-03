@@ -18,12 +18,14 @@ protocol ProfileViewModelProtocol {
     
     var activeOrders: [OrderModel] {get set}
     var doneOrders: [OrderModel] {get set}
+    var logOut: EmptyCompletion? {get set}
     func getOrderHistory()
 }
 
 class ProfileViewModel: ProfileViewModelProtocol {
     @InjectionInjected(\.networkService) var networkService
     var delegate: ProfileViewModelDelegate?
+    var logOut: EmptyCompletion?
     
     func getProfileData() {
         networkService.sendRequest(successModelType: ProfileModel.self, endpoint: MultiTarget(GeneralAPI.getProfileData)) { [weak self] result in

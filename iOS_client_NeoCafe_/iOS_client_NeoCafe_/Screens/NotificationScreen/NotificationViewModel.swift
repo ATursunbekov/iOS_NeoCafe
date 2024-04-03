@@ -14,12 +14,16 @@ protocol NotificationViewModelDelegate: AnyObject {
 protocol NotificationViewModelProtocol {
     var delegate: NotificationViewModelDelegate? {get set}
     var notifications: [NotificationModel] {get set}
+    var popScreen: EmptyCompletion? {get set}
+    var notificationAmount: Int {get set}
 }
 
 class NotificationViewModel: NotificationViewModelProtocol {
     @InjectionInjected(\.networkService) var networkService
     var delegate: NotificationViewModelDelegate?
+    var popScreen: EmptyCompletion?
     var notifications: [NotificationModel] = []
+    var notificationAmount = 1
     
     func getBranchNames() {
         networkService.sendRequest(successModelType: [NotificationModel].self, endpoint: MultiTarget(GeneralAPI.getNotifications)) { [weak self] result in

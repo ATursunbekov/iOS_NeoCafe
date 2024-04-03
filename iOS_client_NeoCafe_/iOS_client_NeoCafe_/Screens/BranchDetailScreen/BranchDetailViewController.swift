@@ -29,6 +29,7 @@ class BranchDetailViewController: UIViewController {
         navigationController?.isNavigationBarHidden = true
         setupDelegates()
         branchView.backButton.addTarget(self, action: #selector(backPressed), for: .touchUpInside)
+        branchView.menuButton.addTarget(self, action: #selector(menuButtonPressed), for: .touchUpInside)
         viewModel?.getPopular()
     }
     
@@ -58,6 +59,10 @@ class BranchDetailViewController: UIViewController {
     
     @objc func backPressed() {
         navigationController?.popViewController(animated: true)
+    }
+    
+    @objc func menuButtonPressed() {
+        viewModel?.goToMenuScreen?()
     }
 }
 

@@ -28,6 +28,7 @@ class ProfileViewController: UIViewController {
         setupTargets()
         viewModel.getProfileData()
         viewModel.getOrderHistory()
+        navigationController?.isNavigationBarHidden = true
     }
     
     override func loadView() {
@@ -49,8 +50,7 @@ class ProfileViewController: UIViewController {
     }
     
     @objc func exitPressed() {
-        UIApplication.shared.windows.first?.rootViewController = AuthViewController(viewModel: AuthViewModel())
-        UIApplication.shared.windows.first?.makeKeyAndVisible()
+        viewModel.logOut?()
     }
     
     @objc func editPressed() {

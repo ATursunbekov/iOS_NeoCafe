@@ -13,12 +13,14 @@ protocol BasketDelegate: AnyObject {
 
 protocol BasketViewModelProtocol {
     var delegate: BasketDelegate? {get set}
+    var goToMainScreen: EmptyCompletion? {get set}
     func makeOrder(bonus: Int)
 }
 
 class BasketViewModel: BasketViewModelProtocol {
     @InjectionInjected(\.networkService) var networkService
     var delegate: BasketDelegate?
+    var goToMainScreen: EmptyCompletion?
     
     func makeOrder(bonus: Int) {
         networkService.sendRequest(successModelType: String.self, endpoint: MultiTarget(GeneralAPI.makeOrder(order: geatherAllData(bonus: bonus)))) { [weak self] result in

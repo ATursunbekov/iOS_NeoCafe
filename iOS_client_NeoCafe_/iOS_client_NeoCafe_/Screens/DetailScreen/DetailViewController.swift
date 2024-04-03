@@ -75,12 +75,17 @@ class DetailViewController: UIViewController {
     }
     
     @objc func addToBasketPressed() {
-        let vc = IngredientViewController { [self] in
+        if viewModel.productModel.category == "кофе" {
+            let vc = IngredientViewController { [self] in
+                DataManager.shared.addProduct(product: viewModel.productModel, quantity: detailView.customButton.counter)
+                self.navigationController?.popToRootViewController(animated: true)
+            }
+            vc.modalPresentationStyle = .overFullScreen
+            present(vc, animated: false)
+        } else {
             DataManager.shared.addProduct(product: viewModel.productModel, quantity: detailView.customButton.counter)
             self.navigationController?.popToRootViewController(animated: true)
-        } 
-        vc.modalPresentationStyle = .overFullScreen
-        present(vc, animated: false)
+        }
     }
 }
 

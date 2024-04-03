@@ -48,6 +48,7 @@ class BasketViewController: UIViewController {
     func setupTargets() {
         basketView.orderButton.addTarget(self, action: #selector(orderPressed), for: .touchUpInside)
         basketView.historyButton.addTarget(self, action: #selector(orderHistoryPressed), for: .touchUpInside)
+        basketView.menuButton.addTarget(self, action: #selector(menuPressed), for: .touchUpInside)
     }
     
     func isEmptyBasket() {
@@ -67,6 +68,11 @@ class BasketViewController: UIViewController {
             }
             basketView.costLabel.text = String(temp)
         }
+    }
+    
+    @objc func menuPressed() {
+        tabBarController?.tabBar.isHidden = true
+        viewModel.goToMainScreen?()
     }
     
     @objc func orderPressed() {
@@ -111,6 +117,7 @@ extension BasketViewController: BasketDelegate {
         DataManager.shared.productOrders.removeAll()
         basketView.tableView.reloadData()
         basketView.costLabel.text = ""
+        isEmptyCheck()
     }
 }
 

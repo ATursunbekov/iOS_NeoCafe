@@ -20,6 +20,7 @@ protocol BranchViewModelProtocol {
     var delegate: BranchViewModelDelegate? {get set}
     var branchNames: [String] {get set}
     var nameDelegate: BranchNameDelegate? {get set}
+    var navigateToBranchDetail: ((BranchResponses) -> Void)? {get set}
     
     func getAllBranches()
     func  getBranchNames()
@@ -27,6 +28,7 @@ protocol BranchViewModelProtocol {
 
 class BranchViewModel: BranchViewModelProtocol {
     @InjectionInjected(\.networkService) var networkService
+    var navigateToBranchDetail: ((BranchResponses) -> Void)?
     var branches: [BranchResponses] = []
     var delegate: BranchViewModelDelegate?
     

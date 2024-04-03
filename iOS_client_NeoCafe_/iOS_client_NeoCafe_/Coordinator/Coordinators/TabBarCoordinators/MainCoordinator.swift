@@ -20,6 +20,7 @@ final class MainCoordinator: BaseCoordinator {
         viewModel.goToMenuScreen = goToMenuScreen
         viewModel.gotToProductDetailScreen = goToProductDetailScreen
         viewModel.goToSearchScreen = goToSearchScreen
+        viewModel.goToNotificationScreen = goToNotificationScreen
         let viewController = MainViewController(viewModel: viewModel)
         mainVC = viewController
         viewController.tabBarItem.title = "Главная"
@@ -53,5 +54,14 @@ final class MainCoordinator: BaseCoordinator {
         }
         let vc = SearchViewController(viewModel: viewModel)
         router.push(vc, animated: true)
+    }
+    
+    func goToNotificationScreen() {
+        let viewModel = NotificationViewModel()
+        viewModel.popScreen = {
+            self.router.popModule(animated: true)
+        }
+        let viewController = NotificationViewController(viewModel: viewModel)
+        router.push(viewController, animated: true)
     }
 }

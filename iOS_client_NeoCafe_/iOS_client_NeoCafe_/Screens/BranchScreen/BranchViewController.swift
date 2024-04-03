@@ -10,7 +10,7 @@ import UIKit
 class BranchViewController: UIViewController {
     
     lazy var branchView = BranchScreenView()
-    var viewModel: BranchViewModelProtocol?
+    var viewModel: BranchViewModelProtocol
     
     init(viewModel: BranchViewModelProtocol) {
         self.viewModel = viewModel
@@ -24,7 +24,7 @@ class BranchViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setupDelegate()
-        viewModel?.getAllBranches()
+        viewModel.getAllBranches()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -39,29 +39,26 @@ class BranchViewController: UIViewController {
     func setupDelegate() {
         branchView.tableView.delegate = self
         branchView.tableView.dataSource = self
-        viewModel?.delegate = self
+        viewModel.delegate = self
     }
 }
 
 extension BranchViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        viewModel?.branches.count ?? 0
+        viewModel.branches.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: BranchScreenTableViewCell.identifier, for: indexPath) as! BranchScreenTableViewCell
         cell.selectionStyle = .none
-        if let viewModel = viewModel {
-            cell.configureData(response: viewModel.branches[indexPath.row])
-        }
+        cell.configureData(response: viewModel.branches[indexPath.row])
         return cell
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tabBarController?.tabBar.isHidden = true
-        if let viewModel = viewModel {
             navigationController?.pushViewController(BranchDetailViewController(viewModel: BranchDetailViewModel(), response: viewModel.branches[indexPath.row]), animated: true)
-        }
+//        viewModel.navigateToBranchDetail?(viewModel.branches[indexPath.row])
     }
 }
 

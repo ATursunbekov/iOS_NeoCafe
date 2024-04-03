@@ -14,6 +14,7 @@ protocol BranchDetailViewModelDelegate: AnyObject {
 protocol BranchDetailViewModelProtocol {
     var popularProducts: [PopularProductModel] {get set}
     var delegate: BranchDetailViewModelDelegate? {get set}
+    var goToMenuScreen: EmptyCompletion? {get set}
     func getPopular()
 }
 
@@ -21,6 +22,7 @@ class BranchDetailViewModel: BranchDetailViewModelProtocol {
     @InjectionInjected(\.networkService) var networkService
     var popularProducts: [PopularProductModel] = []
     var delegate: BranchDetailViewModelDelegate?
+    var goToMenuScreen: EmptyCompletion?
     
     func getPopular() {
         networkService.sendRequest(successModelType: [PopularProductModel].self, endpoint: MultiTarget(MenuAPI.getPopular)) { [weak self] result in

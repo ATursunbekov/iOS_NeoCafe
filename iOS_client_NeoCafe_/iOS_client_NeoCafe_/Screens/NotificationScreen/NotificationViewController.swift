@@ -10,7 +10,7 @@ import UIKit
 class NotificationViewController: UIViewController {
     
     let notView = NotificationView()
-    var viewModel: NotificationViewModelProtocol?
+    var viewModel: NotificationViewModelProtocol
     
     init(viewModel: NotificationViewModelProtocol) {
         self.viewModel = viewModel
@@ -24,12 +24,28 @@ class NotificationViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setupDelegates()
+        navigationController?.isNavigationBarHidden = true
+        setupTargets()
     }
     
     func setupDelegates() {
         notView.tableView.delegate = self
         notView.tableView.dataSource = self
-        viewModel?.delegate = self
+        viewModel.delegate = self
+    }
+    
+    func setupTargets() {
+        notView.backButton.addTarget(self, action: #selector(backPressed), for: .touchUpInside)
+        notView.clearButton.addTarget(self, action: #selector(clearPressed), for: .touchUpInside)
+    }
+    
+    @objc func backPressed() {
+        viewModel.popScreen?()
+    }
+    
+    @objc func clearPressed() {
+        viewModel.notificationAmount = 0
+        notView.tableView.reloadData()
     }
     
     override func loadView() {
@@ -39,11 +55,12 @@ class NotificationViewController: UIViewController {
 
 extension NotificationViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 3
+        return viewModel.notificationAmount
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: NotificationTableViewCell.identifier, for: indexPath) as! NotificationTableViewCell
+        cell.selectionStyle = .none
         return cell
     }
 }

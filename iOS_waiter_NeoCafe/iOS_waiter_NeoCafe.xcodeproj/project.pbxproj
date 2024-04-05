@@ -8,6 +8,19 @@
 
 /* Begin PBXBuildFile section */
 		7553333FB9269C17BB9EB72E /* Pods_iOS_waiter_NeoCafe.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F870B81CFB6EE7CDB4576DED /* Pods_iOS_waiter_NeoCafe.framework */; };
+		77BB97C82BBD7E440094BCB8 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77BB97C72BBD7E440094BCB8 /* ProfileViewController.swift */; };
+		77BB97CA2BBD7F1D0094BCB8 /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77BB97C92BBD7F1C0094BCB8 /* ProfileView.swift */; };
+		77E8242F2BC0353E00B68C3F /* NotificationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77E8242E2BC0353E00B68C3F /* NotificationViewController.swift */; };
+		77E824312BC0356200B68C3F /* NotificationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77E824302BC0356200B68C3F /* NotificationView.swift */; };
+		77E824352BC035AA00B68C3F /* NotificationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77E824342BC035AA00B68C3F /* NotificationViewModel.swift */; };
+		77E824372BC0375E00B68C3F /* NotificationTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77E824362BC0375E00B68C3F /* NotificationTableViewCell.swift */; };
+		77E8243A2BC0389C00B68C3F /* NotificationModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77E824392BC0389C00B68C3F /* NotificationModel.swift */; };
+		77E8243C2BC03B4200B68C3F /* GeneralAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77E8243B2BC03B4200B68C3F /* GeneralAPI.swift */; };
+		77F10BC12BBEA0FF002E0CD1 /* ProfileCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77F10BC02BBEA0FF002E0CD1 /* ProfileCollectionViewCell.swift */; };
+		77F10BC32BBEA3F8002E0CD1 /* ProfileViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77F10BC22BBEA3F8002E0CD1 /* ProfileViewModel.swift */; };
+		77F10BC62BBF1AEA002E0CD1 /* ProfileModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77F10BC52BBF1AEA002E0CD1 /* ProfileModel.swift */; };
+		77F10BC82BBF1DD7002E0CD1 /* ProfileAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77F10BC72BBF1DD7002E0CD1 /* ProfileAPI.swift */; };
+		77F10BCA2BBF309C002E0CD1 /* LogoutView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77F10BC92BBF309C002E0CD1 /* LogoutView.swift */; };
 		77FBFBBE2B6F853100F83EC7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77FBFBBD2B6F853100F83EC7 /* AppDelegate.swift */; };
 		77FBFBC02B6F853100F83EC7 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77FBFBBF2B6F853100F83EC7 /* SceneDelegate.swift */; };
 		77FBFBC72B6F853400F83EC7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 77FBFBC62B6F853400F83EC7 /* Assets.xcassets */; };
@@ -114,6 +127,19 @@
 
 /* Begin PBXFileReference section */
 		302C4D17E9908AA304F693AD /* Pods-iOS_waiter_NeoCafe.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iOS_waiter_NeoCafe.debug.xcconfig"; path = "Target Support Files/Pods-iOS_waiter_NeoCafe/Pods-iOS_waiter_NeoCafe.debug.xcconfig"; sourceTree = "<group>"; };
+		77BB97C72BBD7E440094BCB8 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
+		77BB97C92BBD7F1C0094BCB8 /* ProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
+		77E8242E2BC0353E00B68C3F /* NotificationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationViewController.swift; sourceTree = "<group>"; };
+		77E824302BC0356200B68C3F /* NotificationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationView.swift; sourceTree = "<group>"; };
+		77E824342BC035AA00B68C3F /* NotificationViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationViewModel.swift; sourceTree = "<group>"; };
+		77E824362BC0375E00B68C3F /* NotificationTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationTableViewCell.swift; sourceTree = "<group>"; };
+		77E824392BC0389C00B68C3F /* NotificationModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationModel.swift; sourceTree = "<group>"; };
+		77E8243B2BC03B4200B68C3F /* GeneralAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeneralAPI.swift; sourceTree = "<group>"; };
+		77F10BC02BBEA0FF002E0CD1 /* ProfileCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileCollectionViewCell.swift; sourceTree = "<group>"; };
+		77F10BC22BBEA3F8002E0CD1 /* ProfileViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewModel.swift; sourceTree = "<group>"; };
+		77F10BC52BBF1AEA002E0CD1 /* ProfileModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileModel.swift; sourceTree = "<group>"; };
+		77F10BC72BBF1DD7002E0CD1 /* ProfileAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileAPI.swift; sourceTree = "<group>"; };
+		77F10BC92BBF309C002E0CD1 /* LogoutView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogoutView.swift; sourceTree = "<group>"; };
 		77FBFBBA2B6F853100F83EC7 /* iOS_waiter_NeoCafe.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iOS_waiter_NeoCafe.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		77FBFBBD2B6F853100F83EC7 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		77FBFBBF2B6F853100F83EC7 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -245,6 +271,62 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		77BB97C62BBD7E270094BCB8 /* ProfileScreen */ = {
+			isa = PBXGroup;
+			children = (
+				77F10BC42BBF1ADB002E0CD1 /* Models */,
+				77F10BBF2BBEA0ED002E0CD1 /* Cell */,
+				77BB97C72BBD7E440094BCB8 /* ProfileViewController.swift */,
+				77BB97C92BBD7F1C0094BCB8 /* ProfileView.swift */,
+				77F10BC22BBEA3F8002E0CD1 /* ProfileViewModel.swift */,
+			);
+			path = ProfileScreen;
+			sourceTree = "<group>";
+		};
+		77E8242D2BC0352700B68C3F /* NotificationScreen */ = {
+			isa = PBXGroup;
+			children = (
+				77E824382BC0388A00B68C3F /* Model */,
+				77E824322BC0358400B68C3F /* Cell */,
+				77E8242E2BC0353E00B68C3F /* NotificationViewController.swift */,
+				77E824302BC0356200B68C3F /* NotificationView.swift */,
+				77E824342BC035AA00B68C3F /* NotificationViewModel.swift */,
+			);
+			path = NotificationScreen;
+			sourceTree = "<group>";
+		};
+		77E824322BC0358400B68C3F /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				77E824362BC0375E00B68C3F /* NotificationTableViewCell.swift */,
+			);
+			path = Cell;
+			sourceTree = "<group>";
+		};
+		77E824382BC0388A00B68C3F /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				77E824392BC0389C00B68C3F /* NotificationModel.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		77F10BBF2BBEA0ED002E0CD1 /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				77F10BC02BBEA0FF002E0CD1 /* ProfileCollectionViewCell.swift */,
+			);
+			path = Cell;
+			sourceTree = "<group>";
+		};
+		77F10BC42BBF1ADB002E0CD1 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				77F10BC52BBF1AEA002E0CD1 /* ProfileModel.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
 		77FBFBB12B6F853100F83EC7 = {
 			isa = PBXGroup;
 			children = (
@@ -266,6 +348,8 @@
 		77FBFBBC2B6F853100F83EC7 /* iOS_waiter_NeoCafe */ = {
 			isa = PBXGroup;
 			children = (
+				77E8242D2BC0352700B68C3F /* NotificationScreen */,
+				77BB97C62BBD7E270094BCB8 /* ProfileScreen */,
 				BAD0730C2BBC6A7B00BED543 /* Menu Flow */,
 				BA6E79CA2BA8A2890012F220 /* Auth Flow */,
 				BA6E7A092BA9D2F50012F220 /* Tables-Orders Screen */,
@@ -317,6 +401,8 @@
 				BAD072DE2BB6AB1700BED543 /* NewOrderAPI.swift */,
 				BAD0730A2BBC3B6C00BED543 /* CategoriesAPI.swift */,
 				BAD072F52BBAABCB00BED543 /* SearchManager.swift */,
+				77F10BC72BBF1DD7002E0CD1 /* ProfileAPI.swift */,
+				77E8243B2BC03B4200B68C3F /* GeneralAPI.swift */,
 				BAD072A82BB4885E00BED543 /* Models */,
 			);
 			path = "Network Layer";
@@ -356,6 +442,7 @@
 				BAC9552A2BAEB3EB00C205D8 /* CircleButton.swift */,
 				BAC9552C2BAEB41400C205D8 /* RectangularButton.swift */,
 				BAD072E02BB6CFFB00BED543 /* CustomSearchBar.swift */,
+				77F10BC92BBF309C002E0CD1 /* LogoutView.swift */,
 			);
 			path = "Custom Views";
 			sourceTree = "<group>";
@@ -778,6 +865,7 @@
 				BA6E79E42BA8A8E90012F220 /* CustomTextField.swift in Sources */,
 				BA6E79F02BA977B10012F220 /* InjectionDefaultContainer.swift in Sources */,
 				BA6E7A112BA9F35F0012F220 /* OrderStatus.swift in Sources */,
+				77BB97C82BBD7E440094BCB8 /* ProfileViewController.swift in Sources */,
 				BAD072D52BB5EC9D00BED543 /* NewOrderView.swift in Sources */,
 				BA6E7A002BA99A1A0012F220 /* TabBarCoordinator.swift in Sources */,
 				BAD072A12BB2F43600BED543 /* ClosingOrderModel.swift in Sources */,
@@ -792,17 +880,21 @@
 				BAD072ED2BB71A5100BED543 /* NewOrderInfoDrawerCell.swift in Sources */,
 				BA6E7A062BA99AB80012F220 /* MenuCoordinator.swift in Sources */,
 				BAC9551C2BAD523400C205D8 /* OrderDetailsViewController.swift in Sources */,
+				77E824312BC0356200B68C3F /* NotificationView.swift in Sources */,
 				BAD072F62BBAABCB00BED543 /* SearchManager.swift in Sources */,
 				BA6E79E22BA8A8D90012F220 /* TopView.swift in Sources */,
 				BA6E79EB2BA976000012F220 /* BranchModel.swift in Sources */,
 				BAC9552B2BAEB3EB00C205D8 /* CircleButton.swift in Sources */,
+				77E824372BC0375E00B68C3F /* NotificationTableViewCell.swift in Sources */,
 				BA6E79C42BA8A21A0012F220 /* AuthViewModel.swift in Sources */,
 				BAD072CB2BB5EC5C00BED543 /* NewOrderDirectoryViewController.swift in Sources */,
 				BA6E7A0D2BA9D3140012F220 /* OrdersView.swift in Sources */,
 				BAD072E32BB6D60700BED543 /* CategoryCell.swift in Sources */,
 				BAC955292BAE0C0C00C205D8 /* RemoveItemModalView.swift in Sources */,
+				77F10BCA2BBF309C002E0CD1 /* LogoutView.swift in Sources */,
 				BAD072BB2BB5EBEE00BED543 /* NewOrderInfoDrawerViewModel.swift in Sources */,
 				BA6E7A0F2BA9D31E0012F220 /* OrdersViewModel.swift in Sources */,
+				77F10BC32BBEA3F8002E0CD1 /* ProfileViewModel.swift in Sources */,
 				77FBFBBE2B6F853100F83EC7 /* AppDelegate.swift in Sources */,
 				BAD072F22BB942C800BED543 /* ErrorViewController.swift in Sources */,
 				BAD0729D2BB164E800BED543 /* ClosingOrderCell.swift in Sources */,
@@ -812,6 +904,7 @@
 				BAD072972BB00F2400BED543 /* SuccessfulClosingModal.swift in Sources */,
 				BA6E79DA2BA8A36B0012F220 /* Ext+UIFont.swift in Sources */,
 				BAC955212BAD52DF00C205D8 /* ItemOrderedCell.swift in Sources */,
+				77E824352BC035AA00B68C3F /* NotificationViewModel.swift in Sources */,
 				BA6E79C02BA8A2010012F220 /* AuthViewController.swift in Sources */,
 				BA6E7A132BA9F79A0012F220 /* TableModel.swift in Sources */,
 				BA6E79C22BA8A20F0012F220 /* AuthView.swift in Sources */,
@@ -819,13 +912,16 @@
 				BA6E7A042BA99A9F0012F220 /* NewOrderCoordinator.swift in Sources */,
 				BAD072EB2BB718AF00BED543 /* CircularCounter.swift in Sources */,
 				BA6E79CD2BA8A2A90012F220 /* NetworkService.swift in Sources */,
+				77E8243C2BC03B4200B68C3F /* GeneralAPI.swift in Sources */,
 				BAC955232BAD566200C205D8 /* CustomCounter.swift in Sources */,
 				BAD072AA2BB4908A00BED543 /* MockOrder.swift in Sources */,
 				BAD072A72BB4691400BED543 /* ItemOrderedModel.swift in Sources */,
 				BA6E79FC2BA999EE0012F220 /* ApplicationCoordinator.swift in Sources */,
 				BAD072C12BB5EC1A00BED543 /* NewOrderSearchViewModel.swift in Sources */,
+				77E8242F2BC0353E00B68C3F /* NotificationViewController.swift in Sources */,
 				BA6E79DC2BA8A38A0012F220 /* Ext+UIViewController.swift in Sources */,
 				BA6E79D82BA8A3450012F220 /* Ext+UIColor.swift in Sources */,
+				77E8243A2BC0389C00B68C3F /* NotificationModel.swift in Sources */,
 				BAD072F42BB942D100BED543 /* ErrorViewModel.swift in Sources */,
 				BAD073072BBC208B00BED543 /* OrderHistoryResponse.swift in Sources */,
 				BA6E7A152BAAAFBF0012F220 /* AvailabilityCell.swift in Sources */,
@@ -839,6 +935,7 @@
 				BA6E79F62BA999910012F220 /* BaseCoordinator.swift in Sources */,
 				BAD072D12BB5EC8500BED543 /* NewOrderCoffeeSupplementsDrawerViewController.swift in Sources */,
 				BAD0729B2BB164CC00BED543 /* ClosingOrderHeader.swift in Sources */,
+				77F10BC82BBF1DD7002E0CD1 /* ProfileAPI.swift in Sources */,
 				77FBFBC02B6F853100F83EC7 /* SceneDelegate.swift in Sources */,
 				BAC9552D2BAEB41400C205D8 /* RectangularButton.swift in Sources */,
 				BAD072C32BB5EC2E00BED543 /* NewOrderPlacementView.swift in Sources */,
@@ -851,7 +948,9 @@
 				BA6E79CF2BA8A2B40012F220 /* AuthAPI.swift in Sources */,
 				BA6E79D12BA8A2BE0012F220 /* TokenResponse.swift in Sources */,
 				BAD072BD2BB5EBFD00BED543 /* NewOrderSearchView.swift in Sources */,
+				77F10BC12BBEA0FF002E0CD1 /* ProfileCollectionViewCell.swift in Sources */,
 				BAD072DB2BB68A2A00BED543 /* AvailabilityClickableCell.swift in Sources */,
+				77F10BC62BBF1AEA002E0CD1 /* ProfileModel.swift in Sources */,
 				BAD072CD2BB5EC6500BED543 /* NewOrderDirectoryViewModel.swift in Sources */,
 				BAD073012BBB0C2B00BED543 /* MockProduct.swift in Sources */,
 				BAC955272BAE0AF600C205D8 /* ClosingOrderDrawerViewController.swift in Sources */,
@@ -861,6 +960,7 @@
 				BAC9552F2BAEB47900C205D8 /* CoffeeSupplementsDrawerView.swift in Sources */,
 				BA6E7A022BA99A920012F220 /* OrdersCoordinator.swift in Sources */,
 				BAD072E52BB6D61300BED543 /* ProductCell.swift in Sources */,
+				77BB97CA2BBD7F1D0094BCB8 /* ProfileView.swift in Sources */,
 				BAD072C52BB5EC3800BED543 /* NewOrderPlacementViewController.swift in Sources */,
 				BAD072BF2BB5EC1000BED543 /* NewOrderSearchViewController.swift in Sources */,
 			);

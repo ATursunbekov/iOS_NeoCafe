@@ -119,7 +119,7 @@ class AuthViewController: UIViewController {
     }
     
     // MARK: Timer logic
-    func startTimer() {
+    func startTimer() { 
         timer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(updateTimer), userInfo: nil, repeats: true)
     }
     
@@ -182,6 +182,7 @@ class AuthViewController: UIViewController {
                 } else {
                     viewModel.signUp(email: authView.textField.textField.text ?? "")
                 }
+                authView.gmailLabel.text = authView.textField.textField.text ?? ""
             }
         } else {
             viewModel.confirmationCode(email: authView.textField.textField.text ?? "", code: authView.pinView.getPin())
@@ -245,8 +246,6 @@ extension AuthViewController: AuthDelegate {
     }
     
     func successfulConfirmation() {
-//        navigationController?.pushViewController(CustomTabBarController(), animated: true)
-//        viewModel.onAuthNavigate
         print("someone")
     }
 }

@@ -97,7 +97,7 @@ class AuthView: UIView {
         label.textAlignment = .center
         return label
     }()
-    
+     
     lazy var gmailLabel = {
         let label = UILabel()
         label.text = Str.exampleEmail

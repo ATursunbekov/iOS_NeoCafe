@@ -8,67 +8,55 @@
 import UIKit
 
 class DataManager {
-    
     static var shared = DataManager()
     
     var tokens: TokenModel = TokenModel(refreshToken: "", accessToken: "")
-    private var branch = ""
-    var showedBranches = false
-    var productOrders: [ProductModel: Int] = [:]
     
-    func setBranch(_ name: String) {
-        branch = name
-    }
-    
-    func getBranch() -> String {
-        branch
-    }
-    
+    var orderProducts: [MockProduct: Int] = [:]
+
     // MARK: Token getter and setter
     func setTokens(token: TokenModel) {
         self.tokens = token
     }
     
     // MARK: Orders changes
-    func addProduct(product: ProductModel, quantity: Int = 1) {
-        if let currentQuantity = productOrders[product] {
+    func addProduct(product: MockProduct, quantity: Int = 1) {
+        if let currentQuantity = orderProducts[product] {
             if currentQuantity != 9 {
-                productOrders[product] = currentQuantity + quantity
+                orderProducts[product] = currentQuantity + quantity
             }
         } else {
-            productOrders[product] = quantity
+            orderProducts[product] = quantity
         }
     }
     
-    func getQuantity(of product: ProductModel) -> Int {
-        print("name: \(product.name): \(productOrders[product] ?? 0)")
-        return productOrders[product] ?? 0
+    func getQuantity(of product: MockProduct) -> Int {
+        print("name: \(product.name): \(orderProducts[product] ?? 0)")
+        return orderProducts[product] ?? 0
     }
     
     // Function to get an array of all products in the inventory
-    func getAllProducts() -> [ProductModel] {
-        return Array(productOrders.keys)
+    func getAllProducts() -> [MockProduct] {
+        return Array(orderProducts.keys)
     }
     
-    func removeProduct(product: ProductModel) {
-        guard let quantity = productOrders[product], quantity > 1 else {
+    func removeProduct(product: MockProduct) {
+        guard let quantity = orderProducts[product], quantity > 1 else {
             // If quantity is 1 or the product isn't found, remove the product from the dictionary
-            productOrders.removeValue(forKey: product)
+            orderProducts.removeValue(forKey: product)
             return
         }
         // If quantity is greater than 1, decrease it by 1
-        productOrders[product] = quantity - 1
+        orderProducts[product] = quantity - 1
     }
     
     // Method to calculate the total price of all ordered products
     func calculateTotalPrice() -> Int {
         var totalPrice = 0
-        for (product, quantity) in productOrders {
+        for (product, quantity) in orderProducts {
             let productPrice = product.price
             totalPrice += (productPrice * quantity)
         }
         return totalPrice
     }
-    
-    
 }

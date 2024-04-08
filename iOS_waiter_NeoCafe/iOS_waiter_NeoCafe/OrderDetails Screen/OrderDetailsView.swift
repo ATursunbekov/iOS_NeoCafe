@@ -5,8 +5,6 @@
 //  Created by iPak Tulane on 22/03/24.
 //
 
-import Foundation
-
 import UIKit
 import SnapKit
 
@@ -79,14 +77,22 @@ class OrderDetailsView: UIView {
         return label
     }()
     
-    lazy var itemsOrderedCollectionView: UICollectionView = {
-        let collectionView = UICollectionView(frame: .zero, collectionViewLayout: createItemsOrderedSection())
+    lazy var orderItemsCollectionView: UICollectionView = {
+        let collectionView = UICollectionView(frame: .zero, collectionViewLayout: createOrderItemsSection())
         collectionView.backgroundColor = .none
         collectionView.bounces = true
         collectionView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
-        collectionView.register(TableCell.self, forCellWithReuseIdentifier: TableCell.identifier)
+        collectionView.register(OrderItemCell.self, forCellWithReuseIdentifier: OrderItemCell.identifier)
         collectionView.showsVerticalScrollIndicator = false
         return collectionView
+    }()
+    
+    lazy var totalPriceStackView = {
+        let stack = UIStackView()
+        stack.axis = .horizontal
+        stack.distribution = .fill
+        stack.spacing = 5
+        return stack
     }()
     
     lazy var totalLabel: UILabel = {
@@ -101,7 +107,7 @@ class OrderDetailsView: UIView {
     lazy var priceLabel: UILabel = {
         let label = UILabel()
         var price = "..."
-        label.text = "\(price) сум."
+        label.text = "\(price) сом."
         label.font = .systemFont(ofSize: 18, weight: .bold)
         label.textColor = .colorOrange
         label.textAlignment = .left
@@ -120,7 +126,7 @@ class OrderDetailsView: UIView {
     lazy var closeOrderButton: UIButton = {
         let button = UIButton()
         button.setTitle("Закрыть счет", for: .normal)
-        button.titleLabel?.textColor = .colorLightBlue
+        button.setTitleColor(.colorLightBlue, for: .normal)
         button.layer.cornerRadius = 12
         button.layer.borderColor = UIColor.colorLightBlue.cgColor
         button.layer.borderWidth = 1
@@ -130,7 +136,7 @@ class OrderDetailsView: UIView {
     lazy var addSupplementsButton: UIButton = {
         let button = UIButton()
         button.setTitle("Добавить", for: .normal)
-        button.titleLabel?.textColor = .colorWhite
+        button.setTitleColor(.colorWhite, for: .normal)
         button.backgroundColor = UIColor.colorLightBlue
         button.layer.cornerRadius = 12
         return button
@@ -151,7 +157,6 @@ class OrderDetailsView: UIView {
 extension OrderDetailsView {
     
     func setupConstraints() {
-        
         // MARK: - Tables constraints
         addSubview(topView)
         topView.addSubview(backButton)
@@ -161,9 +166,14 @@ extension OrderDetailsView {
         containerView.addSubview(waiterLabel)
         containerView.addSubview(colorCircle)
         containerView.addSubview(orderStateLabel)
-        addSubview(itemsOrderedCollectionView)
-        addSubview(totalLabel)
-        addSubview(priceLabel)
+        addSubview(orderItemsCollectionView)
+        
+        addSubview(totalPriceStackView)
+        totalPriceStackView.addArrangedSubview(totalLabel)
+        totalPriceStackView.addArrangedSubview(priceLabel)
+//        addSubview(totalLabel)
+//        addSubview(priceLabel)
+        
         addSubview(buttonsStackView)
         buttonsStackView.addArrangedSubview(closeOrderButton)
         buttonsStackView.addArrangedSubview(addSupplementsButton)
@@ -177,7 +187,7 @@ extension OrderDetailsView {
         
         backButton.snp.makeConstraints { make in
             make.centerY.equalToSuperview()
-            make.leading.equalToSuperview().offset(16)
+            make.leading.equalToSuperview().inset(16) //offset
             make.height.width.equalTo(40)
         }
         
@@ -213,57 +223,60 @@ extension OrderDetailsView {
             make.height.equalTo(19)
         }
         
-        itemsOrderedCollectionView.snp.makeConstraints { make in
+        orderItemsCollectionView.snp.makeConstraints { make in
             make.top.equalTo(containerView.snp.bottom).offset(16)
             make.leading.trailing.equalToSuperview().inset(16)
             make.bottom.equalToSuperview().inset(130)
         }
         
+        totalPriceStackView.snp.makeConstraints { make in
+            make.leading.trailing.equalToSuperview().inset(16)
+            make.bottom.equalToSuperview().inset(94)
+        }
+
         totalLabel.snp.makeConstraints { make in
-            make.leading.equalToSuperview().inset(16)
-            make.bottom.equalTo(buttonsStackView.snp.top).offset(24)
-            make.height.equalTo(24)
+            make.centerY.leading.equalToSuperview()
         }
         
         priceLabel.snp.makeConstraints { make in
-            make.leading.equalTo(totalLabel.snp.trailing).offset(5)
-            make.centerY.equalTo(totalLabel.snp.trailing)
-            make.height.equalTo(24)
+            make.centerY.trailing.equalToSuperview()
         }
         
         buttonsStackView.snp.makeConstraints { make in
-            make.leading.trailing.bottom.equalToSuperview().inset(16)
+            make.leading.trailing.equalToSuperview().inset(16)
+            make.bottom.equalToSuperview().inset(25)
             make.height.equalTo(54)
         }
         
         closeOrderButton.snp.makeConstraints { make in
-            make.bottom.leading.height.equalToSuperview()
-            //            make.width.equalTo(168)
-            //            make.height.equalTo(54)
+            make.leading.centerY.equalToSuperview()
+            make.width.equalTo(168)
+            make.height.equalTo(54)
         }
-        //
+
         addSupplementsButton.snp.makeConstraints { make in
-            make.bottom.trailing.height.equalToSuperview()
-            //            make.width.equalTo(168)
-            //            make.height.equalTo(54)
+            make.trailing.centerY.equalToSuperview()
+            make.width.equalTo(168)
+            make.height.equalTo(54)
         }
-        
     }
 }
 
 // MARK: - Compositional Layout
 extension OrderDetailsView {
         
-    private func createItemsOrderedSection() -> UICollectionViewCompositionalLayout {
+    private func createOrderItemsSection() -> UICollectionViewCompositionalLayout {
 
         let itemSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.0), heightDimension: .absolute(100))
         let item = NSCollectionLayoutItem(layoutSize: itemSize)
 
-        let groupSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.0), heightDimension: .absolute(100))
+//        let groupSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.0), heightDimension: .absolute(100))
+        let groupSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.0), heightDimension: .fractionalHeight(0.25))
         let group = NSCollectionLayoutGroup.vertical(layoutSize: groupSize, subitems: [item])
 
         let section = NSCollectionLayoutSection(group: group)
-        section.interGroupSpacing = 12
+        section.interGroupSpacing = 1
+        section.contentInsets = .init(top: 5, leading: 5, bottom: 5, trailing: 5)
 
         return UICollectionViewCompositionalLayout(section: section)
     }

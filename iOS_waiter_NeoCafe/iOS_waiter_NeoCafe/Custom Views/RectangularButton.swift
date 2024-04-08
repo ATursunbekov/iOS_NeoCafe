@@ -9,15 +9,15 @@ import UIKit
 import SnapKit
 
 protocol RectangularButtonDelegate: AnyObject {
-    func chooseRectengularOption(index: Int)
+    func chooseRectangularOption(index: Int)
 }
 
-class RectengularButton: UIView {
+class RectangularButton: UIView {
     
     var index = 0
     weak var delegate: RectangularButtonDelegate?
     
-    lazy var rectengularView: UIView = {
+    lazy var rectangularView: UIView = {
         let view = UIView()
         view.layer.cornerRadius = 5
         view.layer.borderColor = UIColor.colorSecondDarkBlue.cgColor
@@ -49,11 +49,11 @@ class RectengularButton: UIView {
     }
     
     func setupConstraints() {
-        addSubview(rectengularView)
-        rectengularView.addSubview(innerImage)
+        addSubview(rectangularView)
+        rectangularView.addSubview(innerImage)
         addSubview(titleLabel)
         
-        rectengularView.snp.makeConstraints { make in
+        rectangularView.snp.makeConstraints { make in
             make.leading.top.bottom.equalToSuperview()
             make.width.equalTo(20)
         }
@@ -66,7 +66,7 @@ class RectengularButton: UIView {
         
         titleLabel.snp.makeConstraints { make in
             make.centerY.equalToSuperview()
-            make.leading.equalTo(rectengularView.snp.trailing).offset(8)
+            make.leading.equalTo(rectangularView.snp.trailing).offset(8)
         }
         
         innerImage.isHidden = true
@@ -75,19 +75,19 @@ class RectengularButton: UIView {
     func setupGestureDetector() {
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(handleSingleTap(_:)))
         tapGesture.numberOfTapsRequired = 1
-        rectengularView.addGestureRecognizer(tapGesture)
+        rectangularView.addGestureRecognizer(tapGesture)
         
         let doubleTapGesture = UITapGestureRecognizer(target: self, action: #selector(handleDoubleTap(_:)))
         doubleTapGesture.numberOfTapsRequired = 2
-        rectengularView.addGestureRecognizer(doubleTapGesture)
+        rectangularView.addGestureRecognizer(doubleTapGesture)
         
         tapGesture.require(toFail: doubleTapGesture)
     }
 
     @objc func handleSingleTap(_ sender: UITapGestureRecognizer) {
-        delegate?.chooseRectengularOption(index: index)
+        delegate?.chooseRectangularOption(index: index)
         innerImage.isHidden = false
-        rectengularView.layer.borderColor = UIColor.colorSecondDarkBlue.cgColor
+        rectangularView.layer.borderColor = UIColor.colorSecondDarkBlue.cgColor
     }
     
     @objc func handleDoubleTap(_ sender: UITapGestureRecognizer) {

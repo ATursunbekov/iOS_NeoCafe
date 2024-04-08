@@ -74,7 +74,7 @@
 //    
 //    lazy var orderTotalAmountLabel: UILabel = {
 //        let label = UILabel()
-//        label.text = "... сум"
+//        label.text = "... сом"
 //        label.font = .systemFont(ofSize: 16, weight: .bold)
 //        label.textColor = .colorWhite
 //        label.textAlignment = .right

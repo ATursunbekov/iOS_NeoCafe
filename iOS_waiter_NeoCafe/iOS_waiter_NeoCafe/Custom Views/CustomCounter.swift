@@ -7,16 +7,19 @@
 
 import UIKit
 
-protocol CustomCounterDelegate: AnyObject {
-    func addItemToOrder()
-    func removeItemFromOrder()
-    
-    func minusButton()
+protocol CounterDelegate: AnyObject {
+    func addItem()
+    func deductItem()
+    func isEmpty(_: Bool)
+}
+
+extension CounterDelegate {
+    func isEmpty(_: Bool) {}
 }
 
 class CustomCounter: UIView {
     var counter = 1
-    weak var delegate: CustomCounterDelegate?
+    weak var delegate: CounterDelegate?
     var buttonSize: Int = 36
     
     lazy var minusButton = {
@@ -89,15 +92,14 @@ class CustomCounter: UIView {
         if counter < 9 {
             counter += 1
             counterLabel.text = String(counter)
-            delegate?.addItemToOrder()
+            delegate?.addItem()
         }
     }
     
     @objc func minusButtonPressed() {
         if counter == 1 {
-            delegate?.minusButton()
+            delegate?.deductItem()
         } else {
-            delegate?.removeItemFromOrder()
             counter -= 1
             counterLabel.text = String(counter)
         }

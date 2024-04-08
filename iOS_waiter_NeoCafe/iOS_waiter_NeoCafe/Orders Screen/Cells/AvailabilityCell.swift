@@ -1,5 +1,5 @@
 //
-//  AvailabilityCell.swift
+//  TableCell.swift
 //  iOS_waiter_NeoCafe
 //
 //  Created by iPak Tulane on 20/03/24.
@@ -8,8 +8,8 @@
 import UIKit
 import SnapKit
 
-class AvailabilityCell: UICollectionViewCell {
-    static let identifier = "AvailabilityCell"
+class TableCell: UICollectionViewCell {
+    static let identifier = "TableCell"
     
     var isVacant: Bool = true
     
@@ -47,7 +47,7 @@ class AvailabilityCell: UICollectionViewCell {
         }
     }
     
-    func configureCell(with data: TableModel) {
+    func configureCell(with data: MockTable) {
         
         self.numberLabel.text = String(data.number)
         

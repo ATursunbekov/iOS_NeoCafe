@@ -6,3 +6,12 @@
 //
 
 import Foundation
+
+protocol NewOrderCoffeeSupplementsDrawerViewModelProtocol {
+    var popScreen: EmptyCompletion? { get set }
+}
+
+final class NewOrderCoffeeSupplementsDrawerViewModel: NewOrderCoffeeSupplementsDrawerViewModelProtocol {
+    @InjectionInjected(\.networkService) var networkService
+    var popScreen: EmptyCompletion?
+}

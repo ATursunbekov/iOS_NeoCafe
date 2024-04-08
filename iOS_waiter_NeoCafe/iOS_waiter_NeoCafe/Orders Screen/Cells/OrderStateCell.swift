@@ -1,5 +1,5 @@
 //
-//  OrderStateCell.swift
+//  OrderStatusCell.swift
 //  iOS_waiter_NeoCafe
 //
 //  Created by iPak Tulane on 20/03/24.
@@ -8,8 +8,8 @@
 import UIKit
 import SnapKit
 
-class OrderStateCell: UICollectionViewCell {
-    static let identifier = "OrderStateCell"
+class OrderStatusCell: UICollectionViewCell {
+    static let identifier = "OrderStatusCell"
     
     lazy var cellView = {
         let view = UIView()
@@ -49,7 +49,7 @@ class OrderStateCell: UICollectionViewCell {
         }
     }
     
-    func configureCell(with data: OrderState) {
+    func configureCell(with data: MockOrderStatus) {
         self.title.text = data.rawValue
     }
     

@@ -36,6 +36,9 @@ class OrderDetailsViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         tabBarController?.tabBar.isHidden = true
+        contentView.orderItemsCollectionView.reloadData()
+        configureView(with: viewModel.order)
+        updateTotal()
     }
     
     func setupTargets() { 
@@ -45,33 +48,21 @@ class OrderDetailsViewController: UIViewController {
     }
     
     func setupDelegates() { 
-        contentView.itemsOrderedCollectionView.delegate = self
-        contentView.itemsOrderedCollectionView.dataSource = self
-        viewModel.delegate = self
+        contentView.orderItemsCollectionView.delegate = self
+        contentView.orderItemsCollectionView.dataSource = self
     }
     
     @objc func backButtonPressed() {
-        // TODO: -
-        viewModel.onBackScreenNavigate?()
+        viewModel.onBackNavigate?()
     }
   
     @objc func addSupplementsButtonPressed() {
-        // TODO: -
-        viewModel.onAddSupplementsScreenNavigate?()
-
-//        let coffeeSupplementsDrawerViewController = CoffeeSupplementsDrawerViewController()
-//        coffeeSupplementsDrawerViewController.modalPresentationStyle = .overFullScreen
-//        present(coffeeSupplementsDrawerViewController, animated: false)
+        viewModel.onAddSupplementsNavigate?()
     }
     
     @objc func closeOrderButtonPressed() {
-        // TODO: - (([ItemOrderedModel])
-        viewModel.onClosingOrderScreenNavigate
-//        viewModel.onClosingOrderScreenNavigate?()
-        
-        //        let closingOrderDrawerView = ClosingOrderDrawerView()
-        //        closingOrderDrawerView.modalPresentationStyle = .overFullScreen
-        //        present(closingOrderDrawerView, animated: false)
+        let order = viewModel.order
+        viewModel.onClosingOrderNavigate?(order)
     }
 
 }
@@ -84,47 +75,69 @@ extension OrderDetailsViewController: UICollectionViewDelegate, UICollectionView
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return viewModel.itemsOrdered.count
+        return viewModel.order.products.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: ItemOrderedCell.identifier, for: indexPath) as! ItemOrderedCell
-        let data = viewModel.itemsOrdered[indexPath.item]
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: OrderItemCell.identifier, for: indexPath) as! OrderItemCell
+        let data = viewModel.order.products[indexPath.item]
         cell.configureCell(with: data)
+        cell.delegate = self
         return cell
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        
-    }
-    
-}
-
-// MARK: - ViewModel Delegate methods
-extension OrderDetailsViewController: OrderDetailsDelegate {
-    
-    func updateScreenWithSuccessfulResponse() {
-        // TODO: -
-        contentView.itemsOrderedCollectionView.reloadData()
-    }
-    
-    func updateScreenWithFailedResponse() {
-//        let errorVC = ErrorViewController()
-//        navigationController?.pushViewController(errorVC, animated: true)
+        // TODO:
     }
 }
 
-extension OrderDetailsViewController: CustomCounterDelegate {
-    
-    func addItemToOrder() {
-        //
+// MARK: - OrderItemCellDelegate
+extension OrderDetailsViewController: OrderItemCellDelegate {
+    func isEmptyCheck() {
+        viewModel.onRemoveItemFromOrderNavigate?()
     }
     
-    func removeItemFromOrder() {
-        //
+    func getTotal() -> Int {
+        return viewModel.getTotalPrice()
     }
     
-    func minusButton() {
-        //
+//    func updateTotal() {
+//        var totalPrice = 0
+//        for product in viewModel.order.products {
+//            totalPrice += product.price * product.quantity
+//        }
+//        viewModel.orderTotalPrice = totalPrice
+//    }
+    
+    func updateTotal() {
+//        let viewModel.getTotalPrice()
+        _ = viewModel.getTotalPrice()
+//        contentView.priceLabel.text = "\(totalPrice) сом."
+        contentView.priceLabel.text = "\(viewModel.orderTotalPrice) сом."
+    }
+//    private func updateTotalPrice() {
+//        let totalPrice = viewModel.order.products.reduce(0) { $0 + $1.subtotalPrice }
+//        contentView.priceLabel.text = "\(totalPrice) сом."
+//    }
+}
+
+extension OrderDetailsViewController {
+    func configureView(with data: MockOrder) {
+        contentView.topView.topLabel.text = "Стол №\(data.table.number)"
+        contentView.idLabel.text = "№ \(data.id)"
+        contentView.timeLabel.text = "Открыт в \(data.time)"
+        contentView.waiterLabel.text = "Официант: \(data.waiter)"
+        contentView.colorCircle.backgroundColor = data.status.color
+        contentView.orderStateLabel.text = data.status.rawValue
     }
 }
+
+//#if DEBUG
+//import SwiftUI
+//@available(iOS 13.0, *)
+//struct OrderDetailsViewControllerPreview: PreviewProvider {
+//    static var previews: some View {
+//        OrderDetailsViewController(viewModel: OrderDetailsViewModel()).showPreview()
+//    }
+//}
+//#endif

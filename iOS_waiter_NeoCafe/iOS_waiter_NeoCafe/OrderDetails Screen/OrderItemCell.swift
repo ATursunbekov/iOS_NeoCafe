@@ -1,5 +1,5 @@
 //
-//  ItemOrderedCell.swift
+//  OrderItemCell.swift
 //  iOS_waiter_NeoCafe
 //
 //  Created by iPak Tulane on 22/03/24.
@@ -8,9 +8,23 @@
 import UIKit
 import SnapKit
 
-class ItemOrderedCell: UICollectionViewCell {
+protocol OrderItemCellDelegate: AnyObject {
+    func isEmptyCheck()
+    func getTotal() -> Int
+    func updateTotal()
+}
+
+extension OrderItemCellDelegate {
+    func isEmptyCheck() {}
+}
+
+class OrderItemCell: UICollectionViewCell {
+    static let identifier = "OrderItemCell"
     
-    static let identifier = "ItemOrderedCell"
+    var product: MockProduct?
+    var quantity: Int = 1
+    var total: Int = 0
+    weak var delegate: OrderItemCellDelegate?
     
     lazy var cellView = {
         let view = UIView()
@@ -28,9 +42,16 @@ class ItemOrderedCell: UICollectionViewCell {
         return counter
     }()
     
+    lazy var stackHorizontal = {
+        let stack = UIStackView()
+        stack.axis = .horizontal
+        stack.spacing = 5
+        return stack
+    }()
+    
     lazy var itemLabel: UILabel = {
         let label = UILabel()
-        label.text = "..."
+        label.text = "Латте"
         label.textAlignment = .left
         label.numberOfLines = 1
         label.textColor = .colorDarkBlue
@@ -40,7 +61,7 @@ class ItemOrderedCell: UICollectionViewCell {
     
     lazy var pricePerItemLabel: UILabel = {
         let label = UILabel()
-        label.text = "(... сум/шт)"
+        label.text = "(100 сом/шт)"
         label.textAlignment = .left
         label.numberOfLines = 1
         label.textColor = .colorDarkBlue
@@ -80,8 +101,9 @@ class ItemOrderedCell: UICollectionViewCell {
     func setupConstraints() {
         contentView.addSubview(cellView)
         cellView.addSubview(counter)
-        cellView.addSubview(itemLabel)
-        cellView.addSubview(pricePerItemLabel)
+        cellView.addSubview(stackHorizontal)
+        stackHorizontal.addArrangedSubview(itemLabel)
+        stackHorizontal.addArrangedSubview(pricePerItemLabel)
         cellView.addSubview(milkSupplementLabel)
         cellView.addSubview(syrupSupplementLabel)
         
@@ -96,16 +118,18 @@ class ItemOrderedCell: UICollectionViewCell {
             make.height.equalTo(36)
         }
         
-        itemLabel.snp.makeConstraints { make in
+        stackHorizontal.snp.makeConstraints { make in
             make.top.equalToSuperview().inset(12)
-            make.leading.equalToSuperview().inset(16)
+            make.leading.trailing.equalToSuperview().inset(16)
             make.height.equalTo(17)
+        }
+
+        itemLabel.snp.makeConstraints { make in
+            make.leading.centerY.equalToSuperview()
         }
         
         pricePerItemLabel.snp.makeConstraints { make in
-            make.top.equalToSuperview().inset(12)
-            make.leading.equalTo(itemLabel.snp.trailing).offset(5)
-            make.height.equalTo(17)
+            make.trailing.centerY.equalToSuperview()
         }
         
         milkSupplementLabel.snp.makeConstraints { make in
@@ -122,12 +146,47 @@ class ItemOrderedCell: UICollectionViewCell {
     }
 }
 
-extension ItemOrderedCell {
-    func configureCell(with data: ItemOrderedModel) {
-        self.itemLabel.text = data.title
-        self.pricePerItemLabel.text = String(data.price)
-        self.milkSupplementLabel.text = data.milkSupplement
-        self.syrupSupplementLabel.text = data.syrupSupplement
+extension OrderItemCell {
+    func configureCell(with data: MockProduct) {
+        self.itemLabel.text = data.name
+        self.pricePerItemLabel.text = "(\(String(data.price)) сом / шт)"
+        self.milkSupplementLabel.text = data.supplements?.milk
+        self.syrupSupplementLabel.text = data.supplements?.syrup
         self.counter.counterLabel.text = String(data.quantity)
+        self.product = data
+        counter.setAmount(quantity)
+        total = delegate?.getTotal() ?? 0
+        delegate?.updateTotal()
     }
 }
+
+extension OrderItemCell: CounterDelegate {
+    func addItem() {
+        if let product = product {
+            DataManager.shared.addProduct(product: product)
+        }
+        delegate?.updateTotal()
+    }
+    
+    func deductItem() {
+        if let product = product {
+            DataManager.shared.removeProduct(product: product)
+            
+            let quantity = DataManager.shared.getQuantity(of: product)
+            if quantity == 0 {
+                delegate?.isEmptyCheck()
+            }
+        }
+        delegate?.updateTotal()
+    }
+}
+
+//#if DEBUG
+//import SwiftUI
+//@available(iOS 13.0, *)
+//struct OrderDetailsViewControllerPreview: PreviewProvider {
+//    static var previews: some View {
+//        OrderDetailsViewController(viewModel: OrderDetailsViewModel()).showPreview()
+//    }
+//}
+//#endif

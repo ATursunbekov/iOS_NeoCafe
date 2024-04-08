@@ -10,9 +10,8 @@ import SnapKit
 
 class SuccessfulClosingModalViewController: UIViewController {
     
-    // TODO: - Set a delay after successful closing and before moving to Tables screen
+    var viewModel: SuccessfulClosingModalViewModelProtocol
     
-    // MARK: First popup
     lazy var modalView: UIView = {
         let view = UIView()
         view.backgroundColor = .colorWhite
@@ -35,12 +34,21 @@ class SuccessfulClosingModalViewController: UIViewController {
         label.textColor = .colorDarkBlue
         return label
     }()
+        
+    init(viewModel: SuccessfulClosingModalViewModelProtocol) {
+        self.viewModel = viewModel
+        super.init(nibName: nil, bundle: nil)
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = UIColor.black.withAlphaComponent(0.35)
         setupConstraints()
-        hideModalView()
+        hideModalViewWithDelay()
     }
     
     func setupConstraints() {
@@ -66,12 +74,13 @@ class SuccessfulClosingModalViewController: UIViewController {
         }
     }
     
-    func hideModalView() {
-        modalView.isHidden = true
+    func hideModalViewWithDelay() {
+        DispatchQueue.main.asyncAfter(deadline: .now() + 3) { [weak self] in
+            self?.modalView.isHidden = true
+            self?.viewModel.onOrdersNavigate?()
+        }
     }
-    
 }
-
 
 //#if DEBUG
 //import SwiftUI

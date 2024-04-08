@@ -7,39 +7,59 @@
 
 import Foundation
 
-protocol OrderDetailsDelegate: AnyObject {
-    func updateScreenWithSuccessfulResponse()
-    func updateScreenWithFailedResponse()
-}
-
 protocol OrderDetailsViewModelProtocol {
-
-    var delegate: OrderDetailsDelegate? {get set}
-
-    var onBackScreenNavigate: EmptyCompletion? {get set}
-    var onAddSupplementsScreenNavigate: EmptyCompletion? {get set}
-    var onClosingOrderScreenNavigate: ((MockOrder)->Void)? {get set}
+    // MARK: Navigation
+    var onBackNavigate: EmptyCompletion? { get set }
+    var onClosingOrderNavigate: ((MockOrder)->Void)? { get set }
+    var onAddSupplementsNavigate: EmptyCompletion? { get set }
+    var onRemoveItemFromOrderNavigate: EmptyCompletion? { get set }
     
-    var itemsOrdered: [ItemOrderedModel] {get set}
+    // MARK: Data
+    var order: MockOrder { get set }
+    var orderTotalPrice: Int { get set }
     
+//    var totalPrice: Int { get set }
+    
+    func getTotalPrice() -> Int
 }
 
 class OrderDetailsViewModel: OrderDetailsViewModelProtocol {
+    @InjectionInjected(\.networkService) var networkService
     
-    var onAddSupplementsScreenNavigate: EmptyCompletion?
+//    var totalPrice: Int = 0
     
-    var onBackScreenNavigate: EmptyCompletion?
+    // MARK: Navigation
+    var onBackNavigate: EmptyCompletion?
+    var onClosingOrderNavigate: ((MockOrder)->Void)?
+    var onAddSupplementsNavigate: EmptyCompletion?
+    var onRemoveItemFromOrderNavigate: EmptyCompletion?
     
-    var onClosingOrderScreenNavigate: ((MockOrder) -> Void)?
+    // MARK: Data
+    var order: MockOrder = MockData.shared.order
+    var orderTotalPrice: Int = 0//MockData.shared.order.totalPrice
+}
+
+// MARK: - API requests
+extension OrderDetailsViewModel {
+    // TODO:
+}
+
+extension OrderDetailsViewModel {
+//    func calculateTotalPrice() -> Int {
+//        let total = DataManager.shared.calculateTotalPrice()
+//        return total
+//    }
     
-    weak var delegate: OrderDetailsDelegate?
+    func getTotalPrice() -> Int {
+        var totalPrice = 0
+        for product in order.products {
+            totalPrice += product.subtotalPrice
+        }
+        orderTotalPrice = totalPrice
+        return totalPrice
+    }
     
-    var itemsOrdered = [
-        ItemOrderedModel(title: "Чизкейк", quantity: 1, price: 100, milkSupplement: nil, syrupSupplement: nil),
-        ItemOrderedModel(title: "Капучино", quantity: 2, price: 200, milkSupplement: nil, syrupSupplement: nil),
-        ItemOrderedModel(title: "Латте", quantity: 3, price: 300, milkSupplement: nil, syrupSupplement: nil),
-    ]
-    
-    var mockOrder = AppMockOrder.shared.mockOrder
     
 }
+
+

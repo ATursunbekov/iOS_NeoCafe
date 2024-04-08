@@ -1,5 +1,5 @@
 //
-//  TableCell.swift
+//  OrderCell.swift
 //  iOS_waiter_NeoCafe
 //
 //  Created by iPak Tulane on 20/03/24.
@@ -8,8 +8,8 @@
 import UIKit
 import SnapKit
 
-class TableCell: UICollectionViewCell {
-    static let identifier = "TableCell"
+class OrderCell: UICollectionViewCell {
+    static let identifier = "OrderCell"
     
     lazy var cellView = {
         let view = UIView()
@@ -115,25 +115,12 @@ class TableCell: UICollectionViewCell {
         }
     }
     
-    func configureCell(with data: TableInfoModel) {
-        self.tableLabel.text = "Стол №\(data.number)"
-        self.orderStateLabel.text = data.orderState.rawValue
+    func configureCell(with data: MockOrder) {
+        self.tableLabel.text = "Стол №\(data.table.number)"
+        self.orderStateLabel.text = data.status.rawValue
         self.idLabel.text = String(data.id)
         self.timeLabel.text = data.time
-        
-        // Determine the color based on the order state
-        switch OrderState(rawValue: data.orderState.rawValue) {
-        case .inProcess:
-            self.circleView.backgroundColor = UIColor.colorYellow
-        case .new:
-            self.circleView.backgroundColor = UIColor.colorSkyBlue
-        case .ready:
-            self.circleView.backgroundColor = UIColor.colorGreen
-        case .cancelled:
-            self.circleView.backgroundColor = UIColor.colorDarkBlue
-        default: // .finished
-            self.circleView.backgroundColor = UIColor.colorGray
-        }
+        self.circleView.backgroundColor = data.status.color
     }
 }
 

@@ -7,66 +7,41 @@
 
 import UIKit
 
-protocol ClosingOrderDrawerDelegate: AnyObject {
-    func handleSuccessfulResponse()
-}
-
 protocol ClosingOrderDrawerViewModelProtocol {
-    var delegate: ClosingOrderDrawerDelegate? {get set}
-    var closingOrderItems: [ClosingOrderModel] {get set}
-        
-    var onScreenDismissal: EmptyCompletion? {get set}
+    var onSuccessfulClosingNavigate: EmptyCompletion? { get set }
     
-    func fetchData()
-    func calculateTotalPrice() -> String
+    var items: [MockProduct] { get set }
+    var totalPriceValue: Int { get set }
+    
+    func calculateTotalPrice() -> Int
 }
 
 class ClosingOrderDrawerViewModel: ClosingOrderDrawerViewModelProtocol {
-        
     @InjectionInjected(\.networkService) var networkService
 
-    var onScreenDismissal: EmptyCompletion?
+    var onSuccessfulClosingNavigate: EmptyCompletion?
     
-    weak var delegate: ClosingOrderDrawerDelegate?
-    
-    var totalPriceValue = 0
-    
-    var closingOrderItems = [
-        ClosingOrderModel(name: "Латте",
-                          pricePerItem: 100,
-                          quantity: 1),
-        ClosingOrderModel(name: "Раф",
-                          pricePerItem: 200,
-                          quantity: 2),
-        ClosingOrderModel(name: "Круассан",
-                          pricePerItem: 300,
-                          quantity: 3),
-    ]
-    
-    func fetchData() {
-//        networkService.sendRequest(successModelType: TableModel.self, endpoint: MultiTarget(AuthAPI.fetchAvailableTablesData())) { [weak self] result in
-//            guard let self else { return }
-//            switch result {
-//            case .success(let response):
-//                DispatchQueue.main.async {
-//                    self.delegate?.availableTablesResponse()
-//                }
-//                print(response)
-//            case .failure(let error):
-//                print("handle error: \(error)")
-//            }
-//        }
-    }
-    
-    func calculateTotalPrice() -> String {
-        for item in closingOrderItems {
-            totalPriceValue += item.subtotalPrice
-        }
-        return String(totalPriceValue)
-    }
-    
-    
+    var items: [MockProduct] = MockData.shared.orderProducts
+    var totalPriceValue: Int = 0
 }
 
+// MARK: - CellDelegate
+extension ClosingOrderDrawerViewModel: ClosingOrderCellDelegate {
+    func getTotal() {
+        totalPriceValue = calculateTotalPrice()
+    }
+}
 
+extension ClosingOrderDrawerViewModel {
+    func calculateTotalPrice() -> Int {
+        for item in items {
+            totalPriceValue += item.subtotalPrice
+        }
+        return totalPriceValue
+    }
+}
 
+// MARK: - API method
+extension ClosingOrderDrawerViewModel {
+    // TODO:
+}

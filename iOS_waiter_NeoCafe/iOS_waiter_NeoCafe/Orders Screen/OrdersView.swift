@@ -76,34 +76,34 @@ class OrdersView: UIView {
         return label
     }()
     
-    lazy var availabilityCollectionView: UICollectionView = {
+    lazy var tablesCollectionView: UICollectionView = {
         let collectionView = UICollectionView(frame: .zero, collectionViewLayout: createAvailabilitySection())
         collectionView.backgroundColor = .none
         collectionView.bounces = false
         collectionView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
-        collectionView.register(AvailabilityCell.self, forCellWithReuseIdentifier: AvailabilityCell.identifier)
+        collectionView.register(TableCell.self, forCellWithReuseIdentifier: TableCell.identifier)
         collectionView.showsVerticalScrollIndicator = false
         return collectionView
     }()
     
     // MARK: - Orders subviews
 
-    lazy var orderStatesCollectionView: UICollectionView = {
+    lazy var orderStatusesCollectionView: UICollectionView = {
         let collectionView = UICollectionView(frame: .zero, collectionViewLayout: createOrderStatesSection())
         collectionView.backgroundColor = .none
         collectionView.bounces = false
         collectionView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
-        collectionView.register(OrderStateCell.self, forCellWithReuseIdentifier: OrderStateCell.identifier)
+        collectionView.register(OrderStatusCell.self, forCellWithReuseIdentifier: OrderStatusCell.identifier)
         collectionView.showsHorizontalScrollIndicator = false
         return collectionView
     }()
     
-    lazy var tablesCollectionView: UICollectionView = {
+    lazy var ordersCollectionView: UICollectionView = {
         let collectionView = UICollectionView(frame: .zero, collectionViewLayout: createTablesSection())
         collectionView.backgroundColor = .none
         collectionView.bounces = true
         collectionView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
-        collectionView.register(TableCell.self, forCellWithReuseIdentifier: TableCell.identifier)
+        collectionView.register(OrderCell.self, forCellWithReuseIdentifier: OrderCell.identifier)
         collectionView.showsVerticalScrollIndicator = false
         return collectionView
     }()
@@ -127,7 +127,7 @@ class OrdersView: UIView {
         colorsContainer.addSubview(reservedLabel)
         colorsContainer.addSubview(greenCircle)
         colorsContainer.addSubview(vacantLabel)
-        addSubview(availabilityCollectionView)
+        addSubview(tablesCollectionView)
         
         
         topView.snp.makeConstraints { make in
@@ -181,24 +181,24 @@ class OrdersView: UIView {
             make.leading.equalTo(greenCircle.snp.trailing).offset(8)
         }
         
-        availabilityCollectionView.snp.makeConstraints { make in
+        tablesCollectionView.snp.makeConstraints { make in
             make.top.equalTo(colorsContainer.snp.bottom).offset(33)
             make.leading.trailing.equalToSuperview().inset(16)
             make.bottom.equalToSuperview().inset(80)
         }
         
         // MARK: - Orders constraints
-        addSubview(orderStatesCollectionView)
-        addSubview(tablesCollectionView)
+        addSubview(orderStatusesCollectionView)
+        addSubview(ordersCollectionView)
         
-        orderStatesCollectionView.snp.makeConstraints { make in
+        orderStatusesCollectionView.snp.makeConstraints { make in
             make.top.equalTo(customSegmentedControl.snp.bottom).offset(24)
             make.leading.equalToSuperview().inset(16)
             make.trailing.equalToSuperview().offset(50)
             make.height.equalTo(34)
         }
         
-        tablesCollectionView.snp.makeConstraints { make in
+        ordersCollectionView.snp.makeConstraints { make in
             make.top.equalTo(customSegmentedControl.snp.bottom).offset(80)
             make.leading.trailing.equalToSuperview().inset(16)
             make.bottom.equalToSuperview().inset(80)
@@ -206,8 +206,8 @@ class OrdersView: UIView {
     }
     
     func hideSubviews() {
-        orderStatesCollectionView.isHidden = true
-        tablesCollectionView.isHidden = true
+        orderStatusesCollectionView.isHidden = true
+        ordersCollectionView.isHidden = true
     }
     
     required init?(coder: NSCoder) {

@@ -10,15 +10,16 @@ import SnapKit
 
 class CoffeeSupplementsDrawerViewController: UIViewController {
     
-    var isCoffeeCategory: Bool = true
+    var viewModel: CoffeeSupplementsDrawerViewModelProtocol
+    private var tapAction: EmptyCompletion?
     
-    var chooseMilk = 0
-    var chooseSyrup = 0
-    private var tapAction: (() -> Void)?
+    var milkIndex = 0
+    var syrupIndex = 0
     
-    init(tapAction: ( () -> Void)? = nil) {
-        super.init(nibName: nil, bundle: nil)
+    init(viewModel: CoffeeSupplementsDrawerViewModelProtocol, tapAction: EmptyCompletion? = nil) {
+        self.viewModel = viewModel
         self.tapAction = tapAction
+        super.init(nibName: nil, bundle: nil)
     }
     
     required init?(coder: NSCoder) {
@@ -31,7 +32,7 @@ class CoffeeSupplementsDrawerViewController: UIViewController {
         return view
     }()
     
-    lazy var popUpView: UIView = {
+    lazy var drawerView: UIView = {
         let view = UIView()
         view.backgroundColor = .colorWhite
         view.layer.cornerRadius = 24
@@ -67,8 +68,8 @@ class CoffeeSupplementsDrawerViewController: UIViewController {
         return label
     }()
     
-    lazy var rectengularButton1 = RectengularButton(text: "Клубничный", index: 0, delegte: self)
-    lazy var rectengularButton2 = RectengularButton(text: "Карамельный", index: 1, delegte: self)
+    lazy var rectangularButton1 = RectangularButton(text: "Клубничный", index: 0, delegte: self)
+    lazy var rectangularButton2 = RectangularButton(text: "Карамельный", index: 1, delegte: self)
     
     lazy var saveButton: UIButton = {
         let button = UIButton()
@@ -101,28 +102,29 @@ class CoffeeSupplementsDrawerViewController: UIViewController {
     }
     
     func setupTargets() {
-        saveButton.addTarget(self, action: #selector(saveButtonPressed), for: .touchUpInside)
+        saveButton.addTarget(self, action: #selector(saveButtonDidPress), for: .touchUpInside)
     }
     
-    @objc func saveButtonPressed() {
+    @objc func saveButtonDidPress() {
         dismiss(animated: false)
         tapAction?()
+        viewModel.popScreen?()
     }
     
     func setupConstraints() {
         view.addSubview(backgroundView)
-        view.addSubview(popUpView)
-        popUpView.addSubview(headerTitle)
-        popUpView.addSubview(milkTitle)
-        popUpView.addSubview(circleButton1)
-        popUpView.addSubview(circleButton2)
-        popUpView.addSubview(circleButton3)
-        popUpView.addSubview(syrupTitle)
-        popUpView.addSubview(rectengularButton1)
-        popUpView.addSubview(rectengularButton2)
-        popUpView.addSubview(saveButton)
+        view.addSubview(drawerView)
+        drawerView.addSubview(headerTitle)
+        drawerView.addSubview(milkTitle)
+        drawerView.addSubview(circleButton1)
+        drawerView.addSubview(circleButton2)
+        drawerView.addSubview(circleButton3)
+        drawerView.addSubview(syrupTitle)
+        drawerView.addSubview(rectangularButton1)
+        drawerView.addSubview(rectangularButton2)
+        drawerView.addSubview(saveButton)
         
-        popUpView.snp.makeConstraints { make in
+        drawerView.snp.makeConstraints { make in
             make.leading.trailing.bottom.equalToSuperview()
             make.height.equalTo(419)
         }
@@ -168,17 +170,17 @@ class CoffeeSupplementsDrawerViewController: UIViewController {
             make.top.equalTo(circleButton3.snp.bottom).offset(24)
         }
         
-        rectengularButton1.snp.makeConstraints { make in
+        rectangularButton1.snp.makeConstraints { make in
             make.leading.equalToSuperview().offset(16)
             make.top.equalTo(syrupTitle.snp.bottom).offset(16)
-            make.trailing.equalTo(rectengularButton1.titleLabel.snp.trailing)
+            make.trailing.equalTo(rectangularButton1.titleLabel.snp.trailing)
             make.height.equalTo(20)
         }
         
-        rectengularButton2.snp.makeConstraints { make in
+        rectangularButton2.snp.makeConstraints { make in
             make.leading.equalToSuperview().offset(16)
-            make.top.equalTo(rectengularButton1.snp.bottom).offset(16)
-            make.trailing.equalTo(rectengularButton1.titleLabel.snp.trailing)
+            make.top.equalTo(rectangularButton1.snp.bottom).offset(16)
+            make.trailing.equalTo(rectangularButton1.titleLabel.snp.trailing)
             make.height.equalTo(20)
         }
         
@@ -198,15 +200,15 @@ extension CoffeeSupplementsDrawerViewController: CircleButtonDelegate {
         circleButton1.circleView.backgroundColor = .colorGray
         circleButton2.circleView.backgroundColor = .colorGray
         circleButton3.circleView.backgroundColor = .colorGray
-        chooseMilk = index
+        milkIndex = index
     }
 }
 
 extension CoffeeSupplementsDrawerViewController: RectangularButtonDelegate {
-    func chooseRectengularOption(index: Int) {
-        rectengularButton1.innerImage.isHidden = true
-        rectengularButton2.innerImage.isHidden = true
-        chooseSyrup = index
+    func chooseRectangularOption(index: Int) {
+        rectangularButton1.innerImage.isHidden = true
+        rectangularButton2.innerImage.isHidden = true
+        syrupIndex = index
     }
 }
 

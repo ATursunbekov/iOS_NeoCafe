@@ -12,20 +12,11 @@ class ClosingOrderDrawerViewController: UIViewController {
     
     var viewModel: ClosingOrderDrawerViewModelProtocol
     
-//    private var tapAction: (() -> Void)? // TODO: - ???
-    
-//    init(tapAction: ( () -> Void)? = nil) {
-//        super.init(nibName: nil, bundle: nil)
-//        self.tapAction = tapAction
-//    }
-    
-//    init(viewModel: ClosingOrderDrawerViewModelProtocol) {
-//        super.init(nibName: nil, bundle: nil)
-//        self.viewModel = viewModel
-//    }
-    
-    init(viewModel: ClosingOrderDrawerViewModelProtocol) {
+    private var tapAction: EmptyCompletion?
+        
+    init(viewModel: ClosingOrderDrawerViewModelProtocol, tapAction: EmptyCompletion? = nil) {
         self.viewModel = viewModel
+        self.tapAction = tapAction
         super.init(nibName: nil, bundle: nil)
     }
     
@@ -93,7 +84,7 @@ class ClosingOrderDrawerViewController: UIViewController {
     
     lazy var totalNumberLabel: UILabel = {
         let label = UILabel()
-        label.text = "... сум"
+        label.text = "... сом"
         label.numberOfLines = 1
         label.textAlignment = .left
         label.font = .poppins(size: 16, weight: .bold)
@@ -128,7 +119,6 @@ class ClosingOrderDrawerViewController: UIViewController {
     func setupDelegates() {
         collectionView.delegate = self
         collectionView.dataSource = self
-//        viewModel.delegate = self
     }
     
     private func setupConstraints() {
@@ -176,6 +166,7 @@ class ClosingOrderDrawerViewController: UIViewController {
     }
 }
     
+// MARK: - Gestures
 extension ClosingOrderDrawerViewController {
     
     private func setupGestures() {
@@ -193,11 +184,12 @@ extension ClosingOrderDrawerViewController {
     
     @objc func saveButtonPressed() {
         dismiss(animated: false)
-//        tapAction?()
-//        viewModel.onScreenDismissal
+        tapAction?()
+        viewModel.onSuccessfulClosingNavigate?()
     }
 }
 
+// MARK: - Collection view layout
 extension ClosingOrderDrawerViewController {
     private func createClosingOrderSection() -> UICollectionViewCompositionalLayout {
        
@@ -231,13 +223,14 @@ extension ClosingOrderDrawerViewController: UICollectionViewDelegate, UICollecti
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return viewModel.closingOrderItems.count
+        return viewModel.items.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: ClosingOrderCell.identifier, for: indexPath) as! ClosingOrderCell
-        let data = viewModel.closingOrderItems[indexPath.item]
+        let data = viewModel.items[indexPath.item]
         cell.configureCell(with: data)
+        cell.delegate = self
         return cell
     }
     
@@ -246,16 +239,12 @@ extension ClosingOrderDrawerViewController: UICollectionViewDelegate, UICollecti
     }
 }
 
-extension ClosingOrderDrawerViewController: ClosingOrderDrawerDelegate {
-    
-    func handleSuccessfulResponse() {
-        let totalPrice = viewModel.calculateTotalPrice()
+extension ClosingOrderDrawerViewController: ClosingOrderCellDelegate {
+    func getTotal() {
+        let totalPrice = viewModel.totalPriceValue
         totalNumberLabel.text = "\(totalPrice)"
     }
 }
-
-
-
 
 //#if DEBUG
 //import SwiftUI

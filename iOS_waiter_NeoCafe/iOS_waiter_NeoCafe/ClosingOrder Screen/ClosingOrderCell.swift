@@ -8,9 +8,20 @@
 import UIKit
 import SnapKit
 
+protocol ClosingOrderCellDelegate: AnyObject {
+    func isEmptyCheck()
+    func getTotal()
+}
+
+extension ClosingOrderCellDelegate {
+    func isEmptyCheck() {}
+    func getTotal() {}
+}
+
 class ClosingOrderCell: UICollectionViewCell {
-    
     static let identifier = "ClosingOrderCell"
+    
+    weak var delegate: ClosingOrderCellDelegate?
     
     lazy var stackVertical = {
         let stack = UIStackView()
@@ -33,7 +44,7 @@ class ClosingOrderCell: UICollectionViewCell {
     
     lazy var pricePerItemCellSubtitle: UILabel = {
         let label = UILabel()
-        label.text = "(... сум/шт)"
+        label.text = "(... сом / шт)"
         label.textAlignment = .left
         label.numberOfLines = 1
         label.adjustsFontSizeToFitWidth = true
@@ -107,15 +118,13 @@ class ClosingOrderCell: UICollectionViewCell {
 }
 
 extension ClosingOrderCell {
-    func configureCell(with data: ClosingOrderModel) {
+    func configureCell(with data: MockProduct) {
         self.itemNameCellTitle.text = data.name
-        self.pricePerItemCellSubtitle.text = "(\(String(data.pricePerItem)) сум / шт)"
+        self.pricePerItemCellSubtitle.text = "(\(String(data.price)) сом / шт)"
         self.itemQuantityCellTitle.text = String(data.quantity)
         self.itemSubtotalPriceCellTitle.text = String(data.subtotalPrice)
     }
 }
-
-
 
 //#if DEBUG
 //import SwiftUI

@@ -68,7 +68,7 @@
 //    
 //    lazy var totalNumberLabel: UILabel = {
 //        let label = UILabel()
-//        label.text = "... сум"
+//        label.text = "... сом"
 //        label.textAlignment = .left
 //        label.font = .poppins(size: 16, weight: .semibold)
 //        label.textColor = .colorDarkBlue

@@ -85,7 +85,7 @@ class AuthView: UIView {
     
     lazy var gmailLabel = {
         let label = UILabel()
-        label.text = "user@gmail.com"
+        label.text = "ipak.dev@gmail.com"
         label.font =
         UIFont.poppins(size: 16, weight: .bold)
         label.textAlignment = .center
@@ -94,7 +94,7 @@ class AuthView: UIView {
     
     lazy var resendButton = {
         let button = UIButton()
-        button.setTitle("Отправить еще раз через", for: .normal)
+        button.setTitle("Отправить еще раз через ", for: .normal)
         button.titleLabel?.font =
         UIFont.poppins(size: 14, weight: .medium)
         button.setTitleColor(UIColor.colorDarkGray, for: .normal)
@@ -163,7 +163,7 @@ class AuthView: UIView {
         }
         
         button.snp.makeConstraints { make in
-            make.top.equalTo(passwordTextField.snp.bottom).offset(56)
+            make.top.equalTo(topView.snp.bottom).offset(216)
             make.leading.trailing.equalToSuperview().inset(16)
             make.height.equalTo(48)
         }
@@ -179,7 +179,6 @@ class AuthView: UIView {
         addSubview(resendButton)
         addSubview(timeCounter)
 
-        
         backButton.snp.makeConstraints { make in
             make.centerY.equalToSuperview()
             make.leading.equalToSuperview().offset(16)
@@ -194,11 +193,11 @@ class AuthView: UIView {
         
         gmailLabel.snp.makeConstraints { make in
             make.centerX.equalToSuperview()
-            make.top.equalTo(confirmationLabel.snp.bottom)
+            make.top.equalTo(confirmationLabel.snp.bottom).offset(10)
         }
         
         pinView.snp.makeConstraints { make in
-            make.centerX.equalToSuperview().offset(23)
+            make.centerX.equalToSuperview()
             make.top.equalTo(gmailLabel.snp.bottom).offset(16)
             make.height.equalTo(52)
         }
@@ -212,7 +211,7 @@ class AuthView: UIView {
         
         resendButton.snp.makeConstraints { make in
             make.top.equalTo(button.snp.bottom).offset(16)
-            make.centerX.equalToSuperview().offset(-5)
+            make.centerX.equalToSuperview().offset(-20)
         }
         
         timeCounter.snp.makeConstraints { make in

@@ -27,30 +27,38 @@ final class ApplicationCoordinator: BaseCoordinator {
             window.makeKeyAndVisible()
     }
     
-    func start(_ with: String?) {
-        performInitializationFlow()
+    override func start() {
+        if !isUserRegistered() {
+            performAuthFlow()
+        } else {
+            performOrdersFlow()
+        }
+    }
+    
+    func isUserRegistered() -> Bool {
+        let accessToken = DataManager.shared.tokens.accessToken
+        return !accessToken.isEmpty
     }
 
-    func performInitializationFlow() {
-        let coordinator = InitializationCoordinator(router: router)
+    func performAuthFlow() {
+        let coordinator = AuthCoordinator(router: router)
         addChild(coordinator)
         coordinator.start()
-        coordinator.onAuthenticationNavigate = { [weak self, weak coordinator] in
+        coordinator.onOrdersNavigate = { [weak self, weak coordinator] in
             self?.removeChild(coordinator)
             self?.performOrdersFlow()
         }
-        router.setRootModule(coordinator, hideBar: true)
+        router.setRootModule(coordinator, hideBar: false)
     }
     
     func performOrdersFlow() {
         let coordinator = TabBarCoordinator(router: router)
         addChild(coordinator)
         coordinator.start()
-        router.setRootModule(coordinator, hideBar: true)
+        router.setRootModule(coordinator, hideBar: false)
     }
     
     private func setupColors() {
         window.tintColor = .white
     }
 }
-

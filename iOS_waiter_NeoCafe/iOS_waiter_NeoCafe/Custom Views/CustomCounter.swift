@@ -16,7 +16,7 @@ protocol CustomCounterDelegate: AnyObject {
 
 class CustomCounter: UIView {
     var counter = 1
-    var delegate: CustomCounterDelegate?
+    weak var delegate: CustomCounterDelegate?
     var buttonSize: Int = 36
     
     lazy var minusButton = {

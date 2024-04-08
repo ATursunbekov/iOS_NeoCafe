@@ -15,7 +15,7 @@ protocol CircleButtonDelegate: AnyObject {
 class CircleButton: UIView {
     
     var index = 0
-    var delegate: CircleButtonDelegate?
+    weak var delegate: CircleButtonDelegate?
     
     lazy var circleView: UIView = {
         let view = UIView()
@@ -75,17 +75,40 @@ class CircleButton: UIView {
     }
     
     func setupGestureDetector() {
-        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(handleTap(_:)))
+        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(handleSingleTap(_:)))
+        tapGesture.numberOfTapsRequired = 1
         circleView.addGestureRecognizer(tapGesture)
+        
+        let doubleTapGesture = UITapGestureRecognizer(target: self, action: #selector(handleDoubleTap(_:)))
+        doubleTapGesture.numberOfTapsRequired = 2
+        circleView.addGestureRecognizer(doubleTapGesture)
+        
+        tapGesture.require(toFail: doubleTapGesture)
     }
     
-    @objc func handleTap(_ sender: UITapGestureRecognizer) {
+    @objc func handleSingleTap(_ sender: UITapGestureRecognizer) {
         delegate?.chooseOption(index: index)
-        innerView.isHidden = false
+        innerView.isHidden.toggle()
         circleView.backgroundColor = innerView.isHidden ? .colorGray : .colorWhite
     }
+
+    @objc func handleDoubleTap(_ sender: UITapGestureRecognizer) {
+        innerView.isHidden = true
+        circleView.backgroundColor = .colorGray
+    }
+
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
 }
+
+//#if DEBUG
+//import SwiftUI
+//@available(iOS 13.0, *)
+//struct CoffeeSupplementsDrawerViewControllerPreview: PreviewProvider {
+//    static var previews: some View {
+//        CoffeeSupplementsDrawerViewController().showPreview()
+//    }
+//}
+//#endif

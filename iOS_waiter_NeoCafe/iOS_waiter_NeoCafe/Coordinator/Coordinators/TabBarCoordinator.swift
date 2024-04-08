@@ -12,9 +12,6 @@ final class TabBarCoordinator: BaseCoordinator {
     var ordersCoordinator: OrdersCoordinator?
     var newOrderCoordinator: NewOrderCoordinator?
     var menuCoordinator: MenuCoordinator?
-    
-    var onSearch: EmptyCompletion?
-    var onProductDetail: EmptyCompletion?
 
     private var shadowedView: UIView?
 
@@ -25,8 +22,10 @@ final class TabBarCoordinator: BaseCoordinator {
     }
 
     private lazy var tabBarViewController = configure(CustomTabBarController()) { tabBarController in
-        configureAppearance(for: tabBarController)
-        configureShadow(for: tabBarController)
+        configureAppearance(for: tabBarController as UITabBarController)
+        configureShadow(for: tabBarController as UITabBarController)
+//        configureAppearance(for: tabBarController)
+//        configureShadow(for: tabBarController)
 
         let ordersCoordinator = makeOrdersCoordinator
         ordersCoordinator.tabBarCoordinator = self
@@ -52,6 +51,10 @@ final class TabBarCoordinator: BaseCoordinator {
         menuCoordinator.start()
     }
 
+//    private var makeOrdersCoordinator = OrdersCoordinator(router: RouterImpl())
+//    private var makeNewOrderCoordinator = NewOrderCoordinator(router: RouterImpl())
+//    private var makeMenuCoordinator = MenuCoordinator(router: RouterImpl())
+    
     private var makeOrdersCoordinator: OrdersCoordinator {
         let ordersCoordinator = OrdersCoordinator(router: RouterImpl())
         return ordersCoordinator
@@ -82,7 +85,7 @@ final class TabBarCoordinator: BaseCoordinator {
         tabBarController.tabBar.backgroundColor = .white
         tabBarController.tabBar.layer.cornerRadius = 30
         tabBarController.tabBar.layer.maskedCorners = [.layerMinXMinYCorner, .layerMaxXMinYCorner]
-        tabBarController.tabBar.tintColor = .colorOrange
+        tabBarController.tabBar.tintColor = .colorLightBlue
         tabBarController.tabBar.unselectedItemTintColor = .colorDarkGray
     }
 
@@ -102,7 +105,7 @@ final class TabBarCoordinator: BaseCoordinator {
 
     @available(iOS 13.0, *)
     private func updateTabBarItemAppearance(appearance: UITabBarItemAppearance) {
-        let tintColor: UIColor = .colorOrange
+        let tintColor: UIColor = .colorLightBlue
         let unselectedItemTintColor: UIColor = .colorDarkGray
 
         appearance.selected.iconColor = tintColor

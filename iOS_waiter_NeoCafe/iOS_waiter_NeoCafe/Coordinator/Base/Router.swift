@@ -35,14 +35,23 @@ protocol Router: AnyObject, Presentable {
 }
 
 final class RouterImpl: NSObject, Router, UINavigationControllerDelegate, UIAdaptivePresentationControllerDelegate {
+    
+    /// This method is intended to display an alert view with the specified title, message, and button name.
     func showAlert(withTitle title: String, message: String, buttonName: String) {
+
+        let alertController = UIAlertController(title: title, message: message, preferredStyle: .alert)
         
+        let action = UIAlertAction(title: buttonName, style: .default, handler: nil)
+        alertController.addAction(action)
+        
+        navigationController.present(alertController, animated: true, completion: nil)
     }
     
     
     var navigationController: UINavigationController
     var completions: [UIViewController: EmptyCompletion]
     
+    /// This initializer method initializes the RouterImpl instance with a UINavigationController. It also sets the delegate of the navigation controller to self (the router itself).
     init(navigationController: UINavigationController = UINavigationController()) {
         self.navigationController = navigationController
         self.completions = [:]
@@ -70,6 +79,7 @@ final class RouterImpl: NSObject, Router, UINavigationControllerDelegate, UIAdap
         push(module, animated: animated, hideBottomBar: false, completion: completion)
     }
     
+    /// This method is used to push a view controller onto the navigation stack. It allows for specifying parameters such as whether to animate the transition, whether to hide the bottom bar, whether to hide the navigation bar, and an optional completion closure to be executed after the transition.
     func push(_ module: Presentable, animated: Bool, hideBottomBar: Bool, hideNavBar: Bool = false,
               completion: EmptyCompletion?) {
         let controller = module.toPresent
@@ -87,6 +97,7 @@ final class RouterImpl: NSObject, Router, UINavigationControllerDelegate, UIAdap
         }
     }
     
+    /// This method is used to pop (remove) the top view controller from the navigation stack. It also executes the completion closure associated with the popped view controller.
     func popModule(animated: Bool) {
         if let viewController = navigationController.popViewController(animated: animated) {
             runCompletion(for: viewController)
@@ -97,42 +108,50 @@ final class RouterImpl: NSObject, Router, UINavigationControllerDelegate, UIAdap
         present(module, animated: true)
     }
     
+    /// This method presents a view controller modally using the navigation controller's present(_:animated:completion:) method.
     func present(_ module: Presentable, animated: Bool) {
         navigationController.present(module.toPresent, animated: animated, completion: nil)
     }
     
+    /// This method dismisses the currently presented view controller if it was presented modally. It also allows for specifying whether the dismissal should be animated and provides a completion closure to be executed after the dismissal.
     func dismissModule(animated: Bool, completion: (() -> Void)?) {
         navigationController.dismiss(animated: animated, completion: completion)
     }
     
+    /// This method sets the root view controller of the navigation stack. It clears any existing view controllers, sets the specified view controller as the root, and optionally hides the navigation bar.
     func setRootModule(_ module: Presentable, hideBar: Bool) {
         completions.forEach { $0.value() }
         navigationController.setViewControllers([module.toPresent], animated: false)
         navigationController.isNavigationBarHidden = hideBar
     }
     
+    /// This method pops all the view controllers on the navigation stack except for the root view controller. It also executes the completion closures associated with the popped view controllers.
     func popToRootModule(animated: Bool) {
         if let viewControllers = navigationController.popToRootViewController(animated: animated) {
             viewControllers.forEach { runCompletion(for: $0) }
         }
     }
     
+    /// This method pops view controllers from the navigation stack until the specified view controller is at the top. It also executes the completion closures associated with the popped view controllers.
     func popToModule(_ module: Presentable) {
         if let viewControllers = navigationController.popToViewController(module.toPresent, animated: true) {
             viewControllers.forEach { runCompletion(for: $0) }
         }
     }
     
+    /// This property returns the underlying UINavigationController instance, which allows the router to be presented or pushed onto another navigation stack.
     var toPresent: UIViewController {
         navigationController
     }
     
+    /// This private method executes the completion closure associated with a given view controller and removes it from the completions dictionary.
     private func runCompletion(for controller: UIViewController) {
         guard let completion = completions[controller] else { return }
         completion()
         completions.removeValue(forKey: controller)
     }
     
+    /// This method is a delegate method of UINavigationControllerDelegate protocol, called when the navigation controller finishes showing a view controller. It ensures that the completion closure associated with any popped view controller is executed.
     public func navigationController(
         _ navigationController: UINavigationController,
         didShow viewController: UIViewController,

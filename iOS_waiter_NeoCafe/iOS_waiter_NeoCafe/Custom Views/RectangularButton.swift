@@ -15,7 +15,7 @@ protocol RectangularButtonDelegate: AnyObject {
 class RectengularButton: UIView {
     
     var index = 0
-    var delegate: RectangularButtonDelegate?
+    weak var delegate: RectangularButtonDelegate?
     
     lazy var rectengularView: UIView = {
         let view = UIView()
@@ -73,17 +73,38 @@ class RectengularButton: UIView {
     }
     
     func setupGestureDetector() {
-        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(handleTap(_:)))
+        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(handleSingleTap(_:)))
+        tapGesture.numberOfTapsRequired = 1
         rectengularView.addGestureRecognizer(tapGesture)
+        
+        let doubleTapGesture = UITapGestureRecognizer(target: self, action: #selector(handleDoubleTap(_:)))
+        doubleTapGesture.numberOfTapsRequired = 2
+        rectengularView.addGestureRecognizer(doubleTapGesture)
+        
+        tapGesture.require(toFail: doubleTapGesture)
     }
-    
-    @objc func handleTap(_ sender: UITapGestureRecognizer) {
+
+    @objc func handleSingleTap(_ sender: UITapGestureRecognizer) {
         delegate?.chooseRectengularOption(index: index)
         innerImage.isHidden = false
-        rectengularView.layer.borderColor = innerImage.isHidden ? Asset.colorMain.color.cgColor : Asset.colorSecondDarkBlue.color.cgColor
+        rectengularView.layer.borderColor = UIColor.colorSecondDarkBlue.cgColor
+    }
+    
+    @objc func handleDoubleTap(_ sender: UITapGestureRecognizer) {
+        innerImage.isHidden = true
     }
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
 }
+
+//#if DEBUG
+//import SwiftUI
+//@available(iOS 13.0, *)
+//struct CoffeeSupplementsDrawerViewControllerPreview: PreviewProvider {
+//    static var previews: some View {
+//        CoffeeSupplementsDrawerViewController().showPreview()
+//    }
+//}
+//#endif

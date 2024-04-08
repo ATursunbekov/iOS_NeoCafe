@@ -14,7 +14,7 @@ protocol SegmentedControlDelegate: AnyObject {
 class CustomSegmentedControl: UIView {
 
     var selectedIndex = 0
-    var delegate: SegmentedControlDelegate?
+    weak var delegate: SegmentedControlDelegate?
 
     lazy var firstButton = {
         let button = UIButton()

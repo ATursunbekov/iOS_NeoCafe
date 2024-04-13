@@ -15,6 +15,8 @@ protocol NewOrderViewModelProtocol {
     
     // MARK: - Data
     var tables: [MockTable] { get set }
+    
+    func getTablesCount() -> Int
 }
 
 class NewOrderViewModel: NewOrderViewModelProtocol {
@@ -27,6 +29,10 @@ class NewOrderViewModel: NewOrderViewModelProtocol {
     
     // MARK: - Data
     var tables = MockData.shared.tables
+    
+    func getTablesCount() -> Int {
+        tables.count
+    }
 }
 
 

@@ -35,7 +35,7 @@ class NewOrderPlacementView: UIView {
         let label = UILabel()
         label.text = "Заказ успешно оформлен"
         label.textAlignment = .center
-        label.font = .poppins(size: 24, weight: .semibold)
+        label.font = UIFont.poppins(ofSize: 24, weight: .semibold)
         label.textColor = .colorDarkBlue
         return label
     }()
@@ -45,7 +45,7 @@ class NewOrderPlacementView: UIView {
         button.setTitle("Перейти к заказам", for: .normal)
         button.layer.cornerRadius = 16
         button.backgroundColor = .colorLightBlue
-        button.titleLabel?.font = .poppins(size: 16, weight: .bold)
+        button.titleLabel?.font = UIFont.poppins(ofSize: 16, weight: .bold)
         return button
     }()
 
@@ -56,7 +56,7 @@ class NewOrderPlacementView: UIView {
         setupTargets()
     }
    
-    func setupConstraints() {
+    private func setupConstraints() {
         
         addSubview(topView)
         topView.addSubview(backButton)

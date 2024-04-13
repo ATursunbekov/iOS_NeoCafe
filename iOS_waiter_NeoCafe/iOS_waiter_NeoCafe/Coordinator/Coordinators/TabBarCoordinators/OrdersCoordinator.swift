@@ -26,9 +26,6 @@ final class OrdersCoordinator: BaseCoordinator {
         viewController.tabBarItem.image = UIImage(named: "ordersNormal")
         viewController.tabBarItem.selectedImage = UIImage(named: "ordersSelected")
         router.setRootModule(viewController, hideBar: false)
-//        router.push(viewController, hideBottomBar: false)
-//        router.push(viewController, hideBottomBar: false)
-//        tabBarCoordinator?.hideShadowView()
     }
     
     func showOrderDetailsScreen(order: MockOrder) {
@@ -54,21 +51,21 @@ final class OrdersCoordinator: BaseCoordinator {
         }
         
         let viewController = ClosingOrderDrawerViewController(viewModel: viewModel)
-        router.push(viewController)
+        router.showPopup(viewController, animated: true)
     }
     
     func showCoffeeSupplementsScreen() {
         let viewModel = CoffeeSupplementsDrawerViewModel()
-        viewModel.popScreen = {
-            self.router.popModule(animated: true)
+        viewModel.dismissModule = {
+            self.router.dismissModule(animated: true)
         }
         
         let viewController = CoffeeSupplementsDrawerViewController(viewModel: viewModel)
-        router.present(viewController)
+        router.showPopup(viewController, animated: true)
     }
     
     func showRemoveItemFromOrderScreen() {
-        let viewModel = RemoveItemFromOrderViewModel()
+        let viewModel = RemoveItemFromOrderModalViewModel()
         viewModel.onOrderDetailsNavigate = { [weak self] order in
             self?.showOrderDetailsScreen(order: order)
         }

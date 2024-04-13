@@ -24,8 +24,6 @@ final class TabBarCoordinator: BaseCoordinator {
     private lazy var tabBarViewController = configure(CustomTabBarController()) { tabBarController in
         configureAppearance(for: tabBarController as UITabBarController)
         configureShadow(for: tabBarController as UITabBarController)
-//        configureAppearance(for: tabBarController)
-//        configureShadow(for: tabBarController)
 
         let ordersCoordinator = makeOrdersCoordinator
         ordersCoordinator.tabBarCoordinator = self
@@ -50,10 +48,6 @@ final class TabBarCoordinator: BaseCoordinator {
         newOrderCoordinator.start()
         menuCoordinator.start()
     }
-
-//    private var makeOrdersCoordinator = OrdersCoordinator(router: RouterImpl())
-//    private var makeNewOrderCoordinator = NewOrderCoordinator(router: RouterImpl())
-//    private var makeMenuCoordinator = MenuCoordinator(router: RouterImpl())
     
     private var makeOrdersCoordinator: OrdersCoordinator {
         let ordersCoordinator = OrdersCoordinator(router: RouterImpl())
@@ -102,7 +96,7 @@ final class TabBarCoordinator: BaseCoordinator {
         tabBarController.tabBar.standardAppearance = tabBarAppearance
         tabBarController.tabBar.scrollEdgeAppearance = tabBarAppearance
     }
-
+    
     @available(iOS 13.0, *)
     private func updateTabBarItemAppearance(appearance: UITabBarItemAppearance) {
         let tintColor: UIColor = .colorLightBlue
@@ -149,21 +143,7 @@ final class CustomTabBarController: UITabBarController, UITabBarControllerDelega
         self.navigationController?.setNavigationBarHidden(true, animated: false)
     }
 
-    func tabBarController(_ tabBarController: UITabBarController,
-                          shouldSelect viewController: UIViewController) -> Bool {
+    func tabBarController(_ tabBarController: UITabBarController, shouldSelect viewController: UIViewController) -> Bool {
         return true
     }
 }
-
-private extension TabBarCoordinator {
-    static var ordersTabIndex: Int {
-        return 0
-    }
-    static var newOrderTabIndex: Int {
-        return 1
-    }
-    static var menuTabIndex: Int {
-        return 2
-    }
-}
-

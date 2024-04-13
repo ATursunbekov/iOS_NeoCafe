@@ -1,79 +1,92 @@
-////
-////  NewOrderDirectoryViewModel.swift
-////  iOS_waiter_NeoCafe
-////
-////  Created by iPak Tulane on 28/03/24.
-////
 //
-//import Foundation
+//  NewOrderDirectoryViewModel.swift
+//  iOS_waiter_NeoCafe
 //
-//protocol NewOrderDirectoryDelegate: AnyObject {
-//    func handleSuccessfulResponse()
-//}
+//  Created by iPak Tulane on 28/03/24.
 //
-//protocol NewOrderDirectoryViewModelProtocol {
-//    var delegate: NewOrderDirectoryDelegate? { get set }
-//    
-//    var onBackNavigate: EmptyCompletion? { get set }
-//    var onSearchNavigate: EmptyCompletion? { get set }
-//    
-//    var onNewOrderInfoDrawerNavigate: ((Int)->Void)? { get set }
-//    
-//    var selectedIndex: Int { get set }
-//    
-//    var categories: [MockCategory] { get set }
-//    var products: [MockProduct] { get set }
-//
-//    func getAllProducts()
-//}
-//
-//class NewOrderDirectoryViewModel: NewOrderDirectoryViewModelProtocol {
-//    
-//    @InjectionInjected(\.networkService) var networkService
-//
-//    weak var delegate: NewOrderDirectoryDelegate?
-//    
-//    var onProfileNavigate: EmptyCompletion?
-//    var onNoticeNavigate: EmptyCompletion?
-//    var onNewOrderDirectoryNavigate: ((Int)->Void)?
-//    
-//    var selectedIndex: Int = 0
-//    
-//    // MARK: MOCK->API
-//    var availableTables = MockTable.shared.mockTables
-//    
-//    var categories: [MockCategory] = AppMockCategory.shared.mockCategories
-//    var products: [MockProduct] = []
-//    
-//    func getMockProducts() {
-//        let selectedCategory = Category(rawValue: selectedIndex) ?? .coffee
-//        switch selectedCategory {
-//        case .coffee:
-//            products = AppMockProducts.shared.mockCoffeeProducts
-//        case .dessert:
-//            products = AppMockProducts.shared.mockDessertProducts
-//        case .bakery:
-//            products = AppMockProducts.shared.mockBakeryProducts
-//        case .drinks:
-//            products = AppMockProducts.shared.mockDrinksProducts
-//        }
-//        delegate?.handleSuccessfulResponse()
+
+import Foundation
+
+protocol NewOrderDirectoryViewModelProtocol {
+    // Navigation
+    var onBackNavigate: EmptyCompletion? { get set }
+    var onNewOrderSearchNavigate: EmptyCompletion? { get set }
+    var onNewOrderInfoDrawerNavigate: ((MockOrder)->Void)? { get set }
+    
+    // Indexes
+    var categorySelectedIndex: Int { get set }
+    var productSelectedIndex: Int { get set }
+    
+    // Data
+    var categories: [MockProductCategory] { get set }
+    var filteredProducts: [MockProduct] { get set }
+    var order: MockOrder { get set }
+    var basket: [MockOrder: Int] { get set }
+    
+    // Methods
+    func filterMenu(by category: MockProductCategory)
+    func changeSelectedIndex(with index: Int)
+    
+    func getCategoriesCount() -> Int
+    func getProductsCount() -> Int
+    
+    func getTotal(product: MockProduct, quantity: Int) -> Int
+}
+
+class NewOrderDirectoryViewModel: NewOrderDirectoryViewModelProtocol {
+    func getTotal(product: MockProduct, quantity: Int) -> Int {
+        let result = DataManager.shared.addProductAndUpdateTotal(product: product, quantity: 1)
+        return result
+    }
+    
+    @InjectionInjected(\.networkService) var networkService
+
+    // Navigation
+    var onBackNavigate: EmptyCompletion?
+    var onNewOrderSearchNavigate: EmptyCompletion?
+    var onNewOrderInfoDrawerNavigate: ((MockOrder)->Void)?
+    
+    // Indexes
+    var categorySelectedIndex: Int = 0
+    var productSelectedIndex: Int = 0
+    
+    // Data
+    var categories: [MockProductCategory] = MockData.shared.categories
+    var menuProducts: [MockProduct] = MockData.shared.menuProducts
+    var filteredProducts: [MockProduct] = []
+    var order: MockOrder = MockData.shared.order
+    
+    var basket: [MockOrder: Int] = [:]
+    
+    // Init
+    init(selectedIndex: Int = 0) {
+        self.categorySelectedIndex = selectedIndex
+        filterMenu(by: categories[selectedIndex])
+    }
+    
+    // Methods
+//    func filterMenu(by category: MockProductCategory) {
+//        filteredProducts = (category.rawValue == MockProductCategory.allCategories[0]) ? menuProducts : menuProducts.filter { $0.category == category }
 //    }
-//    
-//    func getAllProducts() {
-//        networkService.sendRequest(successModelType: AllProductsModel.self, endpoint: MultiTarget(NewOrderAPI.getAllProducts)) { [weak self] result in
-//            guard let self else { return }
-//            switch result {
-//            case .success(let response):
-//                DispatchQueue.main.async {
-//                    self.delegate?.handleSuccessfulResponse()
-//                }
-//                print(response)
-//            case .failure(let error):
-//                print("handle error: \(error)")
-//            }
-//        }
-//    }
-//}
-//
-//
+    
+    func filterMenu(by category: MockProductCategory) {
+        filteredProducts = menuProducts.filter { $0.category == category }
+    }
+    
+    func changeSelectedIndex(with index: Int) {
+        categorySelectedIndex = index
+        filterMenu(by: categories[index])
+    }
+}
+
+extension NewOrderDirectoryViewModel {
+    
+    func getCategoriesCount() -> Int {
+        return categories.count
+    }
+    
+    func getProductsCount() -> Int {
+        return filteredProducts.count
+    }
+}
+

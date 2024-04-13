@@ -2,29 +2,26 @@
 //  NewOrderCoffeeSupplementsDrawerView.swift
 //  iOS_waiter_NeoCafe
 //
-//  Created by iPak Tulane on 28/03/24.
+//  Created by iPak Tulane on 12/04/24.
 //
 
 import UIKit
 import SnapKit
 
-class NewOrderCoffeeSupplementsDrawerView: UIViewController {
+//protocol NewOrderCoffeeSupplementsDrawerDelegate: AnyObject {
+//    func isEmpty()
+//    func getTotal() -> Int
+//    func updateTotal()
+//    func counterValueChanged()
+//}
+//
+//extension NewOrderCoffeeSupplementsDrawerDelegate {
+//    func isEmpty() {}
+//}
+
+class NewOrderCoffeeSupplementsDrawerView: UIView {
     
-    var viewModel: NewOrderCoffeeSupplementsDrawerViewModelProtocol
-    private var tapAction: (() -> Void)?
-    
-    var milkIndex = 0
-    var syrupIndex = 0
-    
-    init(viewModel: NewOrderCoffeeSupplementsDrawerViewModelProtocol, tapAction: EmptyCompletion? = nil) {
-        self.viewModel = viewModel
-        self.tapAction = tapAction
-        super.init(nibName: nil, bundle: nil)
-    }
-    
-    required init?(coder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
-    }
+//    weak var delegate: NewOrderCoffeeSupplementsDrawerDelegate?
     
     lazy var backgroundView = {
         let view = UIView()
@@ -43,7 +40,7 @@ class NewOrderCoffeeSupplementsDrawerView: UIViewController {
     lazy var headerTitle: UILabel = {
         let label = UILabel()
         label.text = "Латте"
-        label.font = .poppins(size: 24, weight: .bold)
+        label.font = UIFont.poppins(ofSize: 24, weight: .bold)
         label.textColor = .colorDarkBlue
         return label
     }()
@@ -51,25 +48,25 @@ class NewOrderCoffeeSupplementsDrawerView: UIViewController {
     lazy var milkTitle: UILabel = {
         let label = UILabel()
         label.text = "Молоко"
-        label.font = .poppins(size: 20, weight: .bold)
+        label.font = UIFont.poppins(ofSize: 20, weight: .bold)
         label.textColor = .colorDarkBlue
         return label
     }()
     
-    lazy var circleButton1 = CircleButton(text: "Коровье молоко", index: 0, delegate: self)
-    lazy var circleButton2 = CircleButton(text: "Овсяное молоко", index: 0, delegate: self)
-    lazy var circleButton3 = CircleButton(text: "Соевое молоко", index: 0, delegate: self)
+    lazy var circleButtonFirst = CircleButton(text: "Коровье молоко", index: 0, delegate: self)
+    lazy var circleButtonSecond = CircleButton(text: "Овсяное молоко", index: 0, delegate: self)
+    lazy var circleButtonThird = CircleButton(text: "Соевое молоко", index: 0, delegate: self)
     
     lazy var syrupTitle: UILabel = {
         let label = UILabel()
         label.text = "Сироп"
-        label.font = .poppins(size: 20, weight: .bold)
+        label.font = UIFont.poppins(ofSize: 20, weight: .bold)
         label.textColor = .colorDarkBlue
         return label
     }()
     
-    lazy var rectangularButton1 = RectangularButton(text: "Клубничный", index: 0, delegte: self)
-    lazy var rectangularButton2 = RectangularButton(text: "Карамельный", index: 1, delegte: self)
+    lazy var rectangularButtonFirst = RectangularButton(text: "Клубничный", index: 0, delegate: self)
+    lazy var rectangularButtonSecond = RectangularButton(text: "Карамельный", index: 1, delegate: self)
 
     lazy var stackHorizontal = {
         let stack = UIStackView()
@@ -82,16 +79,16 @@ class NewOrderCoffeeSupplementsDrawerView: UIViewController {
         let label = UILabel()
         label.text = "Итого: "
         label.textAlignment = .left
-        label.font = .poppins(size: 16, weight: .bold)
+        label.font = UIFont.poppins(ofSize: 16, weight: .bold)
         label.textColor = .colorDarkBlue
         return label
     }()
     
     lazy var totalNumberLabel: UILabel = {
         let label = UILabel()
-        label.text = "... сом"
+        label.text = "600 сом"
         label.textAlignment = .left
-        label.font = .poppins(size: 16, weight: .bold)
+        label.font = UIFont.poppins(ofSize: 16, weight: .bold)
         label.textColor = .colorDarkBlue
         return label
     }()
@@ -103,47 +100,33 @@ class NewOrderCoffeeSupplementsDrawerView: UIViewController {
         button.setTitle("Сохранить", for: .normal)
         button.layer.cornerRadius = 16
         button.backgroundColor = .colorLightBlue
-        button.titleLabel?.font = .poppins(size: 16, weight: .bold)
+        button.titleLabel?.font = UIFont.poppins(ofSize: 16, weight: .bold)
         return button
     }()
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        setupGestures()
-        setupTargets()
+    override init(frame: CGRect) {
+        super.init(frame: frame)
+        backgroundColor = UIColor.colorWhite
         setupConstraints()
     }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+}
 
-    func setupGestures() {
-        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(handleTap(_:)))
-        backgroundView.addGestureRecognizer(tapGesture)
-    }
-    
-    @objc func handleTap(_ sender: UITapGestureRecognizer) {
-        dismiss(animated: false)
-    }
-    
-    func setupTargets() {
-        saveButton.addTarget(self, action: #selector(saveButtonDidPress), for: .touchUpInside)
-    }
-    
-    @objc func saveButtonDidPress() {
-//        dismiss(animated: false)
-        tapAction?()
-        viewModel.popScreen?()
-    }
-    
-    func setupConstraints() {
-        view.addSubview(backgroundView)
-        view.addSubview(drawerView)
+extension NewOrderCoffeeSupplementsDrawerView {
+    private func setupConstraints() {
+        addSubview(backgroundView)
+        addSubview(drawerView)
         drawerView.addSubview(headerTitle)
         drawerView.addSubview(milkTitle)
-        drawerView.addSubview(circleButton1)
-        drawerView.addSubview(circleButton2)
-        drawerView.addSubview(circleButton3)
+        drawerView.addSubview(circleButtonFirst)
+        drawerView.addSubview(circleButtonSecond)
+        drawerView.addSubview(circleButtonThird)
         drawerView.addSubview(syrupTitle)
-        drawerView.addSubview(rectangularButton1)
-        drawerView.addSubview(rectangularButton2)
+        drawerView.addSubview(rectangularButtonFirst)
+        drawerView.addSubview(rectangularButtonSecond)
         
         drawerView.addSubview(stackHorizontal)
         stackHorizontal.addArrangedSubview(totalTextLabel)
@@ -158,6 +141,7 @@ class NewOrderCoffeeSupplementsDrawerView: UIViewController {
         
         backgroundView.snp.makeConstraints { make in
             make.edges.equalToSuperview()
+//            make.top.equalToSuperview().offset(100)
         }
         
         headerTitle.snp.makeConstraints { make in
@@ -171,48 +155,48 @@ class NewOrderCoffeeSupplementsDrawerView: UIViewController {
             make.top.equalTo(headerTitle.snp.bottom).offset(15)
         }
         
-        circleButton1.snp.makeConstraints { make in
+        circleButtonFirst.snp.makeConstraints { make in
             make.leading.equalToSuperview().offset(16)
             make.top.equalTo(milkTitle.snp.bottom).offset(16)
-            make.trailing.equalTo(circleButton1.titleLabel.snp.trailing)
+            make.trailing.equalTo(circleButtonFirst.titleLabel.snp.trailing)
             make.height.equalTo(20)
         }
         
-        circleButton2.snp.makeConstraints { make in
+        circleButtonSecond.snp.makeConstraints { make in
             make.leading.equalToSuperview().offset(16)
-            make.top.equalTo(circleButton1.snp.bottom).offset(12)
-            make.trailing.equalTo(circleButton2.titleLabel.snp.trailing)
+            make.top.equalTo(circleButtonFirst.snp.bottom).offset(12)
+            make.trailing.equalTo(circleButtonSecond.titleLabel.snp.trailing)
             make.height.equalTo(20)
         }
         
-        circleButton3.snp.makeConstraints { make in
+        circleButtonThird.snp.makeConstraints { make in
             make.leading.equalToSuperview().offset(16)
-            make.top.equalTo(circleButton2.snp.bottom).offset(12)
-            make.trailing.equalTo(circleButton3.titleLabel.snp.trailing)
+            make.top.equalTo(circleButtonSecond.snp.bottom).offset(12)
+            make.trailing.equalTo(circleButtonThird.titleLabel.snp.trailing)
             make.height.equalTo(20)
         }
         
         syrupTitle.snp.makeConstraints { make in
             make.leading.equalToSuperview().offset(16)
-            make.top.equalTo(circleButton3.snp.bottom).offset(24)
+            make.top.equalTo(circleButtonThird.snp.bottom).offset(24)
         }
         
-        rectangularButton1.snp.makeConstraints { make in
+        rectangularButtonFirst.snp.makeConstraints { make in
             make.leading.equalToSuperview().offset(16)
             make.top.equalTo(syrupTitle.snp.bottom).offset(16)
-            make.trailing.equalTo(rectangularButton1.titleLabel.snp.trailing)
+            make.trailing.equalTo(rectangularButtonFirst.titleLabel.snp.trailing)
             make.height.equalTo(20)
         }
         
-        rectangularButton2.snp.makeConstraints { make in
+        rectangularButtonSecond.snp.makeConstraints { make in
             make.leading.equalToSuperview().offset(16)
-            make.top.equalTo(rectangularButton1.snp.bottom).offset(16)
-            make.trailing.equalTo(rectangularButton1.titleLabel.snp.trailing)
+            make.top.equalTo(rectangularButtonFirst.snp.bottom).offset(16)
+            make.trailing.equalTo(rectangularButtonFirst.titleLabel.snp.trailing)
             make.height.equalTo(20)
         }
         
         stackHorizontal.snp.makeConstraints { make in
-            make.top.equalTo(rectangularButton2.snp.bottom).offset(34)
+            make.top.equalTo(rectangularButtonSecond.snp.bottom).offset(34)
             make.leading.trailing.equalToSuperview().inset(16)
             make.height.equalTo(19)
         }
@@ -227,7 +211,7 @@ class NewOrderCoffeeSupplementsDrawerView: UIViewController {
         
         productCounter.snp.makeConstraints { make in
             make.leading.equalToSuperview().inset(16)
-            make.top.equalTo(stackHorizontal.snp.bottom).offset(16)
+            make.top.equalTo(stackHorizontal.snp.bottom).offset(10)
             make.width.equalTo(99)
             make.height.equalTo(44)
         }
@@ -242,21 +226,19 @@ class NewOrderCoffeeSupplementsDrawerView: UIViewController {
 
 extension NewOrderCoffeeSupplementsDrawerView: CircleButtonDelegate {
     func chooseOption(index: Int) {
-        circleButton1.innerView.isHidden = true
-        circleButton2.innerView.isHidden = true
-        circleButton3.innerView.isHidden = true
-        circleButton1.circleView.backgroundColor = .colorGray
-        circleButton2.circleView.backgroundColor = .colorGray
-        circleButton3.circleView.backgroundColor = .colorGray
-        milkIndex = index
+        circleButtonFirst.innerView.isHidden = true
+        circleButtonSecond.innerView.isHidden = true
+        circleButtonThird.innerView.isHidden = true
+        circleButtonFirst.circleView.backgroundColor = UIColor.colorGray
+        circleButtonSecond.circleView.backgroundColor = UIColor.colorGray
+        circleButtonThird.circleView.backgroundColor = UIColor.colorGray
     }
 }
 
 extension NewOrderCoffeeSupplementsDrawerView: RectangularButtonDelegate {
     func chooseRectangularOption(index: Int) {
-        rectangularButton1.innerImage.isHidden = true
-        rectangularButton2.innerImage.isHidden = true
-        syrupIndex = index
+        rectangularButtonFirst.innerImage.isHidden = true
+        rectangularButtonSecond.innerImage.isHidden = true
     }
 }
 
@@ -264,9 +246,9 @@ extension NewOrderCoffeeSupplementsDrawerView: RectangularButtonDelegate {
 //#if DEBUG
 //import SwiftUI
 //@available(iOS 13.0, *)
-//struct NewOrderCoffeeSupplementsDrawerViewPreview: PreviewProvider {
+//struct NewOrderCoffeeSupplementsDrawerViewControllerPreview: PreviewProvider {
 //    static var previews: some View {
-//        NewOrderCoffeeSupplementsDrawerView(viewModel: NewOrderCoffeeSupplementsDrawerViewModel()).showPreview()
+//        NewOrderCoffeeSupplementsDrawerViewController(viewModel: NewOrderCoffeeSupplementsDrawerViewModel()).showPreview()
 //    }
 //}
 //#endif

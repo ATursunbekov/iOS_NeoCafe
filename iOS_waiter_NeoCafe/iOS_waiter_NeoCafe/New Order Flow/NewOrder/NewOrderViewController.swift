@@ -8,7 +8,7 @@
 import UIKit
 import SnapKit
 
-class NewOrderViewController: UIViewController {
+final class NewOrderViewController: UIViewController {
     var viewModel: NewOrderViewModelProtocol
     let contentView = NewOrderView()
     
@@ -71,7 +71,7 @@ extension NewOrderViewController: UICollectionViewDelegate, UICollectionViewData
 
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         if collectionView == contentView.collectionView {
-            return viewModel.tables.count
+            return viewModel.getTablesCount()
         } else {
             return 0
         }
@@ -80,7 +80,9 @@ extension NewOrderViewController: UICollectionViewDelegate, UICollectionViewData
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
 
         if collectionView == contentView.collectionView {
-            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: TableClickableCell.identifier, for: indexPath) as! TableClickableCell
+            
+            let cell: TableCell = collectionView.dequeue(for: indexPath)
+            
             let data = viewModel.tables[indexPath.item]
             cell.configureCell(with: data)
             return cell
@@ -91,7 +93,7 @@ extension NewOrderViewController: UICollectionViewDelegate, UICollectionViewData
     }
 
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        guard let cell = collectionView.cellForItem(at: indexPath) as? TableClickableCell else {
+        guard let cell = collectionView.cellForItem(at: indexPath) as? TableCell else {
             return
         }
         viewModel.onNewOrderDirectoryNavigate?(indexPath.row)

@@ -24,6 +24,8 @@ protocol Router: AnyObject, Presentable {
     
     func dismissModule(animated: Bool, completion: (() -> Void)?)
     
+    func dismissModule(animated: Bool)
+    
     func popModule(animated: Bool)
     
     func setRootModule(_ module: Presentable, hideBar: Bool)
@@ -32,6 +34,9 @@ protocol Router: AnyObject, Presentable {
     func popToModule(_ module: Presentable)
     
     func showAlert(withTitle title: String, message: String, buttonName: String)
+    
+    func showPopup(_ module: Presentable, animated: Bool)
+    
 }
 
 final class RouterImpl: NSObject, Router, UINavigationControllerDelegate, UIAdaptivePresentationControllerDelegate {
@@ -46,7 +51,6 @@ final class RouterImpl: NSObject, Router, UINavigationControllerDelegate, UIAdap
         
         navigationController.present(alertController, animated: true, completion: nil)
     }
-    
     
     var navigationController: UINavigationController
     var completions: [UIViewController: EmptyCompletion]
@@ -118,6 +122,10 @@ final class RouterImpl: NSObject, Router, UINavigationControllerDelegate, UIAdap
         navigationController.dismiss(animated: animated, completion: completion)
     }
     
+    func dismissModule(animated: Bool) {
+        navigationController.dismiss(animated: animated, completion: nil)
+    }
+    
     /// This method sets the root view controller of the navigation stack. It clears any existing view controllers, sets the specified view controller as the root, and optionally hides the navigation bar.
     func setRootModule(_ module: Presentable, hideBar: Bool) {
         completions.forEach { $0.value() }
@@ -162,4 +170,13 @@ final class RouterImpl: NSObject, Router, UINavigationControllerDelegate, UIAdap
         }
         runCompletion(for: poppedViewController)
     }
+}
+
+extension RouterImpl {
+  func showPopup(_ module: Presentable, animated: Bool = true) {
+    let controller = module.toPresent
+    controller.modalPresentationStyle = .overCurrentContext // Adjust as needed (e.g., .custom)
+    controller.modalTransitionStyle = .crossDissolve // Adjust as needed
+    navigationController.present(controller, animated: animated, completion: nil)
+  }
 }

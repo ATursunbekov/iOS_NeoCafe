@@ -22,7 +22,7 @@ class AuthView: UIView {
     lazy var topLabel: UILabel = {
         let label = UILabel()
         label.text = "Вход"
-        label.font = .boldSystemFont(ofSize: 32)
+        label.font = UIFont.poppins(ofSize: 32, weight: .bold)
         label.textColor = .colorDarkBlue
         return label
     }()
@@ -49,7 +49,7 @@ class AuthView: UIView {
         button.backgroundColor = UIColor.colorLightBlue
         button.layer.cornerRadius = 16
         button.setTitleColor(UIColor.colorWhite, for: .normal)
-        button.titleLabel?.font = UIFont.poppins(size: 16, weight: .bold)
+        button.titleLabel?.font = UIFont.poppins(ofSize: 16, weight: .bold)
         return button
     }()
     
@@ -58,7 +58,7 @@ class AuthView: UIView {
         pinView.pinLength = 4
         pinView.interSpace = 8
         pinView.textColor = .black
-        pinView.font = UIFont.poppins(size: 20, weight: .regular)
+        pinView.font = UIFont.poppins(ofSize: 20, weight: .regular)
         pinView.keyboardType = .numberPad
         pinView.shouldSecureText = false
         pinView.fieldBackgroundColor = UIColor.colorGray
@@ -78,7 +78,7 @@ class AuthView: UIView {
         let label = UILabel()
         label.text = "Введите 4-хзначный код, \nотправленный на почту"
         label.numberOfLines = 0
-        label.font = UIFont.poppins(size: 18, weight: .medium)
+        label.font = UIFont.poppins(ofSize: 18, weight: .medium)
         label.textAlignment = .center
         return label
     }()
@@ -86,8 +86,7 @@ class AuthView: UIView {
     lazy var gmailLabel = {
         let label = UILabel()
         label.text = "ipak.dev@gmail.com"
-        label.font =
-        UIFont.poppins(size: 16, weight: .bold)
+        label.font = UIFont.poppins(ofSize: 16, weight: .bold)
         label.textAlignment = .center
         return label
     }()
@@ -95,8 +94,7 @@ class AuthView: UIView {
     lazy var resendButton = {
         let button = UIButton()
         button.setTitle("Отправить еще раз через ", for: .normal)
-        button.titleLabel?.font =
-        UIFont.poppins(size: 14, weight: .medium)
+        button.titleLabel?.font = UIFont.poppins(ofSize: 14, weight: .medium)
         button.setTitleColor(UIColor.colorDarkGray, for: .normal)
         return button
     }()
@@ -104,7 +102,7 @@ class AuthView: UIView {
     lazy var timeCounter = {
         let label = UILabel()
         label.text = ""
-        label.font = UIFont.poppins(size: 14, weight: .bold)
+        label.font = UIFont.poppins(ofSize: 14, weight: .bold)
         label.textColor = UIColor.colorDarkGray
         return label
     }()
@@ -122,7 +120,7 @@ class AuthView: UIView {
         hideSubviews()
     }
     
-    func setupConstraints() {
+    private func setupConstraints() {
         addSubview(topView)
         topView.addSubview(topLabel)
         topView.addSubview(topBean)

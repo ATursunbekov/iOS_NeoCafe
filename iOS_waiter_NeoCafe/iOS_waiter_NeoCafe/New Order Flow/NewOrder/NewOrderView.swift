@@ -36,7 +36,7 @@ class NewOrderView: UIView {
     lazy var chooseTableText: UILabel = {
         let label = UILabel()
         label.text = "Выберите стол"
-        label.font = .systemFont(ofSize: 16, weight: .bold)
+        label.font = UIFont.poppins(ofSize: 16, weight: .bold)
         label.textColor = .colorDarkBlue
         label.textAlignment = .left
         return label
@@ -64,7 +64,7 @@ class NewOrderView: UIView {
     lazy var reservedLabel: UILabel = {
         let label = UILabel()
         label.text = "Занято"
-        label.font = .systemFont(ofSize: 14)
+        label.font = UIFont.poppins(ofSize: 14, weight: .regular)
         label.textColor = .colorDarkBlue
         label.textAlignment = .left
         return label
@@ -73,7 +73,7 @@ class NewOrderView: UIView {
     lazy var vacantLabel: UILabel = {
         let label = UILabel()
         label.text = "Свободно"
-        label.font = .systemFont(ofSize: 14)
+        label.font = UIFont.poppins(ofSize: 14, weight: .regular)
         label.textColor = .colorDarkBlue
         label.textAlignment = .left
         return label
@@ -84,7 +84,7 @@ class NewOrderView: UIView {
         collectionView.backgroundColor = .none
         collectionView.bounces = false
         collectionView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
-        collectionView.register(TableClickableCell.self, forCellWithReuseIdentifier: TableClickableCell.identifier)
+        collectionView.register(cell: TableCell.self)
         collectionView.showsVerticalScrollIndicator = false
         return collectionView
     }()
@@ -95,7 +95,7 @@ class NewOrderView: UIView {
         setupConstraints()
     }
     
-    func setupConstraints() {
+    private func setupConstraints() {
         
         // MARK: - Tables constraints
         addSubview(topView)

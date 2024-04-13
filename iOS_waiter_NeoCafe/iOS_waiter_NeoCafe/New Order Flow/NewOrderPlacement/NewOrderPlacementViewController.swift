@@ -8,7 +8,7 @@
 import UIKit
 import SnapKit
 
-class NewOrderPlacementViewController: UIViewController {
+final class NewOrderPlacementViewController: UIViewController {
     
     var viewModel: NewOrderPlacementViewModelProtocol
     let contentView = NewOrderPlacementView()

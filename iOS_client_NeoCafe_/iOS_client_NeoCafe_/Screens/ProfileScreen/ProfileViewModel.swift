@@ -13,12 +13,12 @@ protocol ProfileViewModelDelegate: AnyObject {
 }
 
 protocol ProfileViewModelProtocol {
-    var delegate: ProfileViewModelDelegate? {get set}
+    var delegate: ProfileViewModelDelegate? { get set }
     func getProfileData()
-    
-    var activeOrders: [OrderModel] {get set}
-    var doneOrders: [OrderModel] {get set}
-    var logOut: EmptyCompletion? {get set}
+
+    var activeOrders: [OrderModel] { get set }
+    var doneOrders: [OrderModel] { get set }
+    var logOut: EmptyCompletion? { get set }
     func getOrderHistory()
 }
 
@@ -26,16 +26,16 @@ class ProfileViewModel: ProfileViewModelProtocol {
     @InjectionInjected(\.networkService) var networkService
     var delegate: ProfileViewModelDelegate?
     var logOut: EmptyCompletion?
-    
+
     func getProfileData() {
         networkService.sendRequest(successModelType: ProfileModel.self, endpoint: MultiTarget(GeneralAPI.getProfileData)) { [weak self] result in
             guard let self else { return }
             switch result {
-            case .success(let response):
+            case let .success(response):
                 DispatchQueue.main.async {
                     self.delegate?.updateData(fetchedData: response)
                 }
-            case .failure(let error):
+            case let .failure(error):
                 print("handle error: \(error)")
             }
         }
@@ -43,17 +43,18 @@ class ProfileViewModel: ProfileViewModelProtocol {
 
     var activeOrders: [OrderModel] = []
     var doneOrders: [OrderModel] = []
-    
+
     func getOrderHistory() {
         networkService.sendRequest(successModelType: OrderHistoryModel.self,
-                                   endpoint: MultiTarget(GeneralAPI.getOrderHistory)) { [weak self] result in
+                                   endpoint: MultiTarget(GeneralAPI.getOrderHistory))
+        { [weak self] result in
             guard let self else { return }
             switch result {
-            case .success(let response):
+            case let .success(response):
                 activeOrders = response.active
                 doneOrders = response.done
                 delegate?.reloadTableView()
-            case .failure(let error):
+            case let .failure(error):
                 print("handle error: \(error)")
             }
         }

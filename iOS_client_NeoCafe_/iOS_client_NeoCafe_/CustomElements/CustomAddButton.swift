@@ -22,7 +22,7 @@ class CustomAddButton: UIView {
     var counter = 1
     var delegate: AddButtonDelegate?
     var buttonSize: Int = 32
-    
+
     lazy var minusButton = {
         let button = UIButton()
         button.setImage(UIImage(systemName: "minus"), for: .normal)
@@ -31,7 +31,7 @@ class CustomAddButton: UIView {
         button.layer.cornerRadius = 16
         return button
     }()
-    
+
     lazy var plusButton = {
         let button = UIButton()
         button.setImage(UIImage(systemName: "plus"), for: .normal)
@@ -40,7 +40,7 @@ class CustomAddButton: UIView {
         button.layer.cornerRadius = 16
         return button
     }()
-    
+
     lazy var counterLabel = {
         let label = UILabel()
         label.text = String(counter)
@@ -48,7 +48,7 @@ class CustomAddButton: UIView {
         label.textColor = Asset.colorDarkBlue.color
         return label
     }()
-    
+
     required init(fontSize: Int? = nil, buttonSize: Int? = nil) {
         super.init(frame: .zero)
         counterLabel.font = UIFont.poppins(size: fontSize ?? 16, weight: .bold)
@@ -59,36 +59,37 @@ class CustomAddButton: UIView {
         minusButton.addTarget(self, action: #selector(minusPressed), for: .touchUpInside)
         plusButton.addTarget(self, action: #selector(plusPressed), for: .touchUpInside)
     }
-    
-    required init?(coder: NSCoder) {
+
+    @available(*, unavailable)
+    required init?(coder _: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-    
+
     func setAmount(_ amount: Int) {
         counterLabel.text = String(amount)
         counter = amount
     }
-    
+
     func setupConstraints() {
         addSubview(minusButton)
         addSubview(counterLabel)
         addSubview(plusButton)
-        
+
         minusButton.snp.makeConstraints { make in
             make.leading.top.bottom.equalToSuperview()
             make.width.equalTo(buttonSize)
         }
-        
+
         counterLabel.snp.makeConstraints { make in
             make.centerX.centerY.equalToSuperview()
         }
-        
+
         plusButton.snp.makeConstraints { make in
             make.trailing.top.bottom.equalToSuperview()
             make.width.equalTo(buttonSize)
         }
     }
-    
+
     @objc func plusPressed() {
         if counter < 9 {
             counter += 1
@@ -97,7 +98,7 @@ class CustomAddButton: UIView {
         }
         delegate?.isEmptyCheck()
     }
-    
+
     @objc func minusPressed() {
         if counter == 1 {
             delegate?.removeButton()

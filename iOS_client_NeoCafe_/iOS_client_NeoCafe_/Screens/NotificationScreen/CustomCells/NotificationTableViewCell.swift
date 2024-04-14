@@ -9,7 +9,7 @@ import UIKit
 
 class NotificationTableViewCell: UITableViewCell {
     static let identifier = "NotificationTableViewCell"
-    
+
     lazy var backView = {
         let view = UIView()
         view.backgroundColor = .white
@@ -18,7 +18,7 @@ class NotificationTableViewCell: UITableViewCell {
         view.layer.borderColor = Asset.colorMain.color.cgColor
         return view
     }()
-    
+
     lazy var orderState: UILabel = {
         let label = UILabel()
         label.text = "Ваш заказ готов"
@@ -26,7 +26,7 @@ class NotificationTableViewCell: UITableViewCell {
         label.textColor = Asset.colorDarkBlue.color
         return label
     }()
-    
+
     lazy var timeLabel: UILabel = {
         let label = UILabel()
         label.text = "19:02"
@@ -34,7 +34,7 @@ class NotificationTableViewCell: UITableViewCell {
         label.textColor = Asset.colorMain.color
         return label
     }()
-    
+
     lazy var descriptionLabel: UILabel = {
         let label = UILabel()
         label.text = "Капучино x1, Американо x2, Багровай за..."
@@ -47,45 +47,46 @@ class NotificationTableViewCell: UITableViewCell {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         setupConstraints()
     }
-    
+
     override func layoutSubviews() {
         super.layoutSubviews()
         contentView.frame = contentView.frame.inset(by: UIEdgeInsets(top: 8, left: 16, bottom: 8, right: 16))
     }
-    
+
     func setupConstraints() {
         contentView.addSubview(backView)
         backView.addSubview(orderState)
         backView.addSubview(timeLabel)
         backView.addSubview(descriptionLabel)
-        
+
         backView.snp.makeConstraints { make in
             make.edges.equalToSuperview()
         }
-        
+
         orderState.snp.makeConstraints { make in
             make.leading.equalToSuperview().offset(16)
             make.top.equalToSuperview().offset(16)
         }
-        
+
         timeLabel.snp.makeConstraints { make in
             make.top.equalToSuperview().offset(15)
             make.trailing.equalToSuperview().offset(-16)
         }
-        
+
         descriptionLabel.snp.makeConstraints { make in
             make.leading.equalToSuperview().offset(16)
             make.bottom.equalToSuperview().offset(-16)
         }
     }
-    
+
     func configureData(name: String, time: String, description: String) {
         orderState.text = name
         timeLabel.text = time
         descriptionLabel.text = description
     }
-    
-    required init?(coder: NSCoder) {
+
+    @available(*, unavailable)
+    required init?(coder _: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
 }

@@ -1,5 +1,5 @@
 //
-//  Model.swift
+//  OrderDetailModel.swift
 //  iOS_client_NeoCafe_
 //
 //  Created by Alikhan Tursunbekov on 29/3/24.

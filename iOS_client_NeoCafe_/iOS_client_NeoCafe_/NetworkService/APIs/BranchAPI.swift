@@ -1,12 +1,12 @@
 //
-//  BranchApi.swift
+//  BranchAPI.swift
 //  iOS_client_NeoCafe_
 //
 //  Created by Alikhan Tursunbekov on 19/3/24.
 //
 
-import UIKit
 import Moya
+import UIKit
 
 enum BranchAPI {
     case getAllFilials
@@ -17,7 +17,7 @@ extension BranchAPI: TargetType {
     var baseURL: URL {
         return URL(string: "https://neo-cafe.up.railway.app/api/v1/filial")!
     }
-    
+
     var path: String {
         switch self {
         case .getAllFilials:
@@ -26,14 +26,14 @@ extension BranchAPI: TargetType {
             return "/all-names"
         }
     }
-    
+
     var method: Moya.Method {
         switch self {
         case .getAllFilials, .getAllNames:
             return .get
         }
     }
-    
+
     var task: Moya.Task {
         switch self {
         case .getAllFilials:
@@ -43,7 +43,7 @@ extension BranchAPI: TargetType {
             return .requestPlain
         }
     }
-    
+
     var headers: [String: String]? {
         switch self {
         case .getAllFilials, .getAllNames:

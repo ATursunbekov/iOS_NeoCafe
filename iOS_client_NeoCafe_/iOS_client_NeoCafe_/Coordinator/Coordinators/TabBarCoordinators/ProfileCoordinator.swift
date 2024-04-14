@@ -9,7 +9,6 @@ import Foundation
 import UIKit
 
 class ProfileCoordinator: BaseCoordinator {
-    
     var onSearchNavigate: EmptyCompletion?
 
     private var mainVC: ProfileViewController!
@@ -24,8 +23,8 @@ class ProfileCoordinator: BaseCoordinator {
         viewController.tabBarItem.image = UIImage(named: Asset.profile.name)
         viewController.tabBarItem.selectedImage = UIImage(named: Asset.profile.name)
         router.setRootModule(viewController, hideBar: false)
-    } 
-    
+    }
+
     func logout() {
         let coordinator = InitializationCoordinator(router: router)
         coordinator.start()
@@ -35,7 +34,7 @@ class ProfileCoordinator: BaseCoordinator {
         }
         router.setRootModule(coordinator, hideBar: true)
     }
-    
+
     func performMainFlow() {
         let coordinator = TabBarCoordinator(router: router)
         addChild(coordinator)

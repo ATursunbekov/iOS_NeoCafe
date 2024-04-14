@@ -12,10 +12,11 @@ protocol BranchDetailViewModelDelegate: AnyObject {
 }
 
 protocol BranchDetailViewModelProtocol {
-    var popularProducts: [PopularProductModel] {get set}
-    var delegate: BranchDetailViewModelDelegate? {get set}
-    var goToMenuScreen: EmptyCompletion? {get set}
+    var popularProducts: [PopularProductModel] { get set }
+    var delegate: BranchDetailViewModelDelegate? { get set }
+    var goToMenuScreen: EmptyCompletion? { get set }
     func getPopular()
+    func getTimeAsString(response: [WorkDays]) -> String
 }
 
 class BranchDetailViewModel: BranchDetailViewModelProtocol {
@@ -23,17 +24,29 @@ class BranchDetailViewModel: BranchDetailViewModelProtocol {
     var popularProducts: [PopularProductModel] = []
     var delegate: BranchDetailViewModelDelegate?
     var goToMenuScreen: EmptyCompletion?
-    
+
     func getPopular() {
         networkService.sendRequest(successModelType: [PopularProductModel].self, endpoint: MultiTarget(MenuAPI.getPopular)) { [weak self] result in
             guard let self else { return }
             switch result {
-            case .success(let response):
+            case let .success(response):
                 popularProducts = response
                 delegate?.getPopularResponse()
-            case .failure(let error):
+            case let .failure(error):
                 print("handle error: \(error)")
             }
         }
+    }
+
+    func getTimeAsString(response: [WorkDays]) -> String {
+        var res = ""
+        for i in 0 ..< response.count {
+            if i != response.count - 1 {
+                res += "\(response[i].from) - \(response[i].to)\n"
+            } else {
+                res += "\(response[i].from) - \(response[i].to)"
+            }
+        }
+        return res
     }
 }

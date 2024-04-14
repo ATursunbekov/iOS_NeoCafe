@@ -10,24 +10,24 @@ import UIKit
 typealias LaunchOptions = [UIApplication.LaunchOptionsKey: Any]
 
 final class ApplicationCoordinator: BaseCoordinator {
-    
     private let window: UIWindow
-    
+
     override init(
-        router: Router = RouterImpl()) {
-            guard let scene = UIApplication.shared.connectedScenes.first as? UIWindowScene else {
-                fatalError("Window scene is required")
-            }
-            self.window = .init(windowScene: scene)
-            super.init(router: router)
-            
-            setupColors()
-            
-            window.rootViewController = router.navigationController
-            window.makeKeyAndVisible()
+        router: Router = RouterImpl())
+    {
+        guard let scene = UIApplication.shared.connectedScenes.first as? UIWindowScene else {
+            fatalError("Window scene is required")
+        }
+        window = .init(windowScene: scene)
+        super.init(router: router)
+
+        setupColors()
+
+        window.rootViewController = router.navigationController
+        window.makeKeyAndVisible()
     }
-    
-    func start(_ with: String?) {
+
+    func start(_: String?) {
         performInitializationFlow()
 //        performMainFlow()
     }
@@ -42,14 +42,14 @@ final class ApplicationCoordinator: BaseCoordinator {
         }
         router.setRootModule(coordinator, hideBar: true)
     }
-    
+
     func performMainFlow() {
         let coordinator = TabBarCoordinator(router: router)
         addChild(coordinator)
         coordinator.start()
         router.setRootModule(coordinator, hideBar: true)
     }
-    
+
     private func setupColors() {
         window.tintColor = .white
     }

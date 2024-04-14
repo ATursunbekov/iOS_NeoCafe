@@ -12,8 +12,8 @@ protocol BasketDelegate: AnyObject {
 }
 
 protocol BasketViewModelProtocol {
-    var delegate: BasketDelegate? {get set}
-    var goToMainScreen: EmptyCompletion? {get set}
+    var delegate: BasketDelegate? { get set }
+    var goToMainScreen: EmptyCompletion? { get set }
     func makeOrder(bonus: Int)
 }
 
@@ -21,22 +21,25 @@ class BasketViewModel: BasketViewModelProtocol {
     @InjectionInjected(\.networkService) var networkService
     var delegate: BasketDelegate?
     var goToMainScreen: EmptyCompletion?
-    
+
     func makeOrder(bonus: Int) {
-        networkService.sendRequest(successModelType: String.self, endpoint: MultiTarget(GeneralAPI.makeOrder(order: geatherAllData(bonus: bonus)))) { [weak self] result in
+        networkService.sendRequest(
+            successModelType: String.self,
+            endpoint: MultiTarget(GeneralAPI.makeOrder(order: geatherAllData(bonus: bonus)))
+        ) { [weak self] result in
             guard let self else { return }
             switch result {
-            case .success(_):
+            case .success:
                 print("Successful: request")
                 DispatchQueue.main.async {
                     self.delegate?.clearData()
                 }
-            case .failure(let error):
+            case let .failure(error):
                 print("handle error: \(error)")
             }
         }
     }
-    
+
     func geatherAllData(bonus: Int) -> BasketModel {
         var price = 0
         var orderDetail: [OrderDetailModel] = []

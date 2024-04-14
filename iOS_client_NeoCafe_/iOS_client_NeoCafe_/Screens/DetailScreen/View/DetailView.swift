@@ -5,11 +5,10 @@
 //  Created by Alikhan Tursunbekov on 24/2/24.
 //
 
-import UIKit
 import SwiftUI
+import UIKit
 
 class DetailView: UIView {
-    
     lazy var productImage: UIImageView = {
         let image = UIImageView(image: UIImage(named: Asset.cofe2.name))
         image.contentMode = .scaleToFill
@@ -19,7 +18,7 @@ class DetailView: UIView {
         image.layer.maskedCorners = [.layerMinXMaxYCorner, .layerMaxXMaxYCorner]
         return image
     }()
-    
+
     lazy var backButton: UIButton = {
         let button = UIButton()
         button.setImage(UIImage(named: Asset.arrowBack.name), for: .normal)
@@ -27,7 +26,7 @@ class DetailView: UIView {
         button.layer.cornerRadius = 20
         return button
     }()
-    
+
     lazy var nameLabel: UILabel = {
         let label = UILabel()
         label.text = "Латте"
@@ -35,7 +34,7 @@ class DetailView: UIView {
         label.textColor = Asset.colorDarkBlue.color
         return label
     }()
-    
+
     lazy var descriptionLabel: UILabel = {
         let label = UILabel()
         label.text = Str.productDetailDescription
@@ -44,7 +43,7 @@ class DetailView: UIView {
         label.numberOfLines = 0
         return label
     }()
-    
+
     lazy var basketButton: UIButton = {
         let button = UIButton()
         button.setTitle(Str.basketButton, for: .normal)
@@ -54,7 +53,7 @@ class DetailView: UIView {
         button.layer.cornerRadius = 14
         return button
     }()
-    
+
     lazy var costLabel: UILabel = {
         let label = UILabel()
         label.text = "140 с"
@@ -62,9 +61,9 @@ class DetailView: UIView {
         label.textColor = Asset.colorOrange.color
         return label
     }()
-    
+
     lazy var customButton = CustomAddButton(fontSize: 32, buttonSize: 40)
-    
+
     private lazy var additionalProductName: UILabel = {
         let label = UILabel()
         label.font = .poppins(size: 16, weight: .bold)
@@ -72,7 +71,7 @@ class DetailView: UIView {
         label.textColor = Asset.colorDarkBlue.color
         return label
     }()
-    
+
     lazy var tableView: UITableView = {
         let tableView = UITableView(frame: .zero)
         tableView.rowHeight = 102
@@ -84,13 +83,13 @@ class DetailView: UIView {
         tableView.contentInset = UIEdgeInsets(top: 8, left: 0, bottom: 8, right: 0)
         return tableView
     }()
-    
+
     override init(frame: CGRect) {
         super.init(frame: frame)
         backgroundColor = Asset.colorWhite.color
         setupConstaints()
     }
-     
+
     func setupConstaints() {
         addSubview(productImage)
         addSubview(backButton)
@@ -101,61 +100,62 @@ class DetailView: UIView {
         addSubview(customButton)
         addSubview(additionalProductName)
         addSubview(tableView)
-        
+
         productImage.snp.makeConstraints { make in
             make.top.leading.trailing.equalToSuperview()
             make.height.equalTo(220)
         }
-        
+
         backButton.snp.makeConstraints { make in
             make.top.equalToSuperview().offset(32)
             make.leading.equalToSuperview().offset(16)
             make.height.equalTo(40)
             make.width.equalTo(40)
         }
-        
+
         nameLabel.snp.makeConstraints { make in
             make.leading.equalToSuperview().offset(16)
             make.top.equalTo(productImage.snp.bottom).offset(24)
         }
-        
+
         descriptionLabel.snp.makeConstraints { make in
             make.top.equalTo(nameLabel.snp.bottom).offset(12)
             make.leading.trailing.equalToSuperview().inset(16)
         }
-        
+
         basketButton.snp.makeConstraints { make in
             make.trailing.equalToSuperview().offset(-16)
             make.bottom.equalToSuperview().offset(-16)
             make.height.equalTo(55)
             make.width.equalTo(203)
         }
-        
+
         costLabel.snp.makeConstraints { make in
             make.trailing.equalToSuperview().offset(-16)
             make.bottom.equalTo(basketButton.snp.top).offset(-7)
         }
-        
+
         customButton.snp.makeConstraints { make in
             make.leading.equalToSuperview().offset(16)
             make.bottom.equalToSuperview().offset(-27)
             make.width.equalTo(124)
             make.height.equalTo(40)
         }
-        
+
         additionalProductName.snp.makeConstraints { make in
             make.top.equalTo(descriptionLabel.snp.bottom).offset(20)
             make.leading.equalToSuperview().offset(16)
         }
-        
+
         tableView.snp.makeConstraints { make in
             make.top.equalTo(additionalProductName.snp.bottom)
             make.leading.trailing.equalToSuperview()
             make.bottom.equalTo(costLabel.snp.top)
         }
     }
-    
-    required init?(coder: NSCoder) {
+
+    @available(*, unavailable)
+    required init?(coder _: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
 }

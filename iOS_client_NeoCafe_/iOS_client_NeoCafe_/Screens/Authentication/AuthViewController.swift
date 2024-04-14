@@ -1,45 +1,49 @@
 //
-//  ViewController.swift
+//  AuthViewController.swift
 //  iOS_client_NeoCafe_
 //
 //  Created by Alikhan Tursunbekov on 4/2/24.
 //
 
-import UIKit
 import SnapKit
 import SwiftUI
+import UIKit
 
 class AuthViewController: UIViewController {
-    
     var viewModel: AuthViewModelProtocol
-    let authView = AuthView()   
-    
+    let authView = AuthView()
+
     var timer: Timer?
     var secondsRemaining = 60
-    
+
     init(viewModel: AuthViewModelProtocol) {
         self.viewModel = viewModel
         super.init(nibName: nil, bundle: nil)
     }
-    
+
     override func loadView() {
         view = authView
     }
-    
+
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        tabBarController?.tabBar.isHidden = true
+    }
+
     override func viewDidLoad() {
         super.viewDidLoad()
         setupTargets()
         setDelegates()
         navigationController?.navigationBar.isHidden = true
     }
-    
+
     func setupTargets() {
         authView.button.addTarget(self, action: #selector(nextPressed), for: .touchUpInside)
         authView.textField.textField.addTarget(self, action: #selector(textFieldChanged(_:)), for: .editingChanged)
         authView.backButton.addTarget(self, action: #selector(backPressed), for: .touchUpInside)
         authView.resendButton.addTarget(self, action: #selector(resendCode), for: .touchUpInside)
     }
-    
+
     func setDelegates() {
         authView.customSegmentedControl.delegate = self
         authView.pinView.didChangeCallback = { _ in
@@ -47,13 +51,13 @@ class AuthViewController: UIViewController {
         }
         viewModel.delegate = self
     }
-    
+
     func delay(_ delay: Double, closure: @escaping () -> Void) {
         DispatchQueue.main.asyncAfter(deadline: .now() + delay) {
             closure()
         }
     }
-    
+
     func cleanErrors() {
         UIView.animate(withDuration: 0.5) {
             self.authView.textField.snp.updateConstraints { make in
@@ -61,16 +65,15 @@ class AuthViewController: UIViewController {
             }
             self.authView.textField.logo.tintColor = Asset.colorDarkBlue.color
             self.authView.textField.textField.attributedPlaceholder = NSAttributedString(string: Str.enterEmail, attributes:
-                                                                                            [
-                                                                                                .foregroundColor: Asset.colorDarkGray.color,
-                                                                                                .font: UIFont(name: FontFamily.Poppins.regular.name, size: 16) ?? UIFont.systemFont(ofSize: 16)
-                                                                                            ]
-            )
+                [
+                    .foregroundColor: Asset.colorDarkGray.color,
+                    .font: UIFont(name: FontFamily.Poppins.regular.name, size: 16) ?? UIFont.systemFont(ofSize: 16),
+                ])
             self.authView.firstErrorText.isHidden = true
             self.view.layoutIfNeeded()
         }
     }
-    
+
     func showError() {
         UIView.animate(withDuration: 0.5, animations: {
             self.authView.textField.snp.updateConstraints { make in
@@ -81,14 +84,13 @@ class AuthViewController: UIViewController {
             self.authView.firstErrorText.isHidden = false
             self.authView.textField.logo.tintColor = Asset.colorRed.color
             self.authView.textField.textField.attributedPlaceholder = NSAttributedString(string: Str.enterEmail, attributes:
-                                                                                            [
-                                                                                                .foregroundColor: Asset.colorRed.color,
-                                                                                                .font: UIFont(name: FontFamily.Poppins.regular.name, size: 16) ?? UIFont.systemFont(ofSize: 16)
-                                                                                            ]
-            )
+                [
+                    .foregroundColor: Asset.colorRed.color,
+                    .font: UIFont(name: FontFamily.Poppins.regular.name, size: 16) ?? UIFont.systemFont(ofSize: 16),
+                ])
         }
     }
-    
+
     func changeState(isSecond: Bool) {
         if isSecond {
             authView.titleLabel.text = Str.verificationCode
@@ -103,7 +105,7 @@ class AuthViewController: UIViewController {
                 make.top.equalTo(authView.textField.snp.bottom).offset(56)
             }
         }
-        
+
         authView.backButton.isHidden = !isSecond
         authView.confirmationLabel.isHidden = !isSecond
         authView.gmailLabel.isHidden = !isSecond
@@ -111,25 +113,19 @@ class AuthViewController: UIViewController {
         authView.timeCounter.isHidden = !isSecond
         authView.pinView.isHidden = !isSecond
         authView.textField.isHidden = isSecond
-        authView.titleLabel.font = UIFont(name: FontFamily.Poppins.bold.name, size: isSecond ? 20: 32)
+        authView.titleLabel.font = UIFont(name: FontFamily.Poppins.bold.name, size: isSecond ? 20 : 32)
         viewModel.changeState()
         if !authView.underlineView.isHidden {
             showConfirmationError(false)
         }
     }
-    
+
     // MARK: Timer logic
-    func startTimer() { 
+
+    func startTimer() {
         timer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(updateTimer), userInfo: nil, repeats: true)
     }
-    
-    func timeString(time: TimeInterval) -> String {
-        let minutes = Int(time) / 60 % 60
-        let seconds = Int(time) % 60
-        return String(format: "%02d:%02d", minutes, seconds)
-    }
-    //END
-    
+
     func showConfirmationError(_ show: Bool) {
         if show {
             authView.confirmationLabel.textColor = Asset.colorRed.color
@@ -139,14 +135,14 @@ class AuthViewController: UIViewController {
             authView.resendButton.setTitleColor(Asset.colorRed.color, for: .normal)
             authView.underlineView.isHidden = false
         } else {
-            authView.confirmationLabel.textColor = Asset.colorDarkBlue.color;         authView.confirmationLabel.text = Str.otpCodeLabel
+            authView.confirmationLabel.textColor = Asset.colorDarkBlue.color; authView.confirmationLabel.text = Str.otpCodeLabel
             authView.gmailLabel.isHidden = false
             authView.pinView.borderLineColor = Asset.colorDarkBlue.color
             authView.resendButton.setTitleColor(Asset.colorDarkBlue.color, for: .normal)
             authView.underlineView.isHidden = true
         }
     }
-    
+
     func stopTimer() {
         timer?.invalidate()
         authView.timeCounter.isHidden = true
@@ -155,7 +151,7 @@ class AuthViewController: UIViewController {
         authView.pinView.clearPin()
         authView.gmailLabel.isHidden = true
     }
-    
+
     @objc func resendCode() {
         if authView.customSegmentedControl.selectedIndex == 0 {
             viewModel.signIn(email: authView.textField.textField.text ?? "")
@@ -165,13 +161,13 @@ class AuthViewController: UIViewController {
         startTimer()
         authView.timeCounter.isHidden = false
     }
-    
+
     @objc func textFieldChanged(_ sender: UITextField) {
         if sender.text != "" && sender.text != nil {
             cleanErrors()
         }
     }
-    
+
     @objc func nextPressed() {
         if viewModel.firstState {
             if authView.textField.textField.text == "" && authView.textField.textField.text != nil {
@@ -188,11 +184,11 @@ class AuthViewController: UIViewController {
             viewModel.confirmationCode(email: authView.textField.textField.text ?? "", code: authView.pinView.getPin())
         }
     }
-    
+
     @objc func updateTimer() {
         if secondsRemaining > 0 {
             secondsRemaining -= 1
-            authView.timeCounter.text = timeString(time: TimeInterval(secondsRemaining))
+            authView.timeCounter.text = viewModel.timeString(time: TimeInterval(secondsRemaining))
             authView.resendButton.isEnabled = false
         } else {
             timer?.invalidate()
@@ -201,13 +197,14 @@ class AuthViewController: UIViewController {
             authView.resendButton.isEnabled = true
         }
     }
-    
+
     @objc func backPressed() {
         changeState(isSecond: false)
         stopTimer()
     }
-    
-    required init?(coder: NSCoder) {
+
+    @available(*, unavailable)
+    required init?(coder _: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
 }
@@ -230,21 +227,21 @@ extension AuthViewController: AuthDelegate {
     func confirmationError() {
         showConfirmationError(true)
     }
-    
+
     func emailError() {
         showError()
     }
-    
+
     func signUpResponse() {
         changeState(isSecond: true)
         startTimer()
     }
-    
+
     func signInResponse() {
         changeState(isSecond: true)
         startTimer()
     }
-    
+
     func successfulConfirmation() {
         print("someone")
     }

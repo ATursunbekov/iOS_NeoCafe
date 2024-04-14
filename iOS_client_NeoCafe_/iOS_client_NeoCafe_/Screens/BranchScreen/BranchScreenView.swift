@@ -5,13 +5,12 @@
 //  Created by Alikhan Tursunbekov on 28/2/24.
 //
 
-import UIKit
 import SwiftUI
+import UIKit
 
 class BranchScreenView: UIView {
-    
     lazy var topView = TopView()
-    
+
     lazy var screenTitle: UILabel = {
         let label = UILabel()
         label.text = Str.branches
@@ -19,7 +18,7 @@ class BranchScreenView: UIView {
         label.textColor = Asset.colorTitle.color
         return label
     }()
-    
+
     lazy var tableView: UITableView = {
         let tableView = UITableView(frame: .zero, style: .insetGrouped)
         tableView.rowHeight = 280
@@ -30,35 +29,36 @@ class BranchScreenView: UIView {
         tableView.showsVerticalScrollIndicator = false
         return tableView
     }()
-    
+
     override init(frame: CGRect) {
         super.init(frame: frame)
         backgroundColor = Asset.colorWhite.color
         setupConstraitns()
     }
-    
+
     func setupConstraitns() {
         addSubview(topView)
         topView.addSubview(screenTitle)
         addSubview(tableView)
-        
+
         topView.snp.makeConstraints { make in
             make.leading.top.trailing.equalToSuperview()
             make.height.equalTo(140)
         }
-        
+
         screenTitle.snp.makeConstraints { make in
             make.leading.equalToSuperview().offset(16)
             make.centerY.equalToSuperview()
         }
-        
+
         tableView.snp.makeConstraints { make in
             make.top.equalTo(topView.snp.bottom)
             make.leading.trailing.bottom.equalToSuperview()
         }
     }
-    
-    required init?(coder: NSCoder) {
+
+    @available(*, unavailable)
+    required init?(coder _: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
 }

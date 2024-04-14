@@ -9,7 +9,6 @@ import Foundation
 import UIKit
 
 class BranchCoordinator: BaseCoordinator {
-    
     var onSearchNavigate: EmptyCompletion?
 
     private var mainVC: BranchViewController!
@@ -25,7 +24,7 @@ class BranchCoordinator: BaseCoordinator {
         viewController.tabBarItem.selectedImage = UIImage(named: Asset.branch.name)
         router.setRootModule(viewController, hideBar: false)
     }
-    
+
     func goToBranchDetailScreen(branchData: BranchResponses) {
         let viewModel = BranchDetailViewModel()
         viewModel.goToMenuScreen = goToMainTab
@@ -33,14 +32,14 @@ class BranchCoordinator: BaseCoordinator {
         tabBarCoordinator?.hideShadowView()
         router.push(viewController, hideBottomBar: true)
     }
-    
+
     func goToMainTab() {
         let viewModel = MenuViewModel(selectedIndex: 0)
         viewModel.goToDetailProductScreen = goToProductDetailScreen
         let viewController = MenuViewController(viewModel: viewModel)
         router.push(viewController, animated: true)
     }
-    
+
     func goToProductDetailScreen(product: PopularProductModel) {
         let viewModel = DetailViewModel(productModel: product)
         viewModel.goToDetailProductScreen = goToProductDetailScreen

@@ -16,14 +16,14 @@ protocol BranchNameDelegate: AnyObject {
 }
 
 protocol BranchViewModelProtocol {
-    var branches: [BranchResponses] {get set}
-    var delegate: BranchViewModelDelegate? {get set}
-    var branchNames: [String] {get set}
-    var nameDelegate: BranchNameDelegate? {get set}
-    var navigateToBranchDetail: ((BranchResponses) -> Void)? {get set}
-    
+    var branches: [BranchResponses] { get set }
+    var delegate: BranchViewModelDelegate? { get set }
+    var branchNames: [String] { get set }
+    var nameDelegate: BranchNameDelegate? { get set }
+    var navigateToBranchDetail: ((BranchResponses) -> Void)? { get set }
+
     func getAllBranches()
-    func  getBranchNames()
+    func getBranchNames()
 }
 
 class BranchViewModel: BranchViewModelProtocol {
@@ -31,35 +31,34 @@ class BranchViewModel: BranchViewModelProtocol {
     var navigateToBranchDetail: ((BranchResponses) -> Void)?
     var branches: [BranchResponses] = []
     var delegate: BranchViewModelDelegate?
-    
+
     func getAllBranches() {
         networkService.sendRequest(successModelType: BranchModel.self, endpoint: MultiTarget(BranchAPI.getAllFilials)) { [weak self] result in
             guard let self else { return }
             switch result {
-            case .success(let response):
+            case let .success(response):
                 branches = response.responses
                 delegate?.getAllBranchesResponse()
-            case .failure(let error):
-                print("handle error: \(error)")
-            }
-        }
-    }
-    
-    // PopUp View data
-    var branchNames: [String] = []
-    var nameDelegate: BranchNameDelegate?
-    
-    func getBranchNames() {
-        networkService.sendRequest(successModelType: [String].self, endpoint: MultiTarget(BranchAPI.getAllNames)) { [weak self] result in
-            guard let self else { return }
-            switch result {
-            case .success(let response):
-                branchNames = response
-                nameDelegate?.updateBranchNames()
-            case .failure(let error):
+            case let .failure(error):
                 print("handle error: \(error)")
             }
         }
     }
 
+    // PopUp View data
+    var branchNames: [String] = []
+    var nameDelegate: BranchNameDelegate?
+
+    func getBranchNames() {
+        networkService.sendRequest(successModelType: [String].self, endpoint: MultiTarget(BranchAPI.getAllNames)) { [weak self] result in
+            guard let self else { return }
+            switch result {
+            case let .success(response):
+                branchNames = response
+                nameDelegate?.updateBranchNames()
+            case let .failure(error):
+                print("handle error: \(error)")
+            }
+        }
+    }
 }

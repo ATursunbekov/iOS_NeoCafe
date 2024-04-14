@@ -12,10 +12,10 @@ protocol OrderHistoryDelegate: AnyObject {
 }
 
 protocol OrderHistoryViewModelProtocol {
-    var activeOrders: [OrderModel] {get set}
-    var doneOrders: [OrderModel] {get set}
-    var delegate: OrderHistoryDelegate? {get set}
-    
+    var activeOrders: [OrderModel] { get set }
+    var doneOrders: [OrderModel] { get set }
+    var delegate: OrderHistoryDelegate? { get set }
+
     func getOrderHistory()
 }
 
@@ -24,17 +24,19 @@ class OrderHistoryViewModel: OrderHistoryViewModelProtocol {
     var activeOrders: [OrderModel] = []
     var doneOrders: [OrderModel] = []
     var delegate: OrderHistoryDelegate?
-    
+
     func getOrderHistory() {
-        networkService.sendRequest(successModelType: OrderHistoryModel.self,
-                                   endpoint: MultiTarget(GeneralAPI.getOrderHistory)) { [weak self] result in
+        networkService.sendRequest(
+            successModelType: OrderHistoryModel.self,
+            endpoint: MultiTarget(GeneralAPI.getOrderHistory)
+        ) { [weak self] result in
             guard let self else { return }
             switch result {
-            case .success(let response):
+            case let .success(response):
                 activeOrders = response.active
                 doneOrders = response.done
                 delegate?.reloadData()
-            case .failure(let error):
+            case let .failure(error):
                 print("handle error: \(error)")
             }
         }

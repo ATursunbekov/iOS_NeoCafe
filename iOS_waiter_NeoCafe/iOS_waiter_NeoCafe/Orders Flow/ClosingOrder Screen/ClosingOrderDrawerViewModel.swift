@@ -22,7 +22,12 @@ class ClosingOrderDrawerViewModel: ClosingOrderDrawerViewModelProtocol {
 
     var onSuccessfulClosingNavigate: EmptyCompletion?
     
-    var items: [MockProduct] = MockData.shared.orderProducts
+    var items: [MockProduct] = []
+    
+//    init() {
+//        items = Array(MockData.shared.orderProducts.keys)
+//    }
+
     var totalPriceValue: Int = MockData.shared.order.totalPrice
 }
 
@@ -34,11 +39,16 @@ extension ClosingOrderDrawerViewModel: ClosingOrderCellDelegate {
 }
 
 extension ClosingOrderDrawerViewModel {
+//    func calculateTotalPrice() -> Int {
+//        for item in items {
+//            totalPriceValue += item.subtotalPrice
+//        }
+//        return totalPriceValue
+//    }
+    
     func calculateTotalPrice() -> Int {
-        for item in items {
-            totalPriceValue += item.subtotalPrice
-        }
-        return totalPriceValue
+        // Use the DataManager method to calculate the total price of the order
+        return DataManager.shared.calculateTotalPriceOfOrder()
     }
     
     func getItemsCount() -> Int {

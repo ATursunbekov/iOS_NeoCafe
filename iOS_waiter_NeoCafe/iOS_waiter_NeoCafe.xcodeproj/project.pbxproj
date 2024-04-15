@@ -90,7 +90,6 @@
 		BAD072F02BB7234000BED543 /* ErrorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAD072EF2BB7234000BED543 /* ErrorView.swift */; };
 		BAD072F22BB942C800BED543 /* ErrorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAD072F12BB942C800BED543 /* ErrorViewController.swift */; };
 		BAD072F42BB942D100BED543 /* ErrorViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAD072F32BB942D100BED543 /* ErrorViewModel.swift */; };
-		BAD072F62BBAABCB00BED543 /* SearchManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAD072F52BBAABCB00BED543 /* SearchManager.swift */; };
 		BAD073072BBC208B00BED543 /* OrderHistoryResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAD073062BBC208B00BED543 /* OrderHistoryResponse.swift */; };
 		BAD073092BBC21FE00BED543 /* OrderDetailedHistoryResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAD073082BBC21FE00BED543 /* OrderDetailedHistoryResponse.swift */; };
 		BAD0730B2BBC3B6C00BED543 /* CategoriesAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAD0730A2BBC3B6C00BED543 /* CategoriesAPI.swift */; };
@@ -204,7 +203,6 @@
 		BAD072EF2BB7234000BED543 /* ErrorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorView.swift; sourceTree = "<group>"; };
 		BAD072F12BB942C800BED543 /* ErrorViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorViewController.swift; sourceTree = "<group>"; };
 		BAD072F32BB942D100BED543 /* ErrorViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorViewModel.swift; sourceTree = "<group>"; };
-		BAD072F52BBAABCB00BED543 /* SearchManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchManager.swift; sourceTree = "<group>"; };
 		BAD073062BBC208B00BED543 /* OrderHistoryResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderHistoryResponse.swift; sourceTree = "<group>"; };
 		BAD073082BBC21FE00BED543 /* OrderDetailedHistoryResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderDetailedHistoryResponse.swift; sourceTree = "<group>"; };
 		BAD0730A2BBC3B6C00BED543 /* CategoriesAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoriesAPI.swift; sourceTree = "<group>"; };
@@ -322,7 +320,6 @@
 				BAD072DC2BB6AAF800BED543 /* OrdersAPI.swift */,
 				BAD072DE2BB6AB1700BED543 /* NewOrderAPI.swift */,
 				BAD0730A2BBC3B6C00BED543 /* CategoriesAPI.swift */,
-				BAD072F52BBAABCB00BED543 /* SearchManager.swift */,
 				BAD072A82BB4885E00BED543 /* Models */,
 			);
 			path = "Network Layer";
@@ -441,13 +438,13 @@
 		BA6E7A092BA9D2F50012F220 /* Orders Flow */ = {
 			isa = PBXGroup;
 			children = (
-				BAD072EE2BB7233300BED543 /* Error Screen */,
+				BAD0733D2BC8FBF800BED543 /* Orders Screen */,
 				BAC955182BAD520900C205D8 /* OrderDetails Screen */,
 				BAD073052BBBC5FF00BED543 /* RemoveItemFromOrder Modal */,
+				BAD073032BBBC5D700BED543 /* CoffeeSupplements Screen */,
 				BAD073022BBBC58500BED543 /* ClosingOrder Screen */,
 				BAD073042BBBC5EA00BED543 /* SuccessfulClosing Modal */,
-				BAD073032BBBC5D700BED543 /* CoffeeSupplements Screen */,
-				BAD0733D2BC8FBF800BED543 /* Orders Screen */,
+				BAD072EE2BB7233300BED543 /* Error Screen */,
 			);
 			path = "Orders Flow";
 			sourceTree = "<group>";
@@ -829,7 +826,6 @@
 				BAC9551E2BAD524500C205D8 /* OrderDetailsViewModel.swift in Sources */,
 				BA6E7A062BA99AB80012F220 /* MenuCoordinator.swift in Sources */,
 				BAC9551C2BAD523400C205D8 /* OrderDetailsViewController.swift in Sources */,
-				BAD072F62BBAABCB00BED543 /* SearchManager.swift in Sources */,
 				BAD073482BC908D200BED543 /* NewOrderCoffeeSupplementsDrawerView.swift in Sources */,
 				BA6E79E22BA8A8D90012F220 /* TopView.swift in Sources */,
 				BAC9552B2BAEB3EB00C205D8 /* CircleButton.swift in Sources */,

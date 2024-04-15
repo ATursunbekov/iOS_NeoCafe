@@ -48,14 +48,20 @@ final class NewOrderSearchViewController: UIViewController {
         contentView.searchBar.textField.addTarget(self, action: #selector(searchAction), for: .editingChanged)
     }
     
-    @objc func searchAction() {
-        if let productName = contentView.searchBar.textField.text, productName != "" {
-            viewModel.searchProduct(by: productName)
-        }
-    }
-    
     @objc func exitButtonDidPress() {
         viewModel.popScreen?()
+    }
+    
+    @objc func searchAction() {
+        if let text = contentView.searchBar.textField.text, !text.isEmpty {
+            if let foundProduct = viewModel.searchProduct(by: text) {
+                print("Found product: \(foundProduct)")
+            } else {
+                print("Product not found")
+            }
+            viewModel.searchText = text
+        }
+        contentView.collectionView.reloadData()
     }
 }
 
@@ -77,6 +83,13 @@ extension NewOrderSearchViewController: UICollectionViewDelegate, UICollectionVi
         let data = viewModel.foundProducts[indexPath.item]
         cell.configureCell(with: data)
         return cell
+    }
+}
+
+// MARK: - NewOrderSearchViewModelDelegate
+extension NewOrderSearchViewController: NewOrderSearchViewModelDelegate {
+    func reloadData() {
+        contentView.collectionView.reloadData()
     }
 }
 

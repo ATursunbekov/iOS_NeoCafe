@@ -93,9 +93,9 @@ extension NewOrderViewController: UICollectionViewDelegate, UICollectionViewData
     }
 
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        guard let cell = collectionView.cellForItem(at: indexPath) as? TableCell else {
-            return
-        }
+//        guard let cell = collectionView.cellForItem(at: indexPath) as? TableCell else {
+//            return
+//        }
         viewModel.onNewOrderDirectoryNavigate?(indexPath.row)
     }
 }

@@ -105,15 +105,42 @@ extension NewOrderInfoDrawerViewController: UICollectionViewDelegate, UICollecti
         return viewModel.getOrderProductsCount()
     }
     
+//    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+//        
+//        let cell: OrderItemCell = collectionView.dequeue(for: indexPath)
+//        
+//        let data = viewModel.order.products[indexPath.item]
+//        cell.configureCell(with: data)
+//        cell.delegate = self
+//        return cell
+//    }
+    
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        
         let cell: OrderItemCell = collectionView.dequeue(for: indexPath)
         
-        let data = viewModel.order.products[indexPath.item]
-        cell.configureCell(with: data)
+        // Get the keys (products) from the dictionary
+        let products = viewModel.order.products.keys
+        
+        // Check if the indexPath.item is within the range of products count
+        guard indexPath.item < products.count else {
+            // Handle index out of range error
+            // For example, return a default cell or configure the cell differently
+            return cell
+        }
+        
+        // Get the product at the specified index
+        let product = Array(products)[indexPath.item]
+        
+        // Configure the cell with the product
+        cell.configureCell(with: product)
+        
+        // Set the cell delegate
         cell.delegate = self
+        
         return cell
     }
+
+
 }
 
 //#if DEBUG

@@ -23,7 +23,6 @@ final class TabBarCoordinator: BaseCoordinator {
 
     private lazy var tabBarViewController = configure(CustomTabBarController()) { tabBarController in
         configureAppearance(for: tabBarController as UITabBarController)
-        configureShadow(for: tabBarController as UITabBarController)
 
         let ordersCoordinator = makeOrdersCoordinator
         ordersCoordinator.tabBarCoordinator = self
@@ -71,16 +70,18 @@ final class TabBarCoordinator: BaseCoordinator {
     override init(router: Router) {
         super.init(router: router)
     }
-
+    
     private func configureAppearance(for tabBarController: UITabBarController) {
-        if #available(iOS 15.0, *) {
-            updateTabBarAppearance(for: tabBarController)
-        }
         tabBarController.tabBar.backgroundColor = .white
         tabBarController.tabBar.layer.cornerRadius = 30
         tabBarController.tabBar.layer.maskedCorners = [.layerMinXMinYCorner, .layerMaxXMinYCorner]
         tabBarController.tabBar.tintColor = .colorLightBlue
         tabBarController.tabBar.unselectedItemTintColor = .colorDarkGray
+        tabBarController.tabBar.layer.masksToBounds = false
+        tabBarController.tabBar.layer.shadowColor = UIColor.black.cgColor
+        tabBarController.tabBar.layer.shadowOffset = CGSize(width: 0, height: -2)
+        tabBarController.tabBar.layer.shadowOpacity = 0.2
+        tabBarController.tabBar.layer.shadowRadius = 5
     }
 
     @available(iOS 15.0, *)
@@ -104,23 +105,6 @@ final class TabBarCoordinator: BaseCoordinator {
 
         appearance.selected.iconColor = tintColor
         appearance.normal.iconColor = unselectedItemTintColor
-    }
-
-    private func configureShadow(for tabBarController: UITabBarController) {
-        shadowedView = UIView(frame: .zero)
-        guard let shadowedView = shadowedView else { return }
-        shadowedView.frame = tabBarController.tabBar.frame
-        shadowedView.backgroundColor = .white
-        shadowedView.layer.cornerRadius = 30
-        shadowedView.layer.maskedCorners = [.layerMinXMinYCorner, .layerMaxXMinYCorner]
-        shadowedView.layer.masksToBounds = false
-        shadowedView.layer.shadowColor = UIColor.black.cgColor
-        shadowedView.layer.shadowOffset = CGSize(width: 0, height: -2)
-        shadowedView.layer.shadowOpacity = 0.8
-        shadowedView.layer.shadowRadius = 20
-
-        tabBarController.view.addSubview(shadowedView)
-        tabBarController.view.bringSubviewToFront(tabBarController.tabBar)
     }
 
     func hideShadowView() {

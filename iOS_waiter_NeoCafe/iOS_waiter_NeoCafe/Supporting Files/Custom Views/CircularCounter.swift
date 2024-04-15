@@ -9,18 +9,14 @@ import UIKit
 import SnapKit
 
 protocol CircularCounterDelegate: AnyObject {
-//    func removeButton()
-//    func addPressed()
-//    func removePressed()
-//    func isEmptyCheck()
-    func deductItem()
     func addItem()
+    func deductItem()
+    func removeItemFromOrder()
     func counterValueChanged()
-    func isEmpty()
 }
 
 extension CircularCounterDelegate {
-    func isEmpty() {}
+    func removeItemFromOrder() {}
 }
 
 class CircularCounter: UIView {
@@ -100,17 +96,19 @@ class CircularCounter: UIView {
             counterLabel.text = String(counter)
             delegate?.addItem()
         }
-        delegate?.isEmpty()
+        delegate?.counterValueChanged()
     }
     
     @objc func minusPressed() {
         if counter == 1 {
-            delegate?.deductItem()
+            delegate?.removeItemFromOrder()
+            delegate?.counterValueChanged()
         } else {
-//            delegate?.removePressed()
             counter -= 1
             counterLabel.text = String(counter)
+            delegate?.deductItem()
+            delegate?.counterValueChanged()
         }
-        delegate?.isEmpty()
+        delegate?.counterValueChanged()
     }
 }

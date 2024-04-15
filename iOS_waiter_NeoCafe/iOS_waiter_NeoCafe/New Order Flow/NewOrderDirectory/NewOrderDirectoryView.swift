@@ -140,8 +140,8 @@ class NewOrderDirectoryView: UIView {
         }
         
         orderButton.snp.makeConstraints { make in
-            make.leading.trailing.equalToSuperview().inset(16)
-            make.bottom.equalToSuperview().inset(100)
+            make.bottom.leading.trailing.equalToSuperview().inset(16)
+//            make.bottom.equalToSuperview().inset(100)
             make.height.equalTo(54)
         }
         

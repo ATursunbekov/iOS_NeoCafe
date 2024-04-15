@@ -17,7 +17,7 @@ class NewOrderSearchView: UIView {
         collectionView.backgroundColor = .none
         collectionView.bounces = false
         collectionView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
-        collectionView.register(cell: ProductCell.self)
+        collectionView.register(cell: MenuCell.self)
         collectionView.showsVerticalScrollIndicator = false
         return collectionView
     }()

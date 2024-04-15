@@ -31,14 +31,25 @@ final class NewOrderInfoDrawerViewModel: NewOrderInfoDrawerViewModelProtocol {
 }
 
 extension NewOrderInfoDrawerViewModel {
+//    func getTotalPrice() -> Int {
+//        var totalPrice = 0
+//        for product in order.products {
+//            totalPrice += (product.price * product.quantity)
+//        }
+//        orderTotalPrice = totalPrice
+//        return totalPrice
+//    }
+
     func getTotalPrice() -> Int {
-        var totalPrice = 0
-        for product in order.products {
-            totalPrice += (product.price * product.quantity)
-        }
+        // Delegate the calculation to DataManager
+        let totalPrice = DataManager.shared.calculateTotalPriceOfOrder()
+        
+        // Update the orderTotalPrice (assuming it's a property of the same object)
         orderTotalPrice = totalPrice
+        
         return totalPrice
     }
+
     
     func getOrderProductsCount() -> Int {
         order.products.count

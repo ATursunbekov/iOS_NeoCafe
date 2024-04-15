@@ -34,9 +34,20 @@ protocol NewOrderDirectoryViewModelProtocol {
 }
 
 class NewOrderDirectoryViewModel: NewOrderDirectoryViewModelProtocol {
+//    func getTotal(product: MockProduct, quantity: Int) -> Int {
+//        let result = DataManager.shared.addProductAndUpdateTotal(product: product, quantity: 1)
+//        return result
+//    }
+    
     func getTotal(product: MockProduct, quantity: Int) -> Int {
-        let result = DataManager.shared.addProductAndUpdateTotal(product: product, quantity: 1)
-        return result
+        // Since we are adding a product to the order, we need to update the order and then return the total price
+//        DataManager.shared.addProductAndUpdateTotal(product: product, quantity: quantity)
+        
+        // After updating the order, we can retrieve the total price
+        let totalPrice = DataManager.shared.calculateTotalPriceOfOrder()
+        
+        // Return the calculated total price
+        return totalPrice
     }
     
     @InjectionInjected(\.networkService) var networkService

@@ -28,7 +28,7 @@ final class OrdersCoordinator: BaseCoordinator {
         router.setRootModule(viewController, hideBar: false)
     }
     
-    func showOrderDetailsScreen(order: MockOrder) {
+    private func showOrderDetailsScreen(order: MockOrder) {
         let viewModel = OrderDetailsViewModel()
         viewModel.onBackNavigate = { [weak self] in
             self?.router.popModule(animated: true)
@@ -37,14 +37,18 @@ final class OrdersCoordinator: BaseCoordinator {
             self?.showClosingOrderScreen(order: order)
         }
         viewModel.onAddSupplementsNavigate = showCoffeeSupplementsScreen
-        viewModel.onRemoveItemFromOrderNavigate = showRemoveItemFromOrderScreen
+//        viewModel.onRemoveItemFromOrderNavigate = showRemoveItemFromOrderScreen
+        
+        viewModel.onRemoveItemFromOrderNavigate = { [weak self] order in
+            self?.showRemoveItemFromOrderScreen(order: order)
+        }
         
         let viewController = OrderDetailsViewController(viewModel: viewModel)
         router.push(viewController, hideBottomBar: false)
         tabBarCoordinator?.hideShadowView()
     }
     
-    func showClosingOrderScreen(order: MockOrder) {
+    private func showClosingOrderScreen(order: MockOrder) {
         let viewModel = ClosingOrderDrawerViewModel()
         viewModel.onSuccessfulClosingNavigate = { [weak self] in
             self?.router.popModule(animated: true)
@@ -54,30 +58,34 @@ final class OrdersCoordinator: BaseCoordinator {
         router.showPopup(viewController, animated: true)
     }
     
-    func showCoffeeSupplementsScreen() {
+    private func showCoffeeSupplementsScreen() {
         let viewModel = CoffeeSupplementsDrawerViewModel()
         viewModel.dismissModule = {
             self.router.dismissModule(animated: true)
         }
         
         let viewController = CoffeeSupplementsDrawerViewController(viewModel: viewModel)
-        router.showPopup(viewController, animated: true)
+        
+//        router.showPopup(viewController, animated: true)
+        viewController.modalPresentationStyle = .overFullScreen
+        router.present(viewController, animated: true)
     }
     
-    func showRemoveItemFromOrderScreen() {
+    private func showRemoveItemFromOrderScreen(order: MockOrder) {
         let viewModel = RemoveItemFromOrderModalViewModel()
-        viewModel.onOrderDetailsNavigate = { [weak self] order in
-            self?.showOrderDetailsScreen(order: order)
-        }
+//        viewModel.onOrderDetailsNavigate = { [weak self] order in
+//            self?.showOrderDetailsScreen(order: order)
+//        }
         viewModel.popScreen = {
-            self.router.popModule(animated: true)
+//            self.router.popModule(animated: true)
+            self.router.dismissModule(animated: true)
         }
         
         let viewController = RemoveItemFromOrderModalViewController(viewModel: viewModel)
-        router.present(viewController)
+        router.showPopup(viewController, animated: true)
     }
     
-    func showSuccessfulClosingScreen() {
+    private func showSuccessfulClosingScreen() {
         let viewModel = SuccessfulClosingModalViewModel()
         viewModel.onOrdersNavigate = start
         
@@ -86,11 +94,11 @@ final class OrdersCoordinator: BaseCoordinator {
     }
     
     // MARK: - TODO
-    func showProfileScreen() {
+    private func showProfileScreen() {
         // TODO: -
     }
     
-    func showNoticeScreen() {
+    private func showNoticeScreen() {
         // TODO: -
     }
     

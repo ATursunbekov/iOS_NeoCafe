@@ -23,7 +23,7 @@ final class AuthCoordinator: BaseCoordinator {
         return viewController
     }()
     
-    func showOrdersScreen() {
+    private func showOrdersScreen() {
         let viewModel = OrdersViewModel()
         
         let viewController = OrdersViewController(viewModel: viewModel)

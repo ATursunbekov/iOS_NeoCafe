@@ -19,8 +19,8 @@ class RemoveItemFromOrderModalView: UIView {
     
     lazy var titleLabel: UILabel = {
         let label = UILabel()
-        label.text = "Удалить круассан из \nзаказа?"
-        label.font = UIFont.poppins(ofSize: 24, weight: .bold)
+        label.text = "Удалить круассан \nиз заказа?"
+        label.font = UIFont.poppins(ofSize: 20, weight: .bold)
         label.numberOfLines = 2
         label.textAlignment = .center
         label.textColor = .colorDarkBlue

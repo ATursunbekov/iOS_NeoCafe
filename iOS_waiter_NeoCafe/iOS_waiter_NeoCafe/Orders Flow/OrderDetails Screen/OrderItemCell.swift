@@ -9,14 +9,14 @@ import UIKit
 import SnapKit
 
 protocol OrderItemCellDelegate: AnyObject {
-    func isEmpty()
+    func removeItemFromOrder()
     func getTotal() -> Int
     func updateTotal()
     func counterValueChanged()
 }
 
 extension OrderItemCellDelegate {
-    func isEmpty() {}
+    func removeItemFromOrder() {}
 }
 
 class OrderItemCell: UICollectionViewCell {
@@ -165,8 +165,8 @@ extension OrderItemCell {
 
 extension OrderItemCell: CircularCounterDelegate {
     
-    func isEmpty() {
-        delegate?.isEmpty()
+    func removeItemFromOrder() {
+        delegate?.removeItemFromOrder()
     }
     
     func counterValueChanged() {
@@ -183,12 +183,13 @@ extension OrderItemCell: CircularCounterDelegate {
     
     func deductItem() {
         if let product = product {
-            DataManager.shared.removeProduct(product: product)
+            DataManager.shared.deductProduct(product: product)
+//            DataManager.shared.removeProduct(product: product)
             delegate?.counterValueChanged()
             
             let quantity = DataManager.shared.getQuantity(of: product)
             if quantity == 0 {
-                delegate?.isEmpty()
+//                delegate?.removeItemFromOrder()
                 delegate?.counterValueChanged()
             }
         }

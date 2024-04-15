@@ -54,10 +54,13 @@ class MenuViewModel: MenuViewModelProtocol {
 //        filteredProducts = (category.rawValue == MockProductCategory.allCategories[0]) ? menuProducts : menuProducts.filter { $0.category == category }
 //    }
     
+//    func filterMenu(by category: MockProductCategory) {
+//        filteredProducts = menuProducts.filter { $0.category == category }
+//    }
+    
     func filterMenu(by category: MockProductCategory) {
-        filteredProducts = menuProducts.filter { $0.category == category }
+        filteredProducts = DataManager.shared.getProductsFiltered(by: category)
     }
-
     
 //    func filterMenu(by category: MockProductCategory) -> [MockProduct] {
 //        return menuProducts.filter { $0.category == category }

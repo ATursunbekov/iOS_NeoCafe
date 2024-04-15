@@ -49,10 +49,21 @@ final class NewOrderCoffeeSupplementsDrawerViewModel: NewOrderCoffeeSupplementsD
     var product = MockData.shared.product
     var productQuantity = 1
     
+//    func calculateTotalPrice() {
+//        let totalPrice = product.price * productQuantity
+//        delegate?.didCalculateTotalPrice(totalPrice)
+//        productTotalPrice = totalPrice
+//    }
+    
     func calculateTotalPrice() {
-        let totalPrice = product.price * productQuantity
-        delegate?.didCalculateTotalPrice(totalPrice)
+        // Delegate the calculation to DataManager
+        let totalPrice = DataManager.shared.calculateTotalPriceOfOrder()
+        
+        // Update the productTotalPrice
         productTotalPrice = totalPrice
+        
+        // Notify the delegate about the calculated total price
+        delegate?.didCalculateTotalPrice(totalPrice)
     }
     
     

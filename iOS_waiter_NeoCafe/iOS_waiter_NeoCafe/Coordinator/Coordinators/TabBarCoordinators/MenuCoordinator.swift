@@ -25,20 +25,20 @@ final class MenuCoordinator: BaseCoordinator {
         router.setRootModule(viewController, hideBar: false)
     }
     
-    func showMenuSearchScreen() {
+    private func showMenuSearchScreen() {
         let viewModel = MenuSearchViewModel()
         viewModel.popScreen = {
             self.router.popModule(animated: true)
         }
         let viewController = MenuSearchViewController(viewModel: viewModel)
-        router.present(viewController)
+        router.push(viewController)
     }
     
-    func showProfileScreen() {
+    private func showProfileScreen() {
         // TODO: -
     }
     
-    func showNoticeScreen() {
+    private func showNoticeScreen() {
         // TODO: -
     }
 }

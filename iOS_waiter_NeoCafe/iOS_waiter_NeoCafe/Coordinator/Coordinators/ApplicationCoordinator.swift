@@ -35,12 +35,12 @@ final class ApplicationCoordinator: BaseCoordinator {
         }
     }
     
-    func isUserRegistered() -> Bool {
+    private func isUserRegistered() -> Bool {
         let accessToken = DataManager.shared.tokens.accessToken
         return !accessToken.isEmpty
     }
 
-    func performAuthFlow() {
+    private func performAuthFlow() {
         let coordinator = AuthCoordinator(router: router)
         addChild(coordinator)
         coordinator.start()
@@ -51,7 +51,7 @@ final class ApplicationCoordinator: BaseCoordinator {
         router.setRootModule(coordinator, hideBar: false)
     }
     
-    func performOrdersFlow() {
+    private func performOrdersFlow() {
         let coordinator = TabBarCoordinator(router: router)
         addChild(coordinator)
         coordinator.start()

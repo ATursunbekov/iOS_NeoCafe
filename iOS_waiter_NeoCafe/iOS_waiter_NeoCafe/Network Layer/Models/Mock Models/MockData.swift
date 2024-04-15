@@ -9,19 +9,16 @@ import UIKit
 
 class MockData {
     static let shared = MockData()
-    
+
     var product: MockProduct
-    var order: MockOrder
-    var ordersAll: [MockOrder]
-    var tables: [MockTable]
-    var menu: MockMenu
-    var orderProducts: [MockProduct]
-    var menuProducts: [MockProduct]
-    var ordersFiltered: [MockOrder] = []
-    var menuFiltered: [MockProduct] = []
-    var orderStatuses: [MockOrderStatus]
     var categories: [MockProductCategory]
-    
+    var orderStatuses: [MockOrderStatus]
+    var tables: [MockTable]
+    var menuProducts: [MockProduct]
+    var orderProducts: [MockProduct: Int]
+    var ordersAll: [MockOrder]
+    var order: MockOrder
+
     private init() {
         
         product = MockProduct(id: 1,
@@ -155,7 +152,7 @@ class MockData {
                         composition: nil),
             MockProduct(id: 10,
                         category: .coffee,
-                        name: "Americano",
+                        name: "Американо",
                         description: nil,
                         quantity: 1,
                         price: 100,
@@ -253,13 +250,10 @@ class MockData {
                         supplements: nil,
                         composition: nil),
         ]
-        
-        // Create a mock menu
-        menu = MockMenu(allCount: menuProducts.count, products: menuProducts)
-        
-        // Generate mock order products
+                
+        // Generate mock order products (Dictionary)
         orderProducts = [
-            MockProduct(id: 12345,
+            MockProduct(id: 1,
                         category: .coffee,
                         name: "Латте",
                         description: nil,
@@ -267,8 +261,8 @@ class MockData {
                         price: 100,
                         image: nil,
                         supplements: MockCoffeeSupplement(milk: "Миндальное молоко", syrup: "Клубничный"),
-                        composition: nil),
-            MockProduct(id: 12345,
+                        composition: nil): 1,
+            MockProduct(id: 2,
                         category: .bakery,
                         name: "Круассан",
                         description: nil,
@@ -276,8 +270,8 @@ class MockData {
                         price: 100,
                         image: nil,
                         supplements: MockCoffeeSupplement(milk: "Не применимо", syrup: "Не применимо"),
-                        composition: nil),
-            MockProduct(id: 12345,
+                        composition: nil): 1,
+            MockProduct(id: 3,
                         category: .coffee,
                         name: "Капучино",
                         description: nil,
@@ -285,8 +279,8 @@ class MockData {
                         price: 100,
                         image: nil,
                         supplements: MockCoffeeSupplement(milk: "Миндальное молоко", syrup: "Клубничный"),
-                        composition: nil),
-            MockProduct(id: 12345,
+                        composition: nil): 1,
+            MockProduct(id: 4,
                         category: .bakery,
                         name: "Шарлотка",
                         description: nil,
@@ -294,19 +288,10 @@ class MockData {
                         price: 100,
                         image: nil,
                         supplements: MockCoffeeSupplement(milk: "Не применимо", syrup: "Не применимо"),
-                        composition: nil),
+                        composition: nil): 1
         ]
-        
-        // Create a mock order
-        order = MockOrder(id: 12345,
-                          date: "2024-04-03",
-                          time: "14:30",
-                          branch: nil,
-                          status: .new,
-                          table: tables[0],
-                          waiter: "Игорь",
-                          products: orderProducts)
-        
+
+    
         // Create mock orders
         ordersAll = [
             MockOrder(id: 12345,
@@ -315,14 +300,6 @@ class MockData {
                       branch: nil,
                       status: .new,
                       table: tables[0],
-                      waiter: "Игорь",
-                      products: orderProducts),
-            MockOrder(id: 12345,
-                      date: "2024-04-03",
-                      time: "14:30",
-                      branch: nil,
-                      status: .new,
-                      table: tables[1],
                       waiter: "Игорь",
                       products: orderProducts),
             MockOrder(id: 12345,
@@ -365,24 +342,161 @@ class MockData {
                       table: tables[6],
                       waiter: "Азамат",
                       products: orderProducts),
+            MockOrder(id: 12345,
+                      date: "2024-04-04",
+                      time: "15:00",
+                      branch: nil,
+                      status: .ready,
+                      table: tables[3],
+                      waiter: "Венера",
+                      products: orderProducts),
+            MockOrder(id: 12345,
+                      date: "2024-04-04",
+                      time: "15:00",
+                      branch: nil,
+                      status: .finished,
+                      table: tables[5],
+                      waiter: "Хаади",
+                      products: orderProducts),
+            MockOrder(id: 12345,
+                      date: "2024-04-04",
+                      time: "15:00",
+                      branch: nil,
+                      status: .ready,
+                      table: tables[3],
+                      waiter: "Венера",
+                      products: orderProducts),
+            MockOrder(id: 12345,
+                      date: "2024-04-04",
+                      time: "15:00",
+                      branch: nil,
+                      status: .finished,
+                      table: tables[5],
+                      waiter: "Хаади",
+                      products: orderProducts),
+            MockOrder(id: 12345,
+                      date: "2024-04-04",
+                      time: "15:00",
+                      branch: nil,
+                      status: .finished,
+                      table: tables[5],
+                      waiter: "Хаади",
+                      products: orderProducts),
+            MockOrder(id: 12345,
+                      date: "2024-04-04",
+                      time: "15:00",
+                      branch: nil,
+                      status: .finished,
+                      table: tables[5],
+                      waiter: "Хаади",
+                      products: orderProducts),
+            MockOrder(id: 12345,
+                      date: "2024-04-04",
+                      time: "15:00",
+                      branch: nil,
+                      status: .finished,
+                      table: tables[5],
+                      waiter: "Хаади",
+                      products: orderProducts),
         ]
-    }
-    
-    func filterOrders(by status: MockOrderStatus) {
-        ordersFiltered = ordersAll.filter { $0.status == status }
-    }
-    
-    func filterMenu(by category: MockProductCategory) {
-        menuFiltered = menuProducts.filter { $0.category == category }
+        
+        // Create a mock order
+        order = MockOrder(
+            id: 12345,
+            date: "2024-04-03",
+            time: "14:30",
+            branch: nil,
+            status: .new,
+            table: tables[0],
+            waiter: "Игорь",
+            products: orderProducts
+        )
     }
 }
+
+// Generate mock order products (Dictionary)
+//var orderProducts: [MockProduct: Int] = [
+//    MockProduct(id: 12345,
+//                category: .coffee,
+//                name: "Латте",
+//                description: nil,
+//                quantity: 1,
+//                price: 100,
+//                image: nil,
+//                supplements: MockCoffeeSupplement(milk: "Миндальное молоко", syrup: "Клубничный"),
+//                composition: nil): 1,
+//    MockProduct(id: 12345,
+//                category: .bakery,
+//                name: "Круассан",
+//                description: nil,
+//                quantity: 1,
+//                price: 100,
+//                image: nil,
+//                supplements: MockCoffeeSupplement(milk: "Не применимо", syrup: "Не применимо"),
+//                composition: nil): 1,
+//    MockProduct(id: 12345,
+//                category: .coffee,
+//                name: "Капучино",
+//                description: nil,
+//                quantity: 1,
+//                price: 100,
+//                image: nil,
+//                supplements: MockCoffeeSupplement(milk: "Миндальное молоко", syrup: "Клубничный"),
+//                composition: nil): 1,
+//    MockProduct(id: 12345,
+//                category: .bakery,
+//                name: "Шарлотка",
+//                description: nil,
+//                quantity: 1,
+//                price: 100,
+//                image: nil,
+//                supplements: MockCoffeeSupplement(milk: "Не применимо", syrup: "Не применимо"),
+//                composition: nil): 1
+//]
+
+
+// Generate mock order products (Array)
+//        orderProducts = [
+//            MockProduct(id: 12345,
+//                        category: .coffee,
+//                        name: "Латте",
+//                        description: nil,
+//                        quantity: 1,
+//                        price: 100,
+//                        image: nil,
+//                        supplements: MockCoffeeSupplement(milk: "Миндальное молоко", syrup: "Клубничный"),
+//                        composition: nil),
+//            MockProduct(id: 12345,
+//                        category: .bakery,
+//                        name: "Круассан",
+//                        description: nil,
+//                        quantity: 1,
+//                        price: 100,
+//                        image: nil,
+//                        supplements: MockCoffeeSupplement(milk: "Не применимо", syrup: "Не применимо"),
+//                        composition: nil),
+//            MockProduct(id: 12345,
+//                        category: .coffee,
+//                        name: "Капучино",
+//                        description: nil,
+//                        quantity: 1,
+//                        price: 100,
+//                        image: nil,
+//                        supplements: MockCoffeeSupplement(milk: "Миндальное молоко", syrup: "Клубничный"),
+//                        composition: nil),
+//            MockProduct(id: 12345,
+//                        category: .bakery,
+//                        name: "Шарлотка",
+//                        description: nil,
+//                        quantity: 1,
+//                        price: 100,
+//                        image: nil,
+//                        supplements: MockCoffeeSupplement(milk: "Не применимо", syrup: "Не применимо"),
+//                        composition: nil),
+//        ]
+
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-struct MockMenu: Codable {
-    let allCount: Int
-    let products: [MockProduct]
-}
 
 //struct MockOrder: Codable {
 //    let id: Int
@@ -403,6 +517,37 @@ struct MockMenu: Codable {
 //    }
 //}
 
+//struct MockOrder: Codable, Hashable {
+//    let id: Int
+//    let date: String
+//    let time: String
+//    let branch: String?
+//    let status: MockOrderStatus
+//    let table: MockTable
+//    let waiter: String
+//    let products: [MockProduct]
+//    
+//    var totalPrice: Int {
+//        var total: Int = 0
+//        for product in products {
+//            total += (product.price * product.quantity)
+//        }
+//        return total
+//    }
+//
+//    // Implementing hash(into:) method to conform to Hashable
+//    func hash(into hasher: inout Hasher) {
+//        hasher.combine(id)
+//        hasher.combine(date)
+//        hasher.combine(time)
+//        hasher.combine(branch)
+//        hasher.combine(status)
+//        hasher.combine(table)
+//        hasher.combine(waiter)
+//        hasher.combine(products)
+//    }
+//}
+
 struct MockOrder: Codable, Hashable {
     let id: Int
     let date: String
@@ -411,12 +556,12 @@ struct MockOrder: Codable, Hashable {
     let status: MockOrderStatus
     let table: MockTable
     let waiter: String
-    let products: [MockProduct]
+    var products: [MockProduct: Int]
     
     var totalPrice: Int {
         var total: Int = 0
-        for product in products {
-            total += (product.price * product.quantity)
+        for (product, quantity) in products {
+            total += (product.price * quantity)
         }
         return total
     }
@@ -433,7 +578,6 @@ struct MockOrder: Codable, Hashable {
         hasher.combine(products)
     }
 }
-
 
 //struct MockTable: Codable {
 //    let id: Int
@@ -481,7 +625,6 @@ struct MockTable: Codable, Hashable {
         hasher.combine(status)
     }
 }
-
 
 struct MockProduct: Hashable, Codable {
     let id: Int
@@ -561,7 +704,7 @@ enum MockProductCategory: String, CaseIterable, Codable {
     case bakery = "Выпечка"
     case drinks = "Напитки"
     
-    // TODO: allCategories ???
+    // TODO: allCategories
     static var allCategories: [String] {
         var categories: [String] = []
         categories.append(contentsOf: MockProductCategory.allCases.map { $0.rawValue })
@@ -587,91 +730,3 @@ enum MockProductCategory: String, CaseIterable, Codable {
     }
 }
 
-
-
-
-/////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-//class MockData {
-//    static let shared = MockData()
-//    var product: MockProduct
-//    var order: MockOrder
-//    var ordersAll: [MockOrder]
-//    var tables: [MockTable]
-//    var menu: MockMenu
-//    var orderProducts: [MockProduct]
-//    var menuProducts: [MockProduct]
-//    var orderStatuses: [MockOrderStatus]
-//    var categories: [MockProductCategory]
-//    private init() {
-//        product = MockProduct(id: 1,
-//                              category: .coffee,
-//                              name: "",
-//                              description: nil,
-//                              quantity: 1,
-//                              price: 100,
-//                              image: nil,
-//                              supplements: nil,
-//                              composition: nil)
-//        categories = [
-//            MockProductCategory.coffee,
-//            MockProductCategory.dessert,
-//            MockProductCategory.bakery,
-//            MockProductCategory.drinks,
-//        ]
-//        orderStatuses = [
-//            MockOrderStatus.all,
-//            MockOrderStatus.new,
-//            MockOrderStatus.inProgress,
-//            MockOrderStatus.ready,
-//            MockOrderStatus.cancelled,
-//            MockOrderStatus.finished,
-//        ]
-//        tables = [
-//            MockTable(id: 1, number: 1, status: .vacant),
-//            MockTable(id: 2, number: 2, status: .reserved),
-//            MockTable(id: 3, number: 3, status: .vacant),
-//        ]
-//        menuProducts = [
-//            MockProduct(id: 1,
-//                        category: .coffee,
-//                        name: "",
-//                        description: nil,
-//                        quantity: 1,
-//                        price: 100,
-//                        image: nil,
-//                        supplements: nil,
-//                        composition: nil),
-//        ]
-//        menu = MockMenu(allCount: menuProducts.count, products: menuProducts)
-//        orderProducts = [
-//            MockProduct(id: 1,
-//                        category: .coffee,
-//                        name: "",
-//                        description: nil,
-//                        quantity: 1,
-//                        price: 100,
-//                        image: nil,
-//                        supplements: nil,
-//                        composition: nil),
-//        ]
-//        order = MockOrder(id: 12345,
-//                          date: "",
-//                          time: "",
-//                          branch: nil,
-//                          status: .new,
-//                          table: tables[0],
-//                          waiter: "",
-//                          products: orderProducts)
-//        ordersAll = [
-//            MockOrder(id: 1,
-//                      date: "",
-//                      time: "",
-//                      branch: nil,
-//                      status: .new,
-//                      table: tables[0],
-//                      waiter: "",
-//                      products: orderProducts),
-//        ]
-//    }
-//}

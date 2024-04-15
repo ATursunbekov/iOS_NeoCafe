@@ -44,7 +44,8 @@ final class RemoveItemFromOrderModalViewController: UIViewController {
     
     @objc func yesButtonDidTap() {
         viewModel.removeSelectedItemFromOrder()
-        viewModel.onOrderDetailsNavigate?(viewModel.order)
+//        viewModel.onOrderDetailsNavigate?(viewModel.order)
+        viewModel.popScreen?()
         dismiss(animated: true)
     }
     

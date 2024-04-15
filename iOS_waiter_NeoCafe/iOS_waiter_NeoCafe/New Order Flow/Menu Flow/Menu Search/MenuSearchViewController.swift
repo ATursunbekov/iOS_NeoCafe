@@ -35,7 +35,7 @@ final class MenuSearchViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         tabBarController?.tabBar.isHidden = false
-//        contentView.collectionView.reloadData()
+        contentView.collectionView.reloadData()
     }
     
     func setupDelegates() {
@@ -48,14 +48,20 @@ final class MenuSearchViewController: UIViewController {
         contentView.searchBar.textField.addTarget(self, action: #selector(searchAction), for: .editingChanged)
     }
     
-    @objc func searchAction() {
-        if let productName = contentView.searchBar.textField.text, productName != "" {
-            viewModel.searchProduct(by: productName)
-        }
-    }
-    
     @objc func exitButtonDidPress() {
         viewModel.popScreen?()
+    }
+    
+    @objc func searchAction() {
+        if let text = contentView.searchBar.textField.text, !text.isEmpty {
+            if let foundProduct = viewModel.searchProduct(by: text) {
+                print("Found product: \(foundProduct)")
+            } else {
+                print("Product not found")
+            }
+            viewModel.searchText = text
+        }
+        contentView.collectionView.reloadData()
     }
 }
 
@@ -80,6 +86,12 @@ extension MenuSearchViewController: UICollectionViewDelegate, UICollectionViewDa
     }
 }
 
+// MARK: - MenuSearchViewModelDelegate
+extension MenuSearchViewController: MenuSearchViewModelDelegate {
+    func reloadData() {
+        contentView.collectionView.reloadData()
+    }
+}
 
 //#if DEBUG
 //import SwiftUI

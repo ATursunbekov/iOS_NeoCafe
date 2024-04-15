@@ -78,21 +78,53 @@ extension OrderDetailsViewController: UICollectionViewDelegate, UICollectionView
         return viewModel.getOrderProductsCount()
     }
     
+//    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+//        
+//        let cell: OrderItemCell = collectionView.dequeue(for: indexPath)
+//        
+//        let data = viewModel.order.products[indexPath.item]
+//        cell.configureCell(with: data)
+//        cell.delegate = self
+//        return cell
+//    }
+    
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        
         let cell: OrderItemCell = collectionView.dequeue(for: indexPath)
         
-        let data = viewModel.order.products[indexPath.item]
-        cell.configureCell(with: data)
+        // Check if the index is within the bounds of the products array
+        guard indexPath.item < viewModel.order.products.count else {
+            // Handle the case where the index is out of bounds
+            return UICollectionViewCell()
+        }
+        
+        // Retrieve the product at the specified index
+        let product = Array(viewModel.order.products.keys)[indexPath.item]
+        
+        // Configure the cell with the retrieved product
+        cell.configureCell(with: product)
+        
+        // Set the cell's delegate
         cell.delegate = self
+        
         return cell
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        if collectionView == contentView.orderItemsCollectionView {
+            viewModel.changeSelectedIndex(for: indexPath.item)
+            contentView.orderItemsCollectionView.reloadData()
+        }
     }
 }
 
 // MARK: - OrderItemCellDelegate
 extension OrderDetailsViewController: OrderItemCellDelegate {
-    func isEmpty() {
-        viewModel.onRemoveItemFromOrderNavigate?()
+    func removeItemFromOrder() {
+        viewModel.removeItemFromOrder()
+        viewModel.onRemoveItemFromOrderNavigate?(viewModel.order)
+//        let index = viewModel.removedProductSelectedIndex
+//        let removedItem = viewModel.order.products[index]
+//        viewModel.order.products.remove(at: index)
     }
     
     func getTotal() -> Int {

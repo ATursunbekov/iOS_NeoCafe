@@ -37,12 +37,10 @@ final class OrdersCoordinator: BaseCoordinator {
             self?.showClosingOrderScreen(order: order)
         }
         viewModel.onAddSupplementsNavigate = showCoffeeSupplementsScreen
-//        viewModel.onRemoveItemFromOrderNavigate = showRemoveItemFromOrderScreen
         
         viewModel.onRemoveItemFromOrderNavigate = { [weak self] order in
             self?.showRemoveItemFromOrderScreen(order: order)
         }
-        
         let viewController = OrderDetailsViewController(viewModel: viewModel)
         router.push(viewController, hideBottomBar: false)
         tabBarCoordinator?.hideShadowView()
@@ -53,7 +51,6 @@ final class OrdersCoordinator: BaseCoordinator {
         viewModel.onSuccessfulClosingNavigate = { [weak self] in
             self?.router.popModule(animated: true)
         }
-        
         let viewController = ClosingOrderDrawerViewController(viewModel: viewModel)
         router.showPopup(viewController, animated: true)
     }
@@ -63,24 +60,16 @@ final class OrdersCoordinator: BaseCoordinator {
         viewModel.dismissModule = {
             self.router.dismissModule(animated: true)
         }
-        
         let viewController = CoffeeSupplementsDrawerViewController(viewModel: viewModel)
-        
-//        router.showPopup(viewController, animated: true)
         viewController.modalPresentationStyle = .overFullScreen
         router.present(viewController, animated: true)
     }
     
     private func showRemoveItemFromOrderScreen(order: MockOrder) {
         let viewModel = RemoveItemFromOrderModalViewModel()
-//        viewModel.onOrderDetailsNavigate = { [weak self] order in
-//            self?.showOrderDetailsScreen(order: order)
-//        }
         viewModel.popScreen = {
-//            self.router.popModule(animated: true)
             self.router.dismissModule(animated: true)
         }
-        
         let viewController = RemoveItemFromOrderModalViewController(viewModel: viewModel)
         router.showPopup(viewController, animated: true)
     }
@@ -90,7 +79,8 @@ final class OrdersCoordinator: BaseCoordinator {
         viewModel.onOrdersNavigate = start
         
         let viewController = SuccessfulClosingModalViewController(viewModel: viewModel)
-        router.present(viewController)
+        viewController.modalPresentationStyle = .overFullScreen
+        router.present(viewController, animated: true)
     }
     
     // MARK: - TODO

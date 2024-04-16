@@ -39,11 +39,9 @@ extension AuthAPI: TargetType {
         case .login(let identifier, let password):
             let parameters: [String: Any] = ["identifier": identifier, "password": password]
             return .requestParameters(parameters: parameters, encoding: JSONEncoding.default)
-            
         case .confirm(let email, let code):
             let parameters: [String: Any] = ["email": email, "code": code]
             return .requestParameters(parameters: parameters, encoding: JSONEncoding.default)
-            
         case .refreshToken(let email, let token):
             let parameters: [String: Any] = ["email": email, "token": token]
             return .requestParameters(parameters: parameters, encoding: JSONEncoding.default)

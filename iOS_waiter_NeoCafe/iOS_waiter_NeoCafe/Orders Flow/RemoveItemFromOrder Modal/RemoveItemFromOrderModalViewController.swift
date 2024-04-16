@@ -44,7 +44,6 @@ final class RemoveItemFromOrderModalViewController: UIViewController {
     
     @objc func yesButtonDidTap() {
         viewModel.removeSelectedItemFromOrder()
-//        viewModel.onOrderDetailsNavigate?(viewModel.order)
         viewModel.popScreen?()
         dismiss(animated: true)
     }
@@ -54,13 +53,3 @@ final class RemoveItemFromOrderModalViewController: UIViewController {
         dismiss(animated: true)
     }
 }
-
-//#if DEBUG
-//import SwiftUI
-//@available(iOS 13.0, *)
-//struct RemoveItemFromOrderModalViewControllerPreview: PreviewProvider {
-//    static var previews: some View {
-//        RemoveItemFromOrderModalViewController(viewModel: RemoveItemFromOrderModalViewModel()).showPreview()
-//    }
-//}
-//#endif

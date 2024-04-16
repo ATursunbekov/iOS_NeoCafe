@@ -37,16 +37,15 @@ final class NewOrderCoordinator: BaseCoordinator {
             self?.showNewOrderInfoDrawerScreen(order: order)
         }
         let viewController = NewOrderDirectoryViewController(viewModel: viewModel)
-//        router.push(viewController)
+        viewController.modalPresentationStyle = .overFullScreen
         router.push(viewController, hideBottomBar: true)
     }
-    
-    private func showNewOrderInfoDrawerScreen(order: MockOrder) {
+
+    private func showNewOrderInfoDrawerScreen(order: [MockProduct]) {
         let viewModel = NewOrderInfoDrawerViewModel()
         viewModel.onOrderPlacementNavigate = showNewOrderPlacementScreen
         let viewController = NewOrderInfoDrawerViewController(viewModel: viewModel)
-        router.push(viewController, hideBottomBar: false)
-        tabBarCoordinator?.hideShadowView()
+        router.showPopup(viewController, animated: true)
     }
     
     private func showNewOrderPlacementScreen() {
@@ -73,8 +72,6 @@ final class NewOrderCoordinator: BaseCoordinator {
         let viewController = NewOrderCoffeeSupplementsDrawerViewController(viewModel: viewModel)
         router.push(viewController, hideBottomBar: false)
         tabBarCoordinator?.hideShadowView()
-//        viewController.modalPresentationStyle = .overFullScreen
-//        router.present(viewController, animated: true)
     }
     
     // MARK: - TODO

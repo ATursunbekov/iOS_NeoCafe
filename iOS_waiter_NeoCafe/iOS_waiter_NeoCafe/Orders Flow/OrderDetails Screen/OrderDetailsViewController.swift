@@ -64,7 +64,6 @@ final class OrderDetailsViewController: UIViewController {
         let order = viewModel.order
         viewModel.onClosingOrderNavigate?(order)
     }
-
 }
 
 // MARK: - Collection View methods
@@ -77,16 +76,6 @@ extension OrderDetailsViewController: UICollectionViewDelegate, UICollectionView
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return viewModel.getOrderProductsCount()
     }
-    
-//    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-//        
-//        let cell: OrderItemCell = collectionView.dequeue(for: indexPath)
-//        
-//        let data = viewModel.order.products[indexPath.item]
-//        cell.configureCell(with: data)
-//        cell.delegate = self
-//        return cell
-//    }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell: OrderItemCell = collectionView.dequeue(for: indexPath)
@@ -122,9 +111,6 @@ extension OrderDetailsViewController: OrderItemCellDelegate {
     func removeItemFromOrder() {
         viewModel.removeItemFromOrder()
         viewModel.onRemoveItemFromOrderNavigate?(viewModel.order)
-//        let index = viewModel.removedProductSelectedIndex
-//        let removedItem = viewModel.order.products[index]
-//        viewModel.order.products.remove(at: index)
     }
     
     func getTotal() -> Int {
@@ -155,14 +141,3 @@ extension OrderDetailsViewController {
         contentView.orderStateLabel.text = data.status.rawValue
     }
 }
-
-
-//#if DEBUG
-//import SwiftUI
-//@available(iOS 13.0, *)
-//struct OrderDetailsViewControllerPreview: PreviewProvider {
-//    static var previews: some View {
-//        OrderDetailsViewController(viewModel: OrderDetailsViewModel()).showPreview()
-//    }
-//}
-//#endif

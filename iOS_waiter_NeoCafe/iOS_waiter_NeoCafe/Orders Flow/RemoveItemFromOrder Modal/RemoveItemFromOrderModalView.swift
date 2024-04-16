@@ -93,13 +93,3 @@ extension RemoveItemFromOrderModalView {
         }
     }
 }
-
-//#if DEBUG
-//import SwiftUI
-//@available(iOS 13.0, *)
-//struct RemoveItemFromOrderModalViewControllerPreview: PreviewProvider {
-//    static var previews: some View {
-//        RemoveItemFromOrderModalViewController(viewModel: RemoveItemFromOrderModalViewModel()).showPreview()
-//    }
-//}
-//#endif

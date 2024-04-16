@@ -15,7 +15,6 @@ final class AuthCoordinator: BaseCoordinator {
 
         let viewModel = AuthViewModel()
         viewModel.onOrdersNavigate = onOrdersNavigate
-//        viewModel.onOrdersNavigate = showOrdersScreen
 
         let viewController = AuthViewController(viewModel: viewModel)
 

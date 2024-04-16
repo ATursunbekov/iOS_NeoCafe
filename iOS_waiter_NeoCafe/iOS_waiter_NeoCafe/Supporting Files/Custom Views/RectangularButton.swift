@@ -13,7 +13,6 @@ protocol RectangularButtonDelegate: AnyObject {
 }
 
 class RectangularButton: UIView {
-    
     var index = 0
     weak var delegate: RectangularButtonDelegate?
     
@@ -98,13 +97,3 @@ class RectangularButton: UIView {
         fatalError("init(coder:) has not been implemented")
     }
 }
-
-//#if DEBUG
-//import SwiftUI
-//@available(iOS 13.0, *)
-//struct CoffeeSupplementsDrawerViewControllerPreview: PreviewProvider {
-//    static var previews: some View {
-//        CoffeeSupplementsDrawerViewController().showPreview()
-//    }
-//}
-//#endif

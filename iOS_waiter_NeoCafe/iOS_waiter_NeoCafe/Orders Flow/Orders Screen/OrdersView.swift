@@ -87,7 +87,6 @@ class OrdersView: UIView {
     }()
     
     // MARK: - Orders subviews
-
     lazy var orderStatusesCollectionView: UICollectionView = {
         let collectionView = UICollectionView(frame: .zero, collectionViewLayout: createOrderStatesSection())
         collectionView.backgroundColor = .none
@@ -259,15 +258,4 @@ extension OrdersView {
 
         return UICollectionViewCompositionalLayout(section: section)
     }
-
 }
-
-//#if DEBUG
-//import SwiftUI
-//@available(iOS 13.0, *)
-//struct OrdersViewControllerPreview: PreviewProvider {
-//    static var previews: some View {
-//        OrdersViewController(viewModel: OrdersViewModel()).showPreview()
-//    }
-//}
-//#endif

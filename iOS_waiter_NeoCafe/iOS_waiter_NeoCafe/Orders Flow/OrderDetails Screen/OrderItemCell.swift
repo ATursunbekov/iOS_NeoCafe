@@ -184,12 +184,10 @@ extension OrderItemCell: CircularCounterDelegate {
     func deductItem() {
         if let product = product {
             DataManager.shared.deductProduct(product: product)
-//            DataManager.shared.removeProduct(product: product)
             delegate?.counterValueChanged()
             
             let quantity = DataManager.shared.getQuantity(of: product)
             if quantity == 0 {
-//                delegate?.removeItemFromOrder()
                 delegate?.counterValueChanged()
             }
         }
@@ -197,13 +195,3 @@ extension OrderItemCell: CircularCounterDelegate {
         delegate?.counterValueChanged()
     }
 }
-
-//#if DEBUG
-//import SwiftUI
-//@available(iOS 13.0, *)
-//struct OrderDetailsViewControllerPreview: PreviewProvider {
-//    static var previews: some View {
-//        OrderDetailsViewController(viewModel: OrderDetailsViewModel()).showPreview()
-//    }
-//}
-//#endif

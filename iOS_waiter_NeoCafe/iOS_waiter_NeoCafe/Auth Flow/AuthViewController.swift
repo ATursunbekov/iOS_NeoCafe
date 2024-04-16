@@ -279,7 +279,6 @@ extension AuthViewController: AuthDelegate {
     }
     
     func successfulConfirmation() {
-        //        navigationController?.pushViewController(CustomTabBarController(), animated: true)
         viewModel.onOrdersNavigate?()
         print("someone")
     }

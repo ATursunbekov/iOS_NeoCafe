@@ -58,19 +58,5 @@ final class CoffeeSupplementsDrawerViewController: UIViewController {
         dismiss(animated: true)
         viewModel.dismissModule?()
         tapAction?()
-//        viewModel.popScreen?()
-//        let order = MockData.shared.order
-//        viewModel.onOrderDetailsNavigate?(order)
     }
 }
-
-
-//#if DEBUG
-//import SwiftUI
-//@available(iOS 13.0, *)
-//struct CoffeeSupplementsDrawerViewControllerPreview: PreviewProvider {
-//    static var previews: some View {
-//        CoffeeSupplementsDrawerViewController().showPreview()
-//    }
-//}
-//#endif

@@ -70,7 +70,7 @@ class AuthView: UIView {
         let button = UIButton()
         button.setImage(UIImage(named: "arrowBack"), for: .normal)
         button.layer.cornerRadius = 20
-        button.backgroundColor = UIColor.colorDarkGray // UIColor.colorLightBlue
+        button.backgroundColor = UIColor.colorDarkGray
         return button
     }()
     
@@ -232,13 +232,3 @@ class AuthView: UIView {
         fatalError("init(coder:) has not been implemented")
     }
 }
-
-//#if DEBUG
-//import SwiftUI
-//@available(iOS 13.0, *)
-//struct AuthViewControllerPreview: PreviewProvider {
-//    static var previews: some View {
-//        AuthViewController(viewModel: AuthViewModel()).showPreview()
-//    }
-//}
-//#endif

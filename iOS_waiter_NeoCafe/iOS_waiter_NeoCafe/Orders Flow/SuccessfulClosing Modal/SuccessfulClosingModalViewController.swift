@@ -40,13 +40,3 @@ final class SuccessfulClosingModalViewController: UIViewController {
         }
     }
 }
-
-//#if DEBUG
-//import SwiftUI
-//@available(iOS 13.0, *)
-//struct SuccessfulClosingModalViewControllerPreview: PreviewProvider {
-//    static var previews: some View {
-//        SuccessfulClosingModalViewController(viewModel: SuccessfulClosingModalViewModel()).showPreview()
-//    }
-//}
-//#endif

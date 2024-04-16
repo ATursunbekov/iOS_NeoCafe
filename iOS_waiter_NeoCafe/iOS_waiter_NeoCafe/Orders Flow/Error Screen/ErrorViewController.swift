@@ -43,15 +43,4 @@ final class ErrorViewController: UIViewController {
     @objc func updateButtonDidPress() {
         viewModel.onNavigate?()
     }
-    
 }
-
-//#if DEBUG
-//import SwiftUI
-//@available(iOS 13.0, *)
-//struct ErrorViewControllerPreview: PreviewProvider {
-//    static var previews: some View {
-//        ErrorViewController(viewModel: ErrorViewModel()).showPreview()
-//    }
-//}
-//#endif

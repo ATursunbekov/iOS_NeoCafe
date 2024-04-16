@@ -105,7 +105,7 @@ class ClosingOrderCell: UICollectionViewCell {
         
         stackHorizontal.snp.makeConstraints { make in
             make.centerX.equalToSuperview()
-            make.leading.trailing.equalToSuperview()//.inset(16)
+            make.leading.trailing.equalToSuperview()
         }
         
         stackVertical.snp.makeConstraints { make in
@@ -134,13 +134,3 @@ extension ClosingOrderCell {
         self.itemSubtotalPriceCellTitle.text = String(data.subtotalPrice)
     }
 }
-
-//#if DEBUG
-//import SwiftUI
-//@available(iOS 13.0, *)
-//struct ClosingOrderDrawerViewControllerPreview: PreviewProvider {
-//    static var previews: some View {
-//        ClosingOrderDrawerViewController(viewModel: ClosingOrderDrawerViewModel()).showPreview()
-//    }
-//}
-//#endif

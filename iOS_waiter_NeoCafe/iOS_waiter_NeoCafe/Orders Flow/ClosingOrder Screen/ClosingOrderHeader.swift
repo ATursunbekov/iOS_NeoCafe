@@ -63,7 +63,7 @@ class ClosingOrderHeader: UICollectionReusableView {
         
         stackHorizontal.snp.makeConstraints { make in
             make.centerX.equalToSuperview()
-            make.leading.trailing.equalToSuperview()//.inset(16)
+            make.leading.trailing.equalToSuperview()
             make.height.equalTo(15)
         }
     }
@@ -72,13 +72,3 @@ class ClosingOrderHeader: UICollectionReusableView {
         fatalError("init(coder:) has not been implemented")
     }
 }
-
-//#if DEBUG
-//import SwiftUI
-//@available(iOS 13.0, *)
-//struct ClosingOrderDrawerViewControllerPreview: PreviewProvider {
-//    static var previews: some View {
-//        ClosingOrderDrawerViewController(viewModel: ClosingOrderDrawerViewModel()).showPreview()
-//    }
-//}
-//#endif

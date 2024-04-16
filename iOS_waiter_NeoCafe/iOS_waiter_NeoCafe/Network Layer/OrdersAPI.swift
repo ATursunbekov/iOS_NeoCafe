@@ -76,7 +76,6 @@ extension OrdersAPI: TargetType {
         switch self {
         case .orderDetailedHistory, .orderHistory:
             return ["accept": "application/json"]
-            
         case .waiterMakeOrder:
             return ["accept": "*/*", "Content-Type": "application/json"]
         case .orderCancelStaff, .orderCloseStaff:

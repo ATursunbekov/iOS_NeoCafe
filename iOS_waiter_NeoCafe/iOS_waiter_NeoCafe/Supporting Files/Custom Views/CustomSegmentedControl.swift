@@ -12,7 +12,6 @@ protocol SegmentedControlDelegate: AnyObject {
 }
 
 class CustomSegmentedControl: UIView {
-
     var selectedIndex = 0
     weak var delegate: SegmentedControlDelegate?
 
@@ -93,13 +92,3 @@ class CustomSegmentedControl: UIView {
         fatalError("init(coder:) has not been implemented")
     }
 }
-
-//#if DEBUG
-//import SwiftUI
-//@available(iOS 13.0, *)
-//struct OrdersViewControllerPreview: PreviewProvider {
-//    static var previews: some View {
-//        OrdersViewController(viewModel: OrdersViewModel()).showPreview()
-//    }
-//}
-//#endif

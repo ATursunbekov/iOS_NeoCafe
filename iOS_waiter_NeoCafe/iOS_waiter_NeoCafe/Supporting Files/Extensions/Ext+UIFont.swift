@@ -24,7 +24,3 @@ extension UIFont {
         return font
     }
 }
-
-/// Use case:
-//UIFont.poppins(ofSize: 16, weight: .bold)
-

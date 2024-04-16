@@ -43,6 +43,7 @@ final class ClosingOrderDrawerViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         tabBarController?.tabBar.isHidden = true
+        view.backgroundColor = UIColor.black.withAlphaComponent(0.35)
         contentView.collectionView.reloadData()
         getTotal()
     }
@@ -117,13 +118,3 @@ extension ClosingOrderDrawerViewController: ClosingOrderCellDelegate {
         contentView.totalNumberLabel.text = "\(totalPrice) сом"
     }
 }
-
-//#if DEBUG
-//import SwiftUI
-//@available(iOS 13.0, *)
-//struct ClosingOrderDrawerViewControllerPreview: PreviewProvider {
-//    static var previews: some View {
-//        ClosingOrderDrawerViewController(viewModel: ClosingOrderDrawerViewModel()).showPreview()
-//    }
-//}
-//#endif

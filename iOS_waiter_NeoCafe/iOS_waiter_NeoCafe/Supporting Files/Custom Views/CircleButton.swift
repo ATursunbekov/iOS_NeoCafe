@@ -13,7 +13,6 @@ protocol CircleButtonDelegate: AnyObject {
 }
 
 class CircleButton: UIView {
-    
     var index = 0
     weak var delegate: CircleButtonDelegate?
     
@@ -103,12 +102,3 @@ class CircleButton: UIView {
     }
 }
 
-//#if DEBUG
-//import SwiftUI
-//@available(iOS 13.0, *)
-//struct CoffeeSupplementsDrawerViewControllerPreview: PreviewProvider {
-//    static var previews: some View {
-//        CoffeeSupplementsDrawerViewController().showPreview()
-//    }
-//}
-//#endif

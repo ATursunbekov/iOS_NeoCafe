@@ -202,14 +202,3 @@ extension OrdersViewController: SegmentedControlDelegate {
         }
     }
 }
-
-
-//#if DEBUG
-//import SwiftUI
-//@available(iOS 13.0, *)
-//struct OrdersViewControllerPreview: PreviewProvider {
-//    static var previews: some View {
-//        OrdersViewController(viewModel: OrdersViewModel()).showPreview()
-//    }
-//}
-//#endif

@@ -5,34 +5,34 @@
 //  Created by Alikhan Tursunbekov on 25/2/24.
 //
 
-import UIKit
 import SwiftUI
+import UIKit
 
 protocol IngredientViewDelegate: AnyObject {
     func orderPressed()
 }
- 
+
 class IngredientViewController: UIViewController {
-    
     var chooseMilk = 0
     var chooseSirop = 0
     private var tapAction: (() -> Void)?
-    
-    init(tapAction: ( () -> Void)? = nil) {
+
+    init(tapAction: (() -> Void)? = nil) {
         super.init(nibName: nil, bundle: nil)
         self.tapAction = tapAction
     }
-    
-    required init?(coder: NSCoder) {
+
+    @available(*, unavailable)
+    required init?(coder _: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-    
+
     lazy var backView = {
         let view = UIView()
         view.backgroundColor = UIColor.black.withAlphaComponent(0.35)
         return view
     }()
-    
+
     lazy var popUpView: UIView = {
         let view = UIView()
         view.backgroundColor = Asset.colorWhite.color
@@ -40,13 +40,13 @@ class IngredientViewController: UIViewController {
         view.layer.maskedCorners = [.layerMinXMinYCorner, .layerMaxXMinYCorner]
         return view
     }()
-    
+
     lazy var beanImage: UIImageView = {
         let image = UIImageView(image: UIImage(named: Asset.ingredientsImage.name))
         image.contentMode = .scaleToFill
         return image
     }()
-    
+
     lazy var milkTitle: UILabel = {
         let label = UILabel()
         label.text = Str.milkTitle
@@ -54,11 +54,11 @@ class IngredientViewController: UIViewController {
         label.textColor = Asset.colorDarkBlue.color
         return label
     }()
-    
+
     lazy var circleButton1 = CircleButton(text: "Коровье молоко", index: 0, delegate: self)
     lazy var circleButton2 = CircleButton(text: "Овсяное молоко", index: 0, delegate: self)
     lazy var circleButton3 = CircleButton(text: "Соевое молоко", index: 0, delegate: self)
-    
+
     lazy var syrupTitle: UILabel = {
         let label = UILabel()
         label.text = Str.syrup
@@ -66,10 +66,10 @@ class IngredientViewController: UIViewController {
         label.textColor = Asset.colorDarkBlue.color
         return label
     }()
-    
+
     lazy var rectengularButton1 = RectengularButton(text: "Клубничный", index: 0, delegte: self)
     lazy var rectengularButton2 = RectengularButton(text: "Карамельный", index: 1, delegte: self)
-    
+
     lazy var basketButton: UIButton = {
         let button = UIButton()
         button.setTitle(Str.basketButton, for: .normal)
@@ -78,7 +78,7 @@ class IngredientViewController: UIViewController {
         button.titleLabel?.font = .poppins(size: 16, weight: .bold)
         return button
     }()
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(handleTap(_:)))
@@ -86,7 +86,7 @@ class IngredientViewController: UIViewController {
         basketButton.addTarget(self, action: #selector(addToBasketPressed), for: .touchUpInside)
         setupConstraints()
     }
-    
+
     func setupConstraints() {
         view.addSubview(backView)
         view.addSubview(popUpView)
@@ -99,82 +99,81 @@ class IngredientViewController: UIViewController {
         popUpView.addSubview(rectengularButton1)
         popUpView.addSubview(rectengularButton2)
         popUpView.addSubview(basketButton)
-        
+
         popUpView.snp.makeConstraints { make in
             make.leading.trailing.bottom.equalToSuperview()
             make.height.equalTo(378)
         }
-        
+
         backView.snp.makeConstraints { make in
             make.top.leading.trailing.equalToSuperview()
             make.bottom.equalTo(popUpView.snp.top).offset(10)
         }
-        
+
         beanImage.snp.makeConstraints { make in
             make.top.trailing.equalToSuperview()
         }
-        
+
         milkTitle.snp.makeConstraints { make in
             make.leading.equalToSuperview().offset(16)
             make.top.equalToSuperview().offset(32)
         }
-        
+
         circleButton1.snp.makeConstraints { make in
             make.leading.equalToSuperview().offset(16)
             make.top.equalTo(milkTitle.snp.bottom).offset(16)
             make.trailing.equalTo(circleButton1.titleLabel.snp.trailing)
             make.height.equalTo(20)
         }
-        
+
         circleButton2.snp.makeConstraints { make in
             make.leading.equalToSuperview().offset(16)
             make.top.equalTo(circleButton1.snp.bottom).offset(12)
             make.trailing.equalTo(circleButton2.titleLabel.snp.trailing)
             make.height.equalTo(20)
         }
-        
+
         circleButton3.snp.makeConstraints { make in
             make.leading.equalToSuperview().offset(16)
             make.top.equalTo(circleButton2.snp.bottom).offset(12)
             make.trailing.equalTo(circleButton3.titleLabel.snp.trailing)
             make.height.equalTo(20)
         }
-        
+
         syrupTitle.snp.makeConstraints { make in
             make.leading.equalToSuperview().offset(16)
             make.top.equalTo(circleButton3.snp.bottom).offset(24)
         }
-        
+
         rectengularButton1.snp.makeConstraints { make in
             make.leading.equalToSuperview().offset(16)
             make.top.equalTo(syrupTitle.snp.bottom).offset(16)
             make.trailing.equalTo(rectengularButton1.titleLabel.snp.trailing)
             make.height.equalTo(20)
         }
-        
+
         rectengularButton2.snp.makeConstraints { make in
             make.leading.equalToSuperview().offset(16)
             make.top.equalTo(rectengularButton1.snp.bottom).offset(16)
             make.trailing.equalTo(rectengularButton1.titleLabel.snp.trailing)
             make.height.equalTo(20)
         }
-        
+
         basketButton.snp.makeConstraints { make in
             make.leading.trailing.equalToSuperview().inset(16)
             make.bottom.equalToSuperview().offset(-16)
             make.height.equalTo(54)
         }
     }
-    
-    @objc func handleTap(_ sender: UITapGestureRecognizer) {
+
+    @objc func handleTap(_: UITapGestureRecognizer) {
         dismiss(animated: false)
     }
-    
+
     @objc func addToBasketPressed() {
         dismiss(animated: false)
         tapAction?()
     }
-        
 }
 
 extension IngredientViewController: CircleButtonDelegate {
@@ -199,10 +198,10 @@ extension IngredientViewController: RectengularButtonDelegate {
 
 #if DEBUG
 
-@available(iOS 13.0, *)
-struct IngredientViewControllerPreview: PreviewProvider {
-    static var previews: some View {
-        IngredientViewController().showPreview()
+    @available(iOS 13.0, *)
+    struct IngredientViewControllerPreview: PreviewProvider {
+        static var previews: some View {
+            IngredientViewController().showPreview()
+        }
     }
-}
 #endif

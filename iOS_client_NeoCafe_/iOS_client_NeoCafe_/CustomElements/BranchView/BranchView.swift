@@ -5,38 +5,38 @@
 //  Created by Alikhan Tursunbekov on 21/2/24.
 //
 
-import UIKit
 import SwiftUI
+import UIKit
 
 protocol BranchViewNameDelegate: AnyObject {
     func updateName(_ name: String)
 }
 
 extension BranchViewNameDelegate {
-    func updateName(_ name: String) {}
+    func updateName(_: String) {}
 }
 
 class BranchView: UIViewController {
-    
     var viewModel: BranchViewModelProtocol?
     var delegate: BranchViewNameDelegate?
-    
+
     init(viewModel: BranchViewModelProtocol) {
         self.viewModel = viewModel
         super.init(nibName: nil, bundle: nil)
     }
-    
-    required init?(coder: NSCoder) {
+
+    @available(*, unavailable)
+    required init?(coder _: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-    
+
     lazy var customView = {
         let view = UIView()
         view.backgroundColor = .white
         view.layer.cornerRadius = 20
         return view
     }()
-    
+
     lazy var exitButton = {
         let button = UIButton()
         button.setImage(UIImage(named: Asset.exit.name), for: .normal)
@@ -46,7 +46,7 @@ class BranchView: UIViewController {
         button.layer.cornerRadius = 20
         return button
     }()
-    
+
     lazy var titleLabel = {
         let label = UILabel()
         label.text = "Выберите филиал"
@@ -54,7 +54,7 @@ class BranchView: UIViewController {
         label.textColor = Asset.colorDarkBlue.color
         return label
     }()
-    
+
     lazy var tableView: UITableView = {
         let tableView = UITableView(frame: .zero, style: .insetGrouped)
         tableView.rowHeight = 176
@@ -64,7 +64,7 @@ class BranchView: UIViewController {
         tableView.separatorStyle = .none
         return tableView
     }()
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = UIColor.black.withAlphaComponent(0.35)
@@ -75,46 +75,46 @@ class BranchView: UIViewController {
         viewModel?.nameDelegate = self
         viewModel?.getBranchNames()
     }
-    
+
     func setupConstraints() {
         view.addSubview(customView)
         customView.addSubview(exitButton)
         customView.addSubview(titleLabel)
         customView.addSubview(tableView)
-        
+
         customView.snp.makeConstraints { make in
             make.top.bottom.equalToSuperview().inset(40)
             make.leading.trailing.equalToSuperview().inset(16)
         }
-        
+
         titleLabel.snp.makeConstraints { make in
             make.top.equalToSuperview().offset(32)
             make.centerX.equalToSuperview()
         }
-        
+
         exitButton.snp.makeConstraints { make in
             make.top.trailing.equalToSuperview()
             make.height.equalTo(40)
             make.width.equalTo(56)
         }
-        
+
         tableView.snp.makeConstraints { make in
             make.top.equalTo(titleLabel.snp.bottom)
             make.leading.trailing.equalToSuperview().inset(4)
             make.bottom.equalToSuperview()
         }
     }
-    
+
     @objc func dismissView() {
-        self.dismiss(animated: false)
+        dismiss(animated: false)
     }
 }
 
 extension BranchView: UITableViewDelegate, UITableViewDataSource {
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    func tableView(_: UITableView, numberOfRowsInSection _: Int) -> Int {
         viewModel?.branchNames.count ?? 0
     }
-    
+
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: BranchTableViewCell.identifier, for: indexPath) as! BranchTableViewCell
         if let viewModel = viewModel {
@@ -123,8 +123,8 @@ extension BranchView: UITableViewDelegate, UITableViewDataSource {
         cell.selectionStyle = .none
         return cell
     }
-    
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+
+    func tableView(_: UITableView, didSelectRowAt indexPath: IndexPath) {
         let name = viewModel?.branchNames[indexPath.row] ?? "NeoCafe Dzerzhinka"
         DataManager.shared.setBranch(name)
         delegate?.updateName(name)

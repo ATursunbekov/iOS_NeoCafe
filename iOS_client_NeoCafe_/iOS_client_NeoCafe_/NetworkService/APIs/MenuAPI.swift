@@ -5,8 +5,8 @@
 //  Created by Alikhan Tursunbekov on 5/3/24.
 //
 
-import UIKit
 import Moya
+import UIKit
 
 enum MenuAPI {
     case getPopular
@@ -19,27 +19,27 @@ extension MenuAPI: TargetType {
     var baseURL: URL {
         return URL(string: "https://neo-cafe.up.railway.app/api/v1/menu")!
     }
-    
+
     var path: String {
         switch self {
         case .getPopular:
             return "/popular"
-        case .getCategoryProducts(let categoryName):
+        case let .getCategoryProducts(categoryName):
             return "/find-by-category/\(categoryName)"
-        case .getSearchProducts(let searchText):
+        case let .getSearchProducts(searchText):
             return "/find-by-name/\(searchText)"
-        case .getProductDetail(let id):
+        case let .getProductDetail(id):
             return "/find-by-id/\(id)"
         }
     }
-    
+
     var method: Moya.Method {
         switch self {
         case .getPopular, .getCategoryProducts, .getSearchProducts, .getProductDetail:
             return .get
         }
     }
-    
+
     var task: Moya.Task {
         switch self {
         case .getPopular, .getProductDetail:
@@ -49,7 +49,7 @@ extension MenuAPI: TargetType {
             return .requestParameters(parameters: parameters, encoding: URLEncoding.queryString)
         }
     }
-    
+
     var headers: [String: String]? {
         switch self {
         case .getPopular, .getCategoryProducts, .getSearchProducts, .getProductDetail:

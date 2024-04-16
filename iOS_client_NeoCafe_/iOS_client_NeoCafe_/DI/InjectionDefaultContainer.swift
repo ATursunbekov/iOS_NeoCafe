@@ -11,7 +11,6 @@ typealias InjectionFactory = Factory
 typealias InjectionInjected = Injected
 
 extension InjectionDefaultContainer {
-    
     var networkService: InjectionFactory<NetworkServiceProtocol> {
         self { NetworkService() }
     }

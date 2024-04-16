@@ -12,10 +12,10 @@ protocol NotificationViewModelDelegate: AnyObject {
 }
 
 protocol NotificationViewModelProtocol {
-    var delegate: NotificationViewModelDelegate? {get set}
-    var notifications: [NotificationModel] {get set}
-    var popScreen: EmptyCompletion? {get set}
-    var notificationAmount: Int {get set}
+    var delegate: NotificationViewModelDelegate? { get set }
+    var notifications: [NotificationModel] { get set }
+    var popScreen: EmptyCompletion? { get set }
+    var notificationAmount: Int { get set }
 }
 
 class NotificationViewModel: NotificationViewModelProtocol {
@@ -24,17 +24,17 @@ class NotificationViewModel: NotificationViewModelProtocol {
     var popScreen: EmptyCompletion?
     var notifications: [NotificationModel] = []
     var notificationAmount = 1
-    
+
     func getBranchNames() {
         networkService.sendRequest(successModelType: [NotificationModel].self, endpoint: MultiTarget(GeneralAPI.getNotifications)) { [weak self] result in
             guard let self else { return }
             switch result {
-            case .success(let response):
+            case let .success(response):
                 notifications = response
                 DispatchQueue.main.async {
                     self.delegate?.updateData()
                 }
-            case .failure(let error):
+            case let .failure(error):
                 print("handle error: \(error)")
             }
         }

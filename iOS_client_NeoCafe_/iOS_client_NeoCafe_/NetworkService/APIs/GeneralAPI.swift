@@ -5,8 +5,8 @@
 //  Created by Alikhan Tursunbekov on 22/3/24.
 //
 
-import UIKit
 import Moya
+import UIKit
 
 enum GeneralAPI {
     case getNotifications
@@ -28,8 +28,9 @@ extension GeneralAPI: TargetType {
             return URL(string: "https://neo-cafe.up.railway.app/api/v1/order")!
         }
     }
-    //https://neo-cafe.up.railway.app/api/v1/profile/update-user?name=Лаура&email=alikhan.tursunbekov@gmail.com
-    //https://neo-cafe.up.railway.app/api/v1/order/client-make-order
+
+    // https://neo-cafe.up.railway.app/api/v1/profile/update-user?name=Лаура&email=alikhan.tursunbekov@gmail.com
+    // https://neo-cafe.up.railway.app/api/v1/order/client-make-order
     var path: String {
         switch self {
         case .getNotifications:
@@ -46,7 +47,7 @@ extension GeneralAPI: TargetType {
             return "/order-detailed-history"
         }
     }
-    
+
     var method: Moya.Method {
         switch self {
         case .getNotifications, .getProfileData, .getOrderHistory, .getOrderHistoryDetail:
@@ -57,29 +58,29 @@ extension GeneralAPI: TargetType {
             return .post
         }
     }
-    
+
     var task: Moya.Task {
         switch self {
         case .getNotifications,
-                .getProfileData,
-                .getOrderHistory:
+             .getProfileData,
+             .getOrderHistory:
             return .requestPlain
-        case .updateUserData(let email):
+        case let .updateUserData(email):
             return .requestParameters(parameters: ["name": "Laura", "email": email], encoding: URLEncoding.queryString)
-        case .makeOrder(let order):
+        case let .makeOrder(order):
             return .requestJSONEncodable(order)
-        case .getOrderHistoryDetail(let id):
+        case let .getOrderHistoryDetail(id):
             return .requestParameters(parameters: ["id": id], encoding: URLEncoding.queryString)
         }
     }
-    
+
     var headers: [String: String]? {
         switch self {
-        case .getNotifications, 
-                .getProfileData,
-                .updateUserData,
-                .getOrderHistory,
-                .getOrderHistoryDetail:
+        case .getNotifications,
+             .getProfileData,
+             .updateUserData,
+             .getOrderHistory,
+             .getOrderHistoryDetail:
             return ["Authorization": "Bearer \(DataManager.shared.tokens.accessToken)"]
         case .makeOrder:
             return ["Authorization": "Bearer \(DataManager.shared.tokens.accessToken)",

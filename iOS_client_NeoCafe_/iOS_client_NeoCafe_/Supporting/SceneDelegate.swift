@@ -8,14 +8,13 @@
 import UIKit
 
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
-
     var window: UIWindow?
     lazy var applicationCoordinator = ApplicationCoordinator()
-    
-    func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
-        self.window = UIWindow(frame: UIScreen.main.bounds)
-        self.window?.overrideUserInterfaceStyle = .light
-        
+
+    func scene(_: UIScene, willConnectTo _: UISceneSession, options _: UIScene.ConnectionOptions) {
+        window = UIWindow(frame: UIScreen.main.bounds)
+        window?.overrideUserInterfaceStyle = .light
+
         applicationCoordinator.start(nil)
     }
 }

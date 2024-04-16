@@ -11,7 +11,7 @@ enum CustomFontWeight: String {
     case regular
     case medium
     case bold
-    
+
     func fontName() -> String {
         switch self {
         case .regular:

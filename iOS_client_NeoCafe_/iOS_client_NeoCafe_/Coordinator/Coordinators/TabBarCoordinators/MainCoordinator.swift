@@ -9,7 +9,6 @@ import Foundation
 import UIKit
 
 final class MainCoordinator: BaseCoordinator {
-
     var onSearchNavigate: EmptyCompletion?
 
     private var mainVC: MainViewController!
@@ -28,7 +27,7 @@ final class MainCoordinator: BaseCoordinator {
         viewController.tabBarItem.selectedImage = UIImage(named: Asset.home.name)
         router.setRootModule(viewController, hideBar: false)
     }
-    
+
     func goToMenuScreen(index: Int = 0) {
         let viewModel = MenuViewModel(selectedIndex: index)
         viewModel.goToDetailProductScreen = goToProductDetailScreen
@@ -37,7 +36,7 @@ final class MainCoordinator: BaseCoordinator {
 //        router.push(viewController, hideBottomBar: true)
 //        tabBarCoordinator?.hideShadowView()
     }
-    
+
     func goToProductDetailScreen(product: PopularProductModel) {
         let viewModel = DetailViewModel(productModel: product)
         viewModel.goToDetailProductScreen = goToProductDetailScreen
@@ -45,7 +44,7 @@ final class MainCoordinator: BaseCoordinator {
         router.push(vc, hideBottomBar: true)
         tabBarCoordinator?.hideShadowView()
     }
-    
+
     func goToSearchScreen() {
         let viewModel = SearchViewModel()
         viewModel.goToDetailScreen = goToProductDetailScreen
@@ -55,7 +54,7 @@ final class MainCoordinator: BaseCoordinator {
         let vc = SearchViewController(viewModel: viewModel)
         router.push(vc, animated: true)
     }
-    
+
     func goToNotificationScreen() {
         let viewModel = NotificationViewModel()
         viewModel.popScreen = {

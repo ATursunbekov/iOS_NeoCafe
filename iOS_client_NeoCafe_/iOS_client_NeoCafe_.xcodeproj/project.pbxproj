@@ -15,6 +15,8 @@
 		7704DAD72B8F668A00D6E87F /* BranchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7704DAD62B8F668A00D6E87F /* BranchViewController.swift */; };
 		7704DAD92B8F66C200D6E87F /* BranchScreenView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7704DAD82B8F66C200D6E87F /* BranchScreenView.swift */; };
 		7704DADC2B8F6A1900D6E87F /* BranchScreenTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7704DADB2B8F6A1900D6E87F /* BranchScreenTableViewCell.swift */; };
+		770502F12BCC38110065A9D1 /* Extension+UICell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 770502F02BCC38110065A9D1 /* Extension+UICell.swift */; };
+		770502F32BCC3B380065A9D1 /* Extension+UIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 770502F22BCC3B380065A9D1 /* Extension+UIView.swift */; };
 		77167B1B2BB27B580012D592 /* OrderHistoryViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77167B1A2BB27B580012D592 /* OrderHistoryViewModel.swift */; };
 		77167B1E2BB27B8C0012D592 /* OrderHistoryModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77167B1D2BB27B8C0012D592 /* OrderHistoryModel.swift */; };
 		77167B202BB2AF290012D592 /* BasketViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77167B1F2BB2AF290012D592 /* BasketViewModel.swift */; };
@@ -93,7 +95,6 @@
 		77CE04CE2B84605500E2159A /* MainViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77CE04CD2B84605500E2159A /* MainViewModel.swift */; };
 		77CE04D02B8461AE00E2159A /* CategoryModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77CE04CF2B8461AE00E2159A /* CategoryModel.swift */; };
 		77CE04D42B848EDE00E2159A /* CustomAddButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77CE04D32B848EDE00E2159A /* CustomAddButton.swift */; };
-		77CE04D72B84D03900E2159A /* CustomTabBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77CE04D62B84D03900E2159A /* CustomTabBar.swift */; };
 		77DA34522BB698C400C7CA90 /* OrderDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77DA34512BB698C400C7CA90 /* OrderDetailViewModel.swift */; };
 		77DA34542BB6990A00C7CA90 /* OrderDetailModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77DA34532BB6990A00C7CA90 /* OrderDetailModel.swift */; };
 		77E0FC0C2B9473A60021E41C /* Presenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77E0FC0B2B9473A60021E41C /* Presenter.swift */; };
@@ -137,6 +138,8 @@
 		7704DAD62B8F668A00D6E87F /* BranchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BranchViewController.swift; sourceTree = "<group>"; };
 		7704DAD82B8F66C200D6E87F /* BranchScreenView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BranchScreenView.swift; sourceTree = "<group>"; };
 		7704DADB2B8F6A1900D6E87F /* BranchScreenTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BranchScreenTableViewCell.swift; sourceTree = "<group>"; };
+		770502F02BCC38110065A9D1 /* Extension+UICell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension+UICell.swift"; sourceTree = "<group>"; };
+		770502F22BCC3B380065A9D1 /* Extension+UIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension+UIView.swift"; sourceTree = "<group>"; };
 		77167B1A2BB27B580012D592 /* OrderHistoryViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderHistoryViewModel.swift; sourceTree = "<group>"; };
 		77167B1D2BB27B8C0012D592 /* OrderHistoryModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderHistoryModel.swift; sourceTree = "<group>"; };
 		77167B1F2BB2AF290012D592 /* BasketViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BasketViewModel.swift; sourceTree = "<group>"; };
@@ -215,7 +218,6 @@
 		77CE04CD2B84605500E2159A /* MainViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewModel.swift; sourceTree = "<group>"; };
 		77CE04CF2B8461AE00E2159A /* CategoryModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryModel.swift; sourceTree = "<group>"; };
 		77CE04D32B848EDE00E2159A /* CustomAddButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomAddButton.swift; sourceTree = "<group>"; };
-		77CE04D62B84D03900E2159A /* CustomTabBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTabBar.swift; sourceTree = "<group>"; };
 		77DA34512BB698C400C7CA90 /* OrderDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderDetailViewModel.swift; sourceTree = "<group>"; };
 		77DA34532BB6990A00C7CA90 /* OrderDetailModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderDetailModel.swift; sourceTree = "<group>"; };
 		77E0FC0B2B9473A60021E41C /* Presenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Presenter.swift; sourceTree = "<group>"; };
@@ -694,6 +696,7 @@
 		77BC3C642B7783FA004C644E /* CustomElements */ = {
 			isa = PBXGroup;
 			children = (
+				778140042B860A7B00392707 /* BranchView */,
 				77001BE62BB0B0A600ECBAC3 /* ProfileBonusView */,
 				776DF0B12B919F3A0001A354 /* InfoDropDown */,
 				7737F03E2B8C8B7600572AC8 /* BonusView */,
@@ -744,14 +747,6 @@
 				77E610792B82053400FED7F8 /* MainView.swift */,
 			);
 			path = Views;
-			sourceTree = "<group>";
-		};
-		77CE04D52B84CFFA00E2159A /* TabBar */ = {
-			isa = PBXGroup;
-			children = (
-				77CE04D62B84D03900E2159A /* CustomTabBar.swift */,
-			);
-			path = TabBar;
 			sourceTree = "<group>";
 		};
 		77E0FC0F2B9477700021E41C /* Coordinators */ = {
@@ -859,8 +854,6 @@
 				7737B5822B8B9F610045BE2A /* SearchScreen */,
 				7729427A2B89F67700855BC2 /* DetailScreen */,
 				772F10232B875A3B00B4162E /* MenuScreen */,
-				778140042B860A7B00392707 /* BranchView */,
-				77CE04D52B84CFFA00E2159A /* TabBar */,
 				77FBFBD62B6F889B00F83EC7 /* Authentication */,
 				778A84352B8134A700805111 /* MainScreen */,
 			);
@@ -874,6 +867,8 @@
 				7790B2F62B76A44B00431156 /* Extension+UIViewController.swift */,
 				77C065F42B834AAF00688087 /* Extension+UIFont.swift */,
 				7737F03C2B8C696200572AC8 /* Extension+UIButton.swift */,
+				770502F02BCC38110065A9D1 /* Extension+UICell.swift */,
+				770502F22BCC3B380065A9D1 /* Extension+UIView.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -936,6 +931,7 @@
 				BF02FE4A4CEC62F219B54F17 /* [CP] Check Pods Manifest.lock */,
 				7790B2E42B76566000431156 /* SwiftLint */,
 				7790B2E72B76831400431156 /* SwiftGen */,
+				770502EF2BCBE37A0065A9D1 /* Swift Format */,
 				77FBFB962B6F834400F83EC7 /* Sources */,
 				77FBFB972B6F834400F83EC7 /* Frameworks */,
 				77FBFB982B6F834400F83EC7 /* Resources */,
@@ -1033,6 +1029,24 @@
 			shellPath = /bin/sh;
 			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-iOS_client_NeoCafe_/Pods-iOS_client_NeoCafe_-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
+		};
+		770502EF2BCBE37A0065A9D1 /* Swift Format */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			name = "Swift Format";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/SwiftFormat/CommandLineTool/swiftformat\" \"$SRCROOT\"\n";
 		};
 		7790B2E42B76566000431156 /* SwiftLint */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -1152,6 +1166,7 @@
 				7729A1E62B90ABF70050C339 /* BranchDetailView.swift in Sources */,
 				7790B2EC2B768AB600431156 /* XCAssets+Generated.swift in Sources */,
 				77FBFB9E2B6F834400F83EC7 /* AppDelegate.swift in Sources */,
+				770502F32BCC3B380065A9D1 /* Extension+UIView.swift in Sources */,
 				77001BE82BB0B0C300ECBAC3 /* ProfileBonusView.swift in Sources */,
 				779AF66A2B8DCC1600F69D40 /* OrderHistoryViewController.swift in Sources */,
 				77BC3C662B778412004C644E /* CustomSegmentedControl.swift in Sources */,
@@ -1161,6 +1176,7 @@
 				77FBFBF52B6F8B7E00F83EC7 /* BaseCoordinator.swift in Sources */,
 				77B64B142B87A8EF00437BD8 /* Token.swift in Sources */,
 				772422E92BAD5BE8005C6A3E /* NotificationView.swift in Sources */,
+				770502F12BCC38110065A9D1 /* Extension+UICell.swift in Sources */,
 				77FBFBA02B6F834400F83EC7 /* SceneDelegate.swift in Sources */,
 				778140022B86027C00392707 /* BranchView.swift in Sources */,
 				7737F03D2B8C696200572AC8 /* Extension+UIButton.swift in Sources */,
@@ -1195,7 +1211,6 @@
 				7737B57D2B8B474F0045BE2A /* CircleButton.swift in Sources */,
 				772F10252B875A4D00B4162E /* MenuViewController.swift in Sources */,
 				77167B232BB2B2C00012D592 /* BasketModel.swift in Sources */,
-				77CE04D72B84D03900E2159A /* CustomTabBar.swift in Sources */,
 				77A1B2C82BA982350007BD99 /* BranchModel.swift in Sources */,
 				7704DAD72B8F668A00D6E87F /* BranchViewController.swift in Sources */,
 				77F0D32E2B97001400197DA3 /* MenuViewModel.swift in Sources */,

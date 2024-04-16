@@ -7,6 +7,15 @@
 	objects = {
 
 /* Begin PBXAggregateTarget section */
+		1CD0618C486973D5588EF20D2E8C0AEA /* SwiftFormat */ = {
+			isa = PBXAggregateTarget;
+			buildConfigurationList = 6B2B7DF197DF6A7CA487150557230A41 /* Build configuration list for PBXAggregateTarget "SwiftFormat" */;
+			buildPhases = (
+			);
+			dependencies = (
+			);
+			name = SwiftFormat;
+		};
 		1E798429DCFA7906F6625CCFC1088744 /* SwiftGen */ = {
 			isa = PBXAggregateTarget;
 			buildConfigurationList = FB296D1C543ACA89207838196BB823E7 /* Build configuration list for PBXAggregateTarget "SwiftGen" */;
@@ -15,7 +24,6 @@
 			dependencies = (
 			);
 			name = SwiftGen;
-			productName = SwiftGen;
 		};
 		52B60EC2A583F24ACBB69C113F5488B9 /* SwiftLint */ = {
 			isa = PBXAggregateTarget;
@@ -25,79 +33,95 @@
 			dependencies = (
 			);
 			name = SwiftLint;
-			productName = SwiftLint;
 		};
 /* End PBXAggregateTarget section */
 
 /* Begin PBXBuildFile section */
-		2354B7659CCDA57A0D441A3BF50B03CE /* SVPinField.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7CC13571A6A9BBCC1BBE9F0C11420E5 /* SVPinField.swift */; };
-		48AFE578E2A108CDDE2F37B6CFB89ADB /* SVPinView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E2514F09F1657CC6FFF546F90127B5D /* SVPinView.swift */; };
+		05BF58403D8456089E5C972432DAD263 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 73010CC983E3809BECEE5348DA1BB8C6 /* Foundation.framework */; };
+		2354B7659CCDA57A0D441A3BF50B03CE /* SVPinField.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC619BB2B8F17B8458C1E5A32CB2013F /* SVPinField.swift */; };
+		48AFE578E2A108CDDE2F37B6CFB89ADB /* SVPinView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 389A27188BDCEBDE4FC4AF32E608EFD7 /* SVPinView.swift */; };
+		532F88095AB0C772D3B4DB12FE8EB89F /* Pods-iOS_client_NeoCafe_-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 9074F13CBAC84FF35FD4F4B562F5066D /* Pods-iOS_client_NeoCafe_-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		631D4A7C270A6F4652B3D125C69605D3 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 73010CC983E3809BECEE5348DA1BB8C6 /* Foundation.framework */; };
-		7A98C8488D0E06FDF46FDC13B88D9C74 /* Pods-iOS_client_NeoCafe_-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 9074F13CBAC84FF35FD4F4B562F5066D /* Pods-iOS_client_NeoCafe_-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		82158241101BEB02F098A9EB2E26596F /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 73010CC983E3809BECEE5348DA1BB8C6 /* Foundation.framework */; };
-		C1DFE3166C0DDB6A786058CEC3C58624 /* SVPinCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1517D83EFB0DC7F34BD996E77BF57157 /* SVPinCell.xib */; };
-		C3406BFC6E5EA867DEAA0E897BA03BBC /* Pods-iOS_client_NeoCafe_-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AC2329C15B42603CE375649C6586D66 /* Pods-iOS_client_NeoCafe_-dummy.m */; };
-		C53D44930F67F408DA36CF4D20852876 /* SVPinView-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 3FB694740EE295C4D64CD65D6EB793B4 /* SVPinView-dummy.m */; };
-		EFCA883940D8EC746AAACEB37F88B3BD /* SVPinView-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = CD0491FE74EDAB7087E9925D62C13CF2 /* SVPinView-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		F56A5B117D2F5BFBF408AFEFBA77201A /* SVPinView.xib in Resources */ = {isa = PBXBuildFile; fileRef = CC277356BF287ACCC9C2C45B7DC5F902 /* SVPinView.xib */; };
+		7AB677690BB4E87F1A91360D5977AA62 /* Pods-iOS_client_NeoCafe_-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AC2329C15B42603CE375649C6586D66 /* Pods-iOS_client_NeoCafe_-dummy.m */; };
+		C1DFE3166C0DDB6A786058CEC3C58624 /* SVPinCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6D7D242834DB85582CCEF5D582F93E5A /* SVPinCell.xib */; };
+		C53D44930F67F408DA36CF4D20852876 /* SVPinView-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = FBE7DB87425DD5AB2D6191A37639EF34 /* SVPinView-dummy.m */; };
+		EFCA883940D8EC746AAACEB37F88B3BD /* SVPinView-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 77F6505F754E82EF2E5960719F4F7CF3 /* SVPinView-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		F56A5B117D2F5BFBF408AFEFBA77201A /* SVPinView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2DACAB3C1FD77428DAFE3955D40DF81D /* SVPinView.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		5E7BD3E961F7E86018C581803CFADB78 /* PBXContainerItemProxy */ = {
+		113678585C06B1478788726AE216E6E8 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = BFDFE7DC352907FC980B868725387E98 /* Project object */;
 			proxyType = 1;
 			remoteGlobalIDString = 1E798429DCFA7906F6625CCFC1088744;
 			remoteInfo = SwiftGen;
 		};
-		8BDD179CFE95AAE6CC7CBC5A15628B6A /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = BFDFE7DC352907FC980B868725387E98 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 8C48B6722F02A3772707DAF5E1572C89;
-			remoteInfo = SVPinView;
-		};
-		B9E2036A2F7365E973CBE03ED4DD86DE /* PBXContainerItemProxy */ = {
+		9FA4A1383105D51CF248A6C68A7F88EE /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = BFDFE7DC352907FC980B868725387E98 /* Project object */;
 			proxyType = 1;
 			remoteGlobalIDString = 52B60EC2A583F24ACBB69C113F5488B9;
 			remoteInfo = SwiftLint;
 		};
+		F49F48AC1B4726F2B8A09FD83C25F9AB /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = BFDFE7DC352907FC980B868725387E98 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 1CD0618C486973D5588EF20D2E8C0AEA;
+			remoteInfo = SwiftFormat;
+		};
+		F583372288B1C9183435081F7CDA450B /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = BFDFE7DC352907FC980B868725387E98 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 8C48B6722F02A3772707DAF5E1572C89;
+			remoteInfo = SVPinView;
+		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		005193998ECD9CDABAEBAE70253A5FCA /* SwiftLint.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = SwiftLint.release.xcconfig; sourceTree = "<group>"; };
+		04B0883AEEED29924425047265E8BE37 /* SVPinView.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = SVPinView.modulemap; sourceTree = "<group>"; };
+		065D6311E2D6FCBCE3D02465AE216015 /* SwiftGen.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = SwiftGen.debug.xcconfig; sourceTree = "<group>"; };
+		08BE2F38EB5E171C628E0249D56E8436 /* SwiftFormat.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = SwiftFormat.debug.xcconfig; sourceTree = "<group>"; };
 		0C9764C8302C86990EFEC52D00598ECE /* Pods-iOS_client_NeoCafe_-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-iOS_client_NeoCafe_-acknowledgements.markdown"; sourceTree = "<group>"; };
-		0F523EBBC38D73AEA8318C100554711E /* SVPinView-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "SVPinView-Info.plist"; sourceTree = "<group>"; };
-		11EA81E2ABBB1FAAB1B2323ED6104A68 /* SVPinView.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = SVPinView.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		1517D83EFB0DC7F34BD996E77BF57157 /* SVPinCell.xib */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = file.xib; name = SVPinCell.xib; path = "SVPinView/Source/XIB's/SVPinCell.xib"; sourceTree = "<group>"; };
-		2D9A891B0FA450DDF5C8D1612F0E12F0 /* SVPinView-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "SVPinView-prefix.pch"; sourceTree = "<group>"; };
+		11EA81E2ABBB1FAAB1B2323ED6104A68 /* SVPinView */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = SVPinView; path = SVPinView.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		26212313A289D2CF0D403F1C2FEA0C5E /* SVPinView-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "SVPinView-prefix.pch"; sourceTree = "<group>"; };
+		2DACAB3C1FD77428DAFE3955D40DF81D /* SVPinView.xib */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = file.xib; name = SVPinView.xib; path = "SVPinView/Source/XIB's/SVPinView.xib"; sourceTree = "<group>"; };
 		31D3C6FE32DBA9F9D16B07ADE5DA0E1D /* Pods-iOS_client_NeoCafe_ */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = "Pods-iOS_client_NeoCafe_"; path = Pods_iOS_client_NeoCafe_.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		384D0EF595BB922C3290475A29E7A9AA /* SwiftGen.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = SwiftGen.debug.xcconfig; sourceTree = "<group>"; };
+		360DC92951E15BC5D443AB1924B5A62E /* SwiftGen.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = SwiftGen.release.xcconfig; sourceTree = "<group>"; };
+		389A27188BDCEBDE4FC4AF32E608EFD7 /* SVPinView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = SVPinView.swift; path = SVPinView/Source/Classes/SVPinView.swift; sourceTree = "<group>"; };
 		3AC2329C15B42603CE375649C6586D66 /* Pods-iOS_client_NeoCafe_-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-iOS_client_NeoCafe_-dummy.m"; sourceTree = "<group>"; };
-		3E2514F09F1657CC6FFF546F90127B5D /* SVPinView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = SVPinView.swift; path = SVPinView/Source/Classes/SVPinView.swift; sourceTree = "<group>"; };
-		3FB694740EE295C4D64CD65D6EB793B4 /* SVPinView-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "SVPinView-dummy.m"; sourceTree = "<group>"; };
+		3FA4C0F23431B46401721E0AB89AE039 /* SVPinView-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "SVPinView-Info.plist"; sourceTree = "<group>"; };
+		4FFAAA8065CD91E6636A3481337C2BDD /* SVPinView.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = SVPinView.debug.xcconfig; sourceTree = "<group>"; };
 		55DB1F106B2E6A222E3167A3570A75BC /* Pods-iOS_client_NeoCafe_-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-iOS_client_NeoCafe_-acknowledgements.plist"; sourceTree = "<group>"; };
 		6338A061C82160CF130AF15962B318BC /* Pods-iOS_client_NeoCafe_-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-iOS_client_NeoCafe_-frameworks.sh"; sourceTree = "<group>"; };
-		6A00BFE9BCF8CA0C2D611B73D98D1739 /* SVPinView.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = SVPinView.modulemap; sourceTree = "<group>"; };
-		704ED8B32C505FB69B409147CC51D065 /* SwiftLint.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = SwiftLint.debug.xcconfig; sourceTree = "<group>"; };
+		6D7D242834DB85582CCEF5D582F93E5A /* SVPinCell.xib */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = file.xib; name = SVPinCell.xib; path = "SVPinView/Source/XIB's/SVPinCell.xib"; sourceTree = "<group>"; };
 		73010CC983E3809BECEE5348DA1BB8C6 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS14.0.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
 		74F77DA676836E686FFA5E70F8CDC6D3 /* Pods-iOS_client_NeoCafe_.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = "Pods-iOS_client_NeoCafe_.modulemap"; sourceTree = "<group>"; };
+		77F6505F754E82EF2E5960719F4F7CF3 /* SVPinView-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "SVPinView-umbrella.h"; sourceTree = "<group>"; };
+		8B29B92E450563D5D8B70657F0A94C21 /* SwiftLint.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = SwiftLint.debug.xcconfig; sourceTree = "<group>"; };
 		9074F13CBAC84FF35FD4F4B562F5066D /* Pods-iOS_client_NeoCafe_-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-iOS_client_NeoCafe_-umbrella.h"; sourceTree = "<group>"; };
 		99C1277E9626AC8AEF88C705767F9D38 /* Pods-iOS_client_NeoCafe_-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-iOS_client_NeoCafe_-Info.plist"; sourceTree = "<group>"; };
-		9D940727FF8FB9C785EB98E56350EF41 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
-		ABFA5DDCC9BCE761BC76C7099DD88F94 /* SVPinView.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = SVPinView.release.xcconfig; sourceTree = "<group>"; };
-		CA883E06528DFE3FEF02068D9C718C1C /* SVPinView.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = SVPinView.debug.xcconfig; sourceTree = "<group>"; };
-		CC277356BF287ACCC9C2C45B7DC5F902 /* SVPinView.xib */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = file.xib; name = SVPinView.xib; path = "SVPinView/Source/XIB's/SVPinView.xib"; sourceTree = "<group>"; };
-		CD0491FE74EDAB7087E9925D62C13CF2 /* SVPinView-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "SVPinView-umbrella.h"; sourceTree = "<group>"; };
-		E0E50EC8B5F5525D9881F3FF776BECE0 /* SwiftLint.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = SwiftLint.release.xcconfig; sourceTree = "<group>"; };
+		9D940727FF8FB9C785EB98E56350EF41 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		DCBC952C26BB4A9A0C7876973BADBD60 /* SVPinView.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = SVPinView.release.xcconfig; sourceTree = "<group>"; };
 		E6B3D29AE2DA59FCB34EB71DA045C0C1 /* Pods-iOS_client_NeoCafe_.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-iOS_client_NeoCafe_.debug.xcconfig"; sourceTree = "<group>"; };
-		EA880E82A2BE8571A7A0BA1C24E37BF1 /* SwiftGen.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = SwiftGen.release.xcconfig; sourceTree = "<group>"; };
-		F7CC13571A6A9BBCC1BBE9F0C11420E5 /* SVPinField.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = SVPinField.swift; path = SVPinView/Source/Classes/SVPinField.swift; sourceTree = "<group>"; };
+		E7EED72911AEE2AC989D74039652BF43 /* SwiftFormat.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = SwiftFormat.release.xcconfig; sourceTree = "<group>"; };
 		F86D60AA8F8D37A84C9538EFB3B61419 /* Pods-iOS_client_NeoCafe_.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-iOS_client_NeoCafe_.release.xcconfig"; sourceTree = "<group>"; };
+		FBE7DB87425DD5AB2D6191A37639EF34 /* SVPinView-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "SVPinView-dummy.m"; sourceTree = "<group>"; };
+		FC619BB2B8F17B8458C1E5A32CB2013F /* SVPinField.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = SVPinField.swift; path = SVPinView/Source/Classes/SVPinField.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		5B2241375DA0F9741EB1BE3CA496FAB7 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				05BF58403D8456089E5C972432DAD263 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		7C4D5405E4228FE89F977C439FE9A163 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -106,35 +130,26 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		987B4FAEE796E23155B55444450DEAD1 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				82158241101BEB02F098A9EB2E26596F /* Foundation.framework in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		3896C8A1DE2411F8018ADC808130CDFF /* Resources */ = {
+		2AA22FD9CB2AA700C4736D422153DB83 /* Support Files */ = {
 			isa = PBXGroup;
 			children = (
-				1517D83EFB0DC7F34BD996E77BF57157 /* SVPinCell.xib */,
-				CC277356BF287ACCC9C2C45B7DC5F902 /* SVPinView.xib */,
+				8B29B92E450563D5D8B70657F0A94C21 /* SwiftLint.debug.xcconfig */,
+				005193998ECD9CDABAEBAE70253A5FCA /* SwiftLint.release.xcconfig */,
 			);
-			name = Resources;
+			name = "Support Files";
+			path = "../Target Support Files/SwiftLint";
 			sourceTree = "<group>";
 		};
-		4EFC67C404AEF8FC0C0EE78C9B941FBF /* SVPinView */ = {
+		3F4EBEEB170BAC4CFE51C539EFD0FFE0 /* SwiftLint */ = {
 			isa = PBXGroup;
 			children = (
-				F7CC13571A6A9BBCC1BBE9F0C11420E5 /* SVPinField.swift */,
-				3E2514F09F1657CC6FFF546F90127B5D /* SVPinView.swift */,
-				3896C8A1DE2411F8018ADC808130CDFF /* Resources */,
-				C4DED6ED49DB24B5019CCB40FE888DBB /* Support Files */,
+				2AA22FD9CB2AA700C4736D422153DB83 /* Support Files */,
 			);
-			path = SVPinView;
+			name = SwiftLint;
+			path = SwiftLint;
 			sourceTree = "<group>";
 		};
 		578452D2E740E91742655AC8F1636D1F /* iOS */ = {
@@ -145,22 +160,19 @@
 			name = iOS;
 			sourceTree = "<group>";
 		};
-		6ACC2B9512091C7B5165D448DE7B38D2 /* SwiftGen */ = {
+		75A2FCCEE630B58702FAC0DD01DF28B0 /* Support Files */ = {
 			isa = PBXGroup;
 			children = (
-				C5BBCFA3403A9310D0BC0BF060EFA455 /* Support Files */,
+				04B0883AEEED29924425047265E8BE37 /* SVPinView.modulemap */,
+				FBE7DB87425DD5AB2D6191A37639EF34 /* SVPinView-dummy.m */,
+				3FA4C0F23431B46401721E0AB89AE039 /* SVPinView-Info.plist */,
+				26212313A289D2CF0D403F1C2FEA0C5E /* SVPinView-prefix.pch */,
+				77F6505F754E82EF2E5960719F4F7CF3 /* SVPinView-umbrella.h */,
+				4FFAAA8065CD91E6636A3481337C2BDD /* SVPinView.debug.xcconfig */,
+				DCBC952C26BB4A9A0C7876973BADBD60 /* SVPinView.release.xcconfig */,
 			);
-			path = SwiftGen;
-			sourceTree = "<group>";
-		};
-		6DBB9B7960CE06C102BB28BF88FB330D /* Pods */ = {
-			isa = PBXGroup;
-			children = (
-				4EFC67C404AEF8FC0C0EE78C9B941FBF /* SVPinView */,
-				6ACC2B9512091C7B5165D448DE7B38D2 /* SwiftGen */,
-				F6D6AF3763DA941503EA8803CAB9D841 /* SwiftLint */,
-			);
-			name = Pods;
+			name = "Support Files";
+			path = "../Target Support Files/SVPinView";
 			sourceTree = "<group>";
 		};
 		7F04D6364232B14AE648A77BB07F7F6C /* Pods-iOS_client_NeoCafe_ */ = {
@@ -184,34 +196,29 @@
 			isa = PBXGroup;
 			children = (
 				31D3C6FE32DBA9F9D16B07ADE5DA0E1D /* Pods-iOS_client_NeoCafe_ */,
-				11EA81E2ABBB1FAAB1B2323ED6104A68 /* SVPinView.framework */,
+				11EA81E2ABBB1FAAB1B2323ED6104A68 /* SVPinView */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		C4DED6ED49DB24B5019CCB40FE888DBB /* Support Files */ = {
+		B7EF2A6EC524EA4AEE4BE0F166901459 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				6A00BFE9BCF8CA0C2D611B73D98D1739 /* SVPinView.modulemap */,
-				3FB694740EE295C4D64CD65D6EB793B4 /* SVPinView-dummy.m */,
-				0F523EBBC38D73AEA8318C100554711E /* SVPinView-Info.plist */,
-				2D9A891B0FA450DDF5C8D1612F0E12F0 /* SVPinView-prefix.pch */,
-				CD0491FE74EDAB7087E9925D62C13CF2 /* SVPinView-umbrella.h */,
-				CA883E06528DFE3FEF02068D9C718C1C /* SVPinView.debug.xcconfig */,
-				ABFA5DDCC9BCE761BC76C7099DD88F94 /* SVPinView.release.xcconfig */,
+				E26477FA7758040F53CD43E5B68D9F6D /* SVPinView */,
+				D440763E0863833120AEAD01D11ACA8D /* SwiftFormat */,
+				C6C9E3D4376EC16847D3E493353066A8 /* SwiftGen */,
+				3F4EBEEB170BAC4CFE51C539EFD0FFE0 /* SwiftLint */,
 			);
-			name = "Support Files";
-			path = "../Target Support Files/SVPinView";
+			name = Pods;
 			sourceTree = "<group>";
 		};
-		C5BBCFA3403A9310D0BC0BF060EFA455 /* Support Files */ = {
+		C6C9E3D4376EC16847D3E493353066A8 /* SwiftGen */ = {
 			isa = PBXGroup;
 			children = (
-				384D0EF595BB922C3290475A29E7A9AA /* SwiftGen.debug.xcconfig */,
-				EA880E82A2BE8571A7A0BA1C24E37BF1 /* SwiftGen.release.xcconfig */,
+				DEEBA41127CEF33A58F7DC1EFB5B9B0D /* Support Files */,
 			);
-			name = "Support Files";
-			path = "../Target Support Files/SwiftGen";
+			name = SwiftGen;
+			path = SwiftGen;
 			sourceTree = "<group>";
 		};
 		CF1408CF629C7361332E53B88F7BD30C = {
@@ -219,7 +226,7 @@
 			children = (
 				9D940727FF8FB9C785EB98E56350EF41 /* Podfile */,
 				D210D550F4EA176C3123ED886F8F87F5 /* Frameworks */,
-				6DBB9B7960CE06C102BB28BF88FB330D /* Pods */,
+				B7EF2A6EC524EA4AEE4BE0F166901459 /* Pods */,
 				8928CB321337FBAB25A296F1E822BEE0 /* Products */,
 				EC65097A1D67E266EA2A911FFED56C82 /* Targets Support Files */,
 			);
@@ -233,6 +240,37 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		D440763E0863833120AEAD01D11ACA8D /* SwiftFormat */ = {
+			isa = PBXGroup;
+			children = (
+				F9980D575DBAF4193DDD768DE62D5CF0 /* Support Files */,
+			);
+			name = SwiftFormat;
+			path = SwiftFormat;
+			sourceTree = "<group>";
+		};
+		DEEBA41127CEF33A58F7DC1EFB5B9B0D /* Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				065D6311E2D6FCBCE3D02465AE216015 /* SwiftGen.debug.xcconfig */,
+				360DC92951E15BC5D443AB1924B5A62E /* SwiftGen.release.xcconfig */,
+			);
+			name = "Support Files";
+			path = "../Target Support Files/SwiftGen";
+			sourceTree = "<group>";
+		};
+		E26477FA7758040F53CD43E5B68D9F6D /* SVPinView */ = {
+			isa = PBXGroup;
+			children = (
+				FC619BB2B8F17B8458C1E5A32CB2013F /* SVPinField.swift */,
+				389A27188BDCEBDE4FC4AF32E608EFD7 /* SVPinView.swift */,
+				FACCF62222B838902DE4CBA084975ECB /* Resources */,
+				75A2FCCEE630B58702FAC0DD01DF28B0 /* Support Files */,
+			);
+			name = SVPinView;
+			path = SVPinView;
+			sourceTree = "<group>";
+		};
 		EC65097A1D67E266EA2A911FFED56C82 /* Targets Support Files */ = {
 			isa = PBXGroup;
 			children = (
@@ -241,32 +279,33 @@
 			name = "Targets Support Files";
 			sourceTree = "<group>";
 		};
-		F0B309FEBB9579B642284C6E0D7FC8F2 /* Support Files */ = {
+		F9980D575DBAF4193DDD768DE62D5CF0 /* Support Files */ = {
 			isa = PBXGroup;
 			children = (
-				704ED8B32C505FB69B409147CC51D065 /* SwiftLint.debug.xcconfig */,
-				E0E50EC8B5F5525D9881F3FF776BECE0 /* SwiftLint.release.xcconfig */,
+				08BE2F38EB5E171C628E0249D56E8436 /* SwiftFormat.debug.xcconfig */,
+				E7EED72911AEE2AC989D74039652BF43 /* SwiftFormat.release.xcconfig */,
 			);
 			name = "Support Files";
-			path = "../Target Support Files/SwiftLint";
+			path = "../Target Support Files/SwiftFormat";
 			sourceTree = "<group>";
 		};
-		F6D6AF3763DA941503EA8803CAB9D841 /* SwiftLint */ = {
+		FACCF62222B838902DE4CBA084975ECB /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				F0B309FEBB9579B642284C6E0D7FC8F2 /* Support Files */,
+				6D7D242834DB85582CCEF5D582F93E5A /* SVPinCell.xib */,
+				2DACAB3C1FD77428DAFE3955D40DF81D /* SVPinView.xib */,
 			);
-			path = SwiftLint;
+			name = Resources;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
-		4B69D4BDE49AD945A0F1E5AF416DECD1 /* Headers */ = {
+		5FD5597DE8AB09412A0990E6059C30DF /* Headers */ = {
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				7A98C8488D0E06FDF46FDC13B88D9C74 /* Pods-iOS_client_NeoCafe_-umbrella.h in Headers */,
+				532F88095AB0C772D3B4DB12FE8EB89F /* Pods-iOS_client_NeoCafe_-umbrella.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -283,19 +322,20 @@
 /* Begin PBXNativeTarget section */
 		5C33D966CC9847B22569BFB030BE2D6F /* Pods-iOS_client_NeoCafe_ */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = BF2C9ACECEB0F46788834402152A6DD6 /* Build configuration list for PBXNativeTarget "Pods-iOS_client_NeoCafe_" */;
+			buildConfigurationList = 85F0E4F16FC86A84BF5A39FA09F3A986 /* Build configuration list for PBXNativeTarget "Pods-iOS_client_NeoCafe_" */;
 			buildPhases = (
-				4B69D4BDE49AD945A0F1E5AF416DECD1 /* Headers */,
-				973F93A0082FEE772E7572CBE277579D /* Sources */,
-				987B4FAEE796E23155B55444450DEAD1 /* Frameworks */,
-				711EA98AA02F41C10C507DEDF0E7BD05 /* Resources */,
+				5FD5597DE8AB09412A0990E6059C30DF /* Headers */,
+				3F9F43F86696AA2807682D709F878D15 /* Sources */,
+				5B2241375DA0F9741EB1BE3CA496FAB7 /* Frameworks */,
+				D5C09384FE6FF33A34755B74092E1B4D /* Resources */,
 			);
 			buildRules = (
 			);
 			dependencies = (
-				258C67C6438526751C66A8D3C4657B53 /* PBXTargetDependency */,
-				D48C443B6D4D3F8BDA9B5AAEF95229B2 /* PBXTargetDependency */,
-				DEDB9C80D1497C16B1A82136DF0ED7E1 /* PBXTargetDependency */,
+				CAAEC0D2FACF09C0459DB9147C6FEB46 /* PBXTargetDependency */,
+				A9980E3A6840BDE06BFA8E9FF1916B3F /* PBXTargetDependency */,
+				9329A498DEC03A519ACF8106F1021515 /* PBXTargetDependency */,
+				A732431515B03D75DCBCAB4F7F096B1D /* PBXTargetDependency */,
 			);
 			name = "Pods-iOS_client_NeoCafe_";
 			productName = Pods_iOS_client_NeoCafe_;
@@ -317,7 +357,7 @@
 			);
 			name = SVPinView;
 			productName = SVPinView;
-			productReference = 11EA81E2ABBB1FAAB1B2323ED6104A68 /* SVPinView.framework */;
+			productReference = 11EA81E2ABBB1FAAB1B2323ED6104A68 /* SVPinView */;
 			productType = "com.apple.product-type.framework";
 		};
 /* End PBXNativeTarget section */
@@ -344,6 +384,7 @@
 			targets = (
 				5C33D966CC9847B22569BFB030BE2D6F /* Pods-iOS_client_NeoCafe_ */,
 				8C48B6722F02A3772707DAF5E1572C89 /* SVPinView */,
+				1CD0618C486973D5588EF20D2E8C0AEA /* SwiftFormat */,
 				1E798429DCFA7906F6625CCFC1088744 /* SwiftGen */,
 				52B60EC2A583F24ACBB69C113F5488B9 /* SwiftLint */,
 			);
@@ -351,13 +392,6 @@
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
-		711EA98AA02F41C10C507DEDF0E7BD05 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		912A0DDD60F7CDE99769A0BE1B2E0714 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -367,14 +401,21 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		D5C09384FE6FF33A34755B74092E1B4D /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
-		973F93A0082FEE772E7572CBE277579D /* Sources */ = {
+		3F9F43F86696AA2807682D709F878D15 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C3406BFC6E5EA867DEAA0E897BA03BBC /* Pods-iOS_client_NeoCafe_-dummy.m in Sources */,
+				7AB677690BB4E87F1A91360D5977AA62 /* Pods-iOS_client_NeoCafe_-dummy.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -391,30 +432,36 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		258C67C6438526751C66A8D3C4657B53 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			name = SVPinView;
-			target = 8C48B6722F02A3772707DAF5E1572C89 /* SVPinView */;
-			targetProxy = 8BDD179CFE95AAE6CC7CBC5A15628B6A /* PBXContainerItemProxy */;
-		};
-		D48C443B6D4D3F8BDA9B5AAEF95229B2 /* PBXTargetDependency */ = {
+		9329A498DEC03A519ACF8106F1021515 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			name = SwiftGen;
 			target = 1E798429DCFA7906F6625CCFC1088744 /* SwiftGen */;
-			targetProxy = 5E7BD3E961F7E86018C581803CFADB78 /* PBXContainerItemProxy */;
+			targetProxy = 113678585C06B1478788726AE216E6E8 /* PBXContainerItemProxy */;
 		};
-		DEDB9C80D1497C16B1A82136DF0ED7E1 /* PBXTargetDependency */ = {
+		A732431515B03D75DCBCAB4F7F096B1D /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			name = SwiftLint;
 			target = 52B60EC2A583F24ACBB69C113F5488B9 /* SwiftLint */;
-			targetProxy = B9E2036A2F7365E973CBE03ED4DD86DE /* PBXContainerItemProxy */;
+			targetProxy = 9FA4A1383105D51CF248A6C68A7F88EE /* PBXContainerItemProxy */;
+		};
+		A9980E3A6840BDE06BFA8E9FF1916B3F /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = SwiftFormat;
+			target = 1CD0618C486973D5588EF20D2E8C0AEA /* SwiftFormat */;
+			targetProxy = F49F48AC1B4726F2B8A09FD83C25F9AB /* PBXContainerItemProxy */;
+		};
+		CAAEC0D2FACF09C0459DB9147C6FEB46 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = SVPinView;
+			target = 8C48B6722F02A3772707DAF5E1572C89 /* SVPinView */;
+			targetProxy = F583372288B1C9183435081F7CDA450B /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
 		010C75AC96E45522639A93D066181D9D /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = CA883E06528DFE3FEF02068D9C718C1C /* SVPinView.debug.xcconfig */;
+			baseConfigurationReference = 4FFAAA8065CD91E6636A3481337C2BDD /* SVPinView.debug.xcconfig */;
 			buildSettings = {
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
@@ -427,7 +474,7 @@
 				GCC_PREFIX_HEADER = "Target Support Files/SVPinView/SVPinView-prefix.pch";
 				INFOPLIST_FILE = "Target Support Files/SVPinView/SVPinView-Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -448,11 +495,11 @@
 		};
 		2202230BF25CAB2FDC609A71D79055BB /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 384D0EF595BB922C3290475A29E7A9AA /* SwiftGen.debug.xcconfig */;
+			baseConfigurationReference = 065D6311E2D6FCBCE3D02465AE216015 /* SwiftGen.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -464,12 +511,12 @@
 		};
 		26EA5A9600226D2B7D8D25152A304F3B /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = E0E50EC8B5F5525D9881F3FF776BECE0 /* SwiftLint.release.xcconfig */;
+			baseConfigurationReference = 005193998ECD9CDABAEBAE70253A5FCA /* SwiftLint.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CLANG_ENABLE_OBJC_WEAK = NO;
-				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -480,9 +527,26 @@
 			};
 			name = Release;
 		};
+		341FF2FB3C491D773434367650E7F940 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 08BE2F38EB5E171C628E0249D56E8436 /* SwiftFormat.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CLANG_ENABLE_OBJC_WEAK = NO;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
 		368C0E18E6B04573C06B56DD5ACCF0AD /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = ABFA5DDCC9BCE761BC76C7099DD88F94 /* SVPinView.release.xcconfig */;
+			baseConfigurationReference = DCBC952C26BB4A9A0C7876973BADBD60 /* SVPinView.release.xcconfig */;
 			buildSettings = {
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
@@ -495,7 +559,7 @@
 				GCC_PREFIX_HEADER = "Target Support Files/SVPinView/SVPinView-prefix.pch";
 				INFOPLIST_FILE = "Target Support Files/SVPinView/SVPinView-Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -581,7 +645,7 @@
 			};
 			name = Debug;
 		};
-		7C51A2024C656219F6CE99EC6C2549D3 /* Release */ = {
+		AB23C87D05E684A3D0B411B323F7FD69 /* Release */ = {
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = F86D60AA8F8D37A84C9538EFB3B61419 /* Pods-iOS_client_NeoCafe_.release.xcconfig */;
 			buildSettings = {
@@ -619,7 +683,7 @@
 			};
 			name = Release;
 		};
-		973FCD7F1A52A499107701799212A0FE /* Debug */ = {
+		B9A8BC03084A1EC545461E83E67EB821 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = E6B3D29AE2DA59FCB34EB71DA045C0C1 /* Pods-iOS_client_NeoCafe_.debug.xcconfig */;
 			buildSettings = {
@@ -658,11 +722,29 @@
 		};
 		CF3B4AB84D0F77E437676BAFB9C2086C /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = EA880E82A2BE8571A7A0BA1C24E37BF1 /* SwiftGen.release.xcconfig */;
+			baseConfigurationReference = 360DC92951E15BC5D443AB1924B5A62E /* SwiftGen.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		E0D8F498909A462170D2F02A830F98DB /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = E7EED72911AEE2AC989D74039652BF43 /* SwiftFormat.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CLANG_ENABLE_OBJC_WEAK = NO;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -737,12 +819,12 @@
 		};
 		E9E1A48A750B946DE9877594C6E735E4 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 704ED8B32C505FB69B409147CC51D065 /* SwiftLint.debug.xcconfig */;
+			baseConfigurationReference = 8B29B92E450563D5D8B70657F0A94C21 /* SwiftLint.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CLANG_ENABLE_OBJC_WEAK = NO;
-				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -764,6 +846,15 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
+		6B2B7DF197DF6A7CA487150557230A41 /* Build configuration list for PBXAggregateTarget "SwiftFormat" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				341FF2FB3C491D773434367650E7F940 /* Debug */,
+				E0D8F498909A462170D2F02A830F98DB /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		7936ECE40F2EB32ECFA462CDE3F93224 /* Build configuration list for PBXNativeTarget "SVPinView" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
@@ -773,20 +864,20 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
+		85F0E4F16FC86A84BF5A39FA09F3A986 /* Build configuration list for PBXNativeTarget "Pods-iOS_client_NeoCafe_" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				B9A8BC03084A1EC545461E83E67EB821 /* Debug */,
+				AB23C87D05E684A3D0B411B323F7FD69 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		AE7B4FB01588B9E6DF09CB79FC7CE7BD /* Build configuration list for PBXAggregateTarget "SwiftLint" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				E9E1A48A750B946DE9877594C6E735E4 /* Debug */,
 				26EA5A9600226D2B7D8D25152A304F3B /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		BF2C9ACECEB0F46788834402152A6DD6 /* Build configuration list for PBXNativeTarget "Pods-iOS_client_NeoCafe_" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				973FCD7F1A52A499107701799212A0FE /* Debug */,
-				7C51A2024C656219F6CE99EC6C2549D3 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

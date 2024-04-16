@@ -74,11 +74,44 @@ final class OrdersCoordinator: BaseCoordinator {
     
     // MARK: - TODO
     func showProfileScreen() {
-        // TODO: -
+        let viewModel = ProfileViewModel()
+        viewModel.logout = logout
+        viewModel.goBack = {
+            self.router.popToRootModule(animated: true)
+        }
+        viewModel.popBack = { [weak self] in
+            self?.router.popModule(animated: true)
+        }
+        let viewController = ProfileViewController(viewModel: viewModel)
+        router.push(viewController)
+    }
+    
+    func logout() {
+        let coordinator = AuthCoordinator(router: router)
+        addChild(coordinator)
+        coordinator.start()
+        coordinator.onOrdersNavigate = { [weak self, weak coordinator] in
+            self?.removeChild(coordinator)
+            self?.performOrdersFlow()
+        }
+        router.setRootModule(coordinator, hideBar: true)
+        tabBarCoordinator?.hideShadowView()
+    }
+    
+    func performOrdersFlow() {
+        let coordinator = TabBarCoordinator(router: router)
+        addChild(coordinator)
+        coordinator.start()
+        router.setRootModule(coordinator, hideBar: false)
     }
     
     func showNoticeScreen() {
-        // TODO: -
+        let viewModel = NotificationViewModel()
+        viewModel.popBack = { [weak self] in
+            self?.router.popToRootModule(animated: true)
+        }
+        let viewController = NotificationViewController(viewModel: viewModel)
+        router.push(viewController)
     }
     
 }

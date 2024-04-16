@@ -28,6 +28,7 @@ class AuthViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         navigationController?.navigationBar.isHidden = true
+        tabBarController?.tabBar.isHidden = true
         setupTargets()
         setupDelegates()
     }
@@ -132,7 +133,7 @@ class AuthViewController: UIViewController {
         if isOnCodeView {
             authView.topLabel.text = "Код подтверждения"
             authView.confirmationLabel.text = "Введите 4-хзначный код, \nотправленный на почту"
-            authView.gmailLabel.text = "ipak.dev@gmail.com"
+//            authView.gmailLabel.text = "ipak.dev@gmail.com"
             authView.button.setTitle("Подтвердить", for: .normal)
             authView.button.snp.updateConstraints { make in
                 make.top.equalTo(authView.topView.snp.bottom).offset(228)
@@ -229,6 +230,7 @@ class AuthViewController: UIViewController {
             } else {
                 viewModel.login(identifier: authView.emailTextField.textField.text  ?? "",
                                 password: authView.passwordTextField.textField.text ?? "")
+                authView.gmailLabel.text = authView.emailTextField.textField.text ?? ""
             }
         } else {
             viewModel.confirmationCode(email: authView.emailTextField.textField.text ?? "",

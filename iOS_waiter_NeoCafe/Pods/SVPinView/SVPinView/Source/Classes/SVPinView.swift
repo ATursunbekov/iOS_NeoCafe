@@ -86,8 +86,8 @@ public class SVPinView: UIView {
         didSet { refreshPinView() }
     }
     
-    public var didFinishCallback: ((String)->())?
-    public var didChangeCallback: ((String)->())?
+    public var didFinishCallback: ((String) -> ())?
+    public var didChangeCallback: ((String) -> ())?
     
     // MARK: - Init methods -
     required public init?(coder aDecoder: NSCoder) {
@@ -100,7 +100,7 @@ public class SVPinView: UIView {
         loadView()
     }
     
-    private func loadView(completionHandler: (()->())? = nil) {
+    private func loadView(completionHandler: (() -> ())? = nil) {
         let podBundle = Bundle(for: SVPinView.self)
         let nib = UINib(nibName: "SVPinView", bundle: podBundle)
         view = nib.instantiate(withOwner: self, options: nil)[0] as? UIView
@@ -202,13 +202,14 @@ public class SVPinView: UIView {
             } else { showPinError(error: "ERR-102: Type Mismatch") }
         }
     }
-    
+    // MARK: Change
     fileprivate func stylePinField(containerView: UIView, underLine: UIView, isActive: Bool) {
+//        containerView.backgroundColor = false ? activeFieldBackgroundColor : fieldBackgroundColor
+        containerView.backgroundColor = fieldBackgroundColor
+//        containerView.layer.cornerRadius = false ? activeFieldCornerRadius : fieldCornerRadius
+        containerView.layer.cornerRadius = fieldCornerRadius
         
-        containerView.backgroundColor = isActive ? activeFieldBackgroundColor : fieldBackgroundColor
-        containerView.layer.cornerRadius = isActive ? activeFieldCornerRadius : fieldCornerRadius
-        
-        func setupUnderline(color:UIColor, withThickness thickness:CGFloat) {
+        func setupUnderline(color: UIColor, withThickness thickness: CGFloat) {
             underLine.backgroundColor = color
             underLine.constraints.filter { ($0.identifier == "underlineHeight") }.first?.constant = thickness
         }
@@ -219,18 +220,21 @@ public class SVPinView: UIView {
             containerView.layer.borderWidth = 0
             containerView.layer.borderColor = UIColor.clear.cgColor
         case .underline:
-            if isActive { setupUnderline(color: activeBorderLineColor, withThickness: activeBorderLineThickness) }
-            else { setupUnderline(color: borderLineColor, withThickness: borderLineThickness) }
+            if isActive {
+                setupUnderline(color: activeBorderLineColor, withThickness: activeBorderLineThickness)
+            } else { setupUnderline(color: borderLineColor, withThickness: borderLineThickness) }
             containerView.layer.borderWidth = 0
             containerView.layer.borderColor = UIColor.clear.cgColor
         case .box:
             setupUnderline(color: UIColor.clear, withThickness: 0)
-            containerView.layer.borderWidth = isActive ? activeBorderLineThickness : borderLineThickness
-            containerView.layer.borderColor = isActive ? activeBorderLineColor.cgColor : borderLineColor.cgColor
+//            containerView.layer.borderWidth = false ? activeBorderLineThickness : borderLineThickness
+//            containerView.layer.borderColor = false ? activeBorderLineColor.cgColor : borderLineColor.cgColor
+            containerView.layer.borderWidth = borderLineThickness
+            containerView.layer.borderColor = borderLineColor.cgColor
         }
      }
     
-    @IBAction fileprivate func refreshPinView(completionHandler: (()->())? = nil) {
+    @IBAction fileprivate func refreshPinView(completionHandler: (() -> ())? = nil) {
         view.removeFromSuperview()
         view = nil
         isLoading = true
@@ -262,7 +266,7 @@ public class SVPinView: UIView {
     /// Clears the entered PIN and refreshes the view
     /// - Parameter completionHandler: Called after the pin is cleared the view is re-rendered.
     @objc
-    public func clearPin(completionHandler: (()->())? = nil) {
+    public func clearPin(completionHandler: (() -> ())? = nil) {
         
         guard !isLoading else { return }
         
@@ -274,7 +278,7 @@ public class SVPinView: UIView {
     /// (internally calls the clearPin method; re-declared since the name is more intuitive)
     /// - Parameter completionHandler: Called after the pin is cleared the view is re-rendered.
     @objc
-    public func refreshView(completionHandler: (()->())? = nil) {
+    public func refreshView(completionHandler: (() -> ())? = nil) {
         clearPin(completionHandler: completionHandler)
     }
     
@@ -284,7 +288,7 @@ public class SVPinView: UIView {
     public func pastePin(pin: String) {
         
         password = []
-        for (index,char) in pin.enumerated() {
+        for (index, char) in pin.enumerated() {
 
             guard index < pinLength else { return }
 
@@ -314,15 +318,14 @@ public class SVPinView: UIView {
 }
 
 // MARK: - CollectionView methods -
-extension SVPinView : UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout
-{
+extension SVPinView: UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
     public func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return pinLength
     }
     
     public func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseIdentifier, for: indexPath)
-        
+        cell.layer.cornerRadius = 8
         guard let textField = cell.viewWithTag(100) as? SVPinField,
             let containerView = cell.viewWithTag(51),
             let underLine = cell.viewWithTag(50),
@@ -377,7 +380,7 @@ extension SVPinView : UICollectionViewDataSource, UICollectionViewDelegate, UICo
         }
         let width = (collectionView.bounds.width - (interSpace * CGFloat(max(pinLength, 1) - 1)))/CGFloat(pinLength)
         let height = collectionView.frame.height
-        return CGSize(width: min(width, height), height: min(width, height))
+        return CGSize(width: 40, height: min(width, height))
     }
     
     public func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
@@ -407,8 +410,7 @@ extension SVPinView : UICollectionViewDataSource, UICollectionViewDelegate, UICo
     }
 }
 // MARK: - TextField Methods -
-extension SVPinView : UITextFieldDelegate
-{
+extension SVPinView: UITextFieldDelegate {
     public func textFieldDidBeginEditing(_ textField: UITextField) {
         let text = textField.text ?? ""
         if let placeholderLabel = textField.superview?.viewWithTag(400) as? UILabel {
@@ -455,3 +457,4 @@ extension SVPinView : UITextFieldDelegate
         return true
     }
 }
+

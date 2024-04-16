@@ -31,7 +31,7 @@
 
 /* Begin PBXFileReference section */
 		085E27203C71936B914D77F246694A05 /* SVPinView.xib */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = file.xib; name = SVPinView.xib; path = "SVPinView/Source/XIB's/SVPinView.xib"; sourceTree = "<group>"; };
-		11EA81E2ABBB1FAAB1B2323ED6104A68 /* SVPinView.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = SVPinView.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		11EA81E2ABBB1FAAB1B2323ED6104A68 /* SVPinView */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = SVPinView; path = SVPinView.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		16ED5D16961579F0125792ED49B2D354 /* Pods-iOS_waiter_NeoCafe-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-iOS_waiter_NeoCafe-dummy.m"; sourceTree = "<group>"; };
 		1B43DF7928535A1CDFBC8B31C96CE262 /* SVPinView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = SVPinView.swift; path = SVPinView/Source/Classes/SVPinView.swift; sourceTree = "<group>"; };
 		1B7B6E38C3319388020ABEC9D5805F6C /* SVPinView.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = SVPinView.release.xcconfig; sourceTree = "<group>"; };
@@ -45,10 +45,10 @@
 		808F66F5AB1942FA23EEE038B4D5AAC0 /* Pods-iOS_waiter_NeoCafe-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-iOS_waiter_NeoCafe-frameworks.sh"; sourceTree = "<group>"; };
 		8E4AE886F4B0924CDDA9450E93CE6F82 /* Pods-iOS_waiter_NeoCafe.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-iOS_waiter_NeoCafe.debug.xcconfig"; sourceTree = "<group>"; };
 		9CC965A90C469DD4AE83B0FB62F3F74C /* SVPinCell.xib */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = file.xib; name = SVPinCell.xib; path = "SVPinView/Source/XIB's/SVPinCell.xib"; sourceTree = "<group>"; };
-		9D940727FF8FB9C785EB98E56350EF41 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		9D940727FF8FB9C785EB98E56350EF41 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		A3FD6922838F654C411A7B09EBE1D80A /* SVPinView.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = SVPinView.modulemap; sourceTree = "<group>"; };
 		A8CDE3B0096AD7DE190B856F05B98D80 /* SVPinField.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = SVPinField.swift; path = SVPinView/Source/Classes/SVPinField.swift; sourceTree = "<group>"; };
-		AC25E65DCFC401CC4388EA691EB282D1 /* Pods_iOS_waiter_NeoCafe.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_iOS_waiter_NeoCafe.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		AC25E65DCFC401CC4388EA691EB282D1 /* Pods-iOS_waiter_NeoCafe */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = "Pods-iOS_waiter_NeoCafe"; path = Pods_iOS_waiter_NeoCafe.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D2A35E92FB2A239E63D441E66E531533 /* SVPinView-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "SVPinView-umbrella.h"; sourceTree = "<group>"; };
 		E40821D49FA4173DA47A31E536AF0A83 /* Pods-iOS_waiter_NeoCafe-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-iOS_waiter_NeoCafe-Info.plist"; sourceTree = "<group>"; };
 		F03562F399424CE5C9FAC91D5BD70611 /* Pods-iOS_waiter_NeoCafe-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-iOS_waiter_NeoCafe-acknowledgements.markdown"; sourceTree = "<group>"; };
@@ -87,8 +87,8 @@
 		14EE745BE4CC323B83F818C2B9311BEA /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				AC25E65DCFC401CC4388EA691EB282D1 /* Pods_iOS_waiter_NeoCafe.framework */,
-				11EA81E2ABBB1FAAB1B2323ED6104A68 /* SVPinView.framework */,
+				AC25E65DCFC401CC4388EA691EB282D1 /* Pods-iOS_waiter_NeoCafe */,
+				11EA81E2ABBB1FAAB1B2323ED6104A68 /* SVPinView */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -143,6 +143,7 @@
 				3CD5F3440601383904C96E6331EE4F31 /* Resources */,
 				D9EA79DEF854E295E981F50EF71E08DE /* Support Files */,
 			);
+			name = SVPinView;
 			path = SVPinView;
 			sourceTree = "<group>";
 		};
@@ -217,7 +218,7 @@
 			);
 			name = SVPinView;
 			productName = SVPinView;
-			productReference = 11EA81E2ABBB1FAAB1B2323ED6104A68 /* SVPinView.framework */;
+			productReference = 11EA81E2ABBB1FAAB1B2323ED6104A68 /* SVPinView */;
 			productType = "com.apple.product-type.framework";
 		};
 		E34F528C9F60B5CB56AFD602A78445A8 /* Pods-iOS_waiter_NeoCafe */ = {
@@ -236,7 +237,7 @@
 			);
 			name = "Pods-iOS_waiter_NeoCafe";
 			productName = Pods_iOS_waiter_NeoCafe;
-			productReference = AC25E65DCFC401CC4388EA691EB282D1 /* Pods_iOS_waiter_NeoCafe.framework */;
+			productReference = AC25E65DCFC401CC4388EA691EB282D1 /* Pods-iOS_waiter_NeoCafe */;
 			productType = "com.apple.product-type.framework";
 		};
 /* End PBXNativeTarget section */
@@ -245,8 +246,8 @@
 		BFDFE7DC352907FC980B868725387E98 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastSwiftUpdateCheck = 1500;
-				LastUpgradeCheck = 1500;
+				LastSwiftUpdateCheck = 1300;
+				LastUpgradeCheck = 1300;
 			};
 			buildConfigurationList = 4821239608C13582E20E6DA73FD5F1F9 /* Build configuration list for PBXProject "Pods" */;
 			compatibilityVersion = "Xcode 14.0";
@@ -321,25 +322,24 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 67572A80826530A643C7C69308E5D071 /* SVPinView.debug.xcconfig */;
 			buildSettings = {
-				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
 				CURRENT_PROJECT_VERSION = 1;
 				DEFINES_MODULE = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				ENABLE_MODULE_VERIFIER = YES;
 				GCC_PREFIX_HEADER = "Target Support Files/SVPinView/SVPinView-prefix.pch";
 				INFOPLIST_FILE = "Target Support Files/SVPinView/SVPinView-Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
 				);
 				MODULEMAP_FILE = "Target Support Files/SVPinView/SVPinView.modulemap";
-				MODULE_VERIFIER_SUPPORTED_LANGUAGES = "objective-c objective-c++";
-				MODULE_VERIFIER_SUPPORTED_LANGUAGE_STANDARDS = "gnu11 gnu++14";
 				PRODUCT_MODULE_NAME = SVPinView;
 				PRODUCT_NAME = SVPinView;
 				SDKROOT = iphoneos;
@@ -356,25 +356,24 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 1B7B6E38C3319388020ABEC9D5805F6C /* SVPinView.release.xcconfig */;
 			buildSettings = {
-				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
 				CURRENT_PROJECT_VERSION = 1;
 				DEFINES_MODULE = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				ENABLE_MODULE_VERIFIER = YES;
 				GCC_PREFIX_HEADER = "Target Support Files/SVPinView/SVPinView-prefix.pch";
 				INFOPLIST_FILE = "Target Support Files/SVPinView/SVPinView-Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
 				);
 				MODULEMAP_FILE = "Target Support Files/SVPinView/SVPinView.modulemap";
-				MODULE_VERIFIER_SUPPORTED_LANGUAGES = "objective-c objective-c++";
-				MODULE_VERIFIER_SUPPORTED_LANGUAGE_STANDARDS = "gnu11 gnu++14";
 				PRODUCT_MODULE_NAME = SVPinView;
 				PRODUCT_NAME = SVPinView;
 				SDKROOT = iphoneos;
@@ -394,13 +393,14 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
 				CLANG_ENABLE_OBJC_WEAK = NO;
-				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
 				CURRENT_PROJECT_VERSION = 1;
 				DEFINES_MODULE = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				ENABLE_MODULE_VERIFIER = YES;
 				INFOPLIST_FILE = "Target Support Files/Pods-iOS_waiter_NeoCafe/Pods-iOS_waiter_NeoCafe-Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
@@ -411,8 +411,6 @@
 				);
 				MACH_O_TYPE = staticlib;
 				MODULEMAP_FILE = "Target Support Files/Pods-iOS_waiter_NeoCafe/Pods-iOS_waiter_NeoCafe.modulemap";
-				MODULE_VERIFIER_SUPPORTED_LANGUAGES = "objective-c objective-c++";
-				MODULE_VERIFIER_SUPPORTED_LANGUAGE_STANDARDS = "gnu11 gnu++14";
 				OTHER_LDFLAGS = "";
 				OTHER_LIBTOOLFLAGS = "";
 				PODS_ROOT = "$(SRCROOT)";
@@ -461,11 +459,9 @@
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				COPY_PHASE_STRIP = NO;
-				DEAD_CODE_STRIPPING = YES;
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
-				ENABLE_USER_SCRIPT_SANDBOXING = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_NO_COMMON_BLOCKS = YES;
@@ -486,6 +482,7 @@
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				STRIP_INSTALLED_PRODUCT = NO;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
@@ -528,11 +525,9 @@
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				COPY_PHASE_STRIP = NO;
-				DEAD_CODE_STRIPPING = YES;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				ENABLE_USER_SCRIPT_SANDBOXING = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_PREPROCESSOR_DEFINITIONS = (
@@ -549,6 +544,7 @@
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				STRIP_INSTALLED_PRODUCT = NO;
 				SWIFT_COMPILATION_MODE = wholemodule;
 				SWIFT_OPTIMIZATION_LEVEL = "-O";
 				SWIFT_VERSION = 5.0;
@@ -562,13 +558,14 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
 				CLANG_ENABLE_OBJC_WEAK = NO;
-				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
 				CURRENT_PROJECT_VERSION = 1;
 				DEFINES_MODULE = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				ENABLE_MODULE_VERIFIER = YES;
 				INFOPLIST_FILE = "Target Support Files/Pods-iOS_waiter_NeoCafe/Pods-iOS_waiter_NeoCafe-Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
@@ -579,8 +576,6 @@
 				);
 				MACH_O_TYPE = staticlib;
 				MODULEMAP_FILE = "Target Support Files/Pods-iOS_waiter_NeoCafe/Pods-iOS_waiter_NeoCafe.modulemap";
-				MODULE_VERIFIER_SUPPORTED_LANGUAGES = "objective-c objective-c++";
-				MODULE_VERIFIER_SUPPORTED_LANGUAGE_STANDARDS = "gnu11 gnu++14";
 				OTHER_LDFLAGS = "";
 				OTHER_LIBTOOLFLAGS = "";
 				PODS_ROOT = "$(SRCROOT)";

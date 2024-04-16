@@ -35,7 +35,7 @@ class ProfileView: UIView {
     lazy var nameTitle: UILabel = {
         let name = UILabel()
         name.text = "Имя"
-        name.font = .poppins(size: 16, weight: .regular)
+        name.font = UIFont.poppins(ofSize: 16, weight: .regular)
         name.textColor = UIColor.colorBlue
         return name
     }()
@@ -57,7 +57,7 @@ class ProfileView: UIView {
     lazy var name: UILabel = {
         let name = UILabel()
         name.text = "Алихандро"
-        name.font = .poppins(size: 16, weight: .regular)
+        name.font = UIFont.poppins(ofSize: 16, weight: .regular)
         name.textColor = UIColor.colorDarkBlue
         return name
     }()
@@ -65,7 +65,7 @@ class ProfileView: UIView {
     lazy var scheduleTitle = {
         let name = UILabel()
         name.text = "График работы"
-        name.font = .poppins(size: 24, weight: .bold)
+        name.font = UIFont.poppins(ofSize: 24, weight: .bold)
         name.textColor = UIColor.colorDarkBlue
         return name
     }()
@@ -91,7 +91,7 @@ class ProfileView: UIView {
     lazy var workingTitle = {
         let name = UILabel()
         name.text = "Дневная смена"
-        name.font = .poppins(size: 16, weight: .medium)
+        name.font = UIFont.poppins(ofSize: 16, weight: .medium)
         name.textColor = UIColor.colorDarkBlue
         return name
     }()
@@ -99,7 +99,7 @@ class ProfileView: UIView {
     lazy var nightWorkingTitle = {
         let name = UILabel()
         name.text = "Ночная смена"
-        name.font = .poppins(size: 16, weight: .medium)
+        name.font = UIFont.poppins(ofSize: 16, weight: .medium)
         name.textColor = UIColor.colorDarkBlue
         return name
     }()
@@ -107,7 +107,7 @@ class ProfileView: UIView {
     lazy var restTitle = {
         let name = UILabel()
         name.text = "Выходной"
-        name.font = .poppins(size: 16, weight: .medium)
+        name.font = UIFont.poppins(ofSize: 16, weight: .medium)
         name.textColor = UIColor.colorDarkBlue
         return name
     }()
@@ -115,7 +115,7 @@ class ProfileView: UIView {
     lazy var day1 = {
         let name = UILabel()
         name.text = "Пн"
-        name.font = .poppins(size: 16, weight: .regular)
+        name.font = UIFont.poppins(ofSize: 16, weight: .regular)
         name.textColor = UIColor.colorDarkBlue
         return name
     }()
@@ -123,7 +123,7 @@ class ProfileView: UIView {
     lazy var day2 = {
         let name = UILabel()
         name.text = "Вт"
-        name.font = .poppins(size: 16, weight: .regular)
+        name.font = UIFont.poppins(ofSize: 16, weight: .regular)
         name.textColor = UIColor.colorDarkBlue
         return name
     }()
@@ -131,7 +131,7 @@ class ProfileView: UIView {
     lazy var day3 = {
         let name = UILabel()
         name.text = "Ср"
-        name.font = .poppins(size: 16, weight: .regular)
+        name.font = UIFont.poppins(ofSize: 16, weight: .regular)
         name.textColor = UIColor.colorDarkBlue
         return name
     }()
@@ -139,7 +139,7 @@ class ProfileView: UIView {
     lazy var day4 = {
         let name = UILabel()
         name.text = "Чт"
-        name.font = .poppins(size: 16, weight: .regular)
+        name.font = UIFont.poppins(ofSize: 16, weight: .regular)
         name.textColor = UIColor.colorDarkBlue
         return name
     }()
@@ -147,7 +147,7 @@ class ProfileView: UIView {
     lazy var day5 = {
         let name = UILabel()
         name.text = "Пт"
-        name.font = .poppins(size: 16, weight: .regular)
+        name.font = UIFont.poppins(ofSize: 16, weight: .regular)
         name.textColor = UIColor.colorDarkBlue
         return name
     }()
@@ -155,7 +155,7 @@ class ProfileView: UIView {
     lazy var day6 = {
         let name = UILabel()
         name.text = "Сб"
-        name.font = .poppins(size: 16, weight: .regular)
+        name.font = UIFont.poppins(ofSize: 16, weight: .regular)
         name.textColor = UIColor.colorDarkBlue
         return name
     }()
@@ -163,7 +163,7 @@ class ProfileView: UIView {
     lazy var day7 = {
         let name = UILabel()
         name.text = "Вс"
-        name.font = .poppins(size: 16, weight: .regular)
+        name.font = UIFont.poppins(ofSize: 16, weight: .regular)
         name.textColor = UIColor.colorDarkBlue
         return name
     }()

@@ -26,7 +26,7 @@ class LogoutView: UIViewController {
         let title = UILabel()
         title.text = "Вы действительно хотите выйти?"
         title.textAlignment = .center
-        title.font = .poppins(size: 24, weight: .bold)
+        title.font = UIFont.poppins(ofSize: 24, weight: .bold)
         title.numberOfLines = 0
         title.textColor = UIColor.colorDarkBlue
         return title
@@ -39,7 +39,7 @@ class LogoutView: UIViewController {
         button.layer.borderWidth = 2
         button.setTitle("Да", for: .normal)
         button.setTitleColor(UIColor.colorBlue, for: .normal)
-        button.titleLabel?.font = .poppins(size: 16, weight: .medium)
+        button.titleLabel?.font = UIFont.poppins(ofSize: 16, weight: .medium)
         button.layer.cornerRadius = 12
         return button
     }()
@@ -49,7 +49,7 @@ class LogoutView: UIViewController {
         button.backgroundColor = UIColor.colorBlue
         button.setTitle("Нет", for: .normal)
         button.setTitleColor(UIColor.white, for: .normal)
-        button.titleLabel?.font = .poppins(size: 16, weight: .medium)
+        button.titleLabel?.font = UIFont.poppins(ofSize: 16, weight: .medium)
         button.layer.cornerRadius = 12
         return button
     }()
@@ -104,12 +104,12 @@ class LogoutView: UIViewController {
     }
 }
 
-#if DEBUG
-import SwiftUI
-@available(iOS 13.0, *)
-struct LogoutViewPreview: PreviewProvider {
-    static var previews: some View {
-        LogoutView().showPreview()
-    }
-}
-#endif
+//#if DEBUG
+//import SwiftUI
+//@available(iOS 13.0, *)
+//struct LogoutViewPreview: PreviewProvider {
+//    static var previews: some View {
+//        LogoutView().showPreview()
+//    }
+//}
+//#endif

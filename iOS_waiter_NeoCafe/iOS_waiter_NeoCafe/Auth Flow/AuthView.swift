@@ -118,6 +118,7 @@ class AuthView: UIView {
         backgroundColor = UIColor.colorWhite
         setupConstraints()
         hideSubviews()
+        passwordTextField.textField.isSecureTextEntry = true
     }
     
     private func setupConstraints() {
@@ -195,7 +196,7 @@ class AuthView: UIView {
         }
         
         pinView.snp.makeConstraints { make in
-            make.centerX.equalToSuperview()
+            make.centerX.equalToSuperview().offset(23)
             make.top.equalTo(gmailLabel.snp.bottom).offset(16)
             make.height.equalTo(52)
         }

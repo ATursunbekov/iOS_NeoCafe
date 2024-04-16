@@ -30,7 +30,7 @@ class NetworkService: NetworkServiceProtocol {
     ) {
         provider.request(endpoint) { result in
             switch result {
-            case .success(let response):
+            case let .success(response):
                 do {
                     let _ = try response.filterSuccessfulStatusCodes()
                     if successModelType == String.self {
@@ -54,7 +54,7 @@ class NetworkService: NetworkServiceProtocol {
                         let statusCode = validationError.response?.statusCode ?? -1
                         let errorDescription = validationError.errorDescription ?? "No error description available"
                         print("Validation Error - Endpoint: \(endpoint), Status Code: \(statusCode), Error: \(errorDescription)")
-                    case .underlying(let error, _):
+                    case let .underlying(error, _):
                         if let urlError = error as? URLError, urlError.code == .badURL {
                             print("Wrong URL or path error - Endpoint: \(endpoint), URL: \(urlError.failingURL?.absoluteString ?? "N/A")")
                         }
@@ -67,11 +67,12 @@ class NetworkService: NetworkServiceProtocol {
                     print(endpoint, unknownError)
                     completion(.failure(unknownError))
                 }
-            case .failure(let error):
+            case let .failure(error):
                 var errorData: String?
 
                 if let responseData = error.response?.data,
-                   let str = String(data: responseData, encoding: .utf8) {
+                   let str = String(data: responseData, encoding: .utf8)
+                {
                     errorData = str
                 }
 

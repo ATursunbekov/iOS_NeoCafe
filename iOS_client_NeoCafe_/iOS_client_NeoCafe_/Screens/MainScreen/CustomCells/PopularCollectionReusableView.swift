@@ -9,7 +9,7 @@ import UIKit
 
 class PopularCollectionReusableView: UICollectionReusableView {
     static let identifier = "PopularCollectionReusableView"
-    
+
     lazy var titleView: UILabel = {
         let label = UILabel()
         label.text = Str.popular
@@ -17,22 +17,23 @@ class PopularCollectionReusableView: UICollectionReusableView {
         label.textColor = Asset.colorDarkBlue.color
         return label
     }()
-    
+
     override init(frame: CGRect) {
         super.init(frame: frame)
         setupConstraints()
     }
-    
+
     func setupConstraints() {
         addSubview(titleView)
-        
+
         titleView.snp.makeConstraints { make in
             make.centerY.equalToSuperview()
             make.leading.equalToSuperview()
         }
     }
-    
-    required init?(coder: NSCoder) {
+
+    @available(*, unavailable)
+    required init?(coder _: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
 }

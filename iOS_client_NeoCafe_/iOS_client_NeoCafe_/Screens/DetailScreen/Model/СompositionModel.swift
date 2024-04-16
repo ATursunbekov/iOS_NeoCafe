@@ -10,5 +10,5 @@ import Foundation
 struct СompositionModel: Codable, Hashable {
     let name: String
     let quantity: String
-    let mesure: String
+    let mesure: String?
 }

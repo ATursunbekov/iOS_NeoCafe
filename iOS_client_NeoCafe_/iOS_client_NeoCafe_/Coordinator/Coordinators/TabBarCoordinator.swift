@@ -8,7 +8,6 @@
 import UIKit
 
 final class TabBarCoordinator: BaseCoordinator {
-
     var mainCoordinator: MainCoordinator?
     var basketCoordinator: BasketCoordinator?
     var branchCoordinator: BranchCoordinator?
@@ -49,7 +48,7 @@ final class TabBarCoordinator: BaseCoordinator {
             mainCoordinator.toPresent,
             basketCoordinator.toPresent,
             branchCoordinator.toPresent,
-            profileCoordinator.toPresent
+            profileCoordinator.toPresent,
         ]
 
         mainCoordinator.start()
@@ -99,7 +98,7 @@ final class TabBarCoordinator: BaseCoordinator {
 
     @available(iOS 15.0, *)
     private func updateTabBarAppearance(for tabBarController: UITabBarController) {
-        let tabBarAppearance: UITabBarAppearance = UITabBarAppearance()
+        let tabBarAppearance = UITabBarAppearance()
         tabBarAppearance.configureWithOpaqueBackground()
         tabBarAppearance.backgroundColor = .clear
 
@@ -149,16 +148,17 @@ final class TabBarCoordinator: BaseCoordinator {
 final class CustomTabBarController: UITabBarController, UITabBarControllerDelegate {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        self.navigationController?.setNavigationBarHidden(true, animated: false)
+        navigationController?.setNavigationBarHidden(true, animated: false)
     }
 
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
-        self.navigationController?.setNavigationBarHidden(true, animated: false)
+        navigationController?.setNavigationBarHidden(true, animated: false)
     }
 
-    func tabBarController(_ tabBarController: UITabBarController,
-                          shouldSelect viewController: UIViewController) -> Bool {
+    func tabBarController(_: UITabBarController,
+                          shouldSelect _: UIViewController) -> Bool
+    {
         return true
     }
 }
@@ -167,12 +167,15 @@ private extension TabBarCoordinator {
     static var mainTabIndex: Int {
         return 0
     }
+
     static var orderTabIndex: Int {
         return 1
     }
+
     static var branchTabIndex: Int {
         return 2
     }
+
     static var profileTabIndex: Int {
         return 3
     }

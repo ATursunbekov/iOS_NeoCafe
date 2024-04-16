@@ -23,9 +23,6 @@ final class TabBarCoordinator: BaseCoordinator {
 
     private lazy var tabBarViewController = configure(CustomTabBarController()) { tabBarController in
         configureAppearance(for: tabBarController as UITabBarController)
-        configureShadow(for: tabBarController as UITabBarController)
-//        configureAppearance(for: tabBarController)
-//        configureShadow(for: tabBarController)
 
         let ordersCoordinator = makeOrdersCoordinator
         ordersCoordinator.tabBarCoordinator = self
@@ -50,10 +47,6 @@ final class TabBarCoordinator: BaseCoordinator {
         newOrderCoordinator.start()
         menuCoordinator.start()
     }
-
-//    private var makeOrdersCoordinator = OrdersCoordinator(router: RouterImpl())
-//    private var makeNewOrderCoordinator = NewOrderCoordinator(router: RouterImpl())
-//    private var makeMenuCoordinator = MenuCoordinator(router: RouterImpl())
     
     private var makeOrdersCoordinator: OrdersCoordinator {
         let ordersCoordinator = OrdersCoordinator(router: RouterImpl())
@@ -77,16 +70,18 @@ final class TabBarCoordinator: BaseCoordinator {
     override init(router: Router) {
         super.init(router: router)
     }
-
+    
     private func configureAppearance(for tabBarController: UITabBarController) {
-        if #available(iOS 15.0, *) {
-            updateTabBarAppearance(for: tabBarController)
-        }
         tabBarController.tabBar.backgroundColor = .white
         tabBarController.tabBar.layer.cornerRadius = 30
         tabBarController.tabBar.layer.maskedCorners = [.layerMinXMinYCorner, .layerMaxXMinYCorner]
         tabBarController.tabBar.tintColor = .colorLightBlue
         tabBarController.tabBar.unselectedItemTintColor = .colorDarkGray
+        tabBarController.tabBar.layer.masksToBounds = false
+        tabBarController.tabBar.layer.shadowColor = UIColor.black.cgColor
+        tabBarController.tabBar.layer.shadowOffset = CGSize(width: 0, height: -2)
+        tabBarController.tabBar.layer.shadowOpacity = 0.2
+        tabBarController.tabBar.layer.shadowRadius = 5
     }
 
     @available(iOS 15.0, *)
@@ -102,7 +97,7 @@ final class TabBarCoordinator: BaseCoordinator {
         tabBarController.tabBar.standardAppearance = tabBarAppearance
         tabBarController.tabBar.scrollEdgeAppearance = tabBarAppearance
     }
-
+    
     @available(iOS 13.0, *)
     private func updateTabBarItemAppearance(appearance: UITabBarItemAppearance) {
         let tintColor: UIColor = .colorLightBlue
@@ -110,23 +105,6 @@ final class TabBarCoordinator: BaseCoordinator {
 
         appearance.selected.iconColor = tintColor
         appearance.normal.iconColor = unselectedItemTintColor
-    }
-
-    private func configureShadow(for tabBarController: UITabBarController) {
-        shadowedView = UIView(frame: .zero)
-        guard let shadowedView = shadowedView else { return }
-        shadowedView.frame = tabBarController.tabBar.frame
-        shadowedView.backgroundColor = .white
-        shadowedView.layer.cornerRadius = 30
-        shadowedView.layer.maskedCorners = [.layerMinXMinYCorner, .layerMaxXMinYCorner]
-        shadowedView.layer.masksToBounds = false
-        shadowedView.layer.shadowColor = UIColor.black.cgColor
-        shadowedView.layer.shadowOffset = CGSize(width: 0, height: -2)
-        shadowedView.layer.shadowOpacity = 0.8
-        shadowedView.layer.shadowRadius = 20
-
-        tabBarController.view.addSubview(shadowedView)
-        tabBarController.view.bringSubviewToFront(tabBarController.tabBar)
     }
 
     func hideShadowView() {
@@ -149,21 +127,7 @@ final class CustomTabBarController: UITabBarController, UITabBarControllerDelega
         self.navigationController?.setNavigationBarHidden(true, animated: false)
     }
 
-    func tabBarController(_ tabBarController: UITabBarController,
-                          shouldSelect viewController: UIViewController) -> Bool {
+    func tabBarController(_ tabBarController: UITabBarController, shouldSelect viewController: UIViewController) -> Bool {
         return true
     }
 }
-
-private extension TabBarCoordinator {
-    static var ordersTabIndex: Int {
-        return 0
-    }
-    static var newOrderTabIndex: Int {
-        return 1
-    }
-    static var menuTabIndex: Int {
-        return 2
-    }
-}
-

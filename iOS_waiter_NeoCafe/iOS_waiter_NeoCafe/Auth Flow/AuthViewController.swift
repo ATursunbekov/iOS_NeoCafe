@@ -8,7 +8,7 @@
 import UIKit
 import SnapKit
 
-class AuthViewController: UIViewController {
+final class AuthViewController: UIViewController {
     
     var timer: Timer?
     var secondsRemaining = 60
@@ -84,7 +84,7 @@ class AuthViewController: UIViewController {
                 string: placeholderText,
                 attributes: [
                     .foregroundColor: UIColor.colorRed,
-                    .font: UIFont.poppins(size: 16, weight: .regular)
+                    .font: UIFont.poppins(ofSize: 16, weight: .regular)
                 ]
             )
             self.view.layoutIfNeeded()
@@ -122,7 +122,7 @@ class AuthViewController: UIViewController {
                 string: placeholderText,
                 attributes: [
                     .foregroundColor: UIColor.colorDarkGray,
-                    .font: UIFont.poppins(size: 16, weight: .regular)
+                    .font: UIFont.poppins(ofSize: 16, weight: .regular)
                 ]
             )
             self.view.layoutIfNeeded()
@@ -159,7 +159,7 @@ class AuthViewController: UIViewController {
         authView.resendButton.isHidden = !isOnCodeView
         authView.timeCounter.isHidden = !isOnCodeView
         
-        authView.topLabel.font = UIFont.poppins(size: isOnCodeView ? 20: 32, weight: .bold)
+        authView.topLabel.font = UIFont.poppins(ofSize: isOnCodeView ? 20: 32, weight: .bold)
         
         viewModel.toggleState()
         
@@ -281,7 +281,6 @@ extension AuthViewController: AuthDelegate {
     }
     
     func successfulConfirmation() {
-        //        navigationController?.pushViewController(CustomTabBarController(), animated: true)
         viewModel.onOrdersNavigate?()
         print("someone")
     }

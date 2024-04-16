@@ -23,7 +23,7 @@ class NotificationView: UIView {
     lazy var titleLabel: UILabel = {
         let label = UILabel()
         label.text = "Уведомления"
-        label.font = .poppins(size: 24, weight: .bold)
+        label.font = UIFont.poppins(ofSize: 24, weight: .bold)
         label.textColor = UIColor.colorDarkBlue
         return label
     }()
@@ -32,7 +32,7 @@ class NotificationView: UIView {
         let button = UIButton()
         let title = "Очистить всё"
         let attributes: [NSAttributedString.Key: Any] = [
-            .font: UIFont.poppins(size: 16, weight: .bold),
+            .font: UIFont.poppins(ofSize: 16, weight: .bold),
             .foregroundColor: UIColor.colorOrange,
             .underlineStyle: NSUnderlineStyle.single.rawValue
         ]

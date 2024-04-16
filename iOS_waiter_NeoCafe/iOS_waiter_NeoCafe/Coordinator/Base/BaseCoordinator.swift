@@ -7,7 +7,6 @@
 
 import UIKit
 
-//typealias EmptyCompletion = (() -> Void)
 typealias BoolCompletion = ((Bool) -> Void)
 
 protocol Coordinator: AnyObject, Presentable {

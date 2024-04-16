@@ -41,10 +41,8 @@ extension NewOrderAPI: TargetType {
         switch self {
         case .getAllProducts:
             return .requestParameters(parameters: ["number": 1, "size": 10], encoding: URLEncoding.queryString)
-            
         case .getProductsByName(let name):
             return .requestParameters(parameters: ["name": name, "number": 1, "size": 10], encoding: URLEncoding.queryString)
-            
         case .getProductsByCategory(let category):
             return .requestParameters(parameters: ["category": category, "number": 1, "size": 10], encoding: URLEncoding.queryString)
         }
@@ -57,39 +55,3 @@ extension NewOrderAPI: TargetType {
         }
     }
 }
-
-
-//let provider = MoyaProvider<NewOrderAPI>()
-//
-//provider.request(.getAllProducts) { result in
-//    switch result {
-//    case .success(let response):
-//        // Handle success
-//        print(response)
-//    case .failure(let error):
-//        // Handle failure
-//        print(error)
-//    }
-//}
-//
-//provider.request(.getProductsByName(name: "латте")) { result in
-//    switch result {
-//    case .success(let response):
-//        // Handle success
-//        print(response)
-//    case .failure(let error):
-//        // Handle failure
-//        print(error)
-//    }
-//}
-//
-//provider.request(.getProductsByCategory(category: "кофе")) { result in
-//    switch result {
-//    case .success(let response):
-//        // Handle success
-//        print(response)
-//    case .failure(let error):
-//        // Handle failure
-//        print(error)
-//    }
-//}

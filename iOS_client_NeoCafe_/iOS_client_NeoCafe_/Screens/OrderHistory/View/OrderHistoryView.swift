@@ -78,13 +78,3 @@ class OrderHistoryView: UIView {
         fatalError("init(coder:) has not been implemented")
     }
 }
-
-// #if DEBUG
-//
-// @available(iOS 13.0, *)
-// struct OrderHistoryViewControllerPreview: PreviewProvider {
-//    static var previews: some View {
-//        OrderHistoryViewController().showPreview()
-//    }
-// }
-// #endif

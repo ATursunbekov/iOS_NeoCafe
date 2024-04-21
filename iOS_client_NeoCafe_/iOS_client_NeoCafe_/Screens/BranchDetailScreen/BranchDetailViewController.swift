@@ -28,13 +28,17 @@ class BranchDetailViewController: UIViewController {
         super.viewDidLoad()
         navigationController?.isNavigationBarHidden = true
         setupDelegates()
-        branchView.backButton.addTarget(self, action: #selector(backPressed), for: .touchUpInside)
-        branchView.menuButton.addTarget(self, action: #selector(menuButtonPressed), for: .touchUpInside)
         viewModel?.getPopular()
+        setupTargets()
     }
 
     override func loadView() {
         view = branchView
+    }
+
+    func setupTargets() {
+        branchView.backButton.addTarget(self, action: #selector(backPressed), for: .touchUpInside)
+        branchView.menuButton.addTarget(self, action: #selector(menuButtonPressed), for: .touchUpInside)
     }
 
     func setupDelegates() {

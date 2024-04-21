@@ -21,7 +21,7 @@ class NotificationView: UIView {
 
     lazy var titleLabel: UILabel = {
         let label = UILabel()
-        label.text = "Уведомления"
+        label.text = Str.notificationTitle
         label.font = UIFont(name: FontFamily.Poppins.bold.name, size: 24)
         label.textColor = Asset.colorTitle.color
         return label
@@ -29,7 +29,7 @@ class NotificationView: UIView {
 
     lazy var clearButton: UIButton = {
         let button = UIButton()
-        let title = "Очистить всё"
+        let title = Str.clearAll
         let attributes: [NSAttributedString.Key: Any] = [
             .font: UIFont.poppins(size: 16, weight: .bold),
             .foregroundColor: Asset.colorOrange.color,

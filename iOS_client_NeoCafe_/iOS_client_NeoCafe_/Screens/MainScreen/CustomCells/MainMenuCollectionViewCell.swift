@@ -22,7 +22,7 @@ class MainMenuCollectionViewCell: UICollectionViewCell {
 
     lazy var name: UILabel = {
         let label = UILabel()
-        label.text = "Карамельный раф"
+        label.text = Str.cofeeName
         label.font = UIFont.poppins(size: 14, weight: .bold)
         label.textColor = Asset.colorDarkBlue.color
         return label
@@ -30,7 +30,7 @@ class MainMenuCollectionViewCell: UICollectionViewCell {
 
     lazy var descriptionLabel = {
         let label = UILabel()
-        label.text = "Большой, кокосовое молоко"
+        label.text = Str.milkDescription
         label.font = UIFont.poppins(size: 12, weight: .regular)
         label.textColor = Asset.colorDarkBlue.color
         return label
@@ -38,7 +38,7 @@ class MainMenuCollectionViewCell: UICollectionViewCell {
 
     lazy var cost = {
         let label = UILabel()
-        label.text = "270 с"
+        label.text = Str.historyCost
         label.font = UIFont.poppins(size: 14, weight: .bold)
         label.textColor = Asset.colorOrange.color
         return label

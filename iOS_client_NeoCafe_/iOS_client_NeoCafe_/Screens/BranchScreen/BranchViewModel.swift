@@ -45,7 +45,6 @@ class BranchViewModel: BranchViewModelProtocol {
         }
     }
 
-    // PopUp View data
     var branchNames: [String] = []
     var nameDelegate: BranchNameDelegate?
 

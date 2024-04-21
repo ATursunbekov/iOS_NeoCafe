@@ -59,7 +59,6 @@ extension NotificationViewController: UITableViewDelegate, UITableViewDataSource
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        // let cell: NotificationTableViewCell = tableView.dequeueReusableCell(withIdentifier: NotificationTableViewCell.identifier, for: indexPath) as! NotificationTableViewCell
         let cell: NotificationTableViewCell = tableView.dequeue(for: indexPath)
         cell.selectionStyle = .none
         return cell

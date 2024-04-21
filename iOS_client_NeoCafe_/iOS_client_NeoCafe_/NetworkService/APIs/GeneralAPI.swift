@@ -29,8 +29,6 @@ extension GeneralAPI: TargetType {
         }
     }
 
-    // https://neo-cafe.up.railway.app/api/v1/profile/update-user?name=Лаура&email=alikhan.tursunbekov@gmail.com
-    // https://neo-cafe.up.railway.app/api/v1/order/client-make-order
     var path: String {
         switch self {
         case .getNotifications:

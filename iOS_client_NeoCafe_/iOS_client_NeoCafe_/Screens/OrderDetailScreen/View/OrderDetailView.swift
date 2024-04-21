@@ -13,7 +13,7 @@ class OrderDetailView: UIView {
 
     lazy var orderName: UILabel = {
         let label = UILabel()
-        label.text = "Заказ #2324"
+        label.text = Str.orderID
         label.font = .poppins(size: 24, weight: .bold)
         label.textColor = Asset.colorTitle.color
         return label
@@ -21,7 +21,7 @@ class OrderDetailView: UIView {
 
     lazy var adressLabel: UILabel = {
         let label = UILabel()
-        label.text = "NeoCafe Dzerzhinka, 4 октября"
+        label.text = Str.historyAdress
         label.font = .poppins(size: 16, weight: .bold)
         label.textColor = Asset.colorDarkBlue.color
         return label
@@ -55,27 +55,11 @@ class OrderDetailView: UIView {
 
     lazy var costLabel: UILabel = {
         let label = UILabel()
-        label.text = "730 c"
+        label.text = Str.historyCost
         label.font = .poppins(size: 20, weight: .bold)
         label.textColor = Asset.colorOrange.color
         return label
     }()
-
-//    lazy var bonusTitle: UILabel = {
-//        let label = UILabel()
-//        label.text = Str.orderDeatilBonusLabel
-//        label.font = .poppins(size: 16, weight: .bold)
-//        label.textColor = Asset.colorDarkGray.color
-//        return label
-//    }()
-//
-//    lazy var bonusAmount: UILabel = {
-//        let label = UILabel()
-//        label.text = "50"
-//        label.font = .poppins(size: 20, weight: .bold)
-//        label.textColor = Asset.colorOrange.color
-//        return label
-//    }()
 
     lazy var tableView: UITableView = {
         let tableView = UITableView(frame: .zero)
@@ -103,8 +87,6 @@ class OrderDetailView: UIView {
         addSubview(orderButton)
         addSubview(totalTitle)
         addSubview(costLabel)
-//        addSubview(bonusTitle)
-//        addSubview(bonusAmount)
         addSubview(tableView)
 
         topView.snp.makeConstraints { make in
@@ -144,16 +126,6 @@ class OrderDetailView: UIView {
             make.bottom.equalTo(totalTitle.snp.bottom).offset(1)
             make.leading.equalTo(totalTitle.snp.trailing)
         }
-
-//        bonusTitle.snp.makeConstraints { make in
-//            make.leading.equalToSuperview().offset(16)
-//            make.bottom.equalTo(totalTitle.snp.top).offset(-16)
-//        }
-//
-//        bonusAmount.snp.makeConstraints { make in
-//            make.bottom.equalTo(bonusTitle.snp.bottom).offset(1)
-//            make.leading.equalTo(bonusTitle.snp.trailing)
-//        }
 
         tableView.snp.makeConstraints { make in
             make.top.equalTo(adressLabel.snp.bottom)

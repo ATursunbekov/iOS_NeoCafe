@@ -19,7 +19,7 @@ class OrderTableViewCell: UITableViewCell {
 
     lazy var name: UILabel = {
         let label = UILabel()
-        label.text = "Карамельный раф"
+        label.text = Str.cofeeName
         label.font = UIFont.poppins(size: 14, weight: .bold)
         label.textColor = Asset.colorDarkBlue.color
         return label
@@ -27,7 +27,7 @@ class OrderTableViewCell: UITableViewCell {
 
     lazy var descriptionLabel = {
         let label = UILabel()
-        label.text = "Большой, кокосовое молоко"
+        label.text = Str.milkDescription
         label.font = UIFont.poppins(size: 12, weight: .regular)
         label.textColor = Asset.colorDarkBlue.color
         label.numberOfLines = 2
@@ -36,7 +36,7 @@ class OrderTableViewCell: UITableViewCell {
 
     lazy var statusLabel = {
         let label = UILabel()
-        label.text = "Вчера"
+        label.text = Str.historyActive
         label.font = UIFont.poppins(size: 14, weight: .medium)
         label.textColor = Asset.colorMain.color
         return label
@@ -93,7 +93,7 @@ class OrderTableViewCell: UITableViewCell {
     }
 
     func activeStatus() {
-        statusLabel.text = "Сейчас"
+        statusLabel.text = Str.historyNotActive
         statusLabel.textColor = Asset.colorOrange.color
     }
 

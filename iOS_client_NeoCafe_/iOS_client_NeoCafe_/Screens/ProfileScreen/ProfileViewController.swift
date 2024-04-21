@@ -83,14 +83,12 @@ extension ProfileViewController: UITableViewDelegate, UITableViewDataSource {
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if indexPath.section == 0 {
-            // let cell = tableView.dequeueReusableCell(withIdentifier: OrderTableViewCell.identifier, for: indexPath) as! OrderTableViewCell
             let cell: OrderTableViewCell = tableView.dequeue(for: indexPath)
             cell.activeStatus()
             cell.selectionStyle = .none
             cell.configureData(order: viewModel.activeOrders[indexPath.row])
             return cell
         } else {
-//            let cell = tableView.dequeueReusableCell(withIdentifier: OrderTableViewCell.identifier, for: indexPath) as! OrderTableViewCell
             let cell: OrderTableViewCell = tableView.dequeue(for: indexPath)
             cell.selectionStyle = .none
             cell.configureData(order: viewModel.doneOrders[indexPath.row])
@@ -103,7 +101,7 @@ extension ProfileViewController: UITableViewDelegate, UITableViewDataSource {
         headerView.backgroundColor = .white
 
         let label = UILabel()
-        label.text = section == 0 ? "Актуальный заказ" : "Завершенные"
+        label.text = section == 0 ? Str.currentOrder : Str.finishedOrder
         label.font = .poppins(size: 16, weight: .bold)
         label.frame = CGRect(x: 15, y: 5, width: tableView.bounds.size.width - 30, height: 30)
         headerView.addSubview(label)

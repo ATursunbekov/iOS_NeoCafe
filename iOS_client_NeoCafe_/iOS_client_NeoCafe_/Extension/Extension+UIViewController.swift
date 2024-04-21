@@ -9,21 +9,20 @@ import SwiftUI
 
 @available(iOS 13.0, *)
 extension UIViewController {
-
     private struct Preview: UIViewControllerRepresentable {
         let viewController: UIViewController
-        
-        func makeUIViewController(context: Context) -> some UIViewController {
+
+        func makeUIViewController(context _: Context) -> some UIViewController {
             viewController
         }
-        
-        func updateUIViewController(_ uiViewController: UIViewControllerType, context: Context) {
+
+        func updateUIViewController(_: UIViewControllerType, context _: Context) {
 //            if let colorChangeVC = uiViewController as? ColorChangeViewController {
 //                colorChangeVC.toggleColor()
 //            }
         }
     }
-    
+
     func showPreview() -> some View {
         Preview(viewController: self).edgesIgnoringSafeArea(.all)
     }

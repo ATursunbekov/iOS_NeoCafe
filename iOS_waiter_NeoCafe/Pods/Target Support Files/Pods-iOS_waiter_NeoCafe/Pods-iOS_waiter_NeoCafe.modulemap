@@ -1,0 +1,6 @@
+framework module Pods_iOS_waiter_NeoCafe {
+  umbrella header "Pods-iOS_waiter_NeoCafe-umbrella.h"
+
+  export *
+  module * { export * }
+}

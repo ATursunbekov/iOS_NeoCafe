@@ -18,7 +18,7 @@ class CustomSegmentedControl: UIView {
     lazy var firstButton = {
         let button = UIButton()
         button.layer.cornerRadius = 24
-        button.setTitle("Войти", for: .normal)
+        button.setTitle(Str.enter, for: .normal)
         button.titleLabel?.font = UIFont(name: FontFamily.Poppins.bold.name, size: 15)
         return button
     }()
@@ -26,7 +26,7 @@ class CustomSegmentedControl: UIView {
     lazy var secondButton = {
         let button = UIButton()
         button.layer.cornerRadius = 24
-        button.setTitle("Регистрация", for: .normal)
+        button.setTitle(Str.registration, for: .normal)
         button.titleLabel?.font = UIFont(name: FontFamily.Poppins.bold.name, size: 15)
         return button
     }()

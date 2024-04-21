@@ -55,9 +55,9 @@ extension OrderHistoryViewController: UITableViewDelegate, UITableViewDataSource
 
     func tableView(_: UITableView, numberOfRowsInSection section: Int) -> Int {
         if section == 0 {
-            return viewModel.activeOrders.count
+            return 3
         } else {
-            return viewModel.doneOrders.count
+            return 0
         }
     }
 
@@ -66,12 +66,10 @@ extension OrderHistoryViewController: UITableViewDelegate, UITableViewDataSource
             let cell: OrderTableViewCell = tableView.dequeue(for: indexPath)
             cell.activeStatus()
             cell.selectionStyle = .none
-            cell.configureData(order: viewModel.activeOrders[indexPath.row])
             return cell
         } else {
             let cell: OrderTableViewCell = tableView.dequeue(for: indexPath)
             cell.selectionStyle = .none
-            cell.configureData(order: viewModel.doneOrders[indexPath.row])
             return cell
         }
     }
@@ -95,7 +93,7 @@ extension OrderHistoryViewController: UITableViewDelegate, UITableViewDataSource
 
     func tableView(_: UITableView, didSelectRowAt indexPath: IndexPath) {
         if indexPath.section == 0 {
-            navigationController?.pushViewController(OrderDetailViewController(viewModel: OrderHistoryDetailViewModel(id: viewModel.activeOrders[indexPath.row].id)), animated: true)
+            navigationController?.pushViewController(OrderDetailViewController(viewModel: OrderHistoryDetailViewModel(id: 0)), animated: true)
         } else {
             navigationController?.pushViewController(OrderDetailViewController(viewModel: OrderHistoryDetailViewModel(id: viewModel.doneOrders[indexPath.row].id)), animated: true)
         }

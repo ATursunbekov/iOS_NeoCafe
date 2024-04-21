@@ -8,7 +8,7 @@
 import SwiftUI
 import UIKit
 
-protocol BonusViewDelegate {
+protocol BonusViewDelegate: AnyObject {
     func makeOrder(bonus: Int)
 }
 
@@ -364,13 +364,3 @@ extension BonusViewController: BonusViewModelDelegate {
         descriptionLabel1.text = "У вас есть \(viewModel.bonusAmount) бонусов, хотите использовать их?"
     }
 }
-
-// #if DEBUG
-//
-// @available(iOS 13.0, *)
-// struct BonusViewControllerPreview: PreviewProvider {
-//    static var previews: some View {
-//        BonusViewController().showPreview()
-//    }
-// }
-// #endif

@@ -139,8 +139,3 @@ extension BranchView: BranchNameDelegate {
         }
     }
 }
-
-struct Branches {
-    let name: String
-    let image: String
-}

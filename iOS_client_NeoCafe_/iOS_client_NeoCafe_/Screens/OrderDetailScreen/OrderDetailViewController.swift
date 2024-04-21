@@ -16,11 +16,6 @@ class OrderDetailViewController: UIViewController {
         super.init(nibName: nil, bundle: nil)
     }
 
-    @available(*, unavailable)
-    required init?(coder _: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
-    }
-
     override func viewDidLoad() {
         super.viewDidLoad()
         setupDelegate()
@@ -45,6 +40,11 @@ class OrderDetailViewController: UIViewController {
 
     @objc func backPressed() {
         navigationController?.popViewController(animated: true)
+    }
+
+    @available(*, unavailable)
+    required init?(coder _: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
     }
 }
 

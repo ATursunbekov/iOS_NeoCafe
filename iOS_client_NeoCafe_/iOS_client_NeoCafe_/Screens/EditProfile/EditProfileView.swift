@@ -20,7 +20,7 @@ class EditProfileView: UIView {
 
     lazy var titleLabel: UILabel = {
         let label = UILabel()
-        label.text = "Редактирование"
+        label.text = Str.editingTitle
         label.font = .poppins(size: 24, weight: .bold)
         label.textColor = Asset.colorTitle.color
         return label

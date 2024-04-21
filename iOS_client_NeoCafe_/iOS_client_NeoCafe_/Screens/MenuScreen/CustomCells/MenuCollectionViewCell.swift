@@ -21,7 +21,7 @@ class MenuCollectionViewCell: UICollectionViewCell {
 
     lazy var name: UILabel = {
         let label = UILabel()
-        label.text = "Карамельный раф"
+        label.text = Str.cofeeName
         label.font = UIFont.poppins(size: 14, weight: .bold)
         label.textColor = Asset.colorDarkBlue.color
         return label
@@ -29,7 +29,7 @@ class MenuCollectionViewCell: UICollectionViewCell {
 
     lazy var cost = {
         let label = UILabel()
-        label.text = "270 с"
+        label.text = Str.historyCost
         label.font = UIFont.poppins(size: 14, weight: .bold)
         label.textColor = Asset.colorOrange.color
         return label

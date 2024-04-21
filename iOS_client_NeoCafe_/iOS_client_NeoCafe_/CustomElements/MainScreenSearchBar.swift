@@ -10,17 +10,6 @@ import UIKit
 
 class MainScreenSearchBar: UIView {
     lazy var textField: UILabel = {
-//        let textField = UITextField()
-//        textField.font = UIFont(name: FontFamily.Poppins.regular.name, size: 16)
-//        let attributes: [NSAttributedString.Key: Any] = [
-//            .foregroundColor: Asset.colorDarkGray.color,
-//            .font: UIFont(name: FontFamily.Poppins.regular.name, size: 15) ?? UIFont.systemFont(ofSize: 15)
-//        ]
-//        textField.font = UIFont(name: FontFamily.Poppins.regular.name, size: 16)
-//        textField.attributedPlaceholder = NSAttributedString(string: "Поиск", attributes: attributes)
-//        textField.autocapitalizationType = .none
-//        textField.autocorrectionType = .no
-
         let label = UILabel()
         label.text = Str.searchPlaceholder
         label.font = .poppins(size: 15, weight: .regular)

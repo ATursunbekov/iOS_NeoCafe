@@ -21,7 +21,7 @@ class NotificationTableViewCell: UITableViewCell {
 
     lazy var orderState: UILabel = {
         let label = UILabel()
-        label.text = "Ваш заказ готов"
+        label.text = Str.orderReadyTitle
         label.font = .poppins(size: 16, weight: .bold)
         label.textColor = Asset.colorDarkBlue.color
         return label
@@ -29,7 +29,7 @@ class NotificationTableViewCell: UITableViewCell {
 
     lazy var timeLabel: UILabel = {
         let label = UILabel()
-        label.text = "19:02"
+        label.text = Str.orderReadyTitle
         label.font = .poppins(size: 18, weight: .bold)
         label.textColor = Asset.colorMain.color
         return label
@@ -37,7 +37,7 @@ class NotificationTableViewCell: UITableViewCell {
 
     lazy var descriptionLabel: UILabel = {
         let label = UILabel()
-        label.text = "Капучино x1, Американо x2, Багровай за..."
+        label.text = Str.orderDescriptionText
         label.font = .poppins(size: 14, weight: .regular)
         label.textColor = .black
         return label

@@ -27,7 +27,7 @@ class BranchScreenTableViewCell: UITableViewCell {
 
     lazy var workingTime: UILabel = {
         let label = UILabel()
-        label.text = "Сегодня с 11:00 до 21:00"
+        label.text = Str.branchSchedule
         label.textColor = Asset.colorDarkBlue.color
         label.font = .poppins(size: 14, weight: .regular)
         return label
@@ -35,7 +35,7 @@ class BranchScreenTableViewCell: UITableViewCell {
 
     lazy var adressLabel = {
         let label = UILabel()
-        label.text = "бульвар Эркиндик, 35"
+        label.text = Str.branchAdress
         label.textColor = Asset.colorDarkBlue.color
         label.font = .poppins(size: 16, weight: .regular)
         return label
@@ -43,7 +43,7 @@ class BranchScreenTableViewCell: UITableViewCell {
 
     lazy var numberLabel = {
         let label = UILabel()
-        label.text = "0555 778 887"
+        label.text = Str.phoneNumber
         label.textColor = Asset.colorDarkBlue.color
         label.font = .poppins(size: 16, weight: .regular)
         return label
@@ -65,7 +65,7 @@ class BranchScreenTableViewCell: UITableViewCell {
 
     lazy var name = {
         let label = UILabel()
-        label.text = "NeoCafe Dzerzhinka"
+        label.text = Str.branchName
         label.textColor = Asset.colorDarkBlue.color
         label.font = .poppins(size: 16, weight: .bold)
         return label

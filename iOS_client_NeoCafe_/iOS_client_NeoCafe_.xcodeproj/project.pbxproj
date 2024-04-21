@@ -47,6 +47,7 @@
 		7737F03B2B8C658D00572AC8 /* BasketTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7737F03A2B8C658D00572AC8 /* BasketTableViewCell.swift */; };
 		7737F03D2B8C696200572AC8 /* Extension+UIButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7737F03C2B8C696200572AC8 /* Extension+UIButton.swift */; };
 		7737F0412B8C8B9100572AC8 /* BonusViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7737F0402B8C8B9100572AC8 /* BonusViewController.swift */; };
+		7755FAFB2BD524890013EE30 /* Branches.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7755FAFA2BD524890013EE30 /* Branches.swift */; };
 		7761E0152B96465500B6E76A /* TabBarCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7761E0142B96465500B6E76A /* TabBarCoordinator.swift */; };
 		7761E0172B9652E300B6E76A /* MenuAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7761E0162B9652E300B6E76A /* MenuAPI.swift */; };
 		7768447F2B99B56B00BB29D1 /* DetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7768447E2B99B56B00BB29D1 /* DetailViewModel.swift */; };
@@ -170,6 +171,7 @@
 		7737F03A2B8C658D00572AC8 /* BasketTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BasketTableViewCell.swift; sourceTree = "<group>"; };
 		7737F03C2B8C696200572AC8 /* Extension+UIButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension+UIButton.swift"; sourceTree = "<group>"; };
 		7737F0402B8C8B9100572AC8 /* BonusViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BonusViewController.swift; sourceTree = "<group>"; };
+		7755FAFA2BD524890013EE30 /* Branches.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Branches.swift; sourceTree = "<group>"; };
 		7761E0142B96465500B6E76A /* TabBarCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarCoordinator.swift; sourceTree = "<group>"; };
 		7761E0162B9652E300B6E76A /* MenuAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuAPI.swift; sourceTree = "<group>"; };
 		7768447E2B99B56B00BB29D1 /* DetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewModel.swift; sourceTree = "<group>"; };
@@ -386,13 +388,6 @@
 			path = CustomCells;
 			sourceTree = "<group>";
 		};
-		772422F72BAD6FA3005C6A3E /* EditingScreen */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = EditingScreen;
-			sourceTree = "<group>";
-		};
 		7729427A2B89F67700855BC2 /* DetailScreen */ = {
 			isa = PBXGroup;
 			children = (
@@ -568,13 +563,6 @@
 			path = View;
 			sourceTree = "<group>";
 		};
-		778140002B86025000392707 /* MenuScreen */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = MenuScreen;
-			sourceTree = "<group>";
-		};
 		778140032B860A5400392707 /* DataManager */ = {
 			isa = PBXGroup;
 			children = (
@@ -604,6 +592,7 @@
 		7781400A2B860DBF00392707 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				7755FAFA2BD524890013EE30 /* Branches.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -819,7 +808,6 @@
 				77BC3C642B7783FA004C644E /* CustomElements */,
 				77FBFBE82B6F8A3200F83EC7 /* NetworkService */,
 				77FBFBD22B6F883100F83EC7 /* Screens */,
-				778140002B86025000392707 /* MenuScreen */,
 				77FBFBD12B6F882600F83EC7 /* Supporting */,
 				77FBFBAB2B6F834600F83EC7 /* Info.plist */,
 			);
@@ -843,7 +831,6 @@
 			isa = PBXGroup;
 			children = (
 				77BF15682BB1751800E40333 /* EditProfile */,
-				772422F72BAD6FA3005C6A3E /* EditingScreen */,
 				772422E32BAD5ABE005C6A3E /* NotificationScreen */,
 				776DF0B42B91BCD90001A354 /* ProfileScreen */,
 				7729A1E12B90AB920050C339 /* BranchDetailScreen */,
@@ -1130,6 +1117,7 @@
 				776DF0B92B91BD510001A354 /* ProfileView.swift in Sources */,
 				77167B202BB2AF290012D592 /* BasketViewModel.swift in Sources */,
 				77CE04D42B848EDE00E2159A /* CustomAddButton.swift in Sources */,
+				7755FAFB2BD524890013EE30 /* Branches.swift in Sources */,
 				7737F0412B8C8B9100572AC8 /* BonusViewController.swift in Sources */,
 				77E0FC142B947E5C0021E41C /* InitializationCoordinator.swift in Sources */,
 				7737B5842B8B9F7C0045BE2A /* SearchViewController.swift in Sources */,

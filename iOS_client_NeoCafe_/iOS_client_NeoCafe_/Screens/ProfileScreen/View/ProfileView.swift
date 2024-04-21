@@ -50,7 +50,7 @@ class ProfileView: UIView {
 
     lazy var bonusTitle = {
         let label = UILabel()
-        label.text = "Бонусы"
+        label.text = Str.bonusTitle
         label.font = .poppins(size: 24, weight: .bold)
         label.textColor = Asset.colorDarkBlue.color
         return label
@@ -58,7 +58,7 @@ class ProfileView: UIView {
 
     lazy var bonusAmount = {
         let label = UILabel()
-        label.text = "100"
+        label.text = Str.bonusTitle
         label.font = .poppins(size: 32, weight: .bold)
         label.textColor = Asset.colorDarkBlue.color
         return label

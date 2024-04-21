@@ -49,7 +49,7 @@ class BranchDetailView: UIView {
 
     lazy var adressName: UILabel = {
         let label = UILabel()
-        label.text = "NeoCafe Dzerzhinka"
+        label.text = Str.branchName
         label.font = .poppins(size: 24, weight: .bold)
         label.textColor = Asset.colorDarkBlue.color
         return label
@@ -57,7 +57,7 @@ class BranchDetailView: UIView {
 
     lazy var dopAdressInfo: UILabel = {
         let label = UILabel()
-        label.text = "бульвар Эркиндик, 35"
+        label.text = Str.branchAdress
         label.font = .poppins(size: 16, weight: .regular)
         label.textColor = Asset.colorDarkBlue.color
         return label
